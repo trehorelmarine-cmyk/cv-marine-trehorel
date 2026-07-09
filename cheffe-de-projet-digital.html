@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Marine Tréhorel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #e5e5e5;
+      background: #1a1a1a;
+    }
+
+    /* Top header - full width */
+    .top-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 30px 25px;
+      background: #111;
+      border-bottom: 2px solid #06b6d4;
+    }
+
+    .top-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #06b6d4;
+      flex-shrink: 0;
+    }
+
+    .top-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #e5e5e5;
+      margin-bottom: 2px;
+    }
+
+    .top-info .top-title {
+      font-size: 11px;
+      color: #06b6d4;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .top-info .top-summary {
+      font-size: 8px;
+      color: #a3a3a3;
+      line-height: 1.4;
+    }
+
+    .cv-container {
+      display: flex;
+      min-height: calc(100% - 110px);
+      max-width: 100%;
+      margin: 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: #1a1a1a;
+      padding: 30px 20px;
+      flex-shrink: 0;
+    }
+
+    .sidebar .section {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #333;
+    }
+
+    .sidebar .section:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: #06b6d4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar p {
+      font-size: 9px;
+      margin-bottom: 5px;
+      color: #a3a3a3;
+    }
+
+    .sidebar .icon {
+      margin-right: 5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      background: #262626;
+      color: #e5e5e5;
+      padding: 2px 6px;
+      font-size: 8px;
+      border: 1px solid #404040;
+    }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      background: #fafafa;
+      color: #171717;
+      padding: 30px 25px;
+      min-height: 100%;
+    }
+
+    .main-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: #171717;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .main-section {
+      margin-bottom: 12px;
+    }
+
+    .main-section h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: #171717;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* Experience */
+    .experience {
+      margin-bottom: 15px;
+    }
+
+    .exp-header {
+      display: flex;
+      gap: 10px;
+    }
+
+    .company-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .exp-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .exp-info h3 {
+      font-size: 11px;
+      font-weight: 500;
+      color: #171717;
+    }
+
+    .exp-info .company {
+      font-size: 10px;
+      color: #06b6d4;
+      font-weight: 500;
+    }
+
+    .exp-info .period-location {
+      font-size: 9px;
+      color: #737373;
+      margin-bottom: 8px;
+    }
+
+    .experience .description {
+      font-size: 9px;
+      color: #525252;
+      margin-bottom: 10px;
+    }
+
+    .missions {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 10px;
+    }
+
+    .missions li {
+      font-size: 9px;
+      color: #404040;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .missions li:before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #06b6d4;
+    }
+
+    .projects {
+      margin-top: 10px;
+      padding-left: 10px;
+      border-left: 2px solid #e5e5e5;
+    }
+
+    .projects h4 {
+      font-size: 9px;
+      font-weight: 500;
+      color: #737373;
+      margin-bottom: 5px;
+    }
+
+    .project {
+      margin-bottom: 8px;
+    }
+
+    .project strong {
+      font-size: 9px;
+      color: #171717;
+    }
+
+    .project p {
+      font-size: 8px;
+      color: #525252;
+    }
+
+    .technologies {
+      margin-top: 8px;
+    }
+
+    .tech-label {
+      font-size: 8px;
+      color: #737373;
+      margin-right: 5px;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: #e5e5e5;
+      color: #404040;
+      padding: 1px 4px;
+      font-size: 7px;
+      margin-right: 3px;
+      margin-bottom: 3px;
+    }
+
+    /* Formation */
+    .formation {
+      margin-bottom: 12px;
+    }
+
+    .formation h3 {
+      font-size: 10px;
+      font-weight: 500;
+      color: #171717;
+    }
+
+    .formation .school {
+      font-size: 9px;
+      color: #06b6d4;
+    }
+
+    .formation .period-location {
+      font-size: 8px;
+      color: #737373;
+    }
+
+    /* Responsive - Mobile */
+    @media screen and (max-width: 768px) {
+      html, body {
+        font-size: 12px;
+      }
+
+      .top-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+        gap: 12px;
+      }
+
+      .top-photo {
+        width: 90px;
+        height: 90px;
+      }
+
+      .top-info h1 {
+        font-size: 24px;
+      }
+
+      .top-info .top-title {
+        font-size: 13px;
+      }
+
+      .top-info .top-summary {
+        font-size: 11px;
+      }
+
+      .cv-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .sidebar h3 {
+        font-size: 13px;
+      }
+
+      .sidebar p {
+        font-size: 12px;
+      }
+
+      .tag {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+
+      .main-section-title,
+      .main-section h2 {
+        font-size: 14px;
+      }
+
+      .exp-info h3 {
+        font-size: 14px;
+      }
+
+      .exp-info .company {
+        font-size: 12px;
+      }
+
+      .exp-info .period-location {
+        font-size: 11px;
+      }
+
+      .experience .description {
+        font-size: 12px;
+      }
+
+      .missions li {
+        font-size: 12px;
+      }
+
+      .projects h4 {
+        font-size: 12px;
+      }
+
+      .project strong {
+        font-size: 12px;
+      }
+
+      .project p {
+        font-size: 11px;
+      }
+
+      .tech-label {
+        font-size: 11px;
+      }
+
+      .tech-tag {
+        font-size: 10px;
+        padding: 2px 6px;
+      }
+
+      .formation h3 {
+        font-size: 13px;
+      }
+
+      .formation .school {
+        font-size: 12px;
+      }
+
+      .formation .period-location {
+        font-size: 11px;
+      }
+    }
+
+    /* Export PDF button */
+    .export-pdf-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #06b6d4;
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .export-pdf-btn:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: #06b6d4;
+    }
+
+    .export-pdf-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Print styles */
+    @media print {
+      /* Force le rendu couleur identique au design écran */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        background: #1a1a1a !important;
+        font-size: 10px;
+        line-height: 1.5;
+        color: #e5e5e5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Neutralise les règles responsive mobile pour l'export PDF */
+      .top-header {
+        flex-direction: row !important;
+        text-align: left !important;
+        padding: 30px 25px !important;
+        gap: 15px !important;
+      }
+
+      .top-photo {
+        width: 70px !important;
+        height: 70px !important;
+      }
+
+      .top-info h1 { font-size: 22px !important; }
+      .top-info .top-title { font-size: 11px !important; }
+      .top-info .top-summary { font-size: 8px !important; }
+
+      .cv-container {
+        flex-direction: row !important;
+        max-width: none;
+      }
+
+      .sidebar {
+        width: 280px !important;
+        padding: 30px 20px !important;
+      }
+
+      .sidebar h3 { font-size: 11px !important; }
+      .sidebar p { font-size: 9px !important; }
+      .tag { font-size: 8px !important; padding: 2px 6px !important; }
+
+      .main-content { padding: 30px 25px !important; }
+
+      .main-section-title,
+      .main-section h2 { font-size: 12px !important; }
+
+      .exp-info h3 { font-size: 11px !important; }
+      .exp-info .company { font-size: 10px !important; }
+      .exp-info .period-location { font-size: 9px !important; }
+      .experience .description { font-size: 9px !important; }
+      .missions li { font-size: 9px !important; }
+      .projects h4 { font-size: 9px !important; }
+      .project strong { font-size: 9px !important; }
+      .project p { font-size: 8px !important; }
+      .tech-label { font-size: 8px !important; }
+      .tech-tag { font-size: 7px !important; padding: 1px 4px !important; }
+      .formation h3 { font-size: 10px !important; }
+      .formation .school { font-size: 9px !important; }
+      .formation .period-location { font-size: 8px !important; }
+
+      .export-pdf-btn {
+        display: none !important;
+      }
+
+      .formation {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <button class="export-pdf-btn" onclick="window.print()" aria-label="Exporter en PDF" title="Exporter en PDF">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+    </button>
+
+    <header class="top-header">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAA8ADwAAD/4QM6RXhpZgAATU0AKgAAAAgACAEPAAIAAAAGAAAAbgEQAAIAAAANAAAAdAEaAAUAAAABAAAAggEbAAUAAAABAAAAigEoAAMAAAABAAIAAAExAAIAAAA1AAAAkgEyAAIAAAAUAAAAyIdpAAQAAAABAAAA3AAAAABDYW5vbgBDYW5vbiBFT1MgNkQAAAAAAPAAAAABAAAA8AAAAAFBZG9iZSBQaG90b3Nob3AgTGlnaHRyb29tIENsYXNzaWMgMTEuMC4xIChNYWNpbnRvc2gpAAAyMDIxOjEyOjA4IDE1OjMwOjA4AAAhgpoABQAAAAEAAAJugp0ABQAAAAEAAAJ2iCIAAwAAAAEAAQAAiCcAAwAAAAEDIAAAiDAAAwAAAAEAAgAAiDIABAAAAAEAAAMgkAAABwAAAAQwMjMxkAMAAgAAABQAAAJ+kAQAAgAAABQAAAKSkBAAAgAAAAcAAAKmkgEACgAAAAEAAAKukgIABQAAAAEAAAK2kgQACgAAAAEAAAK+kgUABQAAAAEAAALGkgcAAwAAAAEAAwAAkgkAAwAAAAEAEAAAkgoABQAAAAEAAALOkpEAAgAAAAM1NAAAkpIAAgAAAAM1NAAAoAEAAwAAAAEAAQAAoAIABAAAAAEAAACFoAMABAAAAAEAAADIog4ABQAAAAEAAALWog8ABQAAAAEAAALeohAAAwAAAAEAAwAApAEAAwAAAAEAAAAApAIAAwAAAAEAAQAApAMAAwAAAAEAAAAApAYAAwAAAAEAAAAApDEAAgAAAA0AAALmpDIABQAAAAQAAAL0pDQAAgAAABEAAAMUpDUAAgAAAAsAAAMmAAAAAAAAAAEAAACgAAAACQAAAAUyMDIxOjEyOjA4IDEyOjU1OjI3ADIwMjE6MTI6MDggMTI6NTU6MjcALTA1OjAwAAAAAGAhAAANIQAA7nkAAIycAAAAAAAAAAEAAAABAAAAAQAAADIAAAABAAAF8AAAAAEAAAXwAAAAATI1MjE1NDAwMTA4OQAAAAAAMgAAAAEAAAAyAAAAAQAAAAAAAAABAAAAAAAAAAFFRjUwbW0gZi8xLjQgVVNNAAAwMDAwMDAwMDAwAAD/4Qr4aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOmF1eD0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC9hdXgvIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgYXV4OkxlbnNJbmZvPSI1MC8xIDUwLzEgMC8wIDAvMCIgYXV4OkZpcm13YXJlPSIxLjEuOCIgYXV4OkltYWdlTnVtYmVyPSIwIiBhdXg6TGVuc0lEPSIxOTgiIGF1eDpMZW5zPSJFRjUwbW0gZi8xLjQgVVNNIiBhdXg6U2VyaWFsTnVtYmVyPSIyNTIxNTQwMDEwODkiIGF1eDpGbGFzaENvbXBlbnNhdGlvbj0iMC8xIiBhdXg6TGVuc1NlcmlhbE51bWJlcj0iMDAwMDAwMDAwMCIgeG1wOk1vZGlmeURhdGU9IjIwMjEtMTItMDhUMTU6MzA6MDgiIHhtcDpDcmVhdGVEYXRlPSIyMDIxLTEyLTA4VDEyOjU1OjI3IiBwaG90b3Nob3A6RGF0ZUNyZWF0ZWQ9IjIwMjEtMTItMDhUMTI6NTU6MjciLz4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg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" alt="Marine Trehorel" class="top-photo">
+      <div class="top-info">
+        <h1>Marine Tréhorel</h1>
+        <p class="top-title">Cheffe de projet digital senior</p>
+        <p class="top-summary">Cheffe de projet digital avec plus de 10 ans d'expérience en pilotage de plateformes, sites et expériences digitales. J'accompagne les projets de la phase de cadrage jusqu'à la mise en production, en faisant le lien entre les équipes métiers, UX/UI, créatives et techniques. Mon expérience récente de Product Owner a renforcé mes compétences en pilotage produit, priorisation et amélioration continue.</p>
+      </div>
+    </header>
+
+  <div class="cv-container">
+
+    <aside class="sidebar">
+      <div class="section contact">
+        <h3>Contact</h3>
+        <p><span class="icon">✉</span> trehorelmarine@gmail.com</p>
+        <p><span class="icon">☎</span> 06 52 12 11 63</p>
+        <p><span class="icon">📍</span> Paris</p>
+      </div>
+      <div class="section">
+          <h3>Langues</h3>
+          <div class="tags"><span class="tag">Anglais</span></div>
+        </div>
+      <div class="section">
+        <h3>Compétences</h3>
+        <div class="tags"><span class="tag">Gestion de projets digitaux</span><span class="tag">Analyse des besoins et cadrage fonctionnel</span><span class="tag">Coordination UX/UI, créative et technique</span><span class="tag">Conception de parcours utilisateurs</span><span class="tag">Pilotage de plateformes et expériences digitales</span><span class="tag">Roadmap et backlog</span><span class="tag">Spécifications fonctionnelles</span><span class="tag">Recette et assurance qualité</span><span class="tag">SEO, accessibilité (RGAA), performance web</span><span class="tag">Amélioration continue</span></div>
+      </div>
+      <div class="section">
+        <h3>Outils</h3>
+        <div class="tags"><span class="tag">ClickUp</span><span class="tag">Teamwork</span><span class="tag">Teamweek</span><span class="tag">Confluence</span><span class="tag">GitLab</span><span class="tag">Jira</span><span class="tag">BugHerd</span><span class="tag">Claude Code</span><span class="tag">Figma</span><span class="tag">Figma Make</span><span class="tag">Figma Sites</span><span class="tag">Claude Design</span><span class="tag">Vercel</span></div>
+      </div>
+      <div class="section">
+        <h3>Frameworks</h3>
+        <div class="tags"><span class="tag">Vue.js</span><span class="tag">Nuxt.js</span><span class="tag">Next.js</span><span class="tag">Three.js</span></div>
+      </div>
+      <div class="section">
+        <h3>Solutions</h3>
+        <div class="tags"><span class="tag">Drupal</span><span class="tag">Wordpress</span><span class="tag">Craft</span></div>
+      </div>
+    </aside>
+
+
+    <main class="main-content">
+      <h2 class="main-section-title">Expériences Professionnelles</h2>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-info">
+          <h3>Product Owner</h3>
+          <p class="company">HANDS - Outil de billetterie RNDV</p>
+          <p class="period-location">Janvier 2025 - Avril 2026 • Paris</p>
+          <p class="description">Plateforme de billetterie B2C développée notamment pour la Comédie-Française, avec de forts pics de trafic lors des mises en vente. Produit intégrant des règles métier complexes (tarification, abonnements, quotas, plans de salle), un tunnel transactionnel sécurisé (Monext, chèques-cadeaux), un espace client et un back-office d'administration.</p>
+          <ul class="missions">
+            <li>Pilotage de la roadmap produit et du backlog, en priorisant les évolutions selon les besoins utilisateurs, les enjeux métier et les contraintes techniques.</li>
+            <li>Analyse des besoins, animation des échanges avec les parties prenantes et rédaction des spécifications fonctionnelles ainsi que des critères d'acceptation.</li>
+            <li>Coordination des équipes métier, UX, développement, QA et des partenaires externes afin de garantir la bonne livraison des évolutions.</li>
+            <li>Suivi des mises en vente et des principaux indicateurs d'activité afin d'accompagner les arbitrages et le bon fonctionnement de la plateforme.</li>
+            <li>Pilotage des recettes fonctionnelles, gestion des incidents de production et accompagnement des utilisateurs.</li>
+          </ul>
+          <div class="projects">
+            <h4>Projets</h4>
+            <div class="project">
+              <strong>Mise en vente de saison</strong>
+              <p>Pilotage du rétroplanning de mise en vente (M-1 à Jour J), coordination transverse des équipes, paramétrage de la billetterie, supervision technique.</p>
+            </div>
+            <div class="project">
+              <strong>Programmation Hors les murs</strong>
+              <p>Pilotage de l'ouverture de billetterie pour une programmation multi-sites avec 7 partenaires, coordination des partenaires externes et gestion des contraintes opérationnelles.</p>
+            </div>
+            <div class="project">
+              <strong>Gestion de crise</strong>
+              <p>Pilotage d'un incident critique en production lors d'une mise en vente, coordination des équipes pour identification et correction en temps réel.</p>
+            </div>
+          </div>
+          <div class="technologies">
+            <span class="tech-label">Technologies:</span>
+            <span class="tech-tag">API</span><span class="tech-tag">MongoDB</span><span class="tech-tag">MariaDB</span><span class="tech-tag">Brevo</span><span class="tech-tag">Arenametrix</span><span class="tech-tag">Datacampus</span><span class="tech-tag">Matomo</span><span class="tech-tag">Monext</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-info">
+          <h3>Cheffe de projet digital</h3>
+          <p class="company">HANDS - Pôle digital</p>
+          <p class="period-location">Avril 2024 - Janvier 2025 • Paris</p>
+          <p class="description">Cadrage et pilotage de projets digitaux, en faisant le lien entre les besoins métiers, les équipes UX, créatives et techniques, de l'analyse des besoins jusqu'à la mise en production.</p>
+          <ul class="missions">
+            <li>Recueil et analyse des besoins clients, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
+            <li>Pilotage des projets : planification, priorisation, suivi budgétaire et coordination des parties prenantes.</li>
+            <li>Coordination des équipes UX, design, développement et QA afin de garantir la bonne livraison des projets.</li>
+            <li>Supervision des recettes fonctionnelles, des mises en production et accompagnement des utilisateurs.</li>
+            <li>Intégration des enjeux de SEO, d'accessibilité (RGAA) et d'éco-conception dès les phases de conception.</li>
+            <li>Déploiement de ClickUp pour structurer le pilotage des projets : roadmap, planification des ressources, suivi des projets et ticketing.</li>
+          </ul>
+          <div class="projects">
+            <h4>Projets</h4>
+            <div class="project">
+              <strong>ENSA PARIS LA VILLETTE - Refonte du site</strong>
+              <p>Structuration éditoriale (actualités, formations, recherche), CMS de gestion de contenus, agenda événementiel, formulaires, intégration multimédia et mise en conformité accessibilité (RGAA).</p>
+            </div>
+            <div class="project">
+              <strong>ICOMOS - Refonte du site</strong>
+              <p>Structuration de contenus institutionnels et documentaires, gestion multilingue, mise en avant des publications et optimisation de l'accès à l'information pour un réseau international.</p>
+            </div>
+            <div class="project">
+              <strong>VILLA MÉDICIS - Refonte du site</strong>
+              <p>Conception de parcours utilisateurs orientés découverte des résidences et événements, structuration de contenus culturels, CMS et gestion de contenus multilingues.</p>
+            </div>
+            <div class="project">
+              <strong>Maintenance - COMÉDIE-FRANÇAISE, PALAIS DE TOKYO, BOUTIQUE CHÂTEAU DE VERSAILLES, FILORGA, CAPEB</strong>
+              <p>Maintenance corrective et évolutive</p>
+            </div>
+          </div>
+          <div class="technologies">
+            <span class="tech-label">Technologies:</span>
+            <span class="tech-tag">Nuxt.js</span><span class="tech-tag">Vue.js</span><span class="tech-tag">Matomo</span><span class="tech-tag">Wordpress</span><span class="tech-tag">Brevo</span><span class="tech-tag">Datacampus</span><span class="tech-tag">Next.js</span><span class="tech-tag">lazy loading</span><span class="tech-tag">MySQL</span><span class="tech-tag">LottieFiles</span><span class="tech-tag">Tarteaucitron</span><span class="tech-tag">Yoast SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-info">
+          <h3>Cheffe de projet digital</h3>
+          <p class="company">AKUFEN</p>
+          <p class="period-location">2019 - 2024 • Paris (Télétravail) / Montréal</p>
+          <p class="description">Pilotage de plateformes digitales, d'expériences interactives et d'applications mobiles, en faisant le lien entre les besoins clients, les équipes UX, créatives et techniques.</p>
+          <ul class="missions">
+            <li>Recueil et analyse des besoins, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
+            <li>Pilotage des projets : planification, coordination des équipes, suivi budgétaire et gestion des priorités.</li>
+            <li>Coordination des équipes UX, design, développement et QA afin d'assurer la bonne livraison des projets.</li>
+            <li>Intégration des enjeux de performance web, SEO, analytics et accessibilité dans les phases de conception et de réalisation.</li>
+            <li>Conseil et accompagnement des clients tout au long des projets.</li>
+            <li>Organisation des recettes fonctionnelles, validation des livrables et accompagnement des utilisateurs.</li>
+          </ul>
+          <div class="projects">
+            <h4>Projets</h4>
+            <div class="project">
+              <strong>THÉÂTRE BOUCHES DÉCOUSUES - Site expérientiel</strong>
+              <p>Conception d'une expérience interactive et créative, intégrant plusieurs mini-jeux et des parcours utilisateurs ludiques</p>
+            </div>
+            <div class="project">
+              <strong>ÆDIFICA - Refonte du site</strong>
+              <p>Structuration d'une plateforme corporate, valorisation des projets et expertises, organisation d'un portfolio et optimisation de la navigation dans des contenus complexes</p>
+            </div>
+            <div class="project">
+              <strong>KOLLECTIF - Refonte du site</strong>
+              <p>Structuration d'une plateforme éditoriale dédiée à l'architecture, valorisation des contenus et contributions, et optimisation de la navigation au sein d'un volume important de publications</p>
+            </div>
+            <div class="project">
+              <strong>FONDATION RIOPELLE - Site expérientiel</strong>
+              <p>Conception d'une expérience interactive dédiée à la découverte de l'œuvre de Jean Paul Riopelle, intégrant des parcours éducatifs, des contenus multimédias et des mécaniques ludiques</p>
+            </div>
+            <div class="project">
+              <strong>STUDIO DPT. - Refonte du site</strong>
+              <p>Valorisation d'un studio spécialisé dans les expériences immersives, structuration des expertises (VR, AR, IA) et mise en avant de projets interactifs et narratifs</p>
+            </div>
+            <div class="project">
+              <strong>STUDIO GENTILHOMME - Refonte du site</strong>
+              <p>Valorisation d'un studio créatif spécialisé dans les expériences immersives, structuration des projets et expertises, et mise en avant d'un univers visuel et interactif</p>
+            </div>
+            <div class="project">
+              <strong>MUSÉE D'ART CONTEMPORAIN DE MONTRÉAL - Site expérientiel</strong>
+              <p>Conception d'une expérience immersive digitale prolongeant une exposition, avec exploration libre des contenus à travers des parcours thématiques et sensoriels</p>
+            </div>
+            <div class="project">
+              <strong>THÉÂTRE HECTOR-CHARLAND / ALPHONSE DESJARDINS - Refonte du site</strong>
+              <p>Conception d'un écosystème digital pour deux lieux culturels, structurant la programmation, les contenus et les parcours utilisateurs à l'échelle d'un diffuseur multi-sites</p>
+            </div>
+            <div class="project">
+              <strong>THÉÂTRE HECTOR-CHARLAND - Plateforme de streaming live &amp; replay</strong>
+              <p>Cadrage fonctionnel d'une plateforme de diffusion vidéo : analyse des besoins, étude des technologies de streaming (HLS/DASH), des contraintes de diffusion et des scénarios de monétisation. Projet finalement non déployé.</p>
+            </div>
+            <div class="project">
+              <strong>FESTIVAL MUTEK - Refonte des sites</strong>
+              <p>Refonte d'un écosystème digital pour un festival international, avec conception d'un template de site décliné pour chaque ville, animations interactives et optimisation de la navigation</p>
+            </div>
+            <div class="project">
+              <strong>ROMM - Site formation</strong>
+              <p>Conception d'une plateforme de sensibilisation à la navigation responsable, avec parcours pédagogiques interactifs, contenus éducatifs et modules de formation adaptés</p>
+            </div>
+            <div class="project">
+              <strong>CENTRE DE RECHERCHE DU CHUM - Applications mobile</strong>
+              <p>Conception d'applications mobiles dédiées à la recherche clinique, facilitant la participation des patients via des parcours interactifs, la collecte de données et le suivi des études</p>
+            </div>
+            <div class="project">
+              <strong>DELEGATUS - Refonte du site</strong>
+              <p>Refonte d'une plateforme corporate visant à clarifier une offre complexe, avec une navigation adaptée aux différentes cibles et une expérience utilisateur fluide et accessible</p>
+            </div>
+          </div>
+          <div class="technologies">
+            <span class="tech-label">Technologies:</span>
+            <span class="tech-tag">Vue.js</span><span class="tech-tag">Nuxt.js</span><span class="tech-tag">LottieFiles</span><span class="tech-tag">Google Tag Manager</span><span class="tech-tag">Cookiebot</span><span class="tech-tag">Wordpress</span><span class="tech-tag">Craft</span><span class="tech-tag">Google Analytics</span><span class="tech-tag">Yoast SEO</span><span class="tech-tag">Axeptio</span><span class="tech-tag">Cloudflare</span><span class="tech-tag">SEOmatic</span><span class="tech-tag">Three.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-info">
+          <h3>Cheffe de projet digital</h3>
+          <p class="company">DDB PARIS</p>
+          <p class="period-location">2017 - 2018 • Paris</p>
+          <p class="description">Pilotage de projets digitaux pour des annonceurs grands comptes, en coordination avec les équipes créatives, UX, techniques et les clients, de la phase de cadrage jusqu'à la mise en ligne.</p>
+          <ul class="missions">
+            <li>Recueil et analyse des besoins clients, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
+            <li>Pilotage opérationnel des projets : planification, suivi budgétaire et coordination des équipes pluridisciplinaires.</li>
+            <li>Organisation des recettes fonctionnelles, rédaction des cahiers de recette et validation des livrables avant mise en production.</li>
+            <li>Coordination des équipes UX, créatives, techniques et commerciales afin de garantir le bon déroulement des projets.</li>
+            <li>Pilotage des prestataires et accompagnement des clients tout au long des projets.</li>
+          </ul>
+          <div class="projects">
+            <h4>Projets</h4>
+            <div class="project">
+              <strong>SÉCURITÉ ROUTIÈRE - Refonte de site, Site événementiel</strong>
+              <p>Refonte de site, Site événementiel</p>
+            </div>
+            <div class="project">
+              <strong>PICARD - Site événementiel</strong>
+              <p>Site événementiel</p>
+            </div>
+          </div>
+          <div class="technologies">
+            <span class="tech-label">Technologies:</span>
+            <span class="tech-tag">Drupal</span><span class="tech-tag">Commanders Act</span><span class="tech-tag">TagCommander</span><span class="tech-tag">Vue.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-info">
+          <h3>Cheffe de projet digital</h3>
+          <p class="company">MARCEL (PUBLICIS)</p>
+          <p class="period-location">2013 - 2017 • Paris</p>
+          <p class="description">Pilotage simultané de projets digitaux multi-formats (sites web, campagnes digitales, applications mobiles et contenus interactifs) pour des annonceurs grands comptes.</p>
+          <ul class="missions">
+            <li>Recueil et analyse des besoins clients, participation au cadrage fonctionnel et rédaction des spécifications fonctionnelles.</li>
+            <li>Pilotage opérationnel de plusieurs projets en parallèle : planification, coordination des équipes et suivi des livrables.</li>
+            <li>Coordination des équipes UX, créatives, techniques, développement et commerciales.</li>
+            <li>Organisation des recettes fonctionnelles et validation des livrables avant mise en ligne.</li>
+            <li>Conseil et accompagnement des clients tout au long des projets.</li>
+          </ul>
+          <div class="projects">
+            <h4>Projets</h4>
+            <div class="project">
+              <strong>HÉPAR - Refonte du site</strong>
+              <p>Refonte du site</p>
+            </div>
+            <div class="project">
+              <strong>CONTREX - Films web</strong>
+              <p>Films web</p>
+            </div>
+            <div class="project">
+              <strong>DS - Application mobile (iOS et Android), site événementiel</strong>
+              <p>Application mobile (iOS et Android), site événementiel</p>
+            </div>
+            <div class="project">
+              <strong>TOTAL - Refonte du site, sites événementiels, campagnes display</strong>
+              <p>Refonte du site, sites événementiels, campagnes display</p>
+            </div>
+            <div class="project">
+              <strong>AXA - Campagne display</strong>
+              <p>Campagne display</p>
+            </div>
+            <div class="project">
+              <strong>ePOINTS - Site événementiel</strong>
+              <p>Site événementiel</p>
+            </div>
+            <div class="project">
+              <strong>ORANGE - Campagnes display</strong>
+              <p>Campagnes display</p>
+            </div>
+            <div class="project">
+              <strong>INTERMARCHÉ - Campagnes display, application Facebook</strong>
+              <p>Campagnes display, application Facebook</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="main-section">
+      <h2>Formation</h2>
+      <div class="formation">
+        <h3>Master II, Création et Communication numérique</h3>
+        <p class="school">ISCOM</p>
+        <p class="period-location">2011-2014</p>
+      </div>
+      <div class="formation">
+        <h3>Bachelor, Communication Commerciale</h3>
+        <p class="school">AUDENCIA</p>
+        <p class="period-location">2008-2011</p>
+      </div>
+    </section>
+
+    </main>
+
+  </div>
+
+</body></html>
