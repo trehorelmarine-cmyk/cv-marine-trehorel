@@ -540,6 +540,7 @@
         position: static !important;
         max-height: none !important;
         overflow: visible !important;
+        background: transparent !important;
       }
 
       .sidebar h3 { font-size: 13px !important; }
@@ -887,5 +888,35 @@
     </main>
 
   </div>
+
+  <script>
+    (function () {
+      var sidebar = document.querySelector('.sidebar');
+      if (!sidebar) return;
+
+      function isPageAtBottom() {
+        return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 1;
+      }
+      function isPageAtTop() {
+        return window.scrollY <= 0;
+      }
+      function sidebarCanScrollDown() {
+        return sidebar.scrollTop + sidebar.clientHeight < sidebar.scrollHeight - 1;
+      }
+      function sidebarCanScrollUp() {
+        return sidebar.scrollTop > 0;
+      }
+
+      window.addEventListener('wheel', function (e) {
+        if (e.deltaY > 0 && isPageAtBottom() && sidebarCanScrollDown()) {
+          sidebar.scrollTop += e.deltaY;
+          e.preventDefault();
+        } else if (e.deltaY < 0 && isPageAtTop() && sidebarCanScrollUp()) {
+          sidebar.scrollTop += e.deltaY;
+          e.preventDefault();
+        }
+      }, { passive: false });
+    })();
+  </script>
 
 </body></html>
