@@ -77,8 +77,6 @@
     .cv-container {
       display: flex;
       min-height: calc(100% - 158px);
-      max-width: 100%;
-      margin: 0;
     }
 
     /* Sidebar */
@@ -244,6 +242,12 @@
       line-height: 1.3;
     }
 
+    .exp-info .company .company-desc {
+      text-transform: none;
+      letter-spacing: 0.3px;
+      font-weight: 400;
+    }
+
     .exp-info .company {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
@@ -321,6 +325,36 @@
       font-size: 10.5px;
       color: #4a4540;
       line-height: 1.6;
+    }
+
+    .exp-intro {
+      font-size: 11px;
+      color: #4a4540;
+      margin: 0 0 16px 0;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .sub-role {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed #d8ccb8;
+    }
+
+    .sub-role:first-of-type {
+      margin-top: 8px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .sub-role-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2b2622;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin: 0 0 10px 0;
     }
 
     .technologies {
@@ -606,15 +640,15 @@
         <h3>Contact</h3>
         <p><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span> trehorelmarine@gmail.com</p>
         <p><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span> 06 52 12 11 63</p>
-        <p><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span> Paris</p>
+        <p><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span> Paris • Présentiel, hybride ou télétravail</p>
       </div>
       <div class="section">
           <h3>Langues</h3>
-          <div class="tags"><span class="tag">Anglais</span></div>
+          <div class="tags"><span class="tag">Français</span><span class="tag">Anglais</span></div>
         </div>
       <div class="section">
         <h3>Compétences</h3>
-        <div class="tags tags-list"><span class="tag">Gestion de projets digitaux</span><span class="tag">Analyse des besoins et cadrage fonctionnel</span><span class="tag">Coordination UX/UI, créative et technique</span><span class="tag">Conception de parcours utilisateurs</span><span class="tag">Pilotage de plateformes et expériences digitales</span><span class="tag">Roadmap et backlog</span><span class="tag">Spécifications fonctionnelles</span><span class="tag">Recette et assurance qualité</span><span class="tag">SEO, accessibilité (RGAA), performance web</span><span class="tag">Compréhension des architectures web et des API</span><span class="tag">Conduite du changement et accompagnement des utilisateurs</span><span class="tag">Amélioration continue</span></div>
+        <div class="tags tags-list"><span class="tag">Gestion de projets digitaux</span><span class="tag">Analyse des besoins et cadrage fonctionnel</span><span class="tag">Coordination UX/UI, créative et technique</span><span class="tag">Conception de parcours utilisateurs</span><span class="tag">Pilotage de plateformes et expériences digitales</span><span class="tag">Roadmap et backlog</span><span class="tag">Spécifications fonctionnelles</span><span class="tag">Recette et assurance qualité</span><span class="tag">SEO, accessibilité (RGAA), performance web</span><span class="tag">Compréhension des architectures web, API et flux de données</span><span class="tag">Conduite du changement et accompagnement des utilisateurs</span><span class="tag">Amélioration continue</span></div>
       </div>
       <div class="section">
         <h3>Outils</h3>
@@ -637,35 +671,73 @@
     <div class="experience">
       <div class="exp-header">
         <div class="exp-info">
-          <h3>Product Owner digital</h3>
-          <p class="company">HANDS - Outil de billetterie RNDV</p>
-          <p class="period-location">Janvier 2025 - Avril 2026 • Paris</p>
-          <p class="description">Plateforme de billetterie B2C développée notamment pour la Comédie-Française, avec un tunnel de réservation et de paiement, un espace client et un back-office d'administration. Produit soumis à de forts pics de trafic lors des mises en vente et à des règles métier complexes (tarification, abonnements, quotas, plans de salle).</p>
-          <ul class="missions">
-            <li>Pilotage de la roadmap produit et du backlog, en priorisant les évolutions selon les besoins utilisateurs, les enjeux métier et les contraintes techniques.</li>
-            <li>Analyse des besoins, animation des ateliers de cadrage avec les parties prenantes et rédaction des spécifications fonctionnelles ainsi que des critères d'acceptation.</li>
-            <li>Coordination des équipes métier, UX, développement, QA et des partenaires externes afin de garantir la bonne livraison des évolutions.</li>
-            <li>Suivi des mises en vente et des principaux indicateurs d'activité afin d'accompagner les arbitrages et le bon fonctionnement de la plateforme.</li>
-            <li>Pilotage des recettes fonctionnelles, gestion des incidents de production et accompagnement des utilisateurs.</li>
-          </ul>
-          <div class="projects">
-            <h4>Projets</h4>
-            <div class="project">
-              <strong>Ouverture de la billetterie de saison</strong>
-              <p>Pilotage du rétroplanning d'ouverture de la billetterie (M-1 à Jour J), coordination transverse des équipes, paramétrage de la billetterie, supervision technique.</p>
-            </div>
-            <div class="project">
-              <strong>Programmation Hors les murs</strong>
-              <p>Pilotage de l'ouverture de billetterie pour une programmation multi-sites avec 7 partenaires, coordination des partenaires externes et gestion des contraintes opérationnelles.</p>
-            </div>
-            <div class="project">
-              <strong>Gestion de crise</strong>
-              <p>Pilotage d'un incident critique en production lors d'une mise en vente, coordination des équipes pour identification et correction en temps réel.</p>
+          <h3>Cheffe de projet digital senior / Product Owner</h3>
+          <p class="company">HANDS <span class="company-desc">– Agence digitale • Plateformes et produits digitaux • Culture, institutionnel, luxe</span></p>
+          <p class="period-location">Avril 2024 – Avril 2026 • Paris</p>
+          <p class="exp-intro">Évolution d'un poste de cheffe de projet digital vers un rôle de Product Owner sur la plateforme de billetterie développée pour la Comédie-Française.</p>
+
+          <div class="sub-role">
+            <h4 class="sub-role-title">Plateforme de billetterie</h4>
+            <p class="description">Plateforme de billetterie B2C développée notamment pour la Comédie-Française, avec un tunnel de réservation et de paiement, un espace client et un back-office d'administration. Produit soumis à de forts pics de trafic lors des mises en vente et à des règles métier complexes (tarification, abonnements, quotas, plans de salle).</p>
+            <ul class="missions">
+              <li>Pilotage de la roadmap produit et du backlog, en priorisant les évolutions selon les besoins utilisateurs, les enjeux métier et les contraintes techniques.</li>
+              <li>Analyse des besoins, animation des ateliers de cadrage avec les parties prenantes et rédaction des spécifications fonctionnelles ainsi que des critères d'acceptation.</li>
+              <li>Coordination des équipes métier, UX, développement, QA et des partenaires externes afin de garantir la bonne livraison des évolutions.</li>
+              <li>Suivi des mises en vente et des principaux indicateurs d'activité afin d'accompagner les arbitrages et le bon fonctionnement de la plateforme.</li>
+              <li>Pilotage des recettes fonctionnelles, gestion des incidents de production et accompagnement des utilisateurs.</li>
+            </ul>
+            <div class="projects">
+              <h4>Projets</h4>
+              <div class="project">
+                <strong>Ouverture de la billetterie de saison</strong>
+                <p>Pilotage du rétroplanning d'ouverture de la billetterie (M-1 à Jour J), coordination transverse des équipes, paramétrage de la billetterie, supervision technique.</p>
+              </div>
+              <div class="project">
+                <strong>Programmation Hors les murs</strong>
+                <p>Pilotage de l'ouverture de billetterie pour une programmation multi-sites avec 7 partenaires, coordination des partenaires externes et gestion des contraintes opérationnelles.</p>
+              </div>
+              <div class="project">
+                <strong>Gestion de crise</strong>
+                <p>Pilotage d'un incident critique en production lors d'une mise en vente, coordination des équipes pour identification et correction en temps réel.</p>
+              </div>
             </div>
           </div>
+
+          <div class="sub-role">
+            <h4 class="sub-role-title">Pôle Digital</h4>
+            <p class="description">Cadrage et pilotage de plateformes et projets digitaux, en faisant le lien entre les besoins métiers, les équipes UX, créatives et techniques, de l'analyse des besoins jusqu'à la mise en production.</p>
+            <ul class="missions">
+              <li>Recueil et analyse des besoins, cadrage et rédaction des spécifications fonctionnelles.</li>
+              <li>Pilotage des projets : planification, priorisation, suivi budgétaire et coordination des parties prenantes.</li>
+              <li>Coordination des équipes UX, design, développement et QA afin de garantir la bonne livraison des projets.</li>
+              <li>Supervision des recettes fonctionnelles, des mises en production et accompagnement des utilisateurs.</li>
+              <li>Intégration des enjeux de SEO, d'accessibilité (RGAA) et d'éco-conception dès les phases de conception.</li>
+              <li>Déploiement de ClickUp pour structurer le pilotage des projets : roadmap, planification des ressources, suivi des projets et ticketing.</li>
+            </ul>
+            <div class="projects">
+              <h4>Projets</h4>
+              <div class="project">
+                <strong>ENSA PARIS LA VILLETTE - Refonte du site</strong>
+                <p>Structuration éditoriale (actualités, formations, recherche), CMS de gestion de contenus, agenda événementiel, formulaires, intégration multimédia et mise en conformité accessibilité (RGAA).</p>
+              </div>
+              <div class="project">
+                <strong>ICOMOS - Refonte du site</strong>
+                <p>Structuration de contenus institutionnels et documentaires, gestion multilingue, mise en avant des publications et optimisation de l'accès à l'information pour un réseau international.</p>
+              </div>
+              <div class="project">
+                <strong>VILLA MÉDICIS - Refonte du site</strong>
+                <p>Conception de parcours utilisateurs orientés découverte des résidences et événements, structuration de contenus culturels, CMS et gestion de contenus multilingues.</p>
+              </div>
+              <div class="project">
+                <strong>Maintenance - COMÉDIE-FRANÇAISE, PALAIS DE TOKYO, BOUTIQUE CHÂTEAU DE VERSAILLES, FILORGA, CAPEB</strong>
+                <p>Maintenance corrective et évolutive</p>
+              </div>
+            </div>
+          </div>
+
           <div class="technologies">
             <span class="tech-label">Technologies:</span>
-            <span class="tech-tag">API</span><span class="tech-tag">MongoDB</span><span class="tech-tag">MariaDB</span><span class="tech-tag">Brevo</span><span class="tech-tag">Arenametrix</span><span class="tech-tag">Datacampus</span><span class="tech-tag">Matomo</span><span class="tech-tag">Monext</span>
+            <span class="tech-tag">Nuxt.js</span><span class="tech-tag">Vue.js</span><span class="tech-tag">Next.js</span><span class="tech-tag">Wordpress</span><span class="tech-tag">API</span><span class="tech-tag">MongoDB</span><span class="tech-tag">MariaDB</span><span class="tech-tag">MySQL</span><span class="tech-tag">Brevo</span><span class="tech-tag">Datacampus</span><span class="tech-tag">Matomo</span><span class="tech-tag">Arenametrix</span><span class="tech-tag">Monext</span><span class="tech-tag">LottieFiles</span><span class="tech-tag">Tarteaucitron</span><span class="tech-tag">Yoast SEO</span><span class="tech-tag">lazy loading</span>
           </div>
         </div>
       </div>
@@ -674,57 +746,15 @@
     <div class="experience">
       <div class="exp-header">
         <div class="exp-info">
-          <h3>Cheffe de projet digital</h3>
-          <p class="company">HANDS - Pôle digital</p>
-          <p class="period-location">Avril 2024 - Janvier 2025 • Paris</p>
-          <p class="description">Cadrage et pilotage de plateformes et projets digitaux, en faisant le lien entre les besoins métiers, les équipes UX, créatives et techniques, de l'analyse des besoins jusqu'à la mise en production.</p>
-          <ul class="missions">
-            <li>Recueil et analyse des besoins clients, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
-            <li>Pilotage des projets : planification, priorisation, suivi budgétaire et coordination des parties prenantes.</li>
-            <li>Coordination des équipes UX, design, développement et QA afin de garantir la bonne livraison des projets.</li>
-            <li>Supervision des recettes fonctionnelles, des mises en production et accompagnement des utilisateurs.</li>
-            <li>Intégration des enjeux de SEO, d'accessibilité (RGAA) et d'éco-conception dès les phases de conception.</li>
-            <li>Déploiement de ClickUp pour structurer le pilotage des projets : roadmap, planification des ressources, suivi des projets et ticketing.</li>
-          </ul>
-          <div class="projects">
-            <h4>Projets</h4>
-            <div class="project">
-              <strong>ENSA PARIS LA VILLETTE - Refonte du site</strong>
-              <p>Structuration éditoriale (actualités, formations, recherche), CMS de gestion de contenus, agenda événementiel, formulaires, intégration multimédia et mise en conformité accessibilité (RGAA).</p>
-            </div>
-            <div class="project">
-              <strong>ICOMOS - Refonte du site</strong>
-              <p>Structuration de contenus institutionnels et documentaires, gestion multilingue, mise en avant des publications et optimisation de l'accès à l'information pour un réseau international.</p>
-            </div>
-            <div class="project">
-              <strong>VILLA MÉDICIS - Refonte du site</strong>
-              <p>Conception de parcours utilisateurs orientés découverte des résidences et événements, structuration de contenus culturels, CMS et gestion de contenus multilingues.</p>
-            </div>
-            <div class="project">
-              <strong>Maintenance - COMÉDIE-FRANÇAISE, PALAIS DE TOKYO, BOUTIQUE CHÂTEAU DE VERSAILLES, FILORGA, CAPEB</strong>
-              <p>Maintenance corrective et évolutive</p>
-            </div>
-          </div>
-          <div class="technologies">
-            <span class="tech-label">Technologies:</span>
-            <span class="tech-tag">Nuxt.js</span><span class="tech-tag">Vue.js</span><span class="tech-tag">Matomo</span><span class="tech-tag">Wordpress</span><span class="tech-tag">Brevo</span><span class="tech-tag">Datacampus</span><span class="tech-tag">Next.js</span><span class="tech-tag">lazy loading</span><span class="tech-tag">MySQL</span><span class="tech-tag">LottieFiles</span><span class="tech-tag">Tarteaucitron</span><span class="tech-tag">Yoast SEO</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="experience">
-      <div class="exp-header">
-        <div class="exp-info">
-          <h3>Cheffe de projet digital</h3>
-          <p class="company">AKUFEN</p>
+          <h3>Cheffe de projet digital senior / Product Owner</h3>
+          <p class="company">AKUFEN <span class="company-desc">– Agence de création numérique • Expériences digitales • Culture et innovation</span></p>
           <p class="period-location">2019 - 2024 • Paris (Télétravail) / Montréal</p>
           <p class="description">Pilotage de plateformes digitales, d'expériences interactives et d'interfaces web, en collaboration avec les équipes UX/UI, créatives et techniques, de la phase de conception jusqu'à la livraison.</p>
           <ul class="missions">
             <li>Recueil et analyse des besoins, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
             <li>Pilotage des projets : planification, coordination des équipes, suivi budgétaire et gestion des priorités.</li>
             <li>Coordination des équipes UX, design, développement et QA afin d'assurer la bonne livraison des projets.</li>
-            <li>Intégration des enjeux de performance web, SEO, analytics et accessibilité dans les phases de conception et de réalisation.</li>
+            <li>Prise en compte des enjeux SEO, accessibilité, analytics et performance web dès la conception.</li>
             <li>Conseil et accompagnement des clients tout au long des projets.</li>
             <li>Organisation des recettes fonctionnelles, validation des livrables et accompagnement des utilisateurs.</li>
           </ul>
@@ -791,11 +821,11 @@
       <div class="exp-header">
         <div class="exp-info">
           <h3>Cheffe de projet digital</h3>
-          <p class="company">DDB PARIS</p>
+          <p class="company">BBDO (EX DDB PARIS) <span class="company-desc">– Agence de publicité internationale • Campagnes et dispositifs digitaux</span></p>
           <p class="period-location">2017 - 2018 • Paris</p>
           <p class="description">Pilotage de projets digitaux pour des marques internationales, en coordination avec les équipes créatives, UX, techniques et les clients, de la phase de cadrage jusqu'à la mise en ligne.</p>
           <ul class="missions">
-            <li>Recueil et analyse des besoins clients, animation des ateliers de cadrage et rédaction des spécifications fonctionnelles.</li>
+            <li>Recueil et analyse des besoins, cadrage et rédaction des spécifications fonctionnelles.</li>
             <li>Pilotage opérationnel des projets : planification, suivi budgétaire et coordination des équipes pluridisciplinaires.</li>
             <li>Organisation des recettes fonctionnelles, rédaction des cahiers de recette et validation des livrables avant mise en production.</li>
             <li>Coordination des équipes UX, créatives, techniques et commerciales afin de garantir le bon déroulement des projets.</li>
@@ -824,11 +854,11 @@
       <div class="exp-header">
         <div class="exp-info">
           <h3>Cheffe de projet digital</h3>
-          <p class="company">MARCEL (PUBLICIS)</p>
+          <p class="company">MARCEL (PUBLICIS) <span class="company-desc">– Agence de communication créative • Campagnes digitales et applications</span></p>
           <p class="period-location">2013 - 2017 • Paris</p>
           <p class="description">Pilotage simultané de projets digitaux multi-formats (sites web, campagnes digitales, applications mobiles et contenus interactifs) pour des annonceurs grands comptes.</p>
           <ul class="missions">
-            <li>Recueil et analyse des besoins clients, participation au cadrage fonctionnel et rédaction des spécifications fonctionnelles.</li>
+            <li>Cadrage fonctionnel, recueil et analyse des besoins, rédaction des spécifications fonctionnelles.</li>
             <li>Pilotage opérationnel de plusieurs projets en parallèle : planification, coordination des équipes et suivi des livrables.</li>
             <li>Coordination des équipes UX, créatives, techniques, développement et commerciales.</li>
             <li>Organisation des recettes fonctionnelles et validation des livrables avant mise en ligne.</li>
