@@ -681,8 +681,8 @@
             <thead><tr><th>Type</th><th>Ce qu’il fait</th><th>Qui décide</th><th>Exemple</th></tr></thead>
             <tbody>
               <tr><th scope="row">Chatbot classique</th><td>Répond selon un arbre de règles pré-écrit</td><td>Le concepteur, à l’avance</td><td>FAQ scriptée</td></tr>
-              <tr><th scope="row">Assistant / copilote</th><td>Répond, rédige, suggère — l’humain garde la main et exécute</td><td>L’humain</td><td>ChatGPT, GitHub Copilot</td></tr>
-              <tr><th scope="row">Agent</th><td>Reçoit un <strong>objectif</strong>, planifie les étapes, utilise des outils, observe le résultat et boucle jusqu’à l’atteindre</td><td>Le modèle, dans un périmètre défini</td><td>Claude Code, agent de traitement de tickets</td></tr>
+              <tr><th scope="row">Assistant / copilote</th><td>Répond, rédige, suggère — l’humain garde la main et exécute</td><td>L’humain</td><td>Une conversation ChatGPT sans outils, l’autocomplétion de GitHub Copilot</td></tr>
+              <tr><th scope="row">Agent</th><td>Reçoit un <strong>objectif</strong>, planifie les étapes, utilise des outils, observe le résultat et boucle jusqu’à l’atteindre</td><td>Le modèle, dans un périmètre défini</td><td>Claude Code, le mode agent de ChatGPT, un agent de traitement de tickets</td></tr>
               <tr><th scope="row">Système multi-agents</th><td>Plusieurs agents spécialisés coordonnés par un orchestrateur</td><td>L’orchestrateur</td><td>Un agent recherche + un agent rédaction + un agent vérification</td></tr>
             </tbody>
           </table>
@@ -691,6 +691,15 @@
           <span class="lbl">La différence en une phrase</span>
           Un <strong>assistant produit du texte</strong>, un <strong>agent produit des actions</strong>. Ce qui fait l’agent, c’est l’accès à des outils (<em>tool use</em>) et la boucle autonome : planifier → agir → observer → corriger.
         </div>
+
+        <div class="callout warn">
+          <span class="lbl">L’erreur à ne surtout pas faire — on me corrigera</span>
+          Ce n’est <strong>pas le modèle</strong> qui est assistant ou agent, c’est <strong>ce qu’on construit autour de lui</strong>. Claude Code, c’est le même modèle que l’application Claude, plus une couche qui lui donne des outils : lire un fichier, l’écrire, lancer une commande. Enlève la couche, le modèle ne peut plus rien faire. Inversement, ChatGPT n’est plus un simple assistant dès qu’il exécute du code ou navigue sur le web — il utilise des outils et il boucle.
+          <br><br>
+          ❌ « ChatGPT est un assistant, Claude Code est un agent. »<br>
+          ✅ <strong>« Un même modèle est assistant ou agent selon les outils qu’on lui donne et l’autonomie qu’on lui laisse. L’agentique est une décision d’architecture, pas un choix de fournisseur. »</strong>
+        </div>
+
         <h4 class="blk">Les briques d’un agent</h4>
         <div class="card">
           <ul>
@@ -702,6 +711,28 @@
             <li><strong>Garde-fous</strong> — périmètre d’action, droits, validation humaine sur les actions irréversibles</li>
           </ul>
         </div>
+        <h4 class="blk">Fabriquer un agent : les 4 niveaux</h4>
+        <p class="section-sub">Question fréquente : « peut-on créer un agent avec ChatGPT ? » Oui — et la même échelle existe chez Anthropic, Google ou Mistral.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Niveau</th><th>Outil (exemple OpenAI)</th><th>Pour qui</th><th>Ce qu’on peut faire</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Sans code</th><td>GPT personnalisé + <em>Actions</em></td><td>Un PO, en un après-midi</td><td>Instructions figées, fichiers de référence, appel à une API externe</td></tr>
+              <tr><th scope="row">Visuel</th><td><strong>Agent Builder</strong> (AgentKit)</td><td>PO / ops</td><td>Canevas visuel, enchaînement de plusieurs agents, versionnage des workflows</td></tr>
+              <tr><th scope="row">Code</th><td><strong>Agents SDK</strong> (Python / JS)</td><td>Équipe dev</td><td>Outils sur mesure, exécution en bac à sable, garde-fous, tâches longues</td></tr>
+              <tr><th scope="row">Brut</th><td>API + <em>function calling</em></td><td>Équipe dev</td><td>On écrit la boucle soi-même : contrôle total, tout à sa charge</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Les trois questions produit, une fois qu’on sait que c’est faisable partout</span>
+          La faisabilité ne départage pas les fournisseurs — le confort de l’outillage, oui. Les vraies décisions sont ailleurs : <strong>quels outils on branche et quels droits ils ont</strong> · <strong>qu’est-ce qui est réversible, et donc où on place la validation humaine</strong> · <strong>peut-on changer de modèle ensuite sans réécrire l’agent</strong>. Ce dernier point est le piège classique : les SDK propriétaires vont vite à construire mais attachent au fournisseur. C’est un arbitrage vitesse contre indépendance — et c’est un arbitrage de PO, pas de dev.
+        </div>
+        <div class="callout say">
+          <span class="lbl">À ne pas confondre</span>
+          Le « mode agent » de ChatGPT est un agent qu’on <strong>utilise</strong>. Un GPT personnalisé ou l’Agents SDK, c’est un agent qu’on <strong>fabrique</strong>. Ce n’est pas la même conversation en entretien.
+        </div>
+
         <div class="callout warn">
           <span class="lbl">Le point de vigilance produit</span>
           Plus un agent est autonome, plus le <strong>coût d’une erreur</strong> augmente : il n’écrit plus une mauvaise phrase, il exécute une mauvaise action. La question à poser sur tout projet agentique est <strong>« qu’est-ce qui est réversible ? »</strong> — et mettre un humain dans la boucle sur tout ce qui ne l’est pas.
@@ -885,9 +916,30 @@
             <li>Des <strong>pages générées puis déployées</strong> sur Vercel : du contenu jusqu’à la mise en ligne</li>
           </ul>
         </div>
+        <h4 class="blk">Les actions réellement exécutées — la preuve, si on creuse</h4>
+        <p class="section-sub">« Vous dites agent : qu’est-ce qu’il a fait, concrètement ? » C’est la question de vérification. Voici la réponse.</p>
+        <div class="card">
+          <ul>
+            <li><strong>Écrire et modifier des fichiers</strong> sur mon poste — pages HTML, règles projet, configuration</li>
+            <li><strong>Versionner et publier</strong> : <em>commit</em> puis <em>push</em> sur GitHub, ce qui déclenche automatiquement un déploiement Vercel</li>
+            <li><strong>Écrire le contrôle d’accès du site</strong> (mot de passe sur les pages privées, CV laissé public) et le mettre en production</li>
+            <li><strong>Vérifier lui-même son travail</strong> : appels HTTP sur le site en ligne pour contrôler page par page ce qui est protégé et ce qui ne l’est pas, puis enchaîner les tests suivants selon les résultats</li>
+            <li><strong>Se corriger</strong> : quand son outil d’édition échouait, écrire un script pour contourner le blocage — sans qu’on le lui demande</li>
+          </ul>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La boucle, sur un cas réel</span>
+          Ce dernier point est exactement ce qui distingue l’agent : <strong>planifier → agir → observer le résultat → corriger</strong>. Un assistant m’aurait rendu du texte à recopier. Ici l’état du dépôt, du site en ligne et de mon disque a réellement changé.
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le meilleur moment du projet — celui qu’il faut raconter</span>
+          Mes notes personnelles (prétentions salariales, points faibles, contexte de départ) étaient dans le dépôt, non versionnées. Au moment de publier, l’agent s’est arrêté pour signaler qu’elles allaient <strong>partir en ligne et devenir accessibles à une URL devinable</strong>, et m’a demandé quoi faire avant d’agir. On les a exclues, puis protégé le reste par mot de passe.
+          <br><br>
+          <strong>Ce que ça illustre :</strong> le garde-fou qui a compté n’était pas technique, il était produit — <strong>« qu’est-ce qui est irréversible ? »</strong>. Une fois publié, c’est indexé, ça ne se reprend pas. C’est là, et seulement là, qu’il faut un humain dans la boucle.
+        </div>
         <div class="callout say">
           <span class="lbl">Ce que je peux dire</span>
-          « Je ne me suis pas contentée de tester un chatbot. J’ai monté un vrai projet avec un agent : une base de connaissance qu’il consulte, des règles qui l’empêchent d’inventer, et un déploiement en ligne. Ça m’a appris concrètement où ces outils sont bluffants et où ils décrochent. »
+          « Je ne me suis pas contentée de tester un chatbot. J’ai monté un vrai projet avec un agent : il lit une base de connaissance que j’ai structurée, il est contraint par des règles qui l’empêchent d’inventer, et il exécute — il écrit les fichiers, il publie, il vérifie le résultat en ligne et il se corrige. Ce que j’en retire n’est pas technique : c’est <strong>où placer le point de contrôle humain</strong>. Trop haut, l’agent ne sert à rien ; trop bas, il fait des dégâts. Mon critère, c’est la réversibilité. »
         </div>
       </section>
 
