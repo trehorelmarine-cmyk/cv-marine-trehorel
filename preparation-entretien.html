@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pense-bête entretien PO — Marine Tréhorel</title>
+  <title>Préparation entretien — Marine Tréhorel</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
+      min-height: 100%;
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: 16px;
+      line-height: 1.6;
       color: #2b2622;
       background: #f6efe4;
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
     }
 
-    a { color: inherit; }
+    body {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(201, 117, 90, 0.09), transparent 40%),
+        radial-gradient(circle at 88% 90%, rgba(165, 69, 39, 0.07), transparent 45%),
+        #f6efe4;
+    }
 
     .topbar {
       position: sticky;
@@ -32,1139 +34,297 @@
       z-index: 20;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 32px;
+      gap: 20px;
+      padding: 12px 32px;
       background: rgba(246, 239, 228, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #ddd0be;
+      border-bottom: 1px solid #e4d8c6;
     }
 
-    .topbar .back {
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    .page-head { margin-bottom: 48px; }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    section { margin-bottom: 56px; }
+
+    section > h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 27px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    section > h2 .idx {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #c9755a;
+    }
+
+    /* --- Listes de liens --- */
+    .link-list { list-style: none; }
+
+    .link-list li { border-top: 1px solid #e4d8c6; }
+    .link-list li:last-child { border-bottom: 1px solid #e4d8c6; }
+
+    .link-list a {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 18px 4px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-list .date {
+      flex: 0 0 108px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #c9755a;
+      white-space: nowrap;
+    }
+
+    .link-list .body { flex: 1; }
+
+    .link-list .title {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .link-list .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .link-list .tags span {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #8a6b4f;
+      background: #f2e4d3;
+      border-radius: 20px;
+      padding: 4px 11px;
+      white-space: nowrap;
+    }
+
+    .link-list .arrow {
+      flex: 0 0 auto;
+      align-self: center;
+      color: #a54527;
+      opacity: 0.55;
+    }
+
+    .link-list .arrow svg { width: 17px; height: 17px; display: block; }
+
+    .empty {
+      font-size: 14px;
+      color: #9a938c;
+      font-style: italic;
+      padding: 18px 0;
+      border-top: 1px solid #e4d8c6;
+      border-bottom: 1px solid #e4d8c6;
+    }
+
+    /* --- Blocs (identiques à la page d'accueil) --- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 18px;
+      padding: 28px 32px 26px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .card:hover { border-color: #c9755a; }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card .desc {
+      font-size: 14px;
+      color: #6b6560;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .card .cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
       font-weight: 600;
-      color: #a54527;
-      text-decoration: none;
-    }
-
-    .topbar .back svg { width: 16px; height: 16px; }
-
-    .topbar .brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 230px minmax(0, 1fr);
-      gap: 48px;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 48px 32px 96px;
-    }
-
-    /* Side nav */
-    .sidenav {
-      position: sticky;
-      top: 96px;
-      align-self: start;
-      height: max-content;
-      max-height: calc(100vh - 120px);
-      overflow-y: auto;
-    }
-
-    .sidenav h3 {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #9a9088;
-      margin-bottom: 14px;
-    }
-
-    .sidenav ul { list-style: none; }
-
-    .sidenav li { margin-bottom: 1px; }
-
-    .sidenav a {
-      display: block;
-      padding: 6px 12px;
-      font-size: 13px;
-      color: #6b6560;
-      text-decoration: none;
-      border-left: 2px solid transparent;
-      border-radius: 0 6px 6px 0;
-      transition: all 0.15s ease;
-    }
-
-    .sidenav a .num {
-      display: inline-block;
-      width: 20px;
-      color: #b9ab97;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .sidenav a:hover,
-    .sidenav a.active {
-      color: #a54527;
-      background: #fbf5ea;
-      border-left-color: #c9755a;
-    }
-    .sidenav a.active .num { color: #c9755a; }
-
-    /* Content */
-    .content { min-width: 0; }
-
-    .page-head { margin-bottom: 40px; }
-
-    .page-head .eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #c9755a;
-      margin-bottom: 12px;
-    }
-
-    .page-head h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .page-head p {
-      font-size: 15px;
-      color: #6b6560;
-      max-width: 640px;
-    }
-
-    section { margin-bottom: 52px; scroll-margin-top: 88px; }
-
-    section > h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 25px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    section > h2 .idx {
-      font-size: 15px;
-      color: #c9755a;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      margin-right: 10px;
-      vertical-align: 2px;
-    }
-
-    section > .section-sub {
-      font-size: 13.5px;
-      color: #9a9088;
-      margin-bottom: 22px;
-    }
-
-    h4.blk {
-      font-size: 12px;
-      font-weight: 700;
-      color: #a54527;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      margin: 24px 0 10px;
-    }
-
-    .card {
-      background: #fbf5ea;
-      border: 1px solid #e4d8c6;
-      border-radius: 14px;
-      padding: 24px 26px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #2b2622;
-      margin-bottom: 10px;
-    }
-
-    .card p { font-size: 14.5px; color: #4a4540; }
-    .card p + p { margin-top: 10px; }
-
-    .card ul { margin: 4px 0 0 18px; }
-    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
-
-    .pitch {
-      border-left: 3px solid #c9755a;
-      background: #fbf5ea;
-      padding: 22px 26px;
-      border-radius: 0 14px 14px 0;
-      font-size: 15.5px;
-      color: #3a352f;
-      line-height: 1.75;
-    }
-    .pitch strong { color: #a54527; }
-
-    /* Chips / keywords */
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
-    .tag {
-      display: inline-block;
-      background: #f2e4d3;
-      color: #a54527;
-      font-size: 11.5px;
-      font-weight: 600;
       letter-spacing: 0.4px;
-      padding: 4px 11px;
-      border-radius: 100px;
-    }
-
-    /* Callouts */
-    .callout {
-      border-radius: 12px;
-      padding: 13px 18px;
-      margin-bottom: 16px;
-      font-size: 14px;
-      color: #4a4540;
-    }
-    .callout .lbl {
-      display: block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
-    .callout.retenir .lbl { color: #a54527; }
-    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
-    .callout.say .lbl { color: #c9755a; }
-    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
-    .callout.warn .lbl { color: #a54527; }
-    .callout b, .callout strong { color: #2b2622; }
-    .callout ul { margin: 4px 0 0 18px; }
-    .callout li { margin-bottom: 4px; }
-
-    /* Tables */
-    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
-    table.tbl {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-      background: #fbf5ea;
-      border: 1px solid #e4d8c6;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    table.tbl th, table.tbl td {
-      text-align: left;
-      padding: 10px 14px;
-      border-bottom: 1px solid #efe3d5;
-      vertical-align: top;
-    }
-    table.tbl thead th {
-      background: #f2e4d3;
       color: #a54527;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    table.tbl tbody tr:last-child td { border-bottom: none; }
-    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
-    table.tbl th[scope="row"] { white-space: nowrap; }
-
-    /* STAR blocks */
-    .star { position: relative; }
-    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
-    .star dt {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: #c9755a;
-      padding-top: 2px;
-    }
-    .star dd { font-size: 14.5px; color: #4a4540; }
-
-    /* Q&A */
-    details.qa {
-      background: #fbf5ea;
-      border: 1px solid #e4d8c6;
-      border-radius: 12px;
-      padding: 4px 20px;
-      margin-bottom: 12px;
-    }
-    details.qa summary {
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      font-size: 14.5px;
-      font-weight: 600;
-      color: #2b2622;
-    }
-    details.qa summary::-webkit-details-marker { display: none; }
-    details.qa summary .chev {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      color: #c9755a;
-      transition: transform 0.2s ease;
-    }
-    details.qa[open] summary .chev { transform: rotate(180deg); }
-    details.qa .answer {
-      padding: 0 0 18px;
-      font-size: 14px;
-      color: #4a4540;
-    }
-    details.qa .answer ul { margin: 8px 0 0 18px; }
-    details.qa .answer li { margin-bottom: 5px; }
-    .ex-lbl {
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      font-size: 9.5px;
-      color: #c9755a;
-      margin-right: 6px;
-    }
-    .answer .meta { margin-top: 10px; font-size: 13px; }
-    .answer .meta.ex { color: #7a3d24; }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
     }
 
-    .checklist { list-style: none; }
-    .checklist li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 10px;
-      font-size: 14.5px;
-      color: #4a4540;
-    }
-    .checklist li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 3px;
-      width: 16px;
-      height: 16px;
-      border: 2px solid #c9755a;
-      border-radius: 5px;
+    .card .cta svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.25s ease;
     }
 
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px dashed #ddd0be;
-      font-size: 14.5px;
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-row .label { color: #9a9088; font-weight: 600; }
-    .info-row .value { color: #2b2622; text-align: right; }
+    .card:hover .cta svg { transform: translateX(4px); }
 
-    @media (max-width: 820px) {
-      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
-      .sidenav { display: none; }
+    @media (max-width: 640px) {
+      .cards { grid-template-columns: 1fr; gap: 20px; }
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+      main { padding: 44px 20px 72px; }
       .page-head h1 { font-size: 32px; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
-      .star dt { margin-top: 8px; }
+      .link-list a { flex-wrap: wrap; gap: 4px 14px; padding: 16px 4px; }
+      .link-list .date { flex-basis: 100%; }
     }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <a class="back" href="/index.html">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-      Accueil
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
     </a>
-    <span class="brand">Pense-bête entretien PO</span>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
   </div>
 
-  <div class="layout">
-    <aside class="sidenav">
-      <h3>Sommaire</h3>
-      <ul>
-        <li><a href="#positionnement"><span class="num">1</span>Positionnement</a></li>
-        <li><a href="#role-po"><span class="num">2</span>Rôle du PO</a></li>
-        <li><a href="#discovery"><span class="num">3</span>Discovery</a></li>
-        <li><a href="#delivery"><span class="num">4</span>Delivery</a></li>
-        <li><a href="#priorisation"><span class="num">5</span>Priorisation</a></li>
-        <li><a href="#roadmap"><span class="num">6</span>Roadmap</a></li>
-        <li><a href="#backlog"><span class="num">7</span>Backlog &amp; US</a></li>
-        <li><a href="#kpi"><span class="num">8</span>KPI &amp; Data</a></li>
-        <li><a href="#agile"><span class="num">9</span>Agile &amp; Scrum</a></li>
-        <li><a href="#agile-echelle"><span class="num">10</span>Agile à l'échelle</a></li>
-        <li><a href="#stakeholders"><span class="num">11</span>Stakeholders</a></li>
-        <li><a href="#tech"><span class="num">12</span>Culture tech</a></li>
-        <li><a href="#qa"><span class="num">13</span>QA &amp; Recette</a></li>
-        <li><a href="#production"><span class="num">14</span>Prod &amp; Incidents</a></li>
-        <li><a href="#mes-exemples"><span class="num">15</span>Mes exemples</a></li>
-        <li><a href="#questions-po"><span class="num">16</span>Questions PO</a></li>
-        <li><a href="#questions-rh"><span class="num">17</span>Questions RH</a></li>
-        <li><a href="#a-poser"><span class="num">18</span>Questions à poser</a></li>
-        <li><a href="#ia"><span class="num">19</span>IA &amp; LLM</a></li>
-        <li><a href="#forces"><span class="num">20</span>Forces &amp; vigilance</a></li>
-        <li><a href="#glossaire"><span class="num">21</span>Glossaire</a></li>
-        <li><a href="#logistique"><span class="num">22</span>Logistique</a></li>
-        <li><a href="#checklist"><span class="num">23</span>Check 10 min</a></li>
+  <main>
+    <div class="page-head">
+      <h1>Préparation entretien</h1>
+    </div>
+
+    <!-- 1. MES ENTRETIENS -->
+    <section id="mes-entretiens">
+      <h2><span class="idx">01</span>Mes entretiens</h2>
+      <ul class="link-list">
+        <li>
+          <a href="/entretien-adservio.html">
+            <span class="date">28 août · 16h30</span>
+            <span class="body">
+              <span class="title">Adservio — Chef de projet augmenté</span>
+              <span class="tags">
+                <span>Hôtellerie</span>
+                <span>Refonte d'application</span>
+                <span>Mission 1 an</span>
+                <span>Avec le CP à remplacer</span>
+              </span>
+            </span>
+            <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        </li>
       </ul>
-    </aside>
+    </section>
 
-    <main class="content">
-      <div class="page-head">
-        <p class="eyebrow">Cheat sheet Product Owner</p>
-        <h1>Pense-bête entretien Product Owner</h1>
-        <p>Support de révision à relire en 10-15 minutes avant n'importe quel entretien PO. Notions clés, méthodes, questions types et mes exemples à mobiliser.</p>
+    <!-- 2. MÉMOS -->
+    <section id="memos">
+      <h2><span class="idx">02</span>Mémos</h2>
+      <div class="cards">
+        <a class="card" href="/memo-product-owner.html">
+          <h3>Product Owner</h3>
+          <span class="cta" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </a>
+
+        <a class="card" href="/memo-ia.html">
+          <h3>IA</h3>
+          <span class="cta" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </a>
       </div>
-
-      <!-- 1. POSITIONNEMENT -->
-      <section id="positionnement">
-        <h2><span class="idx">01</span>Mon positionnement</h2>
-        <p class="section-sub">Le pitch, puis le fil rouge du parcours.</p>
-        <div class="pitch">
-          Je travaille dans le digital depuis <strong>plus de 10 ans</strong>.<br><br>
-          J'ai fait mes premières armes en tant que <strong>cheffe de projet digital</strong> dans de grandes agences de publicité parisiennes, chez Marcel/Publicis puis chez DDB.<br><br>
-          Ensuite, je suis partie vivre quatre ans à Montréal, où j'ai rejoint <strong>Akufen</strong>, un studio créatif et tech spécialisé dans le digital. J'ai travaillé sur des typologies de projets assez variées, de la refonte de sites à des applications mobiles ou encore des expériences plus immersives, principalement pour des acteurs de la culture. C'est une expérience qui m'a beaucoup apporté en termes de culture digitale et technique, notamment parce que je travaillais vraiment au quotidien avec les équipes créatives et les développeurs.<br><br>
-          À mon retour en France, j'ai rejoint <strong>HANDS</strong>, d'abord au sein du pôle digital, où j'ai continué à travailler sur des projets de refonte de sites, notamment pour des institutions et des acteurs culturels.<br><br>
-          Puis j'ai eu l'opportunité d'évoluer vers un rôle de <strong>Product Owner</strong> sur la plateforme de billetterie de la Comédie-Française. C'est là que j'ai vraiment pris davantage de responsabilités sur le produit, avec notamment la roadmap, le backlog, le cadrage et la priorisation des besoins, et la coordination avec les équipes techniques.<br><br>
-          Et aujourd'hui, c'est vraiment cette évolution vers le <strong>Product Ownership</strong> que j'ai envie de poursuivre, avec l'idée de mettre à profit mon expérience à la fois en gestion de projet, en digital et avec les équipes techniques.
-        </div>
-
-        <div class="card">
-          <h3>Une trajectoire du pilotage de projets digitaux vers le Product Ownership</h3>
-          <p><strong>Marcel / DDB (2013–2018)</strong> — Pilotage de projets digitaux multi-formats à grande échelle pour des annonceurs grands comptes : compréhension du besoin, cadrage, conception, coordination d'équipes pluridisciplinaires, delivery sous contrainte.</p>
-          <p><strong>Akufen (2019–2024)</strong> — Expériences digitales sur mesure et architectures headless (API, GraphQL), avec un rôle transverse de responsable trafic création &amp; développement : cadrage, arbitrages, coordination multi-équipes.</p>
-          <p><strong>Hands (2024–2026)</strong> — Rôle de Product Owner sur une plateforme B2C à forte audience (Comédie-Française) : roadmap, backlog, priorisation, pilotage produit et conduite du changement.</p>
-        </div>
-
-        <div class="callout retenir">
-          <span class="lbl">À retenir</span>
-          Dès mon poste de cheffe de projet, j'intervenais <strong>en amont</strong> : compréhension du besoin, ateliers, définition du périmètre, conception, coordination UX/UI, faisabilité, arbitrages — puis réalisation, recette et mise en production. Mon passage au PO est avant tout une <strong>évolution de posture</strong> : du pilotage de projet vers le pilotage produit, avec plus de responsabilité sur la priorisation, le backlog, la valeur utilisateur / business et l'évolution du produit dans la durée.
-        </div>
-        <div class="callout say">
-          <span class="lbl">Ce que je peux dire en entretien</span>
-          « Je ne découvre pas le produit avec le poste de PO : je travaillais déjà sur le besoin et la solution en tant que cheffe de projet. Ce qui change, c'est la posture — passer du pilotage d'un projet ponctuel au pilotage d'un produit dans la durée, avec la priorisation et la valeur au centre. »
-        </div>
-      </section>
-
-      <!-- 2. ROLE DU PO -->
-      <section id="role-po">
-        <h2><span class="idx">02</span>Rôle du Product Owner</h2>
-        <p class="section-sub">La définition de référence, en une lecture.</p>
-        <div class="card">
-          <p><strong>Le PO maximise la valeur du produit livrée par l'équipe.</strong> Il porte la voix de l'utilisateur et du business auprès de l'équipe technique.</p>
-          <ul>
-            <li><strong>Vision produit</strong> — comprendre et incarner le « pourquoi » du produit.</li>
-            <li><strong>Backlog</strong> — le construire, le clarifier (refinement), le maintenir ordonné.</li>
-            <li><strong>Priorisation</strong> — décider quoi faire maintenant, en fonction de la valeur.</li>
-            <li><strong>Valeur</strong> — arbitrer entre valeur utilisateur, valeur business et effort.</li>
-            <li><strong>Équipe technique</strong> — collaborer au quotidien, clarifier le besoin, valider (recette).</li>
-            <li><strong>Stakeholders</strong> — aligner, gérer les attentes, arbitrer les demandes.</li>
-          </ul>
-        </div>
-
-        <h4 class="blk">PO vs PM vs Chef de projet vs Business Analyst</h4>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Rôle</th><th>Objectif principal</th><th>Responsabilités clés</th><th>Horizon</th><th>Relation à l'équipe</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">PO</th><td>Maximiser la valeur livrée par l'équipe</td><td>Backlog, user stories, priorisation, critères d'acceptation, recette</td><td>Sprint → trimestre</td><td>Au quotidien avec l'équipe dev</td></tr>
-              <tr><th scope="row">Product Manager</th><td>Définir quoi construire et pourquoi</td><td>Vision, discovery, stratégie, roadmap, KPI</td><td>Trimestre → année+</td><td>Transverse (business, users, tech)</td></tr>
-              <tr><th scope="row">Chef de projet</th><td>Livrer un périmètre en délai / budget</td><td>Planning, coordination, risques, budget</td><td>Durée du projet</td><td>Coordonne, souvent multi-projets</td></tr>
-              <tr><th scope="row">Business Analyst</th><td>Traduire le besoin métier en specs</td><td>Analyse, spécifications, règles de gestion, process</td><td>Selon le projet</td><td>Interface métier ↔ tech</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout warn">
-          <span class="lbl">Nuance à garder en tête</span>
-          Ces rôles ne sont pas des cases étanches. Selon l'organisation, PO et PM peuvent être fusionnés, le PO peut faire du delivery de chef de projet, ou de l'analyse de BA. Toujours demander comment le rôle est réellement défini dans l'entreprise.
-        </div>
-      </section>
-
-      <!-- 3. DISCOVERY -->
-      <section id="discovery">
-        <h2><span class="idx">03</span>Discovery</h2>
-        <p class="section-sub">Comprendre le problème avant de construire la solution.</p>
-        <div class="chips">
-          <span class="tag">Problème vs solution</span><span class="tag">Besoin utilisateur</span><span class="tag">Besoin business</span><span class="tag">Hypothèse</span><span class="tag">Recherche utilisateur</span><span class="tag">Interviews</span><span class="tag">Ateliers</span><span class="tag">Parcours utilisateur</span><span class="tag">Pain points</span><span class="tag">Benchmark</span><span class="tag">Prototype</span><span class="tag">Test utilisateur</span><span class="tag">MVP</span><span class="tag">Validation</span><span class="tag">Expérimentation</span>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Le réflexe clé</span>
-          Partir du <strong>problème</strong> et du <strong>besoin</strong>, pas de la solution. Une demande de feature est une hypothèse à valider, pas une commande à exécuter.
-        </div>
-        <h4 class="blk">Questions à se poser avant de lancer une feature</h4>
-        <div class="card">
-          <ul>
-            <li>Quel problème résout-on, et pour qui ?</li>
-            <li>Quelle preuve qu'il existe vraiment (data, verbatims, support) ?</li>
-            <li>Quelle valeur attendue, côté utilisateur et côté business ?</li>
-            <li>Quelle hypothèse, et comment saura-t-on qu'on a réussi (métrique) ?</li>
-            <li>Quel est le plus petit incrément qui apporte déjà de la valeur (MVP) ?</li>
-            <li>Quels risques (technique, adoption, dépendances) ?</li>
-          </ul>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Lien avec mon parcours</span>
-          Mon expérience de cadrage et de conception en agence est déjà une expérience de discovery : ateliers, définition du besoin, parcours, arbitrages — même si elle ne s'appelait pas toujours « Discovery ».
-        </div>
-      </section>
-
-      <!-- 4. DELIVERY -->
-      <section id="delivery">
-        <h2><span class="idx">04</span>Delivery</h2>
-        <p class="section-sub">Transformer le besoin validé en produit en production.</p>
-        <div class="chips">
-          <span class="tag">Backlog</span><span class="tag">User story</span><span class="tag">Critères d'acceptation</span><span class="tag">Refinement</span><span class="tag">Estimation</span><span class="tag">Sprint</span><span class="tag">Développement</span><span class="tag">QA</span><span class="tag">Recette</span><span class="tag">Release</span><span class="tag">Mise en production</span><span class="tag">Monitoring</span><span class="tag">Incidents</span><span class="tag">Amélioration continue</span>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Le cycle à avoir en tête</span>
-          <strong>Discovery → Delivery → mesure / apprentissage → nouvelle itération.</strong> On ne s'arrête pas à la mise en prod : on mesure l'usage, on apprend, on ajuste. Discovery et delivery avancent souvent en parallèle.
-        </div>
-      </section>
-
-      <!-- 5. PRIORISATION -->
-      <section id="priorisation">
-        <h2><span class="idx">05</span>Priorisation</h2>
-        <p class="section-sub">Le cœur du métier : décider quoi faire, et surtout quoi ne pas faire.</p>
-        <h4 class="blk">Critères à croiser</h4>
-        <div class="chips">
-          <span class="tag">Valeur utilisateur</span><span class="tag">Valeur business</span><span class="tag">Effort</span><span class="tag">Risque</span><span class="tag">Dépendances</span><span class="tag">Urgence</span><span class="tag">Dette technique</span>
-        </div>
-        <h4 class="blk">Méthodes</h4>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Méthode</th><th>Principe</th><th>Quand l'utiliser</th><th>Limite</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Impact / Effort</th><td>Prioriser fort impact / faible effort</td><td>Arbitrage rapide, quick wins</td><td>Estimations subjectives</td></tr>
-              <tr><th scope="row">MoSCoW</th><td>Must / Should / Could / Won't</td><td>Cadrer un périmètre (MVP, release)</td><td>Tout devient vite « Must »</td></tr>
-              <tr><th scope="row">RICE</th><td>Reach × Impact × Confidence ÷ Effort</td><td>Comparer des initiatives via un score</td><td>Faux sentiment de précision</td></tr>
-              <tr><th scope="row">WSJF</th><td>Coût du retard ÷ durée du job</td><td>Grands portefeuilles, dépendances (SAFe)</td><td>Complexe, exige des données</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Que répondre si « tout est prioritaire » ?</span>
-          « Si tout est prioritaire, rien ne l'est. Je ramène au concret : quelle valeur, pour qui, à quelle échéance business ? Je force le choix en comparant sur une base commune (impact / effort), je rends la décision et ses arbitrages visibles, et je séquence — on ne fait pas tout en même temps, on ordonne. »
-        </div>
-      </section>
-
-      <!-- 6. ROADMAP -->
-      <section id="roadmap">
-        <h2><span class="idx">06</span>Roadmap</h2>
-        <p class="section-sub">De la vision aux releases, sans figer l'avenir.</p>
-        <div class="chips">
-          <span class="tag">Vision</span><span class="tag">Objectifs</span><span class="tag">Initiatives</span><span class="tag">Roadmap</span><span class="tag">Backlog</span><span class="tag">Release</span><span class="tag">Court / moyen / long terme</span>
-        </div>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Type de roadmap</th><th>Ce qu'elle affiche</th><th>Force</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Outcome-based</th><td>Des objectifs / problèmes à résoudre</td><td>Garde le cap sur la valeur, laisse de la souplesse</td></tr>
-              <tr><th scope="row">Feature-based</th><td>Une liste de features datées</td><td>Rassurant pour les stakeholders, mais rigide</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">À retenir</span>
-          Une roadmap est un <strong>document vivant</strong> qui exprime des intentions, pas un contrat de dates. On préfère raisonner en <strong>outcomes</strong> (résultats visés) plutôt qu'en liste de features figées.
-        </div>
-        <h4 class="blk">Questions d'entretien</h4>
-        <div class="card">
-          <ul>
-            <li>Comment construisez-vous une roadmap ? Comment la faites-vous évoluer ?</li>
-            <li>Comment gérez-vous une demande urgente qui n'y était pas ?</li>
-            <li>Qui décide, in fine ? (Réponse : le PO arbitre, en alignement avec les stakeholders et la vision.)</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 7. BACKLOG / US -->
-      <section id="backlog">
-        <h2><span class="idx">07</span>Backlog &amp; User stories</h2>
-        <p class="section-sub">Un backlog clair, des stories prêtes à être développées.</p>
-        <div class="chips">
-          <span class="tag">Product backlog</span><span class="tag">Refinement</span><span class="tag">User story</span><span class="tag">Critères d'acceptation</span><span class="tag">Definition of Done</span><span class="tag">Edge cases</span><span class="tag">Règles métier</span><span class="tag">Dépendances</span><span class="tag">Dette technique</span>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Une bonne user story ≠ juste la formule</span>
-          « En tant que… je veux… afin de… » n'est qu'un point de départ. Ce qui compte, c'est qu'elle soit <strong>compréhensible, testable et prête</strong>.
-        </div>
-        <h4 class="blk">Ce que le PO vérifie avant qu'une story soit « prête » (Definition of Ready)</h4>
-        <div class="card">
-          <ul>
-            <li>Le besoin et la valeur sont clairs (pourquoi on la fait).</li>
-            <li>Des critères d'acceptation explicites et testables.</li>
-            <li>Les règles métier et les edge cases sont décrits.</li>
-            <li>Les dépendances et impacts sont identifiés.</li>
-            <li>Design / maquettes disponibles si nécessaire.</li>
-            <li>Assez petite pour tenir dans un sprint, estimée par l'équipe.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 8. KPI / DATA -->
-      <section id="kpi">
-        <h2><span class="idx">08</span>KPI &amp; Data</h2>
-        <p class="section-sub">Mesurer pour décider, pas pour décorer.</p>
-        <div class="chips">
-          <span class="tag">KPI</span><span class="tag">Métrique</span><span class="tag">Objectif</span><span class="tag">Funnel</span><span class="tag">Conversion</span><span class="tag">Engagement</span><span class="tag">Rétention</span><span class="tag">Activation</span><span class="tag">Satisfaction</span><span class="tag">North Star Metric</span><span class="tag">OKR</span>
-        </div>
-        <h4 class="blk">KPI pertinents selon le type de produit</h4>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Produit</th><th>Exemples de KPI pertinents</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">E-commerce</th><td>Taux de conversion, panier moyen, taux d'abandon, CA</td></tr>
-              <tr><th scope="row">Média / contenu</th><td>Pages vues, temps de lecture, abonnements, rétention</td></tr>
-              <tr><th scope="row">SaaS</th><td>Activation, MRR, churn, adoption de features, NPS</td></tr>
-              <tr><th scope="row">Service public</th><td>Taux de complétion d'une démarche, accessibilité, satisfaction</td></tr>
-              <tr><th scope="row">Billetterie</th><td>Taux de conversion, ventes en pic, taux de remplissage, fluidité du parcours</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Comment le PO utilise la data</span>
-          <strong>Avant</strong> : cadrer le besoin, prioriser, définir la métrique de succès. <strong>Pendant</strong> : suivre l'avancement et détecter les problèmes. <strong>Après</strong> : mesurer l'impact réel, apprendre, décider de la suite.
-        </div>
-      </section>
-
-      <!-- 9. AGILE / SCRUM -->
-      <section id="agile">
-        <h2><span class="idx">09</span>Agile &amp; Scrum</h2>
-        <p class="section-sub">Les fondamentaux, sans se survendre.</p>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Catégorie</th><th>Éléments</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Rôles</th><td>Product Owner, Scrum Master, Dev Team</td></tr>
-              <tr><th scope="row">Événements</th><td>Sprint, Sprint Planning, Daily, Sprint Review, Rétrospective, Refinement</td></tr>
-              <tr><th scope="row">Artefacts</th><td>Product Backlog, Sprint Backlog, Increment (+ Definition of Done)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">À retenir</span>
-          <strong>Agile ≠ « travailler en sprints ».</strong> C'est livrer par petits incréments, apprendre vite et s'adapter. <em>Avantages</em> : feedback rapide, flexibilité. <em>Limites</em> : nécessite de la discipline et un vrai product ownership. <em>Mauvaises pratiques fréquentes</em> : cérémonies vides de sens, backlog fourre-tout, « faux » agile qui n'est qu'un planning déguisé.
-        </div>
-        <div class="callout say">
-          <span class="lbl">Parler honnêtement de mon expérience agile</span>
-          « J'ai surtout travaillé dans des environnements d'agence, souvent hybrides : un mélange de pilotage projet et de rituels agiles adaptés au contexte client, pas du Scrum “par le livre”. Je connais les principes et les cérémonies, et je sais les adapter plutôt que les appliquer de façon dogmatique. »
-        </div>
-      </section>
-
-      <!-- 10. AGILE A L'ECHELLE -->
-      <section id="agile-echelle">
-        <h2><span class="idx">10</span>Agile à grande échelle</h2>
-        <p class="section-sub">Comprendre les concepts si on me les demande — sans prétendre être experte SAFe.</p>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Terme</th><th>En une phrase</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">SAFe</th><td>Framework pour appliquer l'agile à l'échelle de plusieurs équipes.</td></tr>
-              <tr><th scope="row">PI Planning</th><td>Grand atelier de planification qui aligne toutes les équipes sur un cycle.</td></tr>
-              <tr><th scope="row">Program Increment</th><td>Cycle de plusieurs sprints (~8-12 semaines) partagé par les équipes.</td></tr>
-              <tr><th scope="row">Squads</th><td>Petites équipes produit pluridisciplinaires et autonomes.</td></tr>
-              <tr><th scope="row">Dépendances</th><td>Ce qui relie les équipes entre elles ; le principal point de friction à l'échelle.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- 11. STAKEHOLDERS -->
-      <section id="stakeholders">
-        <h2><span class="idx">11</span>Stakeholder management</h2>
-        <p class="section-sub">Aligner, arbitrer, gérer les attentes — et savoir dire non.</p>
-        <div class="chips">
-          <span class="tag">Parties prenantes</span><span class="tag">Alignement</span><span class="tag">Communication</span><span class="tag">Arbitrage</span><span class="tag">Conflit de priorités</span><span class="tag">Gestion des demandes</span><span class="tag">Dire non</span><span class="tag">Gestion des attentes</span>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Questions fréquentes &amp; angle de réponse</span>
-          <ul>
-            <li><strong>Si tout le monde veut sa feature ?</strong> Ramener à la valeur et aux objectifs communs, rendre les arbitrages transparents, séquencer.</li>
-            <li><strong>Métier et technique en désaccord ?</strong> Faire expliciter le besoin réel et la contrainte réelle, chercher l'option qui sert l'objectif, trancher si besoin.</li>
-            <li><strong>Un stakeholder difficile ?</strong> Écoute, cadre clair, décisions documentées, communication régulière pour éviter les surprises.</li>
-            <li><strong>Expliquer qu'une demande ne sera pas faite ?</strong> Dire non au « quand », pas à la personne : « pas maintenant, voici pourquoi et ce qu'on fait à la place ».</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 12. TECH -->
-      <section id="tech">
-        <h2><span class="idx">12</span>Collaboration avec la tech</h2>
-        <p class="section-sub">Glossaire pratique. Je ne code pas, mais je dialogue avec les équipes.</p>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Notion</th><th>Définition courte</th><th>Pourquoi le PO doit comprendre</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Frontend / Backend</th><td>L'interface visible / la logique et les données côté serveur</td><td>Situer où se joue un besoin ou un bug</td></tr>
-              <tr><th scope="row">API</th><td>Interface par laquelle deux systèmes échangent</td><td>Comprendre les échanges de données et les dépendances</td></tr>
-              <tr><th scope="row">REST / GraphQL</th><td>Deux styles d'API (endpoints fixes / requêtes à la carte)</td><td>Saisir la flexibilité et les limites de récupération de données</td></tr>
-              <tr><th scope="row">BFF</th><td>Backend dédié à un front (Backend For Frontend)</td><td>Expliquer certaines optimisations d'expérience</td></tr>
-              <tr><th scope="row">CMS / Headless</th><td>Outil de gestion de contenu / découplé du front via API</td><td>Cadrer l'édition de contenu et l'architecture</td></tr>
-              <tr><th scope="row">SSR / CSR</th><td>Rendu côté serveur / côté navigateur</td><td>Impacts SEO, performance perçue</td></tr>
-              <tr><th scope="row">Base de données</th><td>Où sont stockées les données</td><td>Comprendre ce qui est persistant et structurant</td></tr>
-              <tr><th scope="row">Microservices / Monolithe</th><td>Système découpé en services / d'un seul bloc</td><td>Anticiper impacts, dépendances et délais</td></tr>
-              <tr><th scope="row">CI/CD</th><td>Intégration et déploiement continus (automatisés)</td><td>Comprendre le rythme et la sécurité des mises en prod</td></tr>
-              <tr><th scope="row">Git</th><td>Gestion de versions du code</td><td>Suivre branches, releases, hotfix</td></tr>
-              <tr><th scope="row">Environnements</th><td>Dev / recette / préprod / prod</td><td>Savoir où tester et valider avant la prod</td></tr>
-              <tr><th scope="row">Logs / Monitoring</th><td>Traces d'exécution / surveillance en temps réel</td><td>Détecter et qualifier un incident</td></tr>
-              <tr><th scope="row">Cache / CDN</th><td>Stockage temporaire / réseau de diffusion</td><td>Comprendre performance et effets « ça ne se met pas à jour »</td></tr>
-              <tr><th scope="row">Performance</th><td>Vitesse et fluidité perçues</td><td>Enjeu direct de conversion et satisfaction</td></tr>
-              <tr><th scope="row">Dette technique</th><td>Raccourcis techniques à rembourser plus tard</td><td>L'intégrer dans la priorisation</td></tr>
-              <tr><th scope="row">Dépendances / Services tiers</th><td>Briques externes dont on dépend</td><td>Anticiper risques, délais et pannes externes</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout warn">
-          <span class="lbl">Point de vigilance</span>
-          Je me présente comme une PO à <strong>bonne culture technique</strong>, capable de dialoguer avec les devs et de comprendre les architectures — <strong>pas</strong> comme une développeuse.
-        </div>
-
-        <h4 class="blk">Focus — Microservices &amp; API (mon expérience Comédie-Française)</h4>
-        <div class="callout say">
-          <span class="lbl">Comment le présenter simplement</span>
-          « Sur la plateforme de billetterie de la Comédie-Française, nous évoluions dans une architecture en microservices. Les différentes briques fonctionnelles du système étaient découplées et communiquaient entre elles via des API. Dans mon rôle de PO, je devais donc particulièrement être attentive aux dépendances et aux impacts d'une évolution sur les différents services. »
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Pourquoi c'est intéressant pour un PO</span>
-          Une architecture en microservices implique souvent que :
-          <ul>
-            <li>une fonctionnalité peut dépendre de plusieurs services ;</li>
-            <li>les services communiquent via des API ;</li>
-            <li>une évolution sur un service peut avoir des impacts ailleurs ;</li>
-            <li>il faut bien identifier les dépendances techniques ;</li>
-            <li>les équipes peuvent travailler sur différents services en parallèle ;</li>
-            <li>les tests d'intégration sont particulièrement importants.</li>
-          </ul>
-        </div>
-        <div class="callout warn">
-          <span class="lbl">Nuance à ne pas oublier</span>
-          Ne pas dire qu'« un microservice = une fonctionnalité ». Un microservice correspond plutôt à un <strong>domaine métier</strong> ou une <strong>responsabilité technique</strong> bien définie (ex. sur une billetterie : gestion des spectacles, disponibilités/places, commandes, paiement, utilisateurs). Rester sur ce que je connais réellement de l'architecture, sans inventer la découpe exacte.
-        </div>
-        <div class="callout say">
-          <span class="lbl">Formulation de synthèse (Talent Acquisition / entretien)</span>
-          « J'ai travaillé sur différents types d'architectures : des environnements headless avec des échanges via API, notamment GraphQL, mais aussi une plateforme reposant sur une architecture en microservices. Je ne suis pas développeuse, mais ces expériences m'ont donné l'habitude d'échanger avec les équipes techniques et de prendre en compte les dépendances entre les différentes briques du système. »
-        </div>
-        <div class="callout say">
-          <span class="lbl">Si on me demande « Vous avez travaillé avec des API ? »</span>
-          « Oui. J'ai travaillé avec des API à la fois dans des architectures headless et dans un environnement en microservices. Par exemple, sur la billetterie de la Comédie-Française, nous avions plusieurs services qui communiquaient entre eux, et également des échanges avec des services externes, notamment pour le paiement. Chez Akufen, j'ai aussi travaillé sur des architectures headless avec des API, notamment GraphQL. Je ne développe pas les API, mais je suis à l'aise pour comprendre les échanges, les dépendances, les données attendues et les impacts fonctionnels et techniques. »
-        </div>
-      </section>
-
-      <!-- 13. QA / RECETTE -->
-      <section id="qa">
-        <h2><span class="idx">13</span>QA &amp; Recette</h2>
-        <p class="section-sub">S'assurer que ce qui est livré correspond au besoin.</p>
-        <div class="chips">
-          <span class="tag">QA</span><span class="tag">Recette fonctionnelle</span><span class="tag">Critères d'acceptation</span><span class="tag">Test fonctionnel</span><span class="tag">Intégration</span><span class="tag">Régression</span><span class="tag">End-to-end</span><span class="tag">Smoke test</span><span class="tag">Edge cases</span><span class="tag">UAT</span>
-        </div>
-        <h4 class="blk">Questions à se poser avant de considérer une feature comme prête</h4>
-        <div class="card">
-          <ul>
-            <li>Tous les critères d'acceptation sont-ils remplis ?</li>
-            <li>Les cas limites et les erreurs sont-ils gérés ?</li>
-            <li>Pas de régression sur l'existant ?</li>
-            <li>Testée sur les bons environnements / navigateurs / mobiles ?</li>
-            <li>Accessibilité et performance correctes ?</li>
-            <li>Le besoin métier initial est-il réellement satisfait ?</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 14. PRODUCTION / INCIDENTS -->
-      <section id="production">
-        <h2><span class="idx">14</span>Production &amp; incidents</h2>
-        <p class="section-sub">Sécuriser les mises en prod, réagir quand ça casse.</p>
-        <div class="chips">
-          <span class="tag">Release</span><span class="tag">Déploiement</span><span class="tag">Feature flag</span><span class="tag">Rollback</span><span class="tag">Monitoring</span><span class="tag">Incident</span><span class="tag">Hotfix</span><span class="tag">Post-mortem</span><span class="tag">Plan de communication</span>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Questions fréquentes &amp; angle de réponse</span>
-          <ul>
-            <li><strong>Face à un incident critique ?</strong> Qualifier l'impact, prioriser la continuité de service, communiquer aux parties prenantes, corriger (hotfix / rollback), puis post-mortem.</li>
-            <li><strong>Sécuriser une mise en prod ?</strong> Recette, environnements de préprod, déploiement progressif / feature flag, monitoring, plan de rollback.</li>
-            <li><strong>Arbitrer bug vs feature ?</strong> Selon la gravité et l'impact utilisateur / business : un bug bloquant passe avant une feature.</li>
-          </ul>
-        </div>
-        <div class="callout retenir">
-          <span class="lbl">Mon exemple</span>
-          La plateforme de billetterie de la Comédie-Française : contexte de production réelle, pics de trafic sur les mises en vente, exigence forte de continuité de service.
-        </div>
-      </section>
-
-      <!-- 15. MES EXEMPLES -->
-      <section id="mes-exemples">
-        <h2><span class="idx">15</span>Mes exemples à utiliser</h2>
-        <p class="section-sub">Identifier vite quelle expérience mobiliser selon la question.</p>
-
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Type de question</th><th>Exemple à mobiliser</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Forte affluence / pic de charge</th><td>Comédie-Française — mises en vente saisonnières</td></tr>
-              <tr><th scope="row">Incident / continuité de service</th><td>Comédie-Française — production billetterie</td></tr>
-              <tr><th scope="row">Coordination complexe / multi-acteurs</th><td>Hors les murs — billetterie multi-partenaires</td></tr>
-              <tr><th scope="row">Conduite du changement</th><td>Comédie-Française — accompagnement des équipes métier</td></tr>
-              <tr><th scope="row">Pilotage multi-équipes / organisation</th><td>Akufen — déploiement de ClickUp</td></tr>
-              <tr><th scope="row">Cadrage / définition du besoin</th><td>Expérience agence (Marcel, DDB, Akufen)</td></tr>
-              <tr><th scope="row">Sujet technique</th><td>Architecture headless / API / GraphQL (Akufen, Hands)</td></tr>
-              <tr><th scope="row">Arbitrage / priorisation</th><td>À compléter (ex. bug bloquant vs feature en période de pic)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h4 class="blk">Réalisations détaillées (STAR)</h4>
-
-        <div class="card star">
-          <div class="tag-line"><span class="tag">Comédie-Française</span><span class="tag">Product Owner</span><span class="tag">Enjeu commercial</span></div>
-          <h3>Mises en vente saisonnières à forte affluence</h3>
-          <dl>
-            <dt>Situation</dt><dd>Deux mises en vente annuelles sur une plateforme B2C à forte audience, dans un contexte de pics de trafic critiques.</dd>
-            <dt>Tâche</dt><dd>Sécuriser la préparation et le déroulement de ces temps forts commerciaux.</dd>
-            <dt>Action</dt><dd>Mise en place d'un process récurrent : planning M-1 à J-J, jalons de suivi, checklists opérationnelles, coordination des équipes produit / tech / métier.</dd>
-            <dt>Résultat</dt><dd>Fiabilisation des mises en vente, meilleure coordination des équipes et réduction des risques opérationnels en pic d'activité.</dd>
-          </dl>
-        </div>
-
-        <div class="card star">
-          <div class="tag-line"><span class="tag">Comédie-Française</span><span class="tag">Multi-partenaires</span><span class="tag">Architecture</span></div>
-          <h3>Déploiement d'une billetterie multi-partenaires (Hors les murs)</h3>
-          <dl>
-            <dt>Situation</dt><dd>Programmation Hors les murs avec 7 lieux partenaires, chacun disposant de son propre outil de billetterie.</dd>
-            <dt>Tâche</dt><dd>Permettre une offre coordonnée tout en conservant un suivi consolidé des ventes.</dd>
-            <dt>Action</dt><dd>Structuration du modèle opérationnel : répartition des contingents, adaptation des plans de salle, définition des flux d'échange de ventes et de contrôle d'accès.</dd>
-            <dt>Résultat</dt><dd>Dispositif de vente coordonné entre plusieurs systèmes de billetterie, déployé avec succès.</dd>
-          </dl>
-        </div>
-
-        <div class="card star">
-          <div class="tag-line"><span class="tag">Conduite du changement</span><span class="tag">Adoption</span></div>
-          <h3>Accompagnement des équipes métier</h3>
-          <dl>
-            <dt>Situation</dt><dd>Équipes métier de la Comédie-Française (billetterie, partenariats, direction) confrontées à l'évolution de leurs outils.</dd>
-            <dt>Tâche</dt><dd>Faciliter l'adoption de la plateforme et fluidifier la remontée des besoins.</dd>
-            <dt>Action</dt><dd>Canaux d'échange dédiés (chat Teams, ligne téléphonique dédiée), points réguliers, présence terrain, communication produit mensuelle.</dd>
-            <dt>Résultat</dt><dd>Meilleure adoption, remontée des besoins renforcée et lien resserré entre métier et produit.</dd>
-          </dl>
-        </div>
-
-        <div class="card star">
-          <div class="tag-line"><span class="tag">Akufen</span><span class="tag">Organisation</span><span class="tag">Outils</span></div>
-          <h3>Structuration du pilotage opérationnel multi-équipes</h3>
-          <dl>
-            <dt>Situation</dt><dd>Projets numériques multi-équipes (UX, design, dev, stratégie, QA) et pilotage de la charge à l'échelle de l'agence.</dd>
-            <dt>Tâche</dt><dd>Améliorer la visibilité et la coordination inter-équipes.</dd>
-            <dt>Action</dt><dd>Rôle de responsable trafic ; déploiement de ClickUp comme outil unique de pilotage (roadmap, ticketing, ressources) pour 12 collaborateurs.</dd>
-            <dt>Résultat</dt><dd>Centralisation des process, meilleure visibilité et collaboration fluidifiée entre équipes et clients.</dd>
-          </dl>
-        </div>
-      </section>
-
-      <!-- 16. QUESTIONS PO -->
-      <section id="questions-po">
-        <h2><span class="idx">16</span>Questions classiques d'entretien PO</h2>
-        <p class="section-sub">Des points de réponse pour répondre naturellement, pas des réponses toutes faites.</p>
-
-        <h4 class="blk">Parcours</h4>
-        <details class="qa">
-          <summary>Parlez-moi de votre parcours.<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Le recruteur évalue</span> clarté, cohérence, capacité à raconter une trajectoire.</p>
-            <ul><li>Dérouler le pitch, puis le fil rouge (agence → produit).</li><li>Insister sur cadrage + delivery, culture technique, B2C.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> Comédie-Française comme point d'orgue produit.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Produit &amp; Discovery</h4>
-        <details class="qa">
-          <summary>Comment décidez-vous quoi construire ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> orientation problème / valeur vs solution.</p>
-            <ul><li>Partir du problème et du besoin, valider par la data / le terrain.</li><li>Croiser valeur utilisateur, valeur business et effort.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> cadrage en agence, remontée des besoins métier à la Comédie-Française.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Priorisation</h4>
-        <details class="qa">
-          <summary>Comment priorisez-vous votre backlog ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> méthode, capacité à trancher.</p>
-            <ul><li>Croiser valeur / effort / risque / temps forts business.</li><li>Citer une méthode (Impact/Effort, MoSCoW) et savoir dire non.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> priorisation autour des mises en vente saisonnières.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Delivery &amp; Agile</h4>
-        <details class="qa">
-          <summary>Comment travaillez-vous en agile au quotidien ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> pragmatisme, honnêteté.</p>
-            <ul><li>Rituels adaptés au contexte (agence hybride), pas du Scrum dogmatique.</li><li>Backlog clair, refinement, recette, itérations.</li></ul>
-          </div>
-        </details>
-
-        <h4 class="blk">Stakeholders</h4>
-        <details class="qa">
-          <summary>Comment gérez-vous des priorités contradictoires entre stakeholders ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> communication, arbitrage, capacité à dire non.</p>
-            <ul><li>Ramener aux objectifs communs, rendre les arbitrages transparents.</li><li>Dire non au « quand », proposer une alternative.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> coordination métier / partenaires sur Hors les murs.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Technique</h4>
-        <details class="qa">
-          <summary>Comment collaborez-vous avec les équipes techniques ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> culture technique, qualité des specs.</p>
-            <ul><li>Comprendre les architectures (headless, microservices, API/GraphQL).</li><li>Specs et critères d'acceptation clairs, ateliers de cadrage, recette.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> plateformes headless chez Akufen et Hands.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">QA &amp; Incidents</h4>
-        <details class="qa">
-          <summary>Que faites-vous face à un incident critique en production ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> sang-froid, méthode, sens du service.</p>
-            <ul><li>Qualifier l'impact, prioriser la continuité, communiquer, corriger, post-mortem.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> exigence de continuité sur la billetterie Comédie-Française.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Management / leadership</h4>
-        <details class="qa">
-          <summary>Comment embarquez-vous une équipe / des utilisateurs sur un changement ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">Évalue</span> leadership sans autorité, conduite du changement.</p>
-            <ul><li>Écoute, canaux dédiés, communication régulière, présence terrain.</li></ul>
-            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> accompagnement des équipes métier de la Comédie-Française.</p>
-          </div>
-        </details>
-
-        <h4 class="blk">Motivation</h4>
-        <details class="qa">
-          <summary>Pourquoi ce poste / ce produit ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">
-            <p class="meta"><span class="ex-lbl">À personnaliser</span> selon l'entreprise.</p>
-            <ul><li>Ce qui attire dans le produit / la mission, résonance avec le parcours.</li><li>Envie d'un rôle produit ambitieux et de l'IA comme levier.</li></ul>
-          </div>
-        </details>
-      </section>
-
-      <!-- 17. QUESTIONS RH -->
-      <section id="questions-rh">
-        <h2><span class="idx">17</span>Questions RH</h2>
-        <p class="section-sub">Réponses à structurer à l'avance.</p>
-
-        <details class="qa">
-          <summary>Présentez-vous.<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Dérouler le pitch (section 1), puis le fil rouge et une réalisation marquante.</div>
-        </details>
-
-        <details class="qa">
-          <summary>Comment expliquez-vous le passage de cheffe de projet à PO ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Évolution de <strong>posture</strong>, pas de métier : je faisais déjà du cadrage, de la conception et de la coordination ; je prends désormais la responsabilité de la priorisation, du backlog, de la valeur et de l'évolution du produit dans la durée.</div>
-        </details>
-
-        <details class="qa">
-          <summary>Pourquoi PO ? Pourquoi ce poste ? Pourquoi changer ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Rester positive : envie d'un rôle produit plus ambitieux, dans un environnement où l'IA est un vrai levier. <em>À personnaliser</em> selon l'entreprise. Éviter toute critique.</div>
-        </details>
-
-        <details class="qa">
-          <summary>Vos forces et vos axes de progression ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Voir section 20. Présenter un axe réel + ce qui est mis en place pour le travailler.</div>
-        </details>
-
-        <details class="qa">
-          <summary>Votre environnement idéal ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Équipe produit structurée, culture de la valeur et de la data, collaboration étroite avec la tech, place réelle pour l'IA.</div>
-        </details>
-
-        <details class="qa">
-          <summary>Rémunération, disponibilité, projection ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-          <div class="answer">Voir section Logistique pour les chiffres à caler. Projection : montée en impact produit (senior / lead PO).</div>
-        </details>
-      </section>
-
-      <!-- 18. QUESTIONS A POSER -->
-      <section id="a-poser">
-        <h2><span class="idx">18</span>Questions à poser au recruteur</h2>
-        <p class="section-sub">Toujours en avoir 3–4 en réserve.</p>
-        <div class="card">
-          <ul>
-            <li>Comment est structurée l'équipe produit et où se situe ce poste ?</li>
-            <li>Quelles sont les priorités des 3–6 premiers mois ?</li>
-            <li>Comment se prennent les décisions produit (données, discovery, arbitrages) ?</li>
-            <li>Quelle place pour l'IA dans le produit et les process aujourd'hui ?</li>
-            <li>Comment mesurez-vous le succès de ce rôle ?</li>
-            <li>Quelles sont les prochaines étapes du process de recrutement ?</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 19. IA / LLM -->
-      <section id="ia">
-        <h2><span class="idx">19</span>IA &amp; LLM</h2>
-        <p class="section-sub">Un usage concret et lucide — pas une posture d'experte.</p>
-        <div class="chips">
-          <span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Mistral</span><span class="tag">Claude Code</span><span class="tag">Prototypage</span><span class="tag">Analyse</span><span class="tag">Expérimentation LLM</span>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Ce que je peux dire en entretien</span>
-          <ul>
-            <li><strong>Au quotidien ?</strong> Accélérer cadrage, rédaction (specs, US), analyse, prototypage rapide.</li>
-            <li><strong>Impact sur le métier de PO ?</strong> Gagner du temps sur les tâches à faible valeur, tester des idées plus vite, mieux exploiter la donnée.</li>
-            <li><strong>Usages pour un PO ?</strong> Synthèse de feedbacks, aide à la rédaction, exploration de solutions, prototypes de discovery.</li>
-            <li><strong>Risques / limites ?</strong> Qualité des données, hallucinations, confidentialité, dépendance ; l'IA assiste, ne décide pas.</li>
-            <li><strong>Expérimentation vs valeur produit ?</strong> Distinguer le « waouh » d'une démo de l'impact mesurable pour l'utilisateur et le business.</li>
-          </ul>
-        </div>
-        <div class="callout warn">
-          <span class="lbl">Point de vigilance</span>
-          Me présenter comme une PO qui <strong>expérimente et intègre l'IA avec discernement</strong>, pas comme une experte IA / ML.
-        </div>
-      </section>
-
-      <!-- 20. FORCES / VIGILANCE -->
-      <section id="forces">
-        <h2><span class="idx">20</span>Forces &amp; points de vigilance</h2>
-        <p class="section-sub">Assumer les forces, rester lucide sur les pièges.</p>
-        <div class="grid-2">
-          <div class="card">
-            <h3>Forces</h3>
-            <ul>
-              <li>10+ ans d'expérience digitale</li>
-              <li>Cadrage <em>et</em> delivery</li>
-              <li>Culture technique, dialogue avec la tech</li>
-              <li>Lien métier / produit / tech</li>
-              <li>Adaptation à des environnements variés</li>
-              <li>Coordination multi-interlocuteurs</li>
-              <li>Expérience B2C et production réelle</li>
-              <li>Sensibilité UX, structuration, conduite du changement</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Points de vigilance</h3>
-            <ul>
-              <li>Ne pas survendre mon expérience Agile (contexte agence hybride)</li>
-              <li>Ne pas me présenter comme développeuse</li>
-              <li>Bien expliquer mon expérience Discovery (cadrage = discovery)</li>
-              <li>Ne pas réduire mon expérience de cheffe de projet au delivery</li>
-              <li>Éviter le jargon</li>
-              <li>Toujours illustrer les concepts par un exemple concret</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout say">
-          <span class="lbl">Axe de progression (à personnaliser)</span>
-          Présenter un axe réel, ce qui a été mis en place pour le travailler, et ce que ça a donné.
-        </div>
-      </section>
-
-      <!-- 21. GLOSSAIRE -->
-      <section id="glossaire">
-        <h2><span class="idx">21</span>Mini glossaire</h2>
-        <p class="section-sub">Les sigles à reconnaître en un clin d'œil.</p>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead><tr><th>Sigle</th><th>Signification</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">API</th><td>Interface d'échange entre systèmes</td></tr>
-              <tr><th scope="row">BA</th><td>Business Analyst</td></tr>
-              <tr><th scope="row">BFF</th><td>Backend For Frontend</td></tr>
-              <tr><th scope="row">CI/CD</th><td>Intégration / déploiement continus</td></tr>
-              <tr><th scope="row">CMS</th><td>Système de gestion de contenu</td></tr>
-              <tr><th scope="row">CSR</th><td>Rendu côté navigateur (Client-Side Rendering)</td></tr>
-              <tr><th scope="row">DoD</th><td>Definition of Done — critères de « terminé »</td></tr>
-              <tr><th scope="row">DoR</th><td>Definition of Ready — critères de « prêt à développer »</td></tr>
-              <tr><th scope="row">Edge case</th><td>Cas limite / exceptionnel à gérer</td></tr>
-              <tr><th scope="row">Feature flag</th><td>Interrupteur pour activer/désactiver une feature</td></tr>
-              <tr><th scope="row">Headless</th><td>Contenu / commerce découplé du front via API</td></tr>
-              <tr><th scope="row">KPI</th><td>Indicateur clé de performance</td></tr>
-              <tr><th scope="row">MMP</th><td>Minimum Marketable Product</td></tr>
-              <tr><th scope="row">MoSCoW</th><td>Must / Should / Could / Won't (priorisation)</td></tr>
-              <tr><th scope="row">MVP</th><td>Minimum Viable Product</td></tr>
-              <tr><th scope="row">OKR</th><td>Objectives &amp; Key Results</td></tr>
-              <tr><th scope="row">PM</th><td>Product Manager</td></tr>
-              <tr><th scope="row">PO</th><td>Product Owner</td></tr>
-              <tr><th scope="row">QA</th><td>Quality Assurance (assurance qualité)</td></tr>
-              <tr><th scope="row">RICE</th><td>Reach × Impact × Confidence ÷ Effort</td></tr>
-              <tr><th scope="row">Rollback</th><td>Retour à la version précédente</td></tr>
-              <tr><th scope="row">SLA</th><td>Service Level Agreement (engagement de service)</td></tr>
-              <tr><th scope="row">SLO</th><td>Service Level Objective (objectif de service)</td></tr>
-              <tr><th scope="row">SSR</th><td>Rendu côté serveur (Server-Side Rendering)</td></tr>
-              <tr><th scope="row">Tech debt</th><td>Dette technique</td></tr>
-              <tr><th scope="row">UAT</th><td>User Acceptance Testing (recette utilisateur)</td></tr>
-              <tr><th scope="row">WSJF</th><td>Weighted Shortest Job First (priorisation SAFe)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- 22. LOGISTIQUE -->
-      <section id="logistique">
-        <h2><span class="idx">22</span>Logistique</h2>
-        <p class="section-sub">Points concrets à avoir clairs.</p>
-        <div class="card">
-          <div class="info-row"><span class="label">Prétentions</span><span class="value">À compléter (fourchette cible / basse)</span></div>
-          <div class="info-row"><span class="label">Disponibilité</span><span class="value">À compléter (préavis)</span></div>
-          <div class="info-row"><span class="label">Modalités</span><span class="value">Présentiel, hybride ou télétravail</span></div>
-          <div class="info-row"><span class="label">Localisation</span><span class="value">Paris</span></div>
-          <div class="info-row"><span class="label">Mobilité</span><span class="value">À compléter</span></div>
-        </div>
-      </section>
-
-      <!-- 23. CHECKLIST 10 MIN -->
-      <section id="checklist">
-        <h2><span class="idx">23</span>Checklist — 10 minutes avant</h2>
-        <p class="section-sub">Le dernier scan avant de démarrer.</p>
-        <ul class="checklist">
-          <li>Mon pitch</li>
-          <li>Mon dernier produit</li>
-          <li>Pourquoi ce poste</li>
-          <li>3 réalisations</li>
-          <li>1 difficulté / conflit</li>
-          <li>1 exemple technique</li>
-          <li>Comment je priorise</li>
-          <li>Comment je travaille avec les devs</li>
-          <li>Mon expérience Agile</li>
-          <li>Mes questions à poser</li>
-          <li>Rémunération / disponibilité</li>
-        </ul>
-      </section>
-    </main>
-  </div>
-
-  <script>
-    const links = document.querySelectorAll('.sidenav a');
-    const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(s => s && observer.observe(s));
-  </script>
+    </section>
+  </main>
 </body>
 </html>

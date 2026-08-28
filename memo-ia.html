@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mémo IA — Marine Tréhorel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #2b2622;
+      background: #f6efe4;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 32px;
+      background: rgba(246, 239, 228, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd0be;
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: #6b6560;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .topbar .back svg { width: 19px; height: 19px; display: block; }
+
+    .topbar .back:hover {
+      color: #a54527;
+      background: rgba(201, 117, 90, 0.1);
+    }
+
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    /* Side nav */
+    .sidenav {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      height: max-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidenav h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul { list-style: none; }
+
+    .sidenav li { margin-bottom: 1px; }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #6b6560;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s ease;
+    }
+
+    .sidenav a .num {
+      display: inline-block;
+      width: 20px;
+      color: #b9ab97;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidenav a:hover,
+    .sidenav a.active {
+      color: #a54527;
+      background: #fbf5ea;
+      border-left-color: #c9755a;
+    }
+    .sidenav a.active .num { color: #c9755a; }
+
+    /* Content */
+    .content { min-width: 0; }
+
+    .page-head { margin-bottom: 40px; }
+
+    .page-head .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9755a;
+      margin-bottom: 12px;
+    }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      font-size: 15px;
+      color: #6b6560;
+      max-width: 640px;
+    }
+
+    section { margin-bottom: 52px; scroll-margin-top: 88px; }
+
+    section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    section > h2 .idx {
+      font-size: 15px;
+      color: #c9755a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: 2px;
+    }
+
+    section > .section-sub {
+      font-size: 13.5px;
+      color: #9a9088;
+      margin-bottom: 22px;
+    }
+
+    h4.blk {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin: 24px 0 10px;
+    }
+
+    .card {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14.5px; color: #4a4540; }
+    .card p + p { margin-top: 10px; }
+
+    .card ul { margin: 4px 0 0 18px; }
+    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
+
+    .pitch {
+      border-left: 3px solid #c9755a;
+      background: #fbf5ea;
+      padding: 22px 26px;
+      border-radius: 0 14px 14px 0;
+      font-size: 15.5px;
+      color: #3a352f;
+      line-height: 1.75;
+    }
+    .pitch strong { color: #a54527; }
+
+    /* Chips / keywords */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    .callout .lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
+    .callout.retenir .lbl { color: #a54527; }
+    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
+    .callout.say .lbl { color: #c9755a; }
+    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
+    .callout.warn .lbl { color: #a54527; }
+    .callout b, .callout strong { color: #2b2622; }
+    .callout ul { margin: 4px 0 0 18px; }
+    .callout li { margin-bottom: 4px; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+    table.tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table.tbl th, table.tbl td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #efe3d5;
+      vertical-align: top;
+    }
+    table.tbl thead th {
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.tbl tbody tr:last-child td { border-bottom: none; }
+    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
+    table.tbl th[scope="row"] { white-space: nowrap; }
+
+    /* STAR blocks */
+    .star { position: relative; }
+    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
+    .star dt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c9755a;
+      padding-top: 2px;
+    }
+    .star dd { font-size: 14.5px; color: #4a4540; }
+
+    /* Q&A */
+    details.qa {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      padding: 4px 20px;
+      margin-bottom: 12px;
+    }
+    details.qa summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b2622;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary .chev {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c9755a;
+      transition: transform 0.2s ease;
+    }
+    details.qa[open] summary .chev { transform: rotate(180deg); }
+    details.qa .answer {
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    details.qa .answer ul { margin: 8px 0 0 18px; }
+    details.qa .answer li { margin-bottom: 5px; }
+    .ex-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 9.5px;
+      color: #c9755a;
+      margin-right: 6px;
+    }
+    .answer .meta { margin-top: 10px; font-size: 13px; }
+    .answer .meta.ex { color: #7a3d24; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      color: #4a4540;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #c9755a;
+      border-radius: 5px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd0be;
+      font-size: 14.5px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: #9a9088; font-weight: 600; }
+    .info-row .value { color: #2b2622; text-align: right; }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
+      .sidenav { display: none; }
+      .page-head h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .star dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="/preparation-entretien.html" aria-label="Retour à la préparation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
+    </a>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidenav">
+      <h3>Sommaire</h3>
+      <ul>
+        <li><a href="#bases"><span class="num">1</span>Les bases</a></li>
+        <li><a href="#llm"><span class="num">2</span>LLM</a></li>
+        <li><a href="#prompt"><span class="num">3</span>Prompt &amp; contexte</a></li>
+        <li><a href="#specialiser"><span class="num">4</span>Spécialiser un modèle</a></li>
+        <li><a href="#rag"><span class="num">5</span>RAG</a></li>
+        <li><a href="#agents"><span class="num">6</span>Agents &amp; assistants</a></li>
+        <li><a href="#paysage"><span class="num">7</span>Le paysage</a></li>
+        <li><a href="#choisir"><span class="num">8</span>Choisir son modèle</a></li>
+        <li><a href="#usages"><span class="num">9</span>Mes usages réels</a></li>
+        <li><a href="#construit"><span class="num">10</span>Ce que j’ai construit</a></li>
+        <li><a href="#po-ia"><span class="num">11</span>Être PO sur un produit IA</a></li>
+        <li><a href="#risques"><span class="num">12</span>Risques &amp; limites</a></li>
+        <li><a href="#questions"><span class="num">13</span>Questions probables</a></li>
+        <li><a href="#glossaire"><span class="num">14</span>Glossaire</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div class="page-head">
+        <p class="eyebrow">Fiche de référence</p>
+        <h1>Mémo IA</h1>
+        <p>Les notions à maîtriser (IA générative, LLM, RAG, agents) et mes exemples concrets pour chacune. Objectif : parler juste, sans jargon plaqué ni posture d’experte.</p>
+      </div>
+
+      <div class="callout retenir">
+        <span class="lbl">Ma ligne, tout au long de cette fiche</span>
+        Je suis une <strong>PO qui comprend ce que les LLM savent et ne savent pas faire</strong>, qui les expérimente réellement et cherche à les intégrer dans les workflows et les produits. Je ne suis <strong>ni experte IA, ni développeuse, ni data scientist</strong>. Assumer cette frontière est plus crédible que de la brouiller.
+      </div>
+
+      <section id="bases">
+        <h2><span class="idx">01</span>Les bases</h2>
+        <p class="section-sub">Les poupées russes du vocabulaire : qui contient quoi.</p>
+        <div class="chips">
+          <span class="tag">IA</span><span class="tag">Machine learning</span><span class="tag">Deep learning</span><span class="tag">Réseau de neurones</span><span class="tag">IA générative</span><span class="tag">Modèle de fondation</span><span class="tag">Entraînement</span><span class="tag">Inférence</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Définition simple</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">IA</th><td>Terme parapluie : tout système qui exécute une tâche demandant normalement de l’intelligence humaine</td><td>Un moteur de règles, un filtre anti-spam</td></tr>
+              <tr><th scope="row">Machine learning</th><td>Sous-ensemble de l’IA : le système apprend des <em>règles</em> à partir de <em>données</em>, au lieu qu’on les code</td><td>Scoring, recommandation, détection de fraude</td></tr>
+              <tr><th scope="row">Deep learning</th><td>Sous-ensemble du ML utilisant des réseaux de neurones à nombreuses couches</td><td>Reconnaissance d’image, traduction</td></tr>
+              <tr><th scope="row">IA générative</th><td>Deep learning qui <em>produit du nouveau contenu</em> (texte, image, code, son) plutôt que de classer ou prédire une valeur</td><td>ChatGPT, Claude, Midjourney</td></tr>
+              <tr><th scope="row">Modèle de fondation</th><td>Gros modèle pré-entraîné sur des données massives et généralistes, réutilisable pour de nombreuses tâches</td><td>GPT, Claude, Llama, Mistral</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="blk">Deux distinctions qui reviennent souvent</h4>
+        <div class="card">
+          <ul>
+            <li><strong>IA prédictive vs générative</strong> — la prédictive répond « quelle est la probabilité que… » (churn, fraude, prévision de ventes). La générative <em>produit</em> un contenu. Ce ne sont ni les mêmes cas d’usage ni les mêmes métriques.</li>
+            <li><strong>Entraînement vs inférence</strong> — l’entraînement, c’est fabriquer le modèle (très coûteux, rare). L’inférence, c’est l’utiliser (chaque appel API). En entreprise, on fait presque toujours de l’inférence sur un modèle existant.</li>
+          </ul>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire</span>
+          « Ce que j’utilise et ce sur quoi je peux piloter, c’est de l’IA générative appliquée à des cas d’usage produit : accélérer l’analyse, structurer de la donnée non structurée, produire des supports. Je ne prétends pas savoir entraîner un modèle. »
+        </div>
+      </section>
+
+      <section id="llm">
+        <h2><span class="idx">02</span>LLM</h2>
+        <p class="section-sub">Large Language Model — ce que c’est vraiment, et pourquoi ça change ce qu’on peut en attendre.</p>
+        <div class="chips">
+          <span class="tag">Token</span><span class="tag">Paramètres</span><span class="tag">Transformer</span><span class="tag">Attention</span><span class="tag">Pré-entraînement</span><span class="tag">Fenêtre de contexte</span><span class="tag">Température</span><span class="tag">Embedding</span><span class="tag">Multimodal</span><span class="tag">Modèle de raisonnement</span>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Le principe en une phrase</span>
+          Un LLM <strong>prédit le prochain morceau de texte le plus probable</strong>, appris statistiquement sur d’énormes volumes de texte. Il ne « sait » rien et ne consulte aucune base : il génère. <strong>Tout le reste en découle</strong> — les hallucinations, la sensibilité au prompt, la nécessité du RAG.
+        </div>
+        <h4 class="blk">Le vocabulaire utile</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Ce que c’est</th><th>Pourquoi ça compte côté produit</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Token</th><td>Unité de découpage du texte (≈ 3/4 d’un mot en français)</td><td>C’est l’unité de <strong>facturation</strong> et de limite. Un coût produit se raisonne en tokens</td></tr>
+              <tr><th scope="row">Fenêtre de contexte</th><td>Quantité de texte traitable en une fois (prompt + réponse)</td><td>Détermine si on peut lui donner un document entier, un historique, une base de code</td></tr>
+              <tr><th scope="row">Paramètres</th><td>Les « poids » appris pendant l’entraînement (des milliards)</td><td>Indicateur grossier de puissance. Plus gros ≠ toujours mieux : plus lent et plus cher</td></tr>
+              <tr><th scope="row">Embedding</th><td>Représentation d’un texte en vecteur numérique, où deux sens proches sont proches</td><td>C’est ce qui rend possible la <strong>recherche sémantique</strong>, donc le RAG</td></tr>
+              <tr><th scope="row">Température</th><td>Réglage de l’aléatoire des réponses (0 = déterministe, élevé = créatif)</td><td>Basse pour de l’extraction ou de la classification, haute pour de l’idéation</td></tr>
+              <tr><th scope="row">Cut-off</th><td>Date limite des données d’entraînement</td><td>Le modèle ignore tout ce qui s’est passé après. D’où la recherche web ou le RAG</td></tr>
+              <tr><th scope="row">Multimodal</th><td>Modèle qui accepte plusieurs formats en entrée (texte, image, PDF, audio)</td><td>Permet de traiter des captures, des maquettes, des documents scannés</td></tr>
+              <tr><th scope="row">Modèle de raisonnement</th><td>Modèle entraîné à « réfléchir » avant de répondre, via une chaîne de raisonnement interne</td><td>Meilleur sur l’analyse complexe, mais plus lent et plus cher. À réserver aux tâches qui le justifient</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="blk">Ce qu’un LLM fait bien / mal</h4>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Bien</h3>
+            <ul>
+              <li>Reformuler, résumer, traduire</li>
+              <li>Structurer du non-structuré (verbatims → thèmes)</li>
+              <li>Classer, extraire, taguer</li>
+              <li>Rédiger un premier jet à partir d’un cadre</li>
+              <li>Expliquer du code ou un concept technique</li>
+              <li>Générer des variantes, ouvrir des pistes</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Mal</h3>
+            <ul>
+              <li>Le calcul exact et le comptage</li>
+              <li>Les faits vérifiables et récents, sans source fournie</li>
+              <li>Être reproductible à l’identique</li>
+              <li>Connaître un contexte interne qu’on ne lui a pas donné</li>
+              <li>Dire « je ne sais pas » spontanément</li>
+              <li>Toute décision engageant juridiquement ou financièrement</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="prompt">
+        <h2><span class="idx">03</span>Prompt &amp; contexte</h2>
+        <p class="section-sub">Le levier le moins coûteux et le plus sous-estimé.</p>
+        <div class="chips">
+          <span class="tag">Prompt</span><span class="tag">System prompt</span><span class="tag">Zero-shot</span><span class="tag">Few-shot</span><span class="tag">Chain of thought</span><span class="tag">Prompt engineering</span><span class="tag">Context engineering</span><span class="tag">Sortie structurée</span><span class="tag">Garde-fous</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Notion</th><th>Ce que c’est</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">System prompt</th><td>Instruction permanente qui définit le rôle, le ton, les règles et les interdits. C’est là que se joue le comportement d’un assistant produit</td></tr>
+              <tr><th scope="row">Zero-shot</th><td>On demande sans donner d’exemple</td></tr>
+              <tr><th scope="row">Few-shot</th><td>On donne deux ou trois exemples de la sortie attendue. Souvent le gain de qualité le plus rapide</td></tr>
+              <tr><th scope="row">Chain of thought</th><td>Demander au modèle de dérouler son raisonnement étape par étape avant de conclure</td></tr>
+              <tr><th scope="row">Sortie structurée</th><td>Imposer un format de réponse (JSON, tableau) pour rendre le résultat exploitable par un autre système</td></tr>
+              <tr><th scope="row">Context engineering</th><td>L’évolution du prompt engineering : ne plus seulement soigner la formulation, mais <strong>choisir quelles informations mettre dans la fenêtre de contexte</strong> — et lesquelles en retirer</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="blk">Ce qui fait un bon prompt — les 5 briques</h4>
+        <div class="card">
+          <ul>
+            <li><strong>Rôle</strong> — de quel point de vue le modèle doit répondre</li>
+            <li><strong>Contexte</strong> — le matériau réel : données, contraintes, historique</li>
+            <li><strong>Tâche</strong> — une demande précise et unique</li>
+            <li><strong>Format</strong> — la forme attendue : longueur, structure, gabarit</li>
+            <li><strong>Contraintes</strong> — ce qu’il ne doit pas faire, et quoi répondre s’il ne sait pas</li>
+          </ul>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Le réflexe PO</span>
+          Un mauvais résultat vient bien plus souvent d’un <strong>prompt sous-spécifié</strong> que d’un modèle insuffisant. C’est exactement le même réflexe que face à une user story mal écrite : le problème est dans l’énoncé du besoin, pas dans l’exécution.
+        </div>
+      </section>
+
+      <section id="specialiser">
+        <h2><span class="idx">04</span>Spécialiser un modèle</h2>
+        <p class="section-sub">Les trois leviers, du moins au plus coûteux. Question d’entretien classique.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Levier</th><th>Principe</th><th>Coût / délai</th><th>Quand le choisir</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Prompt engineering</th><td>Mieux formuler, donner des exemples, cadrer le rôle</td><td>Quasi nul, immédiat</td><td>Toujours en premier. Résout la majorité des cas</td></tr>
+              <tr><th scope="row">RAG</th><td>Aller chercher les bonnes informations et les injecter dans le prompt</td><td>Moyen — il faut une base documentaire propre</td><td>Le modèle doit connaître des <strong>données internes, à jour, sourcées</strong></td></tr>
+              <tr><th scope="row">Fine-tuning</th><td>Ré-entraîner le modèle sur des exemples métier pour ancrer un <em>comportement</em></td><td>Élevé — dataset qualifié, MLOps, à refaire à chaque évolution</td><td>Besoin d’un <strong>format ou d’un ton très spécifique</strong>, à grand volume</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La règle à retenir</span>
+          <strong>RAG pour la connaissance, fine-tuning pour le comportement.</strong> Le fine-tuning n’ajoute pas de savoir fiable et ne dispense pas du RAG. Dans la grande majorité des projets, on commence par le prompt puis le RAG — et le fine-tuning n’arrive jamais.
+        </div>
+      </section>
+
+      <section id="rag">
+        <h2><span class="idx">05</span>RAG</h2>
+        <p class="section-sub">Retrieval-Augmented Generation — la brique la plus demandée en entreprise.</p>
+        <div class="chips">
+          <span class="tag">Retrieval</span><span class="tag">Chunking</span><span class="tag">Embeddings</span><span class="tag">Base vectorielle</span><span class="tag">Recherche sémantique</span><span class="tag">Reranking</span><span class="tag">Citations</span><span class="tag">Grounding</span>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">En une phrase</span>
+          Le RAG, c’est <strong>faire passer un examen à livre ouvert au modèle</strong> : au lieu de répondre de mémoire, il reçoit les extraits pertinents de <em>nos</em> documents et répond à partir d’eux, en citant ses sources.
+        </div>
+        <h4 class="blk">La chaîne, étape par étape</h4>
+        <div class="card">
+          <ul>
+            <li><strong>1. Ingestion</strong> — on rassemble les documents : base de connaissance, tickets, procédures, CMS</li>
+            <li><strong>2. Chunking</strong> — on les découpe en morceaux cohérents. Un mauvais découpage casse le sens et dégrade tout le reste</li>
+            <li><strong>3. Embeddings</strong> — chaque morceau est converti en vecteur et stocké dans une base vectorielle</li>
+            <li><strong>4. Retrieval</strong> — à la question de l’utilisateur, on récupère les morceaux sémantiquement les plus proches</li>
+            <li><strong>5. Reranking</strong> — on reclasse ces morceaux pour ne garder que les meilleurs</li>
+            <li><strong>6. Génération</strong> — le LLM rédige la réponse <em>à partir de ces extraits</em>, avec les sources</li>
+          </ul>
+        </div>
+        <h4 class="blk">Ce qui fait échouer un projet RAG — le vrai sujet PO</h4>
+        <div class="card">
+          <ul>
+            <li><strong>La qualité documentaire</strong> — documents obsolètes, doublons, versions contradictoires. Le RAG ne nettoie rien : il expose le désordre existant</li>
+            <li><strong>La gouvernance</strong> — qui est propriétaire du contenu ? qui le met à jour ? à quelle fréquence ? Sans réponse, la solution se dégrade en quelques mois</li>
+            <li><strong>Les droits d’accès</strong> — le RAG doit respecter les permissions, sinon il devient une fuite de données interne</li>
+            <li><strong>L’évaluation</strong> — sans jeu de questions/réponses de référence, impossible de savoir si une modification améliore ou casse le système</li>
+          </ul>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Mon angle</span>
+          « Sur un projet RAG, la partie modèle n’est pas là où se joue le succès. Ce qui décide, c’est l’état du corpus documentaire et sa gouvernance — donc un travail de cadrage, de priorisation des sources et de conduite du changement avec les métiers. C’est exactement le terrain sur lequel j’ai travaillé lors des refontes institutionnelles. »
+        </div>
+      </section>
+
+      <section id="agents">
+        <h2><span class="idx">06</span>Agents &amp; assistants</h2>
+        <p class="section-sub">La confusion la plus fréquente — et la question piège la plus probable.</p>
+        <div class="chips">
+          <span class="tag">Assistant</span><span class="tag">Copilote</span><span class="tag">Agent</span><span class="tag">Tool use</span><span class="tag">Function calling</span><span class="tag">MCP</span><span class="tag">Orchestration</span><span class="tag">Human in the loop</span><span class="tag">Multi-agents</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Type</th><th>Ce qu’il fait</th><th>Qui décide</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Chatbot classique</th><td>Répond selon un arbre de règles pré-écrit</td><td>Le concepteur, à l’avance</td><td>FAQ scriptée</td></tr>
+              <tr><th scope="row">Assistant / copilote</th><td>Répond, rédige, suggère — l’humain garde la main et exécute</td><td>L’humain</td><td>ChatGPT, GitHub Copilot</td></tr>
+              <tr><th scope="row">Agent</th><td>Reçoit un <strong>objectif</strong>, planifie les étapes, utilise des outils, observe le résultat et boucle jusqu’à l’atteindre</td><td>Le modèle, dans un périmètre défini</td><td>Claude Code, agent de traitement de tickets</td></tr>
+              <tr><th scope="row">Système multi-agents</th><td>Plusieurs agents spécialisés coordonnés par un orchestrateur</td><td>L’orchestrateur</td><td>Un agent recherche + un agent rédaction + un agent vérification</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La différence en une phrase</span>
+          Un <strong>assistant produit du texte</strong>, un <strong>agent produit des actions</strong>. Ce qui fait l’agent, c’est l’accès à des outils (<em>tool use</em>) et la boucle autonome : planifier → agir → observer → corriger.
+        </div>
+        <h4 class="blk">Les briques d’un agent</h4>
+        <div class="card">
+          <ul>
+            <li><strong>Objectif</strong> — un but, pas une suite d’instructions</li>
+            <li><strong>Outils (tool use / function calling)</strong> — le modèle peut appeler une API, lire un fichier, lancer une requête. C’est ce qui le relie au monde réel</li>
+            <li><strong>MCP</strong> (Model Context Protocol) — un standard ouvert pour brancher un modèle sur des sources de données et des outils, sans réécrire une intégration par outil</li>
+            <li><strong>Mémoire</strong> — le contexte de la session, et parfois une persistance entre sessions</li>
+            <li><strong>Boucle</strong> — il évalue le résultat de son action et réessaie autrement si besoin</li>
+            <li><strong>Garde-fous</strong> — périmètre d’action, droits, validation humaine sur les actions irréversibles</li>
+          </ul>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le point de vigilance produit</span>
+          Plus un agent est autonome, plus le <strong>coût d’une erreur</strong> augmente : il n’écrit plus une mauvaise phrase, il exécute une mauvaise action. La question à poser sur tout projet agentique est <strong>« qu’est-ce qui est réversible ? »</strong> — et mettre un humain dans la boucle sur tout ce qui ne l’est pas.
+        </div>
+      </section>
+
+      <section id="paysage">
+        <h2><span class="idx">07</span>Le paysage</h2>
+        <p class="section-sub">Savoir situer les acteurs, sans prétendre les avoir tous testés.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Catégorie</th><th>Acteurs</th><th>À savoir</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Modèles propriétaires</th><td>Claude (Anthropic), GPT (OpenAI), Gemini (Google)</td><td>Les plus performants, accès par API, données traitées chez le fournisseur</td></tr>
+              <tr><th scope="row">Modèles ouverts</th><td>Mistral, Llama, Qwen, DeepSeek</td><td>Déployables sur son propre cloud — l’argument clé pour la souveraineté et la confidentialité</td></tr>
+              <tr><th scope="row">Assistants grand public</th><td>ChatGPT, Claude, Copilot, Gemini</td><td>La porte d’entrée. Attention à la version : gratuite ≠ entreprise côté confidentialité</td></tr>
+              <tr><th scope="row">Assistants de code</th><td>Claude Code, Cursor, GitHub Copilot</td><td>Claude Code est <strong>agentique</strong> : il lit, écrit et exécute dans un vrai projet</td></tr>
+              <tr><th scope="row">Image &amp; design</th><td>Midjourney, Figma AI, outils de génération de maquettes</td><td>Utile pour l’idéation et le prototypage rapide</td></tr>
+              <tr><th scope="row">Cadre réglementaire</th><td>AI Act européen, RGPD</td><td>L’AI Act classe les usages par niveau de risque et impose des obligations croissantes. Savoir que ça existe suffit</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="choisir">
+        <h2><span class="idx">08</span>Choisir son modèle</h2>
+        <p class="section-sub">Il n’y a pas de « meilleur modèle » : il y a un modèle adapté à un cas d’usage, un budget et une contrainte de données.</p>
+        <div class="callout retenir">
+          <span class="lbl">La méthode en une phrase</span>
+          On part <strong>du cas d’usage et des contraintes</strong>, jamais du modèle. Puis on prend le <strong>modèle le moins cher qui passe le jeu d’évaluation</strong> — et on ne monte en gamme que si la qualité ne suit pas.
+        </div>
+
+        <h4 class="blk">Les 6 critères à passer en revue</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Critère</th><th>La question à se poser</th><th>Ce que ça change</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1. Nature de la tâche</th><td>Extraction / classification, ou analyse et raisonnement ?</td><td>Une tâche simple à gros volume n’a pas besoin du modèle le plus puissant. Un arbitrage complexe, si</td></tr>
+              <tr><th scope="row">2. Confidentialité</th><td>Les données peuvent-elles sortir de l’entreprise ?</td><td>Si non : modèle ouvert auto-hébergé ou cloud souverain. Ce critère est souvent <strong>éliminatoire d’emblée</strong></td></tr>
+              <tr><th scope="row">3. Coût</th><td>Quel volume d’appels, et quel coût unitaire acceptable ?</td><td>Le prix au token varie d’un facteur 10 à 50 entre un petit modèle et un modèle haut de gamme</td></tr>
+              <tr><th scope="row">4. Latence</th><td>Réponse en temps réel face à un utilisateur, ou traitement en batch ?</td><td>Temps réel = petit modèle rapide. Batch de nuit = on peut se permettre lent et puissant</td></tr>
+              <tr><th scope="row">5. Contexte &amp; modalités</th><td>Faut-il ingérer de longs documents ? des images, des PDF ?</td><td>Filtre sur la taille de fenêtre de contexte et le multimodal</td></tr>
+              <tr><th scope="row">6. Écosystème</th><td>Quel cloud déjà en place, quelles contraintes achat, quelle réversibilité ?</td><td>Souvent le critère qui tranche réellement en entreprise, avant la performance</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="blk">L’arbre de décision rapide</h4>
+        <div class="card">
+          <ul>
+            <li><strong>Données sensibles qui ne peuvent pas sortir ?</strong> → modèle ouvert (Mistral, Llama) auto-hébergé ou sur cloud souverain. Sinon, API propriétaire</li>
+            <li><strong>Tâche simple, très gros volume ?</strong> → petit modèle rapide et peu cher</li>
+            <li><strong>Analyse complexe, volume faible, enjeu fort ?</strong> → modèle haut de gamme ou modèle de raisonnement</li>
+            <li><strong>Longs documents ?</strong> → grande fenêtre de contexte</li>
+            <li><strong>Images, PDF, captures ?</strong> → modèle multimodal</li>
+            <li><strong>Dans le doute ?</strong> → commencer avec le modèle intermédiaire du fournisseur, mesurer, puis descendre en gamme pour économiser ou monter si la qualité manque</li>
+          </ul>
+        </div>
+
+        <h4 class="blk">Petit, moyen, gros : le bon réflexe d’arbitrage</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Gamme</th><th>Pour quoi</th><th>Compromis</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Petit / rapide</th><td>Classification, routage, extraction, reformulation, autocomplétion</td><td>Le moins cher et le plus rapide, mais décroche sur le raisonnement</td></tr>
+              <tr><th scope="row">Intermédiaire</th><td>La majorité des usages produit : synthèse, rédaction assistée, RAG conversationnel</td><td>Le meilleur rapport qualité / prix. Le bon point de départ par défaut</td></tr>
+              <tr><th scope="row">Haut de gamme / raisonnement</th><td>Analyse multi-étapes, code, arbitrages complexes, agents autonomes</td><td>Nettement plus cher et plus lent. À réserver aux tâches qui le justifient</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Les pièges</span>
+          <strong>Choisir sur un benchmark public</strong> — les classements généralistes disent peu de choses sur <em>votre</em> cas. Seul un jeu d’évaluation maison tranche. <strong>Prendre le plus gros par prudence</strong> — on paie 20 fois le prix pour un gain souvent nul sur des tâches simples. <strong>Verrouiller son architecture sur un modèle</strong> — les modèles changent tous les six mois : il faut pouvoir en changer sans réécrire le produit.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire</span>
+          « Je ne choisis pas un modèle sur sa réputation. Je pars du cas d’usage : est-ce que les données peuvent sortir, quel volume, quelle latence acceptable, quel coût unitaire supportable. Ensuite je constitue un jeu de cas représentatifs, je compare deux ou trois modèles dessus, et je prends le moins cher qui atteint le seuil de qualité qu’on s’est fixé avec le métier. Et je m’assure qu’on peut en changer plus tard. »
+        </div>
+      </section>
+
+      <section id="usages">
+        <h2><span class="idx">09</span>Mes usages réels</h2>
+        <p class="section-sub">Ce que je fais concrètement — la partie qui rend tout le reste crédible.</p>
+        <div class="callout retenir">
+          <span class="lbl">Point de départ à préciser systématiquement</span>
+          L’usage des LLM a commencé <strong>chez HANDS, en poste</strong>, et s’est poursuivi depuis. Ce n’est pas une découverte récente faite pour l’entretien — à dire sobrement, dès la première phrase.
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Usage</th><th>Ce que je fais</th><th>Notion associée</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Analyse des demandes support</th><td>Transformer un volume de demandes clients en thèmes, récurrences et signaux exploitables pour la priorisation</td><td>Structuration de non-structuré, classification</td></tr>
+              <tr><th scope="row">Roadmap interactive COPIL</th><td>Produire un support de pilotage manipulable plutôt qu’un slide figé</td><td>Génération de code assistée</td></tr>
+              <tr><th scope="row">Dashboard d’analyse</th><td>Construire un outil d’analyse sans passer par une demande de développement</td><td>Développement augmenté</td></tr>
+              <tr><th scope="row">Claude Code</th><td>Travail agentique sur un vrai projet : ce site de préparation d’entretiens, sa base de connaissance et son déploiement Vercel</td><td>Agent, tool use, contexte projet</td></tr>
+              <tr><th scope="row">Conception &amp; cadrage</th><td>Accélérer la rédaction de specs, les reformulations, la préparation d’ateliers, l’exploration de pistes</td><td>Prompt engineering, few-shot</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">[À COMPLÉTER] — ce qui manque pour que ces exemples portent</span>
+          Pour chaque ligne : <strong>le déclencheur</strong> (quel problème concret), <strong>le gain</strong> (temps, qualité, décision débloquée) et <strong>ce que j’en ai tiré</strong>. Un usage sans avant/après ressemble à de la curiosité ; avec, c’est une compétence.
+        </div>
+      </section>
+
+      <section id="construit">
+        <h2><span class="idx">10</span>Ce que j’ai construit</h2>
+        <p class="section-sub">Des preuves tangibles. C’est ce qui me distingue de quelqu’un qui « utilise ChatGPT ».</p>
+        <div class="callout retenir">
+          <span class="lbl">Le point le plus fort, à ne pas noyer</span>
+          La roadmap et le dashboard support ne sont pas deux bricolages séparés : c’est <strong>une seule application, RNDV</strong>, avec sa navigation, sa synchronisation ClickUp et ses vues métier. Autrement dit, j’ai construit <strong>un outil interne de pilotage</strong>, de ma propre initiative, <strong>en une journée</strong>. C’est ça qu’il faut faire entendre — pas « j’ai utilisé un LLM ».
+        </div>
+        <div class="callout say">
+          <span class="lbl">La phrase d’attaque, si on ne me laisse qu’une preuve</span>
+          « En une journée, j’ai construit un outil de pilotage interne : il remplaçait la slide PowerPoint de nos COPIL, et il transformait le canal Teams de nos 40 opérateurs en tableau de bord de priorisation. Ce n’était pas une commande — j’avais besoin de ces deux vues pour piloter, donc je les ai faites. »
+        </div>
+
+        <h4 class="blk">1. La roadmap interactive — Comédie-Française</h4>
+        <div class="card">
+          <p>Une application web de pilotage produit, construite avec un LLM, qui remplace le planning de COPIL. <strong>Ce n’est pas une roadmap générée : c’est un outil qui vit.</strong></p>
+          <ul>
+            <li><strong>Un Gantt par domaine</strong> — Rapports, Vente, Gestion billetterie, PAC, PMO, Commercialisation. Chaque interlocuteur retrouve son périmètre sans lire toute la roadmap</li>
+            <li><strong>Synchronisé sur ClickUp</strong> — la source de vérité reste l’outil de gestion de l’équipe. La roadmap n’est jamais périmée, et personne ne la maintient à la main</li>
+            <li><strong>Le calendrier métier superposé au plan de livraison</strong> — les temps forts de la Comédie-Française (go prod, mises en vente saison adhérents puis grand public) et les événements de la filière (BIS Nantes, PUBLICS XP, SITEM) apparaissent en surimpression des chantiers</li>
+            <li><strong>Le suivi de l’engagement</strong> — un code visuel distingue les livraisons maintenues au planning initial et les livraisons passées</li>
+            <li><strong>Un récapitulatif des dates de livraison</strong> par domaine, sous le Gantt — la vue liste pour ceux qui veulent la date, pas le visuel</li>
+            <li><strong>Export PNG</strong> — le support de COPIL sort de l’outil, il n’est pas refait à côté</li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le problème de pilotage résolu — c’est ça qu’il faut raconter, pas l’outil</span>
+          Un planning de COPIL en slide est <strong>périmé le lendemain</strong> et ne dit rien du plus important : est-ce qu’on tient nos engagements, et est-ce que ce qu’on livre tombe au bon moment pour le métier. En synchronisant sur ClickUp et en superposant les temps forts de la maison, la roadmap répond aux <strong>deux questions que le client pose vraiment</strong> : « est-ce que ce sera prêt pour la mise en vente ? » et « est-ce que vous tenez ce que vous aviez annoncé ? ». Sur un compte où la confiance avait été abîmée, c’est un outil de <strong>rétablissement de la relation</strong> autant que de pilotage.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire en entretien</span>
+          « J’ai construit avec un LLM une roadmap interactive pour les COPIL, synchronisée sur notre ClickUp. L’intérêt n’était pas de générer un joli Gantt : c’était de ne plus jamais présenter un planning périmé, et surtout de superposer nos livraisons aux temps forts du client — les mises en vente de saison, le go en production. Ça déplace la conversation de « où en êtes-vous » vers « est-ce que ça tombe au bon moment pour vous ». Et le suivi des livraisons maintenues au planning initial rendait visible le respect de nos engagements, ce qui comptait beaucoup sur ce compte. »
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Les 4 faits à ne pas oublier de dire</span>
+          <strong>Initiative personnelle</strong>, personne ne me l’a demandée. <strong>Construite en une journée</strong>, application complète. Elle remplaçait <strong>une slide PowerPoint</strong> refaite à la main. Retour du COPIL : <strong>« très clair et lisible »</strong>.
+        </div>
+
+        <h4 class="blk">2. Le dashboard support — 40 opérateurs, un chat Teams, zéro donnée exploitable</h4>
+        <div class="card">
+          <p><strong>Le problème de départ.</strong> Les 40 opérateurs de la Comédie-Française signalaient leurs bugs, incidents et questions dans un <strong>canal Teams commun</strong>. Tout le signal produit était là — et totalement inexploitable : de la conversation, pas du ticketing. Impossible de savoir ce qui revenait le plus, ce qui empirait, ce qui s’était résorbé.</p>
+          <p><strong>Ce que j’ai construit.</strong> Un <strong>plugin Chrome</strong> pour extraire les messages du canal, puis un dashboard qui les transforme en données de pilotage :</p>
+          <ul>
+            <li><strong>Une taxonomie de problèmes</strong> — chaque message est rattaché à un type (Fusion fiche, Écart de paiement, Sélection place, Bug affichage plan de salle, Places bloquées…), avec son volume</li>
+            <li><strong>Un classement par récurrence</strong> — Top 5 / Top 10 / tout, pour voir immédiatement ce qui pèse le plus</li>
+            <li><strong>Une criticité</strong> — critique / majeur / mineur</li>
+            <li><strong>Une évolution mensuelle</strong> — graphique par mois et tableau récapitulatif avec une colonne <em>tendance</em> : en hausse ou en baisse</li>
+            <li><strong>Une vue du jour</strong> — tickets du jour, problèmes signalés, volume des 15 derniers jours</li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi c’est mon meilleur exemple — et pas un gadget</span>
+          Ce dashboard fait exactement ce qu’un LLM sait faire de mieux : <strong>transformer du non-structuré en signal exploitable</strong>. Mais l’important n’est pas là. Il change <strong>la façon dont on priorise</strong> : on ne priorise plus selon qui remonte le plus fort ou selon le dernier incident en date, mais selon la <strong>récurrence mesurée</strong>. Et la colonne tendance permet de <strong>vérifier qu’un correctif a produit son effet</strong> — le problème redescend, ou pas. C’est de la discovery quantitative montée à partir de rien, sur un produit qui n’avait pas d’outil de ticketing côté utilisateurs.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire en entretien</span>
+          « Les 40 opérateurs de la billetterie signalaient tout dans un canal Teams commun. Toute la matière était là, mais inexploitable : personne ne pouvait dire ce qui revenait le plus. J’ai fait un plugin Chrome pour récupérer les messages et j’ai monté un dashboard qui les classe par type de problème, avec le volume, la criticité et l’évolution mois par mois. Résultat : la priorisation ne se faisait plus au ressenti ni au dernier qui a crié, mais sur la récurrence réelle — et on pouvait vérifier après coup qu’un correctif avait bien fait redescendre le problème. »
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Deux questions qu’on va me poser là-dessus — à préparer</span>
+          <strong>« Vous avez extrait des conversations Teams : comment avez-vous traité la confidentialité ? »</strong> C’est la question réflexe d’un interlocuteur technique ou d’un DPO. Il faut une réponse nette : périmètre des données, conservation, accord de la direction technique / du client. <strong>« Qu’est-ce que ça a changé concrètement ? »</strong> — <strong>[À COMPLÉTER]</strong> : un problème qu’on ne voyait pas et qui est remonté au sommet du classement, ou un arbitrage tranché grâce à ces chiffres. C’est ce qui transforme l’outil en décision produit.
+        </div>
+
+        <h4 class="blk">3. Cet espace de préparation, avec Claude Code</h4>
+        <div class="card">
+          <ul>
+            <li>Un repo versionné avec une <strong>base de connaissance structurée</strong> (parcours, positionnement, critères) que l’agent lit avant chaque tâche — la logique du RAG appliquée à un cas personnel</li>
+            <li>Des <strong>règles projet</strong> qui contraignent le comportement de l’agent : ne jamais inventer un chiffre, marquer « à compléter » et poser la question — un garde-fou explicite contre l’hallucination</li>
+            <li>Des <strong>pages générées puis déployées</strong> sur Vercel : du contenu jusqu’à la mise en ligne</li>
+          </ul>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire</span>
+          « Je ne me suis pas contentée de tester un chatbot. J’ai monté un vrai projet avec un agent : une base de connaissance qu’il consulte, des règles qui l’empêchent d’inventer, et un déploiement en ligne. Ça m’a appris concrètement où ces outils sont bluffants et où ils décrochent. »
+        </div>
+      </section>
+
+      <section id="po-ia">
+        <h2><span class="idx">11</span>Être PO sur un produit IA</h2>
+        <p class="section-sub">Ce qui change par rapport à un produit classique. La question qui sépare les candidats.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Sujet</th><th>Produit classique</th><th>Produit IA</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Critères d’acceptation</th><td>Déterministes : le résultat est juste ou faux</td><td>Probabilistes : on définit un <strong>seuil de qualité acceptable</strong>, pas une exactitude absolue</td></tr>
+              <tr><th scope="row">Recette</th><td>Cas de test rejouables</td><td>Jeu d’évaluation de référence, rejoué à chaque changement de prompt ou de modèle</td></tr>
+              <tr><th scope="row">Régression</th><td>Détectée par les tests</td><td>Un changement de modèle peut dégrader silencieusement. Il faut mesurer en continu</td></tr>
+              <tr><th scope="row">Coût</th><td>Fixe, dans l’infrastructure</td><td>Variable, à l’usage (tokens). Le coût unitaire devient un arbitrage produit</td></tr>
+              <tr><th scope="row">Échec</th><td>Erreur visible</td><td>Réponse fausse mais <strong>plausible et bien formulée</strong> — beaucoup plus dangereux</td></tr>
+              <tr><th scope="row">Confiance</th><td>Implicite</td><td>À construire dans l’UX : sources, niveau de certitude, possibilité de corriger</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="blk">Mes questions de cadrage sur un cas d’usage IA</h4>
+        <div class="card">
+          <ul>
+            <li>Quel problème résout-on, et l’IA est-elle vraiment la meilleure réponse ? Parfois une règle métier suffit</li>
+            <li>Quelle est la donnée disponible, et dans quel état ?</li>
+            <li>Que se passe-t-il quand le système se trompe, et qui en porte la conséquence ?</li>
+            <li>Quel niveau de contrôle humain, et sur quelles actions ?</li>
+            <li>Comment mesure-t-on la qualité, et qui juge ?</li>
+            <li>Quel coût à l’usage, et à quel volume ça devient un sujet ?</li>
+            <li>Quelles données sortent de l’entreprise, et où sont-elles traitées ?</li>
+            <li>Comment on fait adopter, et quel impact sur les pratiques des équipes ?</li>
+          </ul>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Mon positionnement</span>
+          « La vraie difficulté d’un produit IA, ce n’est pas la techno — elle est accessible par API. C’est de définir ce qu’est une réponse acceptable, comment on la mesure, et ce qu’on fait des cas où le système se trompe. Ça, c’est du travail de PO. »
+        </div>
+      </section>
+
+      <section id="risques">
+        <h2><span class="idx">12</span>Risques &amp; limites</h2>
+        <p class="section-sub">Savoir en parler est le meilleur signal de maturité — bien plus que l’enthousiasme.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Risque</th><th>De quoi il s’agit</th><th>Comment on le réduit</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Hallucination</th><td>Une réponse fausse mais formulée avec assurance</td><td>RAG avec citations, vérification humaine, autoriser explicitement le « je ne sais pas »</td></tr>
+              <tr><th scope="row">Confidentialité</th><td>Des données internes envoyées à un service tiers</td><td>Offres entreprise sans réutilisation pour l’entraînement, anonymisation, modèles auto-hébergés</td></tr>
+              <tr><th scope="row">Biais</th><td>Reproduction des biais présents dans les données d’entraînement</td><td>Jeux de test dédiés, diversité des relecteurs, vigilance sur tout usage touchant des personnes</td></tr>
+              <tr><th scope="row">Non-reproductibilité</th><td>Deux appels identiques peuvent donner deux réponses différentes</td><td>Température basse, sorties structurées, évaluation statistique plutôt qu’unitaire</td></tr>
+              <tr><th scope="row">Dépendance fournisseur</th><td>Un modèle déprécié, ou dont le comportement change du jour au lendemain</td><td>Abstraire l’appel au modèle, garder un jeu d’évaluation pour tester une bascule</td></tr>
+              <tr><th scope="row">Illusion de compétence</th><td>Croire qu’on a compris parce que le texte est fluide</td><td>Ne jamais transmettre un contenu qu’on ne serait pas capable de défendre soi-même</td></tr>
+              <tr><th scope="row">Propriété intellectuelle</th><td>Contenus générés à partir d’œuvres protégées</td><td>Sujet ouvert. À poser dès le cadrage, surtout en contexte culturel ou éditorial</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">[À COMPLÉTER]</span>
+          Une limite <strong>vécue</strong>, pas théorique : un moment précis où l’outil s’est trompé ou m’a fait perdre du temps, et ce que j’ai changé après. C’est ce qui prouve un usage réel plutôt qu’une lecture d’articles.
+        </div>
+      </section>
+
+      <section id="questions">
+        <h2><span class="idx">13</span>Questions probables</h2>
+        <p class="section-sub">Déplier, lire à voix haute, ajuster avec mes mots.</p>
+
+        <details class="qa">
+          <summary>Quel est votre rapport à l’IA ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> si l’usage est réel ou déclaratif.</p>
+            <ul><li>Partir de l’usage concret, pas de l’opinion sur l’IA.</li><li>Situer le point de départ : commencé en poste chez HANDS, poursuivi depuis.</li><li>Terminer sur la frontière assumée : PO qui intègre, pas experte IA.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> l’analyse des demandes support, puis Claude Code sur un vrai projet déployé.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Quelle différence entre un assistant et un agent ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> si le vocabulaire est maîtrisé ou récité.</p>
+            <ul><li>Un assistant produit du texte, un agent produit des actions.</li><li>Ce qui fait l’agent : l’accès à des outils et la boucle planifier → agir → observer → corriger.</li><li>Enchaîner sur la conséquence produit : plus d’autonomie = plus de coût en cas d’erreur.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> Claude Code lit, écrit et exécute dans mon projet — ce n’est plus une conversation.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>C’est quoi le RAG ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> la compréhension du besoin métier derrière la techno.</p>
+            <ul><li>L’image de l’examen à livre ouvert, puis la chaîne : découpage → embeddings → recherche → génération sourcée.</li><li>Pivoter vite sur le vrai enjeu : la qualité et la gouvernance du corpus.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> les refontes institutionnelles — structurer un contenu dispersé avec les métiers, c’est le même travail préalable.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>RAG ou fine-tuning ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> la capacité à arbitrer coût / bénéfice.</p>
+            <ul><li>RAG pour la connaissance, fine-tuning pour le comportement.</li><li>Toujours épuiser le prompt d’abord : c’est gratuit et immédiat.</li><li>Le fine-tuning se re-paie à chaque évolution du métier.</li></ul>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Comment testeriez-vous une fonctionnalité IA ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> si je comprends qu’on quitte le déterministe.</p>
+            <ul><li>Un jeu d’évaluation de référence, rejoué à chaque changement de prompt ou de modèle.</li><li>Un seuil de qualité acceptable défini avec le métier, pas une exactitude absolue.</li><li>Un suivi en production : cas non couverts, retours utilisateurs, dérive.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> j’ai piloté de la recette et du suivi d’incidents en production — la logique de mesure et d’escalade est la même.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Quelles limites voyez-vous à ces outils ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> le recul. Répondre « aucune » est éliminatoire.</p>
+            <ul><li>Hallucination plausible, confidentialité, non-reproductibilité, dépendance fournisseur.</li><li>Le risque le plus insidieux : un contenu fluide qu’on transmet sans pouvoir le défendre.</li><li>Ma règle : je ne diffuse rien que je ne saurais expliquer moi-même.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">[À COMPLÉTER]</span> une limite rencontrée pour de vrai, et ce que j’ai changé après.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Comment feriez-vous adopter l’IA dans une équipe ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> la conduite du changement, souvent le vrai attendu du poste.</p>
+            <ul><li>Partir d’un irritant réel et mesurable, pas de l’outil.</li><li>Un cas d’usage, un périmètre restreint, un avant/après visible.</li><li>Poser le cadre d’emblée : données autorisées, relecture obligatoire, ce qu’on ne fait pas.</li><li>Traiter la crainte de remplacement de front, sinon elle bloque l’adoption en silence.</li></ul>
+            <p class="meta ex"><span class="ex-lbl">Mon exemple</span> l’accompagnement des équipes métier sur de nouveaux outils — même mécanique : montrer le gain sur leur quotidien, pas la techno.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Vous vous voyez comment sur un poste très technique en IA ?<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <div class="answer">
+            <p class="meta"><span class="ex-lbl">Évalue</span> la lucidité sur mon niveau. Le piège est de surjouer.</p>
+            <ul><li>Dire la frontière franchement : je comprends l’architecture et je dialogue avec la tech, je ne la conçois pas.</li><li>Rappeler que c’est déjà ma façon de travailler avec des équipes techniques depuis dix ans.</li><li>Ne jamais me présenter comme experte IA ou développeuse.</li></ul>
+          </div>
+        </details>
+      </section>
+
+      <section id="glossaire">
+        <h2><span class="idx">14</span>Glossaire</h2>
+        <p class="section-sub">À relire dans les dix minutes qui précèdent.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Définition express</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">LLM</th><td>Modèle de langage qui génère du texte en prédisant la suite la plus probable</td></tr>
+              <tr><th scope="row">IA générative</th><td>IA qui produit du contenu nouveau plutôt que de classer ou prédire</td></tr>
+              <tr><th scope="row">Token</th><td>Unité de découpage du texte ; base de la facturation et des limites</td></tr>
+              <tr><th scope="row">Fenêtre de contexte</th><td>Volume de texte traitable en un appel</td></tr>
+              <tr><th scope="row">Prompt</th><td>L’instruction donnée au modèle</td></tr>
+              <tr><th scope="row">System prompt</th><td>Instruction permanente définissant rôle, ton et règles</td></tr>
+              <tr><th scope="row">Few-shot</th><td>Donner des exemples de sortie attendue dans le prompt</td></tr>
+              <tr><th scope="row">Embedding</th><td>Représentation vectorielle d’un texte, base de la recherche sémantique</td></tr>
+              <tr><th scope="row">Base vectorielle</th><td>Base de données stockant des embeddings pour la recherche par similarité</td></tr>
+              <tr><th scope="row">RAG</th><td>Aller chercher des documents pertinents et les injecter dans le prompt</td></tr>
+              <tr><th scope="row">Chunking</th><td>Découpage des documents en morceaux avant vectorisation</td></tr>
+              <tr><th scope="row">Grounding</th><td>Ancrer la réponse sur des sources vérifiables</td></tr>
+              <tr><th scope="row">Fine-tuning</th><td>Ré-entraîner un modèle sur des exemples métier pour ancrer un comportement</td></tr>
+              <tr><th scope="row">Hallucination</th><td>Réponse fausse énoncée avec assurance</td></tr>
+              <tr><th scope="row">Agent</th><td>Système qui poursuit un objectif en utilisant des outils, en boucle</td></tr>
+              <tr><th scope="row">Tool use</th><td>Capacité du modèle à appeler une fonction ou une API</td></tr>
+              <tr><th scope="row">MCP</th><td>Protocole standard pour connecter un modèle à des outils et des données</td></tr>
+              <tr><th scope="row">Human in the loop</th><td>Validation humaine obligatoire à une étape donnée</td></tr>
+              <tr><th scope="row">Température</th><td>Réglage du degré d’aléatoire des réponses</td></tr>
+              <tr><th scope="row">Multimodal</th><td>Modèle acceptant texte, image, audio ou document en entrée</td></tr>
+              <tr><th scope="row">Golden set</th><td>Jeu de cas de référence servant à évaluer la qualité dans la durée</td></tr>
+              <tr><th scope="row">AI Act</th><td>Réglementation européenne classant les usages de l’IA par niveau de risque</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
