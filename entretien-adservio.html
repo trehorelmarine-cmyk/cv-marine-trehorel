@@ -240,6 +240,31 @@
       margin: 24px 0 10px;
     }
 
+    .qa > p { margin-bottom: 12px; }
+
+    div.blk {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 18px 24px 20px;
+      margin-bottom: 14px;
+    }
+
+    div.blk > .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e4d8c6;
+    }
+
+    div.blk ul { margin-left: 18px; }
+    div.blk li { margin-bottom: 7px; }
+    div.blk li:last-child { margin-bottom: 0; }
+
     .card {
       background: #fbf5ea;
       border: 1px solid #e4d8c6;
@@ -596,10 +621,51 @@
           <div class="callout say">
             «&nbsp;Je ne les ai pas pratiqués sous ces référentiels et je ne vais pas prétendre le contraire. En revanche j'ai construit et tenu des dispositifs qui en reprennent la logique.&nbsp;»
           </div>
+          <div class="callout retenir">
+            <span class="lbl">La distinction en une phrase</span>
+            PRINCE2 sert à <strong>construire un projet</strong> (temporaire, ça se termine), ITIL sert à <strong>faire tourner un service</strong> (continu, ça ne se termine pas).
+          </div>
+
+          <h4 class="blk">PRINCE2 &mdash; ce qu'il faut savoir</h4>
+          <p><em>PRojects IN Controlled Environments</em> &mdash; méthode de gestion de projet d'origine britannique (administration publique UK), portée aujourd'hui par PeopleCert. Structurée en 7 principes, 7 thèmes et 7 processus.</p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Notion</th><th>Ce que c'est</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Business case</th><td>Le projet doit rester justifié économiquement <strong>en continu</strong> &mdash; s'il ne l'est plus, on l'arrête. C'est le principe central</td></tr>
+                <tr><th scope="row">Project Board</th><td>L'instance de décision&nbsp;: un <em>Executive</em> (le budget), un <em>Senior User</em> (le métier), un <em>Senior Supplier</em> (la réalisation). En France, c'est le COPIL</td></tr>
+                <tr><th scope="row">Management par étapes</th><td>Le projet est découpé en séquences, avec une validation formelle entre chacune</td></tr>
+                <tr><th scope="row">Management par exception</th><td>On fixe des tolérances (délai, coût, qualité). Tant qu'on est dedans, le chef de projet décide seul. Dès qu'on en sort, ça remonte au board</td></tr>
+                <tr><th scope="row">Planification par produit</th><td>On planifie à partir des livrables attendus, pas à partir des tâches</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="blk">ITIL &mdash; ce qu'il faut savoir</h4>
+          <p><em>Information Technology Infrastructure Library</em> &mdash; ce n'est <strong>pas</strong> de la gestion de projet, c'est de la <strong>gestion des services informatiques</strong> (ITSM)&nbsp;: comment on exploite, on supporte et on améliore un service déjà en production.</p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Pratique</th><th>Ce que c'est</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Gestion des incidents</th><td>Rétablir le service au plus vite. Qualification, priorité, escalade</td></tr>
+                <tr><th scope="row">Gestion des problèmes</th><td>Traiter la <strong>cause racine</strong> derrière les incidents récurrents &mdash; à bien distinguer de l'incident</td></tr>
+                <tr><th scope="row">Gestion des changements</th><td>Encadrer toute mise en production&nbsp;: évaluation du risque, validation, plan de retour arrière</td></tr>
+                <tr><th scope="row">Demandes de service</th><td>Les demandes courantes, distinctes des incidents</td></tr>
+                <tr><th scope="row">Service desk / SLA</th><td>Le point de contact unique, et les engagements de niveau de service</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="blk">Ce que j'ai fait qui y correspond</h4>
           <ul>
             <li><strong>ITIL</strong> &mdash; gestion des incidents de production, qualification et suivi des anomalies via ticketing, niveaux de priorité, canal de support dédié (chat Teams + ligne téléphonique), communication produit mensuelle</li>
+            <li><strong>ITIL, gestion des problèmes</strong> &mdash; mon dashboard support classait les remontées des 40 opérateurs <strong>par récurrence</strong>, pour traiter la cause racine et non le symptôme, avec une colonne tendance pour vérifier qu'un correctif avait produit son effet</li>
             <li><strong>Prince2</strong> &mdash; COPIL trimestriel (c'est le <em>Project Board</em>), jalons, gestion des risques, suivi budgétaire, checklists M-1 → Jour J, validation formelle avant mise en production</li>
           </ul>
+
+          <div class="callout warn">
+            Deux précisions qui me distinguent, si l'échange va plus loin&nbsp;: <strong>ce n'est pas opposé à l'agile</strong> &mdash; PRINCE2 est un cadre de gouvernance (qui décide, sur quels critères), pas une méthode de travail d'équipe&nbsp;; PRINCE2 Agile existe pour ça, et ITIL est sur un autre axe encore (on peut livrer en Scrum et exploiter en ITIL). Et <strong>mon dashboard relève de la gestion des problèmes, pas des incidents</strong> &mdash; c'est la nuance que peu de candidats font.
+          </div>
         </div>
 
         <div class="qa">
