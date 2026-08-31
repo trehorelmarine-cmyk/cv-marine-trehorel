@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-DLC — Marine Tréhorel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #2b2622;
+      background: #f6efe4;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 32px;
+      background: rgba(246, 239, 228, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd0be;
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: #6b6560;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .topbar .back svg { width: 19px; height: 19px; display: block; }
+
+    .topbar .back:hover {
+      color: #a54527;
+      background: rgba(201, 117, 90, 0.1);
+    }
+
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    /* Side nav */
+    .sidenav {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      height: max-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidenav h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul { list-style: none; }
+
+    .sidenav li { margin-bottom: 1px; }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #6b6560;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s ease;
+    }
+
+    .sidenav a .num {
+      display: inline-block;
+      width: 20px;
+      color: #b9ab97;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidenav a:hover,
+    .sidenav a.active {
+      color: #a54527;
+      background: #fbf5ea;
+      border-left-color: #c9755a;
+    }
+    .sidenav a.active .num { color: #c9755a; }
+
+    /* Content */
+    .content { min-width: 0; }
+
+    .page-head { margin-bottom: 40px; }
+
+    .page-head .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9755a;
+      margin-bottom: 12px;
+    }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      font-size: 15px;
+      color: #6b6560;
+      max-width: 640px;
+    }
+
+    section { margin-bottom: 52px; scroll-margin-top: 88px; }
+
+    section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    section > h2 .idx {
+      font-size: 15px;
+      color: #c9755a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: 2px;
+    }
+
+    section > .section-sub {
+      font-size: 13.5px;
+      color: #9a9088;
+      margin-bottom: 22px;
+    }
+
+    h4.blk {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin: 24px 0 10px;
+    }
+
+    .card {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14.5px; color: #4a4540; }
+    .card p + p { margin-top: 10px; }
+
+    .card ul { margin: 4px 0 0 18px; }
+    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
+
+    .pitch {
+      border-left: 3px solid #c9755a;
+      background: #fbf5ea;
+      padding: 22px 26px;
+      border-radius: 0 14px 14px 0;
+      font-size: 15.5px;
+      color: #3a352f;
+      line-height: 1.75;
+    }
+    .pitch strong { color: #a54527; }
+
+    /* Chips / keywords */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    .callout .lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
+    .callout.retenir .lbl { color: #a54527; }
+    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
+    .callout.say .lbl { color: #c9755a; }
+    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
+    .callout.warn .lbl { color: #a54527; }
+    .callout b, .callout strong { color: #2b2622; }
+    .callout ul { margin: 4px 0 0 18px; }
+    .callout li { margin-bottom: 4px; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+    table.tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table.tbl th, table.tbl td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #efe3d5;
+      vertical-align: top;
+    }
+    table.tbl thead th {
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.tbl tbody tr:last-child td { border-bottom: none; }
+    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
+    table.tbl th[scope="row"] { white-space: nowrap; }
+
+    /* STAR blocks */
+    .star { position: relative; }
+    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
+    .star dt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c9755a;
+      padding-top: 2px;
+    }
+    .star dd { font-size: 14.5px; color: #4a4540; }
+
+    /* Q&A */
+    details.qa {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      padding: 4px 20px;
+      margin-bottom: 12px;
+    }
+    details.qa summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b2622;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary .chev {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c9755a;
+      transition: transform 0.2s ease;
+    }
+    details.qa[open] summary .chev { transform: rotate(180deg); }
+    details.qa .answer {
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    details.qa .answer ul { margin: 8px 0 0 18px; }
+    details.qa .answer li { margin-bottom: 5px; }
+    .ex-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 9.5px;
+      color: #c9755a;
+      margin-right: 6px;
+    }
+    .answer .meta { margin-top: 10px; font-size: 13px; }
+    .answer .meta.ex { color: #7a3d24; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      color: #4a4540;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #c9755a;
+      border-radius: 5px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd0be;
+      font-size: 14.5px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: #9a9088; font-weight: 600; }
+    .info-row .value { color: #2b2622; text-align: right; }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
+      .sidenav { display: none; }
+      .page-head h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .star dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="/preparation-entretien.html" aria-label="Retour à la préparation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
+    </a>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidenav">
+      <h3>Sommaire</h3>
+      <ul>
+        <li><a href="#quoi"><span class="num">1</span>Ce que c&rsquo;est</a></li>
+        <li><a href="#workflow"><span class="num">2</span>Le workflow</a></li>
+        <li><a href="#vocabulaire"><span class="num">3</span>Le vocabulaire</a></li>
+        <li><a href="#rituels"><span class="num">4</span>Les rituels</a></li>
+        <li><a href="#artefacts"><span class="num">5</span>Artefacts &amp; validation</a></li>
+        <li><a href="#vs-agile"><span class="num">6</span>Face &agrave; l&rsquo;agile</a></li>
+        <li><a href="#vs-v"><span class="num">7</span>Face au cycle en V</a></li>
+        <li><a href="#parties"><span class="num">8</span>Les parties prenantes</a></li>
+        <li><a href="#roles"><span class="num">9</span>Ce que devient mon m&eacute;tier</a></li>
+        <li><a href="#durs"><span class="num">10</span>Les points durs</a></li>
+        <li><a href="#chiffres"><span class="num">11</span>Les chiffres, vraiment</a></li>
+        <li><a href="#outils"><span class="num">12</span>&Eacute;cosyst&egrave;me &amp; outils</a></li>
+        <li><a href="#mes-questions"><span class="num">13</span>Mes questions</a></li>
+        <li><a href="#dire"><span class="num">14</span>Ce que je peux dire</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div class="page-head">
+        <p class="eyebrow">Fiche de r&eacute;f&eacute;rence</p>
+        <h1>AI-DLC</h1>
+        <p>La m&eacute;thodologie AWS qui int&egrave;gre l&rsquo;IA sur tout le cycle projet. Ce que c&rsquo;est vraiment, ce que &ccedil;a change pour le pilotage d&rsquo;un projet web, et o&ugrave; &ccedil;a coince.</p>
+      </div>
+
+      <div class="callout retenir">
+        <span class="lbl">Ma ligne sur ce sujet</span>
+        Je ne suis <strong>ni experte AI-DLC ni d&eacute;veloppeuse</strong>. Ce que j&rsquo;apporte, c&rsquo;est la lecture d&rsquo;une <strong>praticienne du pilotage</strong> : une m&eacute;thode qui acc&eacute;l&egrave;re la production sans acc&eacute;l&eacute;rer la d&eacute;cision d&eacute;place le goulot d&rsquo;&eacute;tranglement, elle ne le supprime pas. C&rsquo;est exactement la question que je sais traiter, et c&rsquo;est celle que personne ne pose &agrave; leur place.
+      </div>
+
+      <div class="callout warn">
+        <span class="lbl">Le pi&egrave;ge du sigle &mdash; &agrave; savoir avant d&rsquo;ouvrir la bouche</span>
+        AWS utilise <strong>&laquo;&nbsp;AI-DLC&nbsp;&raquo; pour deux choses sans rapport</strong>. Le <em>AI Development Life Cycle</em> est le cycle de construction de mod&egrave;les ML, issu du Well-Architected ML Lens. Le <em>AI-<strong>Driven</strong> Development Life Cycle</em> est la m&eacute;thodologie de d&eacute;veloppement logiciel cr&eacute;&eacute;e par <strong>Raja SP</strong> (AWS), publi&eacute;e le 31&nbsp;juillet 2025 et open-sourc&eacute;e en novembre 2025. C&rsquo;est la seconde dont il s&rsquo;agit ici.
+        <br><br>
+        <strong>Ouverture &agrave; faible risque et fort rendement&nbsp;:</strong> &laquo;&nbsp;on parle bien de la m&eacute;thodologie de Raja SP, pas du ML Lens&nbsp;?&nbsp;&raquo;
+      </div>
+
+      <section id="quoi">
+        <h2><span class="idx">01</span>Ce que c&rsquo;est</h2>
+        <p class="section-sub">En une phrase, puis en une id&eacute;e.</p>
+        <div class="chips">
+          <span class="tag">AI-DLC</span><span class="tag">AWS</span><span class="tag">Spec-driven</span><span class="tag">Human in the loop</span><span class="tag">Open source</span><span class="tag">Multi-harness</span>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La d&eacute;finition</span>
+          Une m&eacute;thodologie de d&eacute;veloppement logiciel o&ugrave; <strong>un agent IA produit les artefacts &mdash; exigences, d&eacute;coupage, architecture, code, tests &mdash; et o&ugrave; l&rsquo;humain valide explicitement &agrave; chaque &eacute;tape</strong>, dans des it&eacute;rations de quelques heures au lieu de sprints de deux semaines.
+        </div>
+        <h4 class="blk">L&rsquo;id&eacute;e de fond, et elle est bonne</h4>
+        <div class="card">
+          <p>Les rituels de Scrum &mdash; le sprint de deux semaines, le backlog affin&eacute; en amont, le daily &mdash; sont des <strong>m&eacute;canismes de mise en lot</strong>. Ils existent parce que l&rsquo;attention humaine co&ucirc;te cher et que la coordination est lente. Si l&rsquo;IA fait tomber le co&ucirc;t de production des artefacts, le lot perd sa justification.</p>
+          <p>Autrement dit&nbsp;: si une analyse d&rsquo;exigences passe de trois semaines &agrave; trois heures, la forcer dans un sprint de deux semaines n&rsquo;est plus qu&rsquo;un rituel vide.</p>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire</span>
+          &laquo;&nbsp;Ce que je trouve juste dans AI-DLC, c&rsquo;est le raisonnement de d&eacute;part&nbsp;: nos c&eacute;r&eacute;monies agiles sont des m&eacute;canismes de mise en lot, con&ccedil;us pour un monde o&ugrave; produire un artefact co&ucirc;tait cher. Si ce co&ucirc;t s&rsquo;effondre, il faut effectivement rouvrir la question du rythme. Ce n&rsquo;est pas du <em>vibe coding</em> rebadg&eacute;.&nbsp;&raquo;
+        </div>
+      </section>
+
+      <section id="workflow">
+        <h2><span class="idx">02</span>Le workflow</h2>
+        <p class="section-sub">Trois phases, et une absence qu&rsquo;il faut conna&icirc;tre.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Phase</th><th>Objet</th><th>Question trait&eacute;e</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Inception</th><td>Intention m&eacute;tier &rarr; exigences, user stories, d&eacute;coupage en Units</td><td><strong>Quoi</strong> et <strong>pourquoi</strong></td></tr>
+              <tr><th scope="row">Construction</th><td>Design de domaine, design logique, g&eacute;n&eacute;ration de code, tests</td><td><strong>Comment</strong></td></tr>
+              <tr><th scope="row">Operations</th><td>D&eacute;ploiement, infrastructure, t&eacute;l&eacute;m&eacute;trie, incidents</td><td><strong>Exploitation</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">L&rsquo;information la plus utile de cette fiche</span>
+          Dans le d&eacute;p&ocirc;t officiel <code>awslabs/aidlc-workflows</code>, la phase <strong>Operations est un simple &laquo;&nbsp;placeholder&nbsp;&raquo;</strong> &mdash; un emplacement r&eacute;serv&eacute; pour du d&eacute;ploiement et du monitoring &agrave; venir. Autrement dit, <strong>un tiers de la m&eacute;thodologie vendue n&rsquo;est pas impl&eacute;ment&eacute;</strong> dans l&rsquo;outillage de r&eacute;f&eacute;rence. Peu de gens le savent, parce que peu de gens ouvrent le d&eacute;p&ocirc;t.
+        </div>
+
+        <h4 class="blk">La boucle, identique &agrave; chaque &eacute;tape</h4>
+        <div class="card">
+          <ul>
+            <li>L&rsquo;IA analyse l&rsquo;&eacute;nonc&eacute; du probl&egrave;me</li>
+            <li>L&rsquo;IA <strong>g&eacute;n&egrave;re des questions de clarification</strong> et signale les ambigu&iuml;t&eacute;s</li>
+            <li>L&rsquo;humain r&eacute;pond</li>
+            <li>L&rsquo;IA produit un artefact</li>
+            <li>L&rsquo;agent <strong>pr&eacute;sente l&rsquo;artefact et attend une approbation explicite</strong> avant de continuer</li>
+            <li>Ex&eacute;cution, puis revue</li>
+          </ul>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La formule &agrave; retenir</span>
+          <strong>L&rsquo;IA propose, l&rsquo;humain d&eacute;cide. L&rsquo;IA g&eacute;n&egrave;re, l&rsquo;humain valide.</strong> Les points de validation (<em>stage gates</em>) ne sont pas une bonne pratique recommand&eacute;e&nbsp;: ils sont <strong>cod&eacute;s en dur dans les r&egrave;gles de l&rsquo;agent</strong>.
+        </div>
+      </section>
+
+      <section id="vocabulaire">
+        <h2><span class="idx">03</span>Le vocabulaire</h2>
+        <p class="section-sub">La hi&eacute;rarchie officielle &mdash; et l&rsquo;erreur que font la plupart des articles.</p>
+        <div class="callout retenir">
+          <span class="lbl">La cha&icirc;ne</span>
+          <strong>Intent &rarr; Unit &rarr; Bolt &rarr; Deployment Unit</strong>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Ce que c&rsquo;est</th><th>&Eacute;quivalent familier</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Intent</th><td>L&rsquo;expression brute du besoin m&eacute;tier, en langage naturel. On pilote par intentions, pas par processus</td><td>Le besoin, l&rsquo;expression de besoin</td></tr>
+              <tr><th scope="row">Unit</th><td>&Eacute;l&eacute;ment de travail coh&eacute;rent et <strong>d&eacute;ployable ind&eacute;pendamment</strong>. Les d&eacute;pendances sont d&eacute;clar&eacute;es et forment un graphe, ce qui permet la parall&eacute;lisation</td><td>Un epic, une feature</td></tr>
+              <tr><th scope="row">Bolt</th><td>L&rsquo;<strong>it&eacute;ration</strong> qui ex&eacute;cute une Unit. Mesur&eacute;e en <strong>heures ou jours</strong></td><td><strong>Le sprint</strong></td></tr>
+              <tr><th scope="row">Deployment Unit</th><td>Le livrable&nbsp;: code, configurations et tests &mdash; s&eacute;curis&eacute;, instrument&eacute;, test&eacute;, packag&eacute;</td><td>L&rsquo;incr&eacute;ment livrable</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Mon d&eacute;tecteur de seconde main</span>
+          Les articles de vulgarisation se contredisent&nbsp;: certains &eacute;crivent &laquo;&nbsp;Unit of Work = le sprint&nbsp;&raquo;, d&rsquo;autres &laquo;&nbsp;= l&rsquo;epic&nbsp;&raquo;. La lecture coh&eacute;rente avec la hi&eacute;rarchie officielle est&nbsp;: <strong>Unit &asymp; epic d&eacute;ployable, Bolt &asymp; l&rsquo;it&eacute;ration qui remplace le sprint</strong>.
+          <br><br>
+          Si mon interlocuteur emploie &laquo;&nbsp;unit of work&nbsp;&raquo; comme synonyme de sprint, <strong>il r&eacute;cite du contenu de seconde main</strong>. &Agrave; noter, sans le relever.
+        </div>
+      </section>
+
+      <section id="rituels">
+        <h2><span class="idx">04</span>Les rituels</h2>
+        <p class="section-sub">Mob Elaboration, Mob Construction &mdash; et ce que c&rsquo;est vraiment.</p>
+        <div class="grid-2">
+          <div class="card">
+            <h4 class="blk">Mob Elaboration</h4>
+            <p>Phase Inception. Session collective o&ugrave; l&rsquo;&eacute;quipe pluridisciplinaire <strong>et l&rsquo;IA</strong> traduisent en temps r&eacute;el une id&eacute;e m&eacute;tier en exigences et user stories. L&rsquo;IA g&eacute;n&egrave;re les plans, les propositions d&rsquo;architecture, les stories <strong>et les questions de clarification</strong>. L&rsquo;&eacute;quipe valide en s&eacute;ance.</p>
+          </div>
+          <div class="card">
+            <h4 class="blk">Mob Construction</h4>
+            <p>Phase Construction. M&ecirc;me dispositif sur les d&eacute;cisions techniques&nbsp;: architecture, mod&egrave;les de domaine, code. D&eacute;veloppeurs, architectes <strong>et product owners travaillent ensemble, en synchrone</strong>.</p>
+          </div>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Le recul m&eacute;thodologique qui me positionne</span>
+          C&rsquo;est du <strong>mob programming</strong> &mdash; une pratique XP qui existe depuis 2011 &mdash; auquel on ajoute un agent IA et qu&rsquo;on &eacute;tend &agrave; la phase amont. Ce n&rsquo;est pas une invention conceptuelle&nbsp;: <strong>c&rsquo;est un remontage intelligent de pratiques connues autour d&rsquo;un agent.</strong> Le dire calmement montre que je lis une m&eacute;thode, je ne la subis pas.
+        </div>
+      </section>
+
+      <section id="artefacts">
+        <h2><span class="idx">05</span>Artefacts &amp; validation</h2>
+        <p class="section-sub">Tout est en fichiers Markdown versionn&eacute;s. C&rsquo;est plus important qu&rsquo;il n&rsquo;y para&icirc;t.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Fichier</th><th>Contenu</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">aidlc-docs/inception/</th><td>Un artefact par &eacute;tape&nbsp;: analyse des exigences, user stories conditionnelles, plan de workflow, design applicatif, g&eacute;n&eacute;ration des Units</td></tr>
+              <tr><th scope="row">aidlc-state.md</th><td>L&rsquo;&eacute;tat du cycle, phase par phase, avec le suivi des points de validation et des extensions activ&eacute;es</td></tr>
+              <tr><th scope="row">audit.md</th><td><strong>Toutes</strong> les entr&eacute;es utilisateur et <strong>toutes</strong> les r&eacute;ponses de l&rsquo;IA, horodat&eacute;es ISO&nbsp;8601, avec l&rsquo;input brut conserv&eacute; <strong>sans r&eacute;sum&eacute; ni paraphrase</strong></td></tr>
+              <tr><th scope="row">extensions/</th><td>Contraintes transverses optionnelles (conformit&eacute;, s&eacute;curit&eacute;), activ&eacute;es explicitement et trac&eacute;es</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Ce que j&rsquo;en retiens comme PO</span>
+          <code>audit.md</code> est de fait <strong>la piste d&rsquo;audit de la d&eacute;cision produit</strong> &mdash; bien sup&eacute;rieure &agrave; l&rsquo;historique d&rsquo;un backlog Jira. Dans un contexte institutionnel, c&rsquo;est un vrai atout de gouvernance.
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le revers, que personne ne traite</span>
+          Ce journal contient les <strong>&eacute;changes bruts</strong>. S&rsquo;il est versionn&eacute; dans Git, il embarque tout ce qui a &eacute;t&eacute; dit &mdash; y compris ce qui n&rsquo;aurait pas d&ucirc; l&rsquo;&ecirc;tre. Aucune source publique ne traite la question RGPD de <code>audit.md</code>.
+          <br><br>
+          Et une tra&ccedil;abilit&eacute; prouve <em>qui a approuv&eacute; quoi et quand</em> &mdash; pas que l&rsquo;approbation &eacute;tait <strong>&eacute;clair&eacute;e</strong>. Un auditeur peut retourner l&rsquo;argument&nbsp;: un journal montrant 40 approbations en 3 heures documente la n&eacute;gligence, pas la diligence.
+        </div>
+      </section>
+
+      <section id="vs-agile">
+        <h2><span class="idx">06</span>Face &agrave; l&rsquo;agile</h2>
+        <p class="section-sub">Ce qui dispara&icirc;t, ce qui reste, ce qui est renforc&eacute;.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>&Eacute;l&eacute;ment Scrum</th><th>Devenir dans AI-DLC</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Sprint de 2 semaines</th><td>Remplac&eacute; par le <strong>Bolt</strong> (heures / jours)</td></tr>
+              <tr><th scope="row">Sprint planning</th><td>Absorb&eacute; par la <strong>Mob Elaboration</strong></td></tr>
+              <tr><th scope="row">Backlog affin&eacute; en amont</th><td>Remplac&eacute; par la g&eacute;n&eacute;ration &agrave; la demande d&rsquo;Units depuis un Intent</td></tr>
+              <tr><th scope="row">Daily standup</th><td>Perd son objet&nbsp;: la synchronisation est permanente puisque l&rsquo;&eacute;quipe est en mob</td></tr>
+              <tr><th scope="row">Sprint review</th><td>Remplac&eacute;e par les points de validation continus</td></tr>
+              <tr><th scope="row">Estimation, v&eacute;locit&eacute;</th><td><strong>Aucun rempla&ccedil;ant cr&eacute;dible propos&eacute;</strong> &mdash; c&rsquo;est un angle mort</td></tr>
+              <tr><th scope="row">Definition of Done</th><td><strong>Renforc&eacute;e et durcie</strong>&nbsp;: la &laquo;&nbsp;Deployment Unit&nbsp;&raquo; (s&eacute;curis&eacute;e, instrument&eacute;e, test&eacute;e, packag&eacute;e) <em>est</em> une DoD explicit&eacute;e</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="blk">Ce qui reste intact</h4>
+        <div class="card">
+          <ul>
+            <li>L&rsquo;it&eacute;ratif et l&rsquo;incr&eacute;mental &mdash; renforc&eacute;s, m&ecirc;me</li>
+            <li>La pluridisciplinarit&eacute; de l&rsquo;&eacute;quipe</li>
+            <li>Le principe de livraison de valeur d&eacute;ployable</li>
+            <li>La <strong>validation humaine</strong> &mdash; qui devient l&rsquo;activit&eacute; principale et non plus l&rsquo;exception</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="vs-v">
+        <h2><span class="idx">07</span>Face au cycle en V</h2>
+        <p class="section-sub">L&rsquo;angle le plus payant devant une DSI institutionnelle.</p>
+        <div class="grid-2">
+          <div class="card">
+            <h4 class="blk">Ce qui ressemble au V</h4>
+            <ul>
+              <li>Des phases nomm&eacute;es et ordonn&eacute;es</li>
+              <li>Des artefacts formels &agrave; chaque &eacute;tape</li>
+              <li>Des jalons de validation</li>
+              <li>Des sp&eacute;cifications &eacute;crites avant le code</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="blk">Ce qui rompt avec le V</h4>
+            <ul>
+              <li>La s&eacute;quence n&rsquo;est pas parcourue une fois mais <strong>&agrave; chaque Bolt</strong></li>
+              <li>Les sp&eacute;cifications ne sont <strong>jamais fig&eacute;es</strong>&nbsp;: elles sont reg&eacute;n&eacute;rables</li>
+              <li>Il n&rsquo;y a <strong>plus de phase de recette</strong> distincte&nbsp;: la validation est distribu&eacute;e</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ma formule, si on me demande de situer AI-DLC</span>
+          &laquo;&nbsp;AI-DLC, c&rsquo;est <strong>la rigueur documentaire du cycle en V ex&eacute;cut&eacute;e &agrave; la fr&eacute;quence de l&rsquo;agile</strong>. On ne supprime pas les sp&eacute;cifications&nbsp;: on supprime leur co&ucirc;t de production, et donc leur caract&egrave;re fig&eacute;. C&rsquo;est pour &ccedil;a que &ccedil;a peut passer dans une DSI habitu&eacute;e au V, l&agrave; o&ugrave; l&rsquo;agile pur ne passait pas.&nbsp;&raquo;
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le risque sym&eacute;trique, que je dois poser</span>
+          Dans un cycle en V, <strong>la recette est le moment o&ugrave; le m&eacute;tier s&rsquo;approprie le produit</strong>. AI-DLC supprime ce moment concentr&eacute;. Si l&rsquo;organisation cliente n&rsquo;est pas capable de valider en continu, <strong>on perd la recette sans avoir gagn&eacute; de m&eacute;canisme d&rsquo;appropriation</strong>.
+        </div>
+      </section>
+
+      <section id="parties">
+        <h2><span class="idx">08</span>Les parties prenantes</h2>
+        <p class="section-sub">C&rsquo;est ici que je suis la plus l&eacute;gitime. C&rsquo;est mon terrain.</p>
+        <div class="card">
+          <p>La revendication est explicite&nbsp;: le m&eacute;tier intervient <strong>en continu et en synchrone</strong>, dans les sessions de mob. Au lieu d&rsquo;&eacute;crire des documents et d&rsquo;attendre des jours un retour, on it&egrave;re en temps r&eacute;el avec toutes les parties prenantes pr&eacute;sentes.</p>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">La limite &mdash; reconnue par les sources favorables elles-m&ecirc;mes</span>
+          &laquo;&nbsp;AI-DLC d&eacute;pend fortement des informations, des d&eacute;cisions et de la <strong>disponibilit&eacute;</strong> que votre &eacute;quipe apporte au projet.&nbsp;&raquo; Et&nbsp;: &laquo;&nbsp;si votre &eacute;quipe n&rsquo;est mobilis&eacute;e que pour des revues de jalons, le mod&egrave;le de collaboration est tr&egrave;s diff&eacute;rent de celui que d&eacute;crit AI-DLC.&nbsp;&raquo;
+          <br><br>
+          Les meilleurs r&eacute;sultats sont revendiqu&eacute;s sur le <strong>greenfield</strong>, les bases bien document&eacute;es et les exigences claires. <strong>Une refonte, c&rsquo;est l&rsquo;inverse des trois.</strong>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Mon argument le plus fort &mdash; il ne conteste pas la technologie, il conteste l&rsquo;organisation</span>
+          Culture et institutionnel&nbsp;: COPIL mensuels, validation par plusieurs directions, tutelles, march&eacute;s publics. Un m&eacute;tier disponible en synchrone plusieurs heures par semaine est <strong>l&rsquo;exception, pas la r&egrave;gle</strong>.
+          <br><br>
+          <strong>Une m&eacute;thode dont le goulot d&rsquo;&eacute;tranglement est la disponibilit&eacute; du m&eacute;tier ne va pas dix fois plus vite dans une institution. Elle va &agrave; la vitesse du m&eacute;tier.</strong>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ce que je peux dire &mdash; et personne &agrave; l&rsquo;ESN ne peut me contredire sur mon secteur</span>
+          &laquo;&nbsp;La Mob Elaboration suppose des parties prenantes disponibles en synchrone. Dans le public et le culturel, mes interlocuteurs valident en comit&eacute; mensuel, parfois avec une tutelle. La contrainte n&rsquo;est pas la vitesse de production&nbsp;: c&rsquo;est le circuit de d&eacute;cision. C&rsquo;est l&agrave; que je sais faire la diff&eacute;rence, parce que c&rsquo;est exactement ce que j&rsquo;ai pass&eacute; treize ans &agrave; d&eacute;bloquer.&nbsp;&raquo;
+        </div>
+      </section>
+
+      <section id="roles">
+        <h2><span class="idx">09</span>Ce que devient mon m&eacute;tier</h2>
+        <p class="section-sub">La question qu&rsquo;on va me poser, et la bonne nouvelle qu&rsquo;elle contient.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Activit&eacute; PO classique</th><th>Devenir</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">R&eacute;diger les user stories</th><td><strong>L&rsquo;IA les r&eacute;dige</strong> &mdash; je les valide</td></tr>
+              <tr><th scope="row">Affiner et prioriser le backlog</th><td>Partiellement absorb&eacute; (le graphe de d&eacute;pendances est propos&eacute; par l&rsquo;IA). <strong>La priorisation de valeur reste humaine</strong></td></tr>
+              <tr><th scope="row">Arbitrer le p&eacute;rim&egrave;tre</th><td><strong>Renforc&eacute;</strong>, et &agrave; une fr&eacute;quence bien plus &eacute;lev&eacute;e</td></tr>
+              <tr><th scope="row">R&eacute;pondre aux questions de l&rsquo;&eacute;quipe</th><td><strong>Fortement renforc&eacute;</strong>&nbsp;: l&rsquo;IA g&eacute;n&egrave;re des questions de clarification en continu</td></tr>
+              <tr><th scope="row">Recetter</th><td>Remplac&eacute; par une validation continue</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La bascule, en une phrase</span>
+          Le PO passe de <strong>producteur de sp&eacute;cifications</strong> &agrave; <strong>arbitre &agrave; haute fr&eacute;quence</strong>. La comp&eacute;tence critique n&rsquo;est plus de savoir r&eacute;diger une story&nbsp;: c&rsquo;est de <strong>savoir d&eacute;cider vite et de reconna&icirc;tre une question mal pos&eacute;e par l&rsquo;IA</strong>.
+          <br><br>
+          C&rsquo;est une bonne nouvelle pour un profil senior&nbsp;: &ccedil;a valorise le jugement m&eacute;tier et d&eacute;valorise la production documentaire.
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le risque &agrave; nommer moi-m&ecirc;me, avant qu&rsquo;on me le serve</span>
+          Si le PO devient un goulot de validation &agrave; haute fr&eacute;quence, il devient <strong>le point de d&eacute;faillance unique</strong>. Et un PO qui approuve quarante artefacts par jour <strong>n&rsquo;approuve plus rien r&eacute;ellement</strong>. C&rsquo;est du tampon automatique.
+        </div>
+        <h4 class="blk">Chef de projet et Scrum Master &mdash; le silence des sources est une information</h4>
+        <div class="card">
+          <ul>
+            <li><strong>Scrum Master</strong>&nbsp;: sa fonction perd l&rsquo;essentiel de son objet si les c&eacute;r&eacute;monies disparaissent. Le r&ocirc;le glisse vers l&rsquo;animation des mobs et l&rsquo;ing&eacute;nierie du workflow &mdash; il se technicise.</li>
+            <li><strong>Chef de projet</strong>&nbsp;: ce qui reste est ce que l&rsquo;IA ne fait pas &mdash; le contractuel, le budget, la relation aux tutelles, les d&eacute;pendances externes, le RGPD, l&rsquo;accessibilit&eacute; RGAA, <strong>la conduite du changement</strong>. Dans mon secteur, c&rsquo;est une part tr&egrave;s substantielle du travail r&eacute;el.</li>
+            <li>Une m&eacute;thodologie con&ccedil;ue par des ing&eacute;nieurs pour des ing&eacute;nieurs, <strong>qui ne dit rien du pilotage contractuel ni de la conduite du changement, est incompl&egrave;te pour une offre &laquo;&nbsp;DSI augment&eacute;e&nbsp;&raquo;</strong>. C&rsquo;est une question l&eacute;gitime, et c&rsquo;est ma place.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="durs">
+        <h2><span class="idx">10</span>Les points durs</h2>
+        <p class="section-sub">Ce que les sources favorables reconnaissent d&eacute;j&agrave;.</p>
+        <div class="card">
+          <ul>
+            <li><strong>La m&eacute;moire de contexte</strong> promise &agrave; travers le cycle &laquo;&nbsp;sonne puissant, mais les d&eacute;tails d&rsquo;impl&eacute;mentation restent opaques&nbsp;&raquo;. Sans elle, <strong>la m&eacute;thode ne capitalise pas</strong>&nbsp;: chaque Bolt repart d&rsquo;un contexte reconstitu&eacute;. Sur une refonte longue, c&rsquo;est un risque de d&eacute;rive architecturale progressive.</li>
+            <li><strong>Trop de m&eacute;canique, pas assez de th&eacute;orie</strong>&nbsp;: &laquo;&nbsp;focalisation &eacute;crasante sur les prompts, les structures de dossiers et les proc&eacute;dures pas-&agrave;-pas, au d&eacute;triment de l&rsquo;explication&nbsp;&raquo;. Critique venant d&rsquo;un auteur travaillant chez AWS &mdash; donc mesur&eacute;e.</li>
+            <li><strong>La phase Operations n&rsquo;est pas impl&eacute;ment&eacute;e</strong> (voir &sect;02).</li>
+            <li><strong>Le brownfield</strong>&nbsp;: les meilleurs r&eacute;sultats sont sur du greenfield document&eacute;. Une refonte, c&rsquo;est du legacy peu document&eacute; avec des r&egrave;gles m&eacute;tier implicites.</li>
+            <li><strong>La revue devient le goulot</strong>&nbsp;: si l&rsquo;IA &eacute;crit dix fois plus vite, le risque n&rsquo;est pas qu&rsquo;elle &eacute;crive mal &mdash; c&rsquo;est que <strong>personne n&rsquo;ait le temps de lire</strong>.</li>
+          </ul>
+        </div>
+        <h4 class="blk">Qualit&eacute; et non-r&eacute;gression &mdash; les donn&eacute;es externes</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Source</th><th>Ce qui est mesur&eacute;</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">GitClear 2026<br>(600M+ commits)</th><td>Blocs dupliqu&eacute;s <strong>+81&nbsp;% depuis 2023</strong> &middot; copier-coller pass&eacute; de 9,4&nbsp;% &agrave; <strong>15,7&nbsp;%</strong> du nouveau code &middot; code refactor&eacute; effondr&eacute; de 21&nbsp;% &agrave; <strong>3,8&nbsp;%</strong> &middot; constructions masquant les erreurs <strong>+47&nbsp;%</strong> &middot; le code clon&eacute; corr&egrave;le avec <strong>15 &agrave; 50&nbsp;% de d&eacute;fauts en plus</strong></td></tr>
+              <tr><th scope="row">DORA 2026</th><td>Une adoption plus forte de l&rsquo;IA corr&egrave;le avec <strong>un d&eacute;bit plus &eacute;lev&eacute; ET une instabilit&eacute; plus &eacute;lev&eacute;e, simultan&eacute;ment</strong>&nbsp;: environ <strong>&minus;7,2&nbsp;% de stabilit&eacute; de livraison pour chaque +25&nbsp;% d&rsquo;adoption</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ma traduction en langage de pilotage &mdash; c&rsquo;est un argument m&eacute;tier, donc dans mon p&eacute;rim&egrave;tre</span>
+          &laquo;&nbsp;On livre plus vite <strong>et</strong> on casse plus souvent. Sur une application &agrave; pics de fr&eacute;quentation &mdash; une billetterie, une ouverture d&rsquo;exposition, une campagne d&rsquo;inscription &mdash; <strong>l&rsquo;instabilit&eacute; co&ucirc;te bien plus cher que la lenteur</strong>. Donc ma question n&rsquo;est pas &laquo;&nbsp;est-ce qu&rsquo;on va plus vite&nbsp;&raquo;, c&rsquo;est &laquo;&nbsp;sur quoi vous vous engagez c&ocirc;t&eacute; taux d&rsquo;&eacute;chec de livraison&nbsp;&raquo;.&nbsp;&raquo;
+        </div>
+      </section>
+
+      <section id="chiffres">
+        <h2><span class="idx">11</span>Les chiffres, vraiment</h2>
+        <p class="section-sub">L&rsquo;&eacute;cart est de deux ordres de grandeur. Je n&rsquo;ai pas &agrave; trancher &mdash; j&rsquo;ai &agrave; demander comment on mesure.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Ce qui circule</th><th>Ce que &ccedil;a vaut</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">&laquo;&nbsp;10 &agrave; 15&times; de productivit&eacute;&nbsp;&raquo;</th><td>L&rsquo;article le plus cit&eacute; est h&eacute;berg&eacute; sur <strong>AWS re:Post, une plateforme communautaire</strong>, pas &eacute;ditoriale. C&rsquo;est un titre commercial, pas une &eacute;tude</td></tr>
+              <tr><th scope="row">&laquo;&nbsp;ROI 300-500&nbsp;%&nbsp;&raquo;, &laquo;&nbsp;100 exp&eacute;rimentations clients&nbsp;&raquo;</th><td><strong>Aucune m&eacute;thodologie publi&eacute;e, aucun groupe de contr&ocirc;le, aucune d&eacute;finition de &laquo;&nbsp;productivit&eacute;&nbsp;&raquo;</strong></td></tr>
+              <tr><th scope="row">AWS Financial Services</th><td>Le seul chiffre venant d&rsquo;AWS dans un cadre <strong>contractualis&eacute; et r&eacute;gul&eacute;</strong>&nbsp;: <strong>&times;2</strong>. Pas &times;10</td></tr>
+              <tr><th scope="row">&Eacute;tude METR (essai randomis&eacute;)</th><td>Juillet 2025&nbsp;: d&eacute;veloppeurs exp&eacute;riment&eacute;s <strong>19&nbsp;% plus lents</strong> avec l&rsquo;IA, alors qu&rsquo;ils s&rsquo;estimaient 20&nbsp;% plus rapides. Cohorte &eacute;largie en f&eacute;vrier 2026&nbsp;: <strong>&minus;4&nbsp;% seulement, statistiquement non concluant</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">La conclusion honn&ecirc;te, celle qui me cr&eacute;dite</span>
+          La lecture prudente de METR n&rsquo;est pas &laquo;&nbsp;l&rsquo;IA ralentit&nbsp;&raquo;. C&rsquo;est&nbsp;: <strong>l&rsquo;effet r&eacute;el est tr&egrave;s inf&eacute;rieur &agrave; l&rsquo;effet per&ccedil;u, et pourrait &ecirc;tre nul</strong>. Donner cette nuance moi-m&ecirc;me, plut&ocirc;t que d&rsquo;asséner &laquo;&nbsp;19&nbsp;% plus lents&nbsp;&raquo;, est ce qui fera la diff&eacute;rence&nbsp;: &ccedil;a montre que je lis les &eacute;tudes au lieu de les brandir.
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ma posture &mdash; la plus solide et la moins attaquable</span>
+          &laquo;&nbsp;Entre les 10&times; auto-d&eacute;clar&eacute;s et un effet mesur&eacute; proche de z&eacute;ro dans le seul essai randomis&eacute; disponible, l&rsquo;&eacute;cart est de deux ordres de grandeur. Je n&rsquo;ai pas &agrave; trancher ce d&eacute;bat. Ce que j&rsquo;ai &agrave; demander, c&rsquo;est <strong>comment le gain sera mesur&eacute; sur mon projet, avec quelle baseline, et sur quel indicateur&nbsp;: v&eacute;locit&eacute; de livraison, ou d&eacute;lai bout-en-bout jusqu&rsquo;&agrave; la mise en production valid&eacute;e par le m&eacute;tier&nbsp;?</strong>&nbsp;&raquo;
+        </div>
+      </section>
+
+      <section id="outils">
+        <h2><span class="idx">12</span>&Eacute;cosyst&egrave;me &amp; outils</h2>
+        <p class="section-sub">Deux d&eacute;tecteurs de fra&icirc;cheur, et un mot &agrave; manier avec pr&eacute;caution.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>&Eacute;l&eacute;ment</th><th>Ce qu&rsquo;il faut savoir</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">awslabs/<br>aidlc-workflows</th><td>Le d&eacute;p&ocirc;t officiel. Des <strong>fichiers Markdown</strong>, rien d&rsquo;autre. Une branche v2 avec une sp&eacute;cification 2.0</td></tr>
+              <tr><th scope="row">Multi-harness</th><td>Fonctionne nativement dans <strong>Claude Code, Kiro, Codex, Cursor, Copilot</strong> &mdash; ou tout agent supportant des r&egrave;gles projet. <strong>Ce n&rsquo;est pas un produit AWS verrouill&eacute;</strong></td></tr>
+              <tr><th scope="row">Kiro</th><td>L&rsquo;IDE &laquo;&nbsp;spec-driven&nbsp;&raquo; d&rsquo;AWS&nbsp;: il <strong>exige une sp&eacute;cification formelle avant de g&eacute;n&eacute;rer du code</strong></td></tr>
+              <tr><th scope="row">Amazon Q Developer</th><td><strong>En fin de vie.</strong> Nouvelles inscriptions bloqu&eacute;es au 15/05/2026, fin de support compl&egrave;te au 30/04/2027. AWS pousse vers Kiro</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Deux d&eacute;tecteurs, &agrave; garder pour moi</span>
+          <strong>1.</strong> Si leurs supports s&rsquo;appuient encore sur <strong>Amazon Q Developer</strong>, leurs contenus datent &mdash; l&rsquo;outil est en fin de vie.
+          <br>
+          <strong>2.</strong> AI-DLC &eacute;tant open source, gratuit et multi-harness, <strong>la valeur ajout&eacute;e d&rsquo;une ESN ne peut pas &ecirc;tre l&rsquo;acc&egrave;s &agrave; l&rsquo;outil</strong>. Elle est ailleurs&nbsp;: l&rsquo;accompagnement, l&rsquo;engagement de r&eacute;sultat, la conduite du changement. C&rsquo;est pr&eacute;cis&eacute;ment l&agrave; que je me situe.
+        </div>
+        <h4 class="blk">&laquo;&nbsp;Dark factory&nbsp;&raquo; &mdash; attention, contradiction</h4>
+        <div class="card">
+          <p>Terme venu de l&rsquo;industrie&nbsp;: une usine si automatis&eacute;e qu&rsquo;elle tourne <strong>lumi&egrave;res &eacute;teintes</strong>, sans op&eacute;rateurs. Appliqu&eacute; au logiciel&nbsp;: <strong>un pipeline enti&egrave;rement autonome o&ugrave; des agents planifient, &eacute;crivent, testent et d&eacute;ploient sans revue humaine</strong>.</p>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le point de vigilance</span>
+          La dark factory est <strong>la n&eacute;gation exacte du principe fondateur d&rsquo;AI-DLC</strong> (&laquo;&nbsp;l&rsquo;IA propose, l&rsquo;humain d&eacute;cide&nbsp;&raquo;, validation explicite &agrave; chaque &eacute;tape). Les deux concepts sont <strong>contradictoires, pas compl&eacute;mentaires</strong>.
+          <br><br>
+          S&rsquo;ils citent les deux dans la m&ecirc;me offre, deux lectures&nbsp;: soit ils d&eacute;crivent une <strong>trajectoire de maturit&eacute;</strong> (mob valid&eacute; aujourd&rsquo;hui &rarr; autonomie progressive sur des p&eacute;rim&egrave;tres &agrave; faible risque demain), et c&rsquo;est d&eacute;fendable&nbsp;; soit ils <strong>empilent des mots-cl&eacute;s</strong>. Ma question n&deg;8 les d&eacute;partage.
+        </div>
+      </section>
+
+      <section id="mes-questions">
+        <h2><span class="idx">13</span>Mes questions</h2>
+        <p class="section-sub">De la plus consensuelle &agrave; la plus incisive. En choisir trois ou quatre, pas huit.</p>
+
+        <div class="blk">
+          <div class="label">1 &middot; Sur la mesure &mdash; &agrave; poser t&ocirc;t</div>
+          <ul>
+            <li>&laquo;&nbsp;Vous annoncez des gains de v&eacute;locit&eacute;. Sur un projet donn&eacute;, avec quelle baseline les mesurez-vous, et sur quel indicateur&nbsp;? V&eacute;locit&eacute; de livraison, ou d&eacute;lai bout-en-bout jusqu&rsquo;&agrave; la mise en production valid&eacute;e par le m&eacute;tier&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Montre que je distingue d&eacute;bit et d&eacute;lai. Imparable.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">2 &middot; Sur la disponibilit&eacute; du m&eacute;tier &mdash; mon meilleur angle</div>
+          <ul>
+            <li>&laquo;&nbsp;La Mob Elaboration suppose des parties prenantes disponibles en synchrone. Dans le public et le culturel, mes interlocuteurs valident en comit&eacute; mensuel, parfois avec une tutelle. Comment adaptez-vous le rituel quand la contrainte n&rsquo;est pas la vitesse de production mais le circuit de d&eacute;cision du client&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Je d&eacute;place le d&eacute;bat sur mon terrain. Personne ne peut me contredire sur mon secteur.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">3 &middot; Sur la validation &agrave; haute fr&eacute;quence</div>
+          <ul>
+            <li>&laquo;&nbsp;Si un Bolt dure quelques heures et que chaque artefact demande une approbation explicite, combien de d&eacute;cisions par jour un PO doit-il rendre&nbsp;? &Agrave; partir de quel volume l&rsquo;approbation devient-elle formelle plut&ocirc;t que r&eacute;elle &mdash; et comment le d&eacute;tectez-vous&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Je nomme le risque de tampon automatique sans accuser.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">4 &middot; Sur la stabilit&eacute;</div>
+          <ul>
+            <li>&laquo;&nbsp;Les donn&eacute;es DORA 2026 montrent que l&rsquo;adoption de l&rsquo;IA augmente le d&eacute;bit et l&rsquo;instabilit&eacute; simultan&eacute;ment. Sur des applications &agrave; pics de fr&eacute;quentation, l&rsquo;instabilit&eacute; co&ucirc;te plus cher que la lenteur. Comment votre offre traite-t-elle le taux d&rsquo;&eacute;chec de livraison, et sur quoi vous engagez-vous&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Je recadre la valeur sur le risque m&eacute;tier. Tr&egrave;s senior.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">5 &middot; Sur le brownfield &mdash; question de praticienne</div>
+          <ul>
+            <li>&laquo;&nbsp;Les retours situent les meilleurs r&eacute;sultats sur le greenfield document&eacute;. Mon m&eacute;tier, ce sont des refontes&nbsp;: legacy peu document&eacute;, r&egrave;gles m&eacute;tier implicites, historique de donn&eacute;es. Quel est votre retour r&eacute;el sur le reverse-engineering d&rsquo;AI-DLC dans ce contexte, et qu&rsquo;est-ce qui casse en premier&nbsp;?&nbsp;&raquo;</li>
+            <li><em>La r&eacute;ponse me dira instantan&eacute;ment s&rsquo;ils ont livr&eacute; ou seulement vendu.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">6 &middot; Sur la phase Operations &mdash; la plus forte</div>
+          <ul>
+            <li>&laquo;&nbsp;Dans le d&eacute;p&ocirc;t <code>awslabs/aidlc-workflows</code>, la phase Operations est encore un placeholder. Sur vos missions, qu&rsquo;est-ce qui couvre r&eacute;ellement le d&eacute;ploiement, la supervision et le run &mdash; votre propre outillage, ou le processus existant du client&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Elle d&eacute;montre que je suis all&eacute;e &agrave; la source, pas au slide.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">7 &middot; Sur la valeur de l&rsquo;offre &mdash; avec le sourire</div>
+          <ul>
+            <li>&laquo;&nbsp;AI-DLC est open source, multi-harness, et fonctionne avec Claude Code ou Cursor. Ce sont des fichiers Markdown. Dans votre offre &laquo;&nbsp;DSI augment&eacute;e&nbsp;&raquo;, qu&rsquo;est-ce que le client ach&egrave;te exactement&nbsp;: la m&eacute;thode, l&rsquo;accompagnement au changement, ou l&rsquo;engagement de r&eacute;sultat&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Question commerciale l&eacute;gitime, pos&eacute;e par quelqu&rsquo;un qui pilote des budgets. Et la r&eacute;ponse me dit o&ugrave; je me situe dans leur cha&icirc;ne de valeur.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">8 &middot; Sur la coh&eacute;rence dark factory / human in the loop</div>
+          <ul>
+            <li>&laquo;&nbsp;AI-DLC repose sur l&rsquo;approbation humaine explicite &agrave; chaque &eacute;tape. La dark factory retire l&rsquo;humain de la boucle. O&ugrave; placez-vous le curseur aujourd&rsquo;hui chez vos clients, et quels types de changements accepteriez-vous de laisser passer sans revue&nbsp;?&nbsp;&raquo;</li>
+            <li><em>D&eacute;tecte imm&eacute;diatement s&rsquo;ils ma&icirc;trisent la doctrine ou empilent des mots-cl&eacute;s.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">Bonus &middot; si le ton est bon</div>
+          <ul>
+            <li>&laquo;&nbsp;Le fichier <code>audit.md</code> journalise les &eacute;changes bruts, horodat&eacute;s. Sur des projets soumis au RGPD, est-il versionn&eacute; dans le d&eacute;p&ocirc;t&nbsp;? Qui y a acc&egrave;s, et comment g&eacute;rez-vous ce qui ne doit pas y figurer&nbsp;?&nbsp;&raquo;</li>
+            <li><em>Aucune source publique ne traite ce sujet. Je suis probablement la premi&egrave;re &agrave; le poser en entretien.</em></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="dire">
+        <h2><span class="idx">14</span>Ce que je peux dire</h2>
+        <p class="section-sub">Si je ne retiens que trois choses de cette fiche.</p>
+        <div class="callout retenir">
+          <span class="lbl">1 &middot; AI-DLC est r&eacute;el, pas du vent</span>
+          Trois phases, une hi&eacute;rarchie d&rsquo;artefacts claire, une impl&eacute;mentation open source, des points de validation cod&eacute;s en dur et une tra&ccedil;abilit&eacute; d&rsquo;audit native sup&eacute;rieure &agrave; un backlog classique. <strong>Ce n&rsquo;est pas du vibe coding rebadg&eacute;</strong>, et je dois le reconna&icirc;tre d&rsquo;entr&eacute;e &mdash; sinon tout ce que je dirai ensuite passera pour de la r&eacute;sistance.
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">2 &middot; Le discours de vitesse est fragile</span>
+          Les chiffres spectaculaires sont auto-d&eacute;clar&eacute;s, sans protocole. <strong>Le seul chiffre venant d&rsquo;AWS dans un cadre contractualis&eacute; est &times;2.</strong> Le seul essai randomis&eacute; disponible ne trouve pas d&rsquo;effet significatif. Je n&rsquo;ai pas &agrave; trancher&nbsp;: j&rsquo;ai &agrave; demander comment on mesure.
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">3 &middot; Le vrai sujet n&rsquo;est pas la technologie, c&rsquo;est l&rsquo;organisation cliente</span>
+          AI-DLC d&eacute;place le goulot d&rsquo;&eacute;tranglement de la production vers <strong>la d&eacute;cision et la revue</strong>. Dans une institution, ce goulot est <strong>d&eacute;j&agrave; le plus lent du syst&egrave;me</strong>. Une m&eacute;thode qui acc&eacute;l&egrave;re la production sans acc&eacute;l&eacute;rer la d&eacute;cision produit surtout de l&rsquo;attente en aval &mdash; et un PO en surcharge de validation.
+        </div>
+        <div class="callout say">
+          <span class="lbl">Ma phrase de synth&egrave;se, si on me demande ce que j&rsquo;en pense</span>
+          &laquo;&nbsp;Je trouve le raisonnement de d&eacute;part juste&nbsp;: nos c&eacute;r&eacute;monies agiles &eacute;taient des m&eacute;canismes de mise en lot, et si le co&ucirc;t de production des artefacts s&rsquo;effondre, il faut rouvrir la question du rythme. Ce qui m&rsquo;int&eacute;resse, c&rsquo;est que <strong>&ccedil;a d&eacute;place le goulot d&rsquo;&eacute;tranglement vers la d&eacute;cision</strong>. Et la d&eacute;cision, dans mes environnements, c&rsquo;est d&eacute;j&agrave; ce qui est le plus lent. Donc la vraie question de d&eacute;ploiement n&rsquo;est pas technique, elle est organisationnelle&nbsp;: comment on fait valider en continu une DSI qui valide en COPIL mensuel. C&rsquo;est exactement ce que j&rsquo;ai pass&eacute; treize ans &agrave; faire, et c&rsquo;est l&agrave; que je veux &ecirc;tre utile.&nbsp;&raquo;
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Le ton &mdash; le seul vrai pi&egrave;ge</span>
+          Ni enthousiasme ni scepticisme. <strong>Ils recrutent quelqu&rsquo;un qui porte l&rsquo;IA, pas quelqu&rsquo;un qui la d&eacute;monte.</strong> Chaque r&eacute;serve doit &ecirc;tre formul&eacute;e comme une <strong>question de d&eacute;ploiement</strong>, jamais comme une objection de principe. Je ne suis pas l&agrave; pour arbitrer si AI-DLC est bon&nbsp;: je suis l&agrave; pour montrer que je saurais le d&eacute;ployer chez un client r&eacute;el.
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
