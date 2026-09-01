@@ -283,6 +283,81 @@
     .card ul { margin: 4px 0 0 18px; }
     .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
 
+    table.tbl th[scope="row"] .trad {
+      display: block; font-weight: 400; font-size: 12px;
+      color: #9a9088; font-style: italic; margin-top: 3px;
+    }
+
+    table.tbl tr.hors > * { background: #f2ebdf; }
+    table.tbl tr.hors th[scope="row"] { color: #a54527; }
+    table.tbl tr.hors em { font-weight: 400; font-size: 12px; color: #9a9088; }
+
+    /* --- Schéma en étapes --- */
+    .flow { margin: 4px 0 18px; }
+
+    .flow-phase {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      color: #a54527;
+      margin: 26px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e4d8c6;
+    }
+    .flow-phase:first-child { margin-top: 0; }
+
+    .step {
+      position: relative;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 18px 22px 18px 62px;
+      margin-bottom: 12px;
+    }
+
+    .step .num {
+      position: absolute;
+      left: 18px;
+      top: 17px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #a54527;
+      color: #fbf5ea;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step h5 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .step .who {
+      font-size: 14px;
+      color: #4a4540;
+      margin-bottom: 6px;
+      padding-left: 15px;
+      text-indent: -15px;
+    }
+    .step .who:last-child { margin-bottom: 0; }
+
+    .step .who b {
+      font-weight: 600;
+      color: #a54527;
+    }
+
+    @media (max-width: 620px) {
+      .step { padding: 16px 16px 16px 52px; }
+      .step .num { left: 12px; }
+    }
+
     .pitch {
       border-left: 3px solid #c9755a;
       background: #fbf5ea;
@@ -522,7 +597,16 @@
         <span class="lbl">Le pi&egrave;ge du sigle &mdash; &agrave; savoir avant d&rsquo;ouvrir la bouche</span>
         AWS utilise <strong>&laquo;&nbsp;AI-DLC&nbsp;&raquo; pour deux choses sans rapport</strong>. Le <em>AI Development Life Cycle</em> est le cycle de construction de mod&egrave;les ML, issu du Well-Architected ML Lens. Le <em>AI-<strong>Driven</strong> Development Life Cycle</em> est la m&eacute;thodologie de d&eacute;veloppement logiciel cr&eacute;&eacute;e par <strong>Raja SP</strong> (AWS), publi&eacute;e le 31&nbsp;juillet 2025 et open-sourc&eacute;e en novembre 2025. C&rsquo;est la seconde dont il s&rsquo;agit ici.
         <br><br>
-        <strong>Ouverture &agrave; faible risque et fort rendement&nbsp;:</strong> &laquo;&nbsp;on parle bien de la m&eacute;thodologie de Raja SP, pas du ML Lens&nbsp;?&nbsp;&raquo;
+        <strong>L&rsquo;ambigu&iuml;t&eacute; est d&eacute;j&agrave; lev&eacute;e&nbsp;:</strong> ils m&rsquo;ont envoy&eacute; le d&eacute;p&ocirc;t <code>github.com/awslabs/aidlc-workflows</code>. C&rsquo;est bien la m&eacute;thodologie de d&eacute;veloppement logiciel. Inutile de poser la question&nbsp;: le fait qu&rsquo;ils envoient le lien du d&eacute;p&ocirc;t officiel plut&ocirc;t qu&rsquo;un article de blog est d&eacute;j&agrave; une information sur leur s&eacute;rieux.
+      </div>
+
+      <div class="callout warn">
+        <span class="lbl">&Agrave; garder en t&ecirc;te du d&eacute;but &agrave; la fin de cette fiche</span>
+        AI-DLC est <strong>leur r&eacute;f&eacute;rence, pas forc&eacute;ment leur pratique</strong>. Je ne sais pas &agrave; quel point Adservio applique la m&eacute;thode telle qu&rsquo;elle est publi&eacute;e&nbsp;: la plupart des ESN partent d&rsquo;un cadre existant et l&rsquo;adaptent &agrave; leurs clients, &agrave; leurs contrats et &agrave; leurs outils. Cette fiche d&eacute;crit <strong>la m&eacute;thode officielle</strong>, celle du d&eacute;p&ocirc;t AWS.
+        <br><br>
+        <strong>Cons&eacute;quence pratique&nbsp;:</strong> ne jamais dire &laquo;&nbsp;chez vous, le <em>bolt</em> fait donc&hellip;&nbsp;&raquo;. Toujours demander. La formule qui marche&nbsp;: <em>&laquo;&nbsp;j&rsquo;ai lu la m&eacute;thode telle qu&rsquo;AWS la publie. Vous, en mission chez un client, qu&rsquo;est-ce que vous en gardez et qu&rsquo;est-ce que vous adaptez&nbsp;?&nbsp;&raquo;</em>
+        <br><br>
+        C&rsquo;est doublement gagnant&nbsp;: &ccedil;a montre que j&rsquo;ai lu la source, &ccedil;a &eacute;vite de leur pr&ecirc;ter une pratique qui n&rsquo;est pas la leur, et &ccedil;a les fait parler de leur r&eacute;alit&eacute; de terrain &mdash; qui est exactement ce que j&rsquo;ai besoin de savoir avant de dire oui.
       </div>
 
       <section id="quoi">
@@ -533,16 +617,28 @@
         </div>
         <div class="callout retenir">
           <span class="lbl">La d&eacute;finition</span>
-          Une m&eacute;thodologie de d&eacute;veloppement logiciel o&ugrave; <strong>un agent IA produit les artefacts &mdash; exigences, d&eacute;coupage, architecture, code, tests &mdash; et o&ugrave; l&rsquo;humain valide explicitement &agrave; chaque &eacute;tape</strong>, dans des it&eacute;rations de quelques heures au lieu de sprints de deux semaines.
+          Une m&eacute;thodologie de d&eacute;veloppement logiciel o&ugrave; <strong>des agents IA sp&eacute;cialis&eacute;s produisent les artefacts &mdash; exigences, d&eacute;coupage, architecture, code, tests &mdash; et o&ugrave; l&rsquo;humain valide explicitement &agrave; chaque &eacute;tape</strong>, dans des it&eacute;rations de quelques heures au lieu de sprints de deux semaines.
+        </div>
+        <h4 class="blk">Un agent ou plusieurs&nbsp;? Plusieurs &mdash; et la nuance compte</h4>
+        <div class="card">
+          <p>Ce n&rsquo;est pas une IA g&eacute;n&eacute;raliste &agrave; qui on demande tout. Le d&eacute;p&ocirc;t <code>awslabs/aidlc-workflows</code> contient <strong>un workflow par &eacute;tape</strong>&nbsp;: un pour l&rsquo;analyse des exigences, un pour le d&eacute;coupage en Units, un pour le design de domaine, un pour la g&eacute;n&eacute;ration de code. Chacun est un jeu d&rsquo;instructions distinct, avec son r&ocirc;le, son p&eacute;rim&egrave;tre et ses r&egrave;gles d&rsquo;arr&ecirc;t.</p>
+          <p>Autrement dit&nbsp;: <strong>l&rsquo;agent qui &eacute;crit les exigences n&rsquo;est pas celui qui &eacute;crit le code</strong>. Chacun re&ccedil;oit en entr&eacute;e l&rsquo;artefact valid&eacute; par l&rsquo;&eacute;tape pr&eacute;c&eacute;dente. C&rsquo;est ce cha&icirc;nage qui donne la tra&ccedil;abilit&eacute;.</p>
+          <p><strong>Pourquoi la nuance compte en entretien&nbsp;:</strong> dire &laquo;&nbsp;une IA qui code&nbsp;&raquo; sonne comme quelqu&rsquo;un qui n&rsquo;a pas ouvert le sujet. Dire &laquo;&nbsp;une cha&icirc;ne d&rsquo;agents sp&eacute;cialis&eacute;s avec un passage de relais valid&eacute; entre chaque&nbsp;&raquo; montre que si.</p>
         </div>
         <h4 class="blk">L&rsquo;id&eacute;e de fond, et elle est bonne</h4>
         <div class="card">
           <p>Les rituels de Scrum &mdash; le sprint de deux semaines, le backlog affin&eacute; en amont, le daily &mdash; sont des <strong>m&eacute;canismes de mise en lot</strong>. Ils existent parce que l&rsquo;attention humaine co&ucirc;te cher et que la coordination est lente. Si l&rsquo;IA fait tomber le co&ucirc;t de production des artefacts, le lot perd sa justification.</p>
           <p>Autrement dit&nbsp;: si une analyse d&rsquo;exigences passe de trois semaines &agrave; trois heures, la forcer dans un sprint de deux semaines n&rsquo;est plus qu&rsquo;un rituel vide.</p>
         </div>
+        <h4 class="blk">&laquo;&nbsp;Ce n&rsquo;est pas du <em>vibe coding</em>&nbsp;&raquo; &mdash; ce que &ccedil;a veut dire</h4>
+        <div class="card">
+          <p><strong>Le <em>vibe coding</em></strong> (terme popularis&eacute; par Andrej Karpathy en 2025)&nbsp;: on d&eacute;crit ce qu&rsquo;on veut &agrave; une IA, elle produit du code, on l&rsquo;accepte sans le lire, et on corrige au feeling jusqu&rsquo;&agrave; ce que &ccedil;a marche. Il n&rsquo;y a <strong>ni sp&eacute;cification &eacute;crite, ni tra&ccedil;abilit&eacute;, ni point de contr&ocirc;le</strong>. C&rsquo;est efficace pour un prototype, ing&eacute;rable en production.</p>
+          <p><strong>AI-DLC fait l&rsquo;inverse sur ces trois points</strong>&nbsp;: chaque &eacute;tape produit un artefact &eacute;crit et relisible (exigences, d&eacute;coupage, design), l&rsquo;agent s&rsquo;arr&ecirc;te et attend une approbation avant de passer &agrave; la suivante, et la cha&icirc;ne compl&egrave;te reste v&eacute;rifiable apr&egrave;s coup &mdash; on peut remonter d&rsquo;une ligne de code jusqu&rsquo;au besoin m&eacute;tier qui l&rsquo;a justifi&eacute;e.</p>
+          <p><strong>Pourquoi je tiens &agrave; le dire&nbsp;:</strong> beaucoup de gens rangent tout ce qui touche &agrave; l&rsquo;IA g&eacute;n&eacute;rative dans la m&ecirc;me case &laquo;&nbsp;bricolage&nbsp;&raquo;. Reconna&icirc;tre d&rsquo;entr&eacute;e que la m&eacute;thode est structur&eacute;e, c&rsquo;est ce qui rend cr&eacute;dibles les r&eacute;serves que j&rsquo;&eacute;mets ensuite. Sinon elles passent pour de la r&eacute;sistance au changement.</p>
+        </div>
         <div class="callout say">
           <span class="lbl">Ce que je peux dire</span>
-          &laquo;&nbsp;Ce que je trouve juste dans AI-DLC, c&rsquo;est le raisonnement de d&eacute;part&nbsp;: nos c&eacute;r&eacute;monies agiles sont des m&eacute;canismes de mise en lot, con&ccedil;us pour un monde o&ugrave; produire un artefact co&ucirc;tait cher. Si ce co&ucirc;t s&rsquo;effondre, il faut effectivement rouvrir la question du rythme. Ce n&rsquo;est pas du <em>vibe coding</em> rebadg&eacute;.&nbsp;&raquo;
+          &laquo;&nbsp;Ce que je trouve juste dans AI-DLC, c&rsquo;est le raisonnement de d&eacute;part&nbsp;: nos c&eacute;r&eacute;monies agiles sont des m&eacute;canismes de mise en lot, con&ccedil;us pour un monde o&ugrave; produire un artefact co&ucirc;tait cher. Si ce co&ucirc;t s&rsquo;effondre, il faut effectivement rouvrir la question du rythme. Et ce n&rsquo;est pas du <em>vibe coding</em> avec un nom de m&eacute;thode dessus&nbsp;: il y a des artefacts &eacute;crits, des points d&rsquo;arr&ecirc;t et une tra&ccedil;abilit&eacute; du besoin jusqu&rsquo;au code.&nbsp;&raquo;
         </div>
       </section>
 
@@ -564,6 +660,25 @@
           Dans le d&eacute;p&ocirc;t officiel <code>awslabs/aidlc-workflows</code>, la phase <strong>Operations est un simple &laquo;&nbsp;placeholder&nbsp;&raquo;</strong> &mdash; un emplacement r&eacute;serv&eacute; pour du d&eacute;ploiement et du monitoring &agrave; venir. Autrement dit, <strong>un tiers de la m&eacute;thodologie vendue n&rsquo;est pas impl&eacute;ment&eacute;</strong> dans l&rsquo;outillage de r&eacute;f&eacute;rence. Peu de gens le savent, parce que peu de gens ouvrent le d&eacute;p&ocirc;t.
         </div>
 
+        <h4 class="blk">L&rsquo;<em>Inception</em>, c&rsquo;est le cadrage &mdash; mais pas celui du cycle en V</h4>
+        <p class="section-sub"><em>Inception</em> se traduit par &laquo;&nbsp;amor&ccedil;age&nbsp;&raquo; ou &laquo;&nbsp;lancement&nbsp;&raquo;. C&rsquo;est bien la phase de cadrage&nbsp;: on part du besoin et on en sort un p&eacute;rim&egrave;tre d&eacute;coup&eacute;. La ressemblance avec le V s&rsquo;arr&ecirc;te l&agrave;.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th></th><th>Cadrage en cycle en V</th><th><em>Inception</em> en AI-DLC</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">P&eacute;rim&egrave;tre</th><td><strong>Tout le projet</strong>, d&rsquo;un coup</td><td><strong>Une intention m&eacute;tier</strong> &agrave; la fois</td></tr>
+              <tr><th scope="row">Dur&eacute;e</th><td>Plusieurs semaines &agrave; plusieurs mois</td><td>Quelques heures &agrave; quelques jours</td></tr>
+              <tr><th scope="row">Fr&eacute;quence</th><td>Une fois, au d&eacute;but</td><td><strong>Rejou&eacute;e &agrave; chaque nouvelle intention</strong></td></tr>
+              <tr><th scope="row">Ce qui en sort</th><td>Un cahier des charges fig&eacute;</td><td>Des <em>Units</em> &mdash; des lots de travail d&eacute;ployables ind&eacute;pendamment</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <p><strong>Ni l&rsquo;un ni l&rsquo;autre des deux extr&ecirc;mes.</strong> Ce n&rsquo;est pas une phase de deux mois qui cadre l&rsquo;ensemble des besoins du client&nbsp;: la m&eacute;thode revendique justement des cycles courts, un cadrage de deux mois la viderait de son sens. Mais ce n&rsquo;est pas non plus un cadrage par fonctionnalit&eacute; unitaire&nbsp;: on ne relance pas une <em>Inception</em> pour ajouter un champ dans un formulaire.</p>
+          <p>La bonne maille est celle de <strong>l&rsquo;intention m&eacute;tier</strong> &mdash; un objectif coh&eacute;rent, assez large pour se d&eacute;couper en plusieurs lots. Sur mon exemple&nbsp;: &laquo;&nbsp;refondre le tunnel d&rsquo;achat&nbsp;&raquo; est une intention. &laquo;&nbsp;Changer la couleur du bouton Payer&nbsp;&raquo; n&rsquo;en est pas une.</p>
+          <p><strong>Ce que &ccedil;a laisse ouvert, et c&rsquo;est une vraie question &agrave; leur poser&nbsp;:</strong> dans un march&eacute; de prestation, le client ach&egrave;te souvent un p&eacute;rim&egrave;tre chiffr&eacute; d&rsquo;avance. Si le cadrage se fait intention par intention au fil de l&rsquo;eau, <strong>sur quoi porte l&rsquo;engagement contractuel du d&eacute;part&nbsp;?</strong> C&rsquo;est une question de pilotage, pas de technique &mdash; donc la mienne.</p>
+        </div>
+
         <h4 class="blk">La boucle, identique &agrave; chaque &eacute;tape</h4>
         <div class="card">
           <ul>
@@ -577,7 +692,150 @@
         </div>
         <div class="callout retenir">
           <span class="lbl">La formule &agrave; retenir</span>
-          <strong>L&rsquo;IA propose, l&rsquo;humain d&eacute;cide. L&rsquo;IA g&eacute;n&egrave;re, l&rsquo;humain valide.</strong> Les points de validation (<em>stage gates</em>) ne sont pas une bonne pratique recommand&eacute;e&nbsp;: ils sont <strong>cod&eacute;s en dur dans les r&egrave;gles de l&rsquo;agent</strong>.
+          <strong>L&rsquo;IA propose, l&rsquo;humain d&eacute;cide. L&rsquo;IA g&eacute;n&egrave;re, l&rsquo;humain valide.</strong>
+        </div>
+
+        <h4 class="blk">Les points de validation sont &laquo;&nbsp;cod&eacute;s en dur&nbsp;&raquo; &mdash; ce que &ccedil;a change</h4>
+        <p class="section-sub">Un <em>stage gate</em>, litt&eacute;ralement &laquo;&nbsp;barri&egrave;re d&rsquo;&eacute;tape&nbsp;&raquo;&nbsp;: un point de passage o&ugrave; il faut une validation pour continuer. On dit aussi un <strong>jalon bloquant</strong>.</p>
+        <div class="card">
+          <p><strong>Le cas habituel &mdash; une recommandation.</strong> La m&eacute;thode dit &laquo;&nbsp;il est conseill&eacute; de faire relire les sp&eacute;cifications avant de d&eacute;velopper&nbsp;&raquo;. C&rsquo;est &eacute;crit dans un document. Un jour o&ugrave; &ccedil;a presse, l&rsquo;&eacute;quipe saute l&rsquo;&eacute;tape&nbsp;: rien ne l&rsquo;en emp&ecirc;che. La r&egrave;gle tient par la discipline des gens.</p>
+          <p><strong>Le cas AI-DLC &mdash; une r&egrave;gle m&eacute;canique.</strong> L&rsquo;arr&ecirc;t est &eacute;crit dans le fichier d&rsquo;instructions de l&rsquo;agent lui-m&ecirc;me, en substance&nbsp;: <em>&laquo;&nbsp;pr&eacute;sente le r&eacute;sultat, arr&ecirc;te-toi, n&rsquo;encha&icirc;ne pas tant que l&rsquo;humain n&rsquo;a pas approuv&eacute;&nbsp;&raquo;</em>. L&rsquo;agent ne peut donc pas d&eacute;river tout seul sur cinq &eacute;tapes pendant qu&rsquo;on a le dos tourn&eacute;. Ce n&rsquo;est plus la discipline de l&rsquo;&eacute;quipe qui tient la r&egrave;gle, <strong>c&rsquo;est l&rsquo;outil</strong>.</p>
+          <p><strong>Pourquoi c&rsquo;est l&rsquo;argument fort de la m&eacute;thode&nbsp;:</strong> c&rsquo;est ce qui la s&eacute;pare du &laquo;&nbsp;on lance l&rsquo;IA et on voit ce qu&rsquo;elle produit&nbsp;&raquo;. La supervision humaine n&rsquo;est pas un v&oelig;u, c&rsquo;est une contrainte d&rsquo;ex&eacute;cution.</p>
+          <p><strong>Et sa limite, que je peux relever&nbsp;:</strong> ces r&egrave;gles restent des <strong>instructions en langage naturel</strong> donn&eacute;es au mod&egrave;le, pas un verrou technique. Elles tiennent tant que l&rsquo;agent suit ses consignes. C&rsquo;est solide en pratique, ce n&rsquo;est pas une garantie au sens o&ugrave; un DSI l&rsquo;entend. La question qui suit naturellement&nbsp;: <em>qu&rsquo;est-ce qui trace qu&rsquo;une validation a bien eu lieu, et par qui&nbsp;?</em></p>
+        </div>
+
+        <h4 class="blk">Le sch&eacute;ma, sur un cas concret&nbsp;: la refonte d&rsquo;un site</h4>
+        <p class="section-sub">Exemple pris expr&egrave;s sur mon terrain&nbsp;: refondre le parcours d&rsquo;achat d&rsquo;une billetterie existante. C&rsquo;est une <strong>refonte</strong> (du <em>brownfield</em>), pas une cr&eacute;ation &mdash; le cas le plus difficile pour la m&eacute;thode, et le plus honn&ecirc;te &agrave; prendre.</p>
+
+        <div class="flow">
+
+          <span class="flow-phase">Phase 1 &middot; Inception &mdash; le quoi et le pourquoi</span>
+
+          <div class="step">
+            <span class="num">1</span>
+            <h5>Poser l&rsquo;intention m&eacute;tier (<em>Intent</em>)</h5>
+            <p class="who"><b>Moi&nbsp;:</b> j&rsquo;&eacute;cris le besoin en fran&ccedil;ais, sans le traduire en sp&eacute;cifications. &laquo;&nbsp;Refondre le tunnel d&rsquo;achat pour r&eacute;duire l&rsquo;abandon au moment du choix de place.&nbsp;&raquo;</p>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle ne produit rien encore. Elle lit.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">2</span>
+            <h5>Reprendre l&rsquo;existant</h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle lit le code actuel et tente de reconstituer les r&egrave;gles qui n&rsquo;ont jamais &eacute;t&eacute; &eacute;crites (le <em>reverse-engineering</em> du tableau ci-dessous).</p>
+            <p class="who"><b>Moi&nbsp;:</b> je corrige. C&rsquo;est <strong>l&rsquo;&eacute;tape la plus fragile</strong> et celle o&ugrave; je vaux le plus cher&nbsp;: l&rsquo;IA voit le code, elle ne voit pas <em>pourquoi</em> la r&egrave;gle est l&agrave;. Un tarif r&eacute;duit conditionn&eacute; par une convention sign&eacute;e en 2019 ne se d&eacute;duit d&rsquo;aucun fichier.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">3</span>
+            <h5>Le tir de questions</h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle renvoie une liste de questions de clarification et signale les ambigu&iuml;t&eacute;s au lieu de deviner. &laquo;&nbsp;Que se passe-t-il si la place est verrouill&eacute;e par un autre acheteur pendant le paiement&nbsp;?&nbsp;&raquo;</p>
+            <p class="who"><b>Moi&nbsp;:</b> je r&eacute;ponds, ou je vais chercher l&rsquo;arbitrage c&ocirc;t&eacute; m&eacute;tier. <strong>C&rsquo;est mon m&eacute;tier actuel, pas un nouveau.</strong></p>
+          </div>
+
+          <div class="step">
+            <span class="num">4</span>
+            <h5>Les user stories</h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle r&eacute;dige les stories et leurs crit&egrave;res d&rsquo;acceptation, puis <strong>s&rsquo;arr&ecirc;te et attend mon accord explicite</strong>.</p>
+            <p class="who"><b>Moi&nbsp;:</b> je valide, je coupe, je repriorise. Ce que je fais aujourd&rsquo;hui dans un backlog, sauf que je pars d&rsquo;une proposition au lieu d&rsquo;une page blanche.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">5</span>
+            <h5>Le d&eacute;coupage en <em>Units</em></h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle d&eacute;coupe en blocs d&eacute;ployables ind&eacute;pendamment &mdash; s&eacute;lection de place, panier, paiement, confirmation &mdash; et d&eacute;clare les d&eacute;pendances entre eux.</p>
+            <p class="who"><b>Moi&nbsp;:</b> je v&eacute;rifie que ce d&eacute;coupage tient <strong>pour le m&eacute;tier</strong> et pas seulement pour la technique. Fin de l&rsquo;Inception.</p>
+          </div>
+
+          <span class="flow-phase">Phase 2 &middot; Construction &mdash; le comment, une Unit &agrave; la fois</span>
+
+          <div class="step">
+            <span class="num">6</span>
+            <h5>Un <em>Bolt</em> s&rsquo;ouvre sur une Unit</h5>
+            <p class="who">On prend &laquo;&nbsp;s&eacute;lection de place&nbsp;&raquo; et on la traite en entier. Le Bolt est l&rsquo;it&eacute;ration qui remplace le sprint&nbsp;: il se compte <strong>en heures ou en jours</strong>, pas en deux semaines.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">7</span>
+            <h5>Design de domaine, puis design logique</h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle propose le mod&egrave;le m&eacute;tier (qu&rsquo;est-ce qu&rsquo;une place, un verrouillage, une session d&rsquo;achat), puis l&rsquo;architecture technique.</p>
+            <p class="who"><b>Nous&nbsp;:</b> c&rsquo;est ici que se tient la <em>Mob Construction</em> &mdash; d&eacute;veloppeurs, architecte et PO dans la m&ecirc;me session, en direct. <strong>Je suis dans la pi&egrave;ce quand la d&eacute;cision technique se prend</strong>, ce qui n&rsquo;est pas le cas en agile classique.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">8</span>
+            <h5>G&eacute;n&eacute;ration du code et des tests</h5>
+            <p class="who"><b>L&rsquo;IA&nbsp;:</b> elle produit le code, les tests et la configuration &mdash; la <em>Deployment Unit</em>.</p>
+            <p class="who"><b>Moi&nbsp;:</b> rien &agrave; ce moment pr&eacute;cis. C&rsquo;est la seule &eacute;tape o&ugrave; je ne suis pas dans la boucle.</p>
+          </div>
+
+          <div class="step">
+            <span class="num">9</span>
+            <h5>Revue, puis validation ou retour</h5>
+            <p class="who"><b>Moi&nbsp;:</b> je valide contre les crit&egrave;res d&rsquo;acceptation de l&rsquo;&eacute;tape&nbsp;4. Si &ccedil;a ne passe pas, on ne reprend pas tout&nbsp;: on rouvre un Bolt sur la m&ecirc;me Unit. Puis on passe &agrave; l&rsquo;Unit suivante &mdash; ou plusieurs en parall&egrave;le si les d&eacute;pendances le permettent.</p>
+          </div>
+
+          <span class="flow-phase">Phase 3 &middot; Operations &mdash; l&rsquo;exploitation</span>
+
+          <div class="step">
+            <span class="num">10</span>
+            <h5>D&eacute;ploiement, supervision, incidents</h5>
+            <p class="who">Sur le papier&nbsp;: mise en production, infrastructure, t&eacute;l&eacute;m&eacute;trie, traitement des incidents.</p>
+            <p class="who"><b>En r&eacute;alit&eacute;&nbsp;:</b> c&rsquo;est la phase qui <strong>n&rsquo;est pas impl&eacute;ment&eacute;e</strong> dans l&rsquo;outillage de r&eacute;f&eacute;rence (voir l&rsquo;encadr&eacute; plus haut). Dans un vrai projet, cette partie reste &agrave; faire &agrave; l&rsquo;ancienne.</p>
+          </div>
+
+        </div>
+
+        <h4 class="blk">Qui intervient, &eacute;tape par &eacute;tape</h4>
+        <p class="section-sub">La documentation dit &laquo;&nbsp;&eacute;quipe pluridisciplinaire&nbsp;&raquo; sans jamais nommer les m&eacute;tiers. Ce tableau est donc <strong>ma lecture</strong>, pas la m&eacute;thode &mdash; &agrave; pr&eacute;senter comme tel. Les deux lignes gris&eacute;es sont des &eacute;tapes qu&rsquo;AI-DLC ne pr&eacute;voit pas et que je r&eacute;int&eacute;grerais.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>&Eacute;tape</th><th>Qui intervient, et pour quoi faire</th><th>Qui tranche</th></tr></thead>
+            <tbody>
+              <tr class="hors"><th scope="row">Avant&nbsp;1 &mdash; cadrage<br><em>hors m&eacute;thode</em></th><td><strong>M&eacute;tier / sponsor</strong> (pourquoi on refond) &middot; <strong>UX</strong> (recherche utilisateur, donn&eacute;es d&rsquo;usage, tests) &middot; <strong>PO</strong></td><td>Le sponsor</td></tr>
+              <tr><th scope="row">1 &mdash; l&rsquo;intention</th><td><strong>PO</strong> r&eacute;dige &middot; <strong>m&eacute;tier</strong> confirme. L&rsquo;<strong>IA</strong> lit, ne produit rien</td><td>PO&nbsp;+ m&eacute;tier</td></tr>
+              <tr><th scope="row">2 &mdash; reprendre l&rsquo;existant</th><td><strong>IA</strong> lit le code &middot; <strong>d&eacute;veloppeurs</strong> qui connaissent l&rsquo;historique &middot; <strong>architecte</strong> &middot; <strong>PO</strong> corrige les r&egrave;gles m&eacute;tier &middot; <strong>UX</strong> pour les comportements existants que le code n&rsquo;explique pas</td><td>PO (m&eacute;tier)<br>Architecte (technique)</td></tr>
+              <tr><th scope="row">3 &mdash; les questions<br><em>Mob Elaboration</em></th><td>Toute l&rsquo;&eacute;quipe en s&eacute;ance&nbsp;: <strong>PO, m&eacute;tier, UX, architecte, d&eacute;veloppeurs, IA</strong>. L&rsquo;UX est indispensable ici&nbsp;: beaucoup des questions de l&rsquo;IA sont en r&eacute;alit&eacute; des questions de parcours</td><td>PO</td></tr>
+              <tr><th scope="row">4 &mdash; user stories</th><td><strong>IA</strong> r&eacute;dige &middot; <strong>PO</strong> valide et repriorise &middot; <strong>UX</strong> v&eacute;rifie la coh&eacute;rence de parcours &middot; <strong>QA</strong> v&eacute;rifie que les crit&egrave;res sont testables</td><td>PO</td></tr>
+              <tr class="hors"><th scope="row">Entre&nbsp;4 et&nbsp;5 &mdash; parcours et maquettes<br><em>hors m&eacute;thode</em></th><td><strong>UX</strong> (parcours) &middot; <strong>UI</strong> (maquettes, design system) &middot; <strong>PO</strong>. La maquette tranche des r&egrave;gles que le texte laisse ouvertes&nbsp;: <strong>elle fait partie de la sp&eacute;cification</strong></td><td>PO&nbsp;+ UI</td></tr>
+              <tr><th scope="row">5 &mdash; d&eacute;coupage en Units</th><td><strong>IA</strong> propose &middot; <strong>architecte</strong> valide les d&eacute;pendances techniques &middot; <strong>PO</strong> v&eacute;rifie que &ccedil;a tient pour le m&eacute;tier &middot; <strong>UX</strong> alerte si le d&eacute;coupage casse un parcours en morceaux inutilisables s&eacute;par&eacute;ment</td><td>PO&nbsp;+ architecte</td></tr>
+              <tr><th scope="row">6 &mdash; ouverture d&rsquo;un Bolt</th><td><strong>PO</strong> choisit l&rsquo;Unit &middot; <strong>architecte</strong> confirme qu&rsquo;elle est r&eacute;alisable maintenant</td><td>PO</td></tr>
+              <tr><th scope="row">7 &mdash; design de domaine et logique<br><em>Mob Construction</em></th><td><strong>D&eacute;veloppeurs, architecte, PO, IA</strong> en s&eacute;ance. <strong>UI</strong> si l&rsquo;Unit porte de l&rsquo;interface. Pas de QA ni de m&eacute;tier ici</td><td>Architecte (technique)<br>PO (m&eacute;tier)</td></tr>
+              <tr><th scope="row">8 &mdash; g&eacute;n&eacute;ration du code</th><td><strong>IA</strong> seule &middot; <strong>d&eacute;veloppeurs</strong> en revue de code. Le <strong>design system</strong> doit exister en composants cod&eacute;s&nbsp;: s&rsquo;il n&rsquo;existe qu&rsquo;en maquettes, l&rsquo;IA invente l&rsquo;interface</td><td>D&eacute;veloppeurs</td></tr>
+              <tr><th scope="row">9 &mdash; revue et validation</th><td><strong>PO</strong> valide contre les crit&egrave;res &middot; <strong>QA</strong> recette &middot; <strong>UI</strong> revue de design &middot; <strong>m&eacute;tier</strong> si l&rsquo;Unit est visible par l&rsquo;utilisateur final</td><td>PO</td></tr>
+              <tr><th scope="row">10 &mdash; Operations</th><td><strong>Ops&nbsp;/ infra</strong> &middot; <strong>d&eacute;veloppeurs</strong> &middot; <strong>PO</strong> sur les incidents m&eacute;tier. Phase non impl&eacute;ment&eacute;e dans l&rsquo;outillage&nbsp;: &agrave; faire &agrave; l&rsquo;ancienne</td><td>Ops</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout retenir">
+          <span class="lbl">Ce que ce tableau montre en un coup d&rsquo;&oelig;il</span>
+          Le <strong>PO tranche sur huit &eacute;tapes sur douze</strong>. Les m&eacute;tiers les moins bien servis par la m&eacute;thode sont <strong>l&rsquo;UX, l&rsquo;UI et le QA</strong>&nbsp;: ils n&rsquo;apparaissent nulle part dans la documentation, alors que sur une refonte de site ce sont eux qui portent le r&eacute;sultat visible.
+        </div>
+
+        <h4 class="blk">O&ugrave; sont l&rsquo;UX et l&rsquo;UI dans ce sch&eacute;ma&nbsp;?</h4>
+        <div class="callout warn">
+          <span class="lbl">La r&eacute;ponse honn&ecirc;te&nbsp;: nulle part</span>
+          La cha&icirc;ne officielle va de l&rsquo;intention m&eacute;tier aux user stories, puis au mod&egrave;le de domaine et au code. <strong>Il n&rsquo;y a aucune &eacute;tape de conception d&rsquo;interface, aucun artefact de design, aucun r&ocirc;le de designer.</strong> AI-DLC est une m&eacute;thode d&rsquo;ing&eacute;nierie, pens&eacute;e par et pour des &eacute;quipes de d&eacute;veloppement.
+          <br><br>
+          Ce n&rsquo;est pas un d&eacute;tail sur une refonte de site&nbsp;: <strong>c&rsquo;est souvent l&agrave; que se joue le probl&egrave;me qu&rsquo;on est venu r&eacute;soudre.</strong> Un abandon au moment du choix de place n&rsquo;est pas un probl&egrave;me de mod&egrave;le de donn&eacute;es.
+        </div>
+
+        <p>Le d&eacute;tail de leurs interventions est dans le tableau ci-dessus, sur les lignes gris&eacute;es et aux &eacute;tapes&nbsp;3, 8 et&nbsp;9.</p>
+
+        <div class="callout say">
+          <span class="lbl">&Agrave; dire, si on parle de refonte de site</span>
+          &laquo;&nbsp;Une chose que je n&rsquo;ai pas trouv&eacute;e dans la m&eacute;thode, c&rsquo;est la place du design. La cha&icirc;ne va de l&rsquo;intention au code sans &eacute;tape de conception d&rsquo;interface. Sur les refontes que je m&egrave;ne, la maquette fait partie de la sp&eacute;cification&nbsp;: elle tranche des r&egrave;gles que le texte laisse ouvertes. <strong>Comment vous int&eacute;grez les designers dans les mobs&nbsp;?</strong>&nbsp;&raquo;
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce que ce sch&eacute;ma me permet de dire</span>
+          Sur dix &eacute;tapes, <strong>je suis d&eacute;cisionnaire sur sept</strong> (1 &agrave; 5, 7, 9). La m&eacute;thode ne supprime pas le r&ocirc;le de PO&nbsp;: elle le <strong>d&eacute;place vers l&rsquo;amont et le densifie</strong>. La page blanche dispara&icirc;t, l&rsquo;arbitrage reste, et le rythme de sollicitation augmente beaucoup.
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">&Agrave; dire si on me demande mon niveau</span>
+          Je n&rsquo;ai jamais pratiqu&eacute; AI-DLC et je l&rsquo;assume&nbsp;: <strong>je l&rsquo;ai d&eacute;couverte lors de l&rsquo;&eacute;change avec J&eacute;r&eacute;my</strong>, et j&rsquo;ai lu la documentation et le d&eacute;p&ocirc;t officiel depuis. Ce que je pr&eacute;sente ici est une <em>lecture</em>, pas un retour d&rsquo;exp&eacute;rience.
+          <br><br>
+          C&rsquo;est d&eacute;fendable&nbsp;: la m&eacute;thode a &eacute;t&eacute; publi&eacute;e en 2025, <strong>presque personne ne l&rsquo;a pratiqu&eacute;e</strong>. Quelqu&rsquo;un qui se pr&eacute;sente comme expert AI-DLC en entretien surjoue. Avoir lu le d&eacute;p&ocirc;t et rep&eacute;r&eacute; que la phase Operations est vide me place d&eacute;j&agrave; au-dessus de la moyenne des candidats.
         </div>
       </section>
 
@@ -590,20 +848,58 @@
         </div>
         <div class="tbl-wrap">
           <table class="tbl">
-            <thead><tr><th>Terme</th><th>Ce que c&rsquo;est</th><th>&Eacute;quivalent familier</th></tr></thead>
+            <thead><tr><th>Terme</th><th>Ce que c&rsquo;est</th><th>&Eacute;quivalent familier</th><th>Sur ma billetterie</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Intent</th><td>L&rsquo;expression brute du besoin m&eacute;tier, en langage naturel. On pilote par intentions, pas par processus</td><td>Le besoin, l&rsquo;expression de besoin</td></tr>
-              <tr><th scope="row">Unit</th><td>&Eacute;l&eacute;ment de travail coh&eacute;rent et <strong>d&eacute;ployable ind&eacute;pendamment</strong>. Les d&eacute;pendances sont d&eacute;clar&eacute;es et forment un graphe, ce qui permet la parall&eacute;lisation</td><td>Un epic, une feature</td></tr>
-              <tr><th scope="row">Bolt</th><td>L&rsquo;<strong>it&eacute;ration</strong> qui ex&eacute;cute une Unit. Mesur&eacute;e en <strong>heures ou jours</strong></td><td><strong>Le sprint</strong></td></tr>
-              <tr><th scope="row">Deployment Unit</th><td>Le livrable&nbsp;: code, configurations et tests &mdash; s&eacute;curis&eacute;, instrument&eacute;, test&eacute;, packag&eacute;</td><td>L&rsquo;incr&eacute;ment livrable</td></tr>
+              <tr><th scope="row">Intent<span class="trad">intention</span></th><td>L&rsquo;expression brute du besoin m&eacute;tier, en langage naturel. On pilote par intentions, pas par processus</td><td>Le besoin, l&rsquo;expression de besoin</td><td>&laquo;&nbsp;R&eacute;duire l&rsquo;abandon au moment du choix de place&nbsp;&raquo;</td></tr>
+              <tr><th scope="row">Unit<span class="trad">lot, unit&eacute; de travail</span></th><td>&Eacute;l&eacute;ment de travail coh&eacute;rent et <strong>d&eacute;ployable ind&eacute;pendamment</strong>. Les d&eacute;pendances sont d&eacute;clar&eacute;es et forment un graphe, ce qui permet de traiter plusieurs lots en parall&egrave;le</td><td>Un <em>epic</em> (un gros lot fonctionnel), une fonctionnalit&eacute;</td><td>&laquo;&nbsp;Le plan de salle interactif&nbsp;&raquo;, s&eacute;parable de &laquo;&nbsp;le calcul des tarifs r&eacute;duits&nbsp;&raquo;</td></tr>
+              <tr><th scope="row">Bolt<span class="trad">&eacute;clair, coup de foudre</span></th><td>L&rsquo;<strong>it&eacute;ration</strong> qui ex&eacute;cute une <em>Unit</em>. Mesur&eacute;e en <strong>heures ou jours</strong></td><td><strong>Le sprint</strong></td><td>Les 6&nbsp;h pendant lesquelles le plan de salle est sp&eacute;cifi&eacute;, cod&eacute;, test&eacute;</td></tr>
+              <tr><th scope="row">Deployment&nbsp;Unit<span class="trad">unit&eacute; de d&eacute;ploiement</span></th><td>Le livrable&nbsp;: code, configurations et tests &mdash; s&eacute;curis&eacute;, instrument&eacute;, test&eacute;, mis en paquet</td><td>L&rsquo;incr&eacute;ment livrable</td><td>Le plan de salle pr&ecirc;t &agrave; partir en pr&eacute;-production, tests inclus</td></tr>
             </tbody>
           </table>
         </div>
         <div class="callout warn">
           <span class="lbl">Mon d&eacute;tecteur de seconde main</span>
-          Les articles de vulgarisation se contredisent&nbsp;: certains &eacute;crivent &laquo;&nbsp;Unit of Work = le sprint&nbsp;&raquo;, d&rsquo;autres &laquo;&nbsp;= l&rsquo;epic&nbsp;&raquo;. La lecture coh&eacute;rente avec la hi&eacute;rarchie officielle est&nbsp;: <strong>Unit &asymp; epic d&eacute;ployable, Bolt &asymp; l&rsquo;it&eacute;ration qui remplace le sprint</strong>.
-          <br><br>
-          Si mon interlocuteur emploie &laquo;&nbsp;unit of work&nbsp;&raquo; comme synonyme de sprint, <strong>il r&eacute;cite du contenu de seconde main</strong>. &Agrave; noter, sans le relever.
+          Les articles de vulgarisation se contredisent&nbsp;: certains &eacute;crivent &laquo;&nbsp;<em>Unit of Work</em> = le sprint&nbsp;&raquo;, d&rsquo;autres &laquo;&nbsp;= l&rsquo;<em>epic</em>&nbsp;&raquo;. La lecture coh&eacute;rente avec la hi&eacute;rarchie officielle est&nbsp;: <strong>Unit &asymp; un gros lot fonctionnel d&eacute;ployable, Bolt &asymp; l&rsquo;it&eacute;ration qui remplace le sprint</strong>. Si les deux mots sont employ&eacute;s de fa&ccedil;on interchangeable devant moi, c&rsquo;est le flottement du vocabulaire, pas une contradiction de fond.
+        </div>
+
+        <h4 class="blk">Les mots du milieu qui reviennent dans la fiche</h4>
+        <p>Ce ne sont pas des termes AI-DLC&nbsp;: c&rsquo;est le jargon ambiant. Autant les avoir en t&ecirc;te, ils vont tomber en entretien sans &ecirc;tre expliqu&eacute;s.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Ce que c&rsquo;est</th><th>&Eacute;quivalent familier</th><th>Exemple concret</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Greenfield<span class="trad">terrain vierge</span></th><td>Un projet d&eacute;marr&eacute; de z&eacute;ro, sans existant &agrave; reprendre</td><td>Une cr&eacute;ation, un projet neuf</td><td>Cr&eacute;er une application mobile qui n&rsquo;existe pas encore</td></tr>
+              <tr><th scope="row">Brownfield<span class="trad">terrain d&eacute;j&agrave; b&acirc;ti</span></th><td>Un projet qui doit composer avec un syst&egrave;me en place, ses donn&eacute;es et ses contraintes</td><td><strong>Une refonte</strong> &mdash; c&rsquo;est mon quotidien</td><td>Refondre le tunnel d&rsquo;achat de la billetterie sans perdre l&rsquo;historique des commandes ni casser l&rsquo;interface avec le logiciel de caisse</td></tr>
+              <tr><th scope="row">Legacy<span class="trad">h&eacute;ritage, existant h&eacute;rit&eacute;</span></th><td>Code ancien, souvent peu document&eacute;, que plus personne dans l&rsquo;&eacute;quipe n&rsquo;a &eacute;crit mais que tout le monde doit respecter</td><td>Le syst&egrave;me historique</td><td>La r&egrave;gle de calcul des tarifs adh&eacute;rents, &eacute;crite il y a dix ans, jamais document&eacute;e, que personne n&rsquo;ose toucher</td></tr>
+              <tr><th scope="row">Reverse-engineering<span class="trad">r&eacute;tro-conception</span></th><td>Reconstituer les r&egrave;gles de fonctionnement d&rsquo;un syst&egrave;me &agrave; partir de son code, faute de sp&eacute;cifications &eacute;crites</td><td>R&eacute;tro-documenter, retrouver le m&eacute;tier dans le code</td><td>Lire le code pour d&eacute;couvrir <em>pourquoi</em> certaines places restent bloqu&eacute;es 20&nbsp;minutes et pas 15</td></tr>
+              <tr><th scope="row">Harness<span class="trad">harnais, attelage</span></th><td>L&rsquo;outil qui donne &agrave; l&rsquo;IA acc&egrave;s au code, aux fichiers et aux commandes. <em>Multi-harness</em> = la m&eacute;thode ne d&eacute;pend pas d&rsquo;un outil unique</td><td>L&rsquo;outil qui fait tourner l&rsquo;agent</td><td>Claude&nbsp;Code, Cursor, GitHub&nbsp;Copilot. <strong>J&rsquo;utilise Claude&nbsp;Code</strong> &mdash; je peux en parler concr&egrave;tement</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="blk">Tous les autres mots anglais de cette fiche</h4>
+        <p>Pour ne rien laisser passer&nbsp;: si un terme appara&icirc;t ailleurs dans le m&eacute;mo sans &ecirc;tre expliqu&eacute; sur le moment, il est ici.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Traduction / d&eacute;finition</th><th>Exemple concret</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Human&nbsp;in&nbsp;the&nbsp;loop</th><td>&laquo;&nbsp;L&rsquo;humain dans la boucle&nbsp;&raquo;&nbsp;: rien ne passe &agrave; l&rsquo;&eacute;tape suivante sans qu&rsquo;une personne ait regard&eacute; et approuv&eacute;</td><td>L&rsquo;agent produit les user stories&nbsp;; il attend que je dise oui avant de coder</td></tr>
+              <tr><th scope="row">Spec-driven</th><td>&laquo;&nbsp;Pilot&eacute; par la sp&eacute;cification&nbsp;&raquo;&nbsp;: on &eacute;crit d&rsquo;abord ce qu&rsquo;on veut, l&rsquo;outil refuse de coder tant que ce n&rsquo;est pas &eacute;crit</td><td>C&rsquo;est le principe de Kiro, l&rsquo;&eacute;diteur de code d&rsquo;AWS</td></tr>
+              <tr><th scope="row">User story</th><td>&laquo;&nbsp;R&eacute;cit utilisateur&nbsp;&raquo;&nbsp;: une expression du besoin du point de vue de la personne qui utilise, avec des crit&egrave;res pour dire quand c&rsquo;est fait</td><td>&laquo;&nbsp;En tant qu&rsquo;adh&eacute;rent, je veux voir mon tarif r&eacute;duit appliqu&eacute; d&egrave;s le choix de la place.&nbsp;&raquo;</td></tr>
+              <tr><th scope="row">Epic</th><td>Un gros lot fonctionnel, qui se d&eacute;coupe en plusieurs user stories</td><td>&laquo;&nbsp;Le plan de salle interactif&nbsp;&raquo;</td></tr>
+              <tr><th scope="row">Backlog</th><td>La liste ordonn&eacute;e de tout ce qui reste &agrave; faire sur le produit</td><td>Ce que je tenais et priorisais &agrave; la Com&eacute;die-Fran&ccedil;aise</td></tr>
+              <tr><th scope="row">Definition&nbsp;of&nbsp;Done&nbsp;(DoD)</th><td>&laquo;&nbsp;D&eacute;finition de termin&eacute;&nbsp;&raquo;&nbsp;: la liste des conditions &agrave; remplir pour qu&rsquo;on ait le droit de dire qu&rsquo;une chose est finie</td><td>Cod&eacute;, test&eacute;, relu, document&eacute;, d&eacute;ployable</td></tr>
+              <tr><th scope="row">Open source</th><td>Code source public, gratuit, r&eacute;utilisable et modifiable par tous</td><td>AI-DLC est publi&eacute; sur GitHub&nbsp;: n&rsquo;importe qui peut le t&eacute;l&eacute;charger</td></tr>
+              <tr><th scope="row">Placeholder</th><td>&laquo;&nbsp;Emplacement r&eacute;serv&eacute;&nbsp;&raquo;&nbsp;: une case pr&eacute;vue mais encore vide</td><td>La phase Operations dans le d&eacute;p&ocirc;t AWS&nbsp;: le dossier existe, le contenu n&rsquo;est pas &eacute;crit</td></tr>
+              <tr><th scope="row">Mob</th><td>&laquo;&nbsp;En groupe&nbsp;&raquo;. Une session o&ugrave; tout le monde travaille ensemble sur la m&ecirc;me chose en m&ecirc;me temps, au lieu de se r&eacute;partir les t&acirc;ches</td><td><em>Mob Elaboration</em> = atelier collectif de cadrage &middot; <em>Mob Construction</em> = atelier collectif de conception technique</td></tr>
+              <tr><th scope="row">Pipeline</th><td>&laquo;&nbsp;Cha&icirc;ne&nbsp;&raquo;&nbsp;: la suite automatis&eacute;e d&rsquo;&eacute;tapes entre le code &eacute;crit et le code en ligne</td><td>Compilation, tests, mise en pr&eacute;-production, mise en production</td></tr>
+              <tr><th scope="row">Run</th><td>L&rsquo;exploitation&nbsp;: faire tourner et maintenir ce qui est d&eacute;j&agrave; en production, par opposition au &laquo;&nbsp;build&nbsp;&raquo; qui construit du neuf</td><td>Surveiller la billetterie un soir de mise en vente</td></tr>
+              <tr><th scope="row">IDE</th><td><em>Integrated Development Environment</em> &mdash; l&rsquo;environnement de d&eacute;veloppement, le logiciel dans lequel un d&eacute;veloppeur &eacute;crit son code</td><td>VS&nbsp;Code, Cursor, Kiro</td></tr>
+              <tr><th scope="row">POC</th><td><em>Proof of Concept</em> &mdash; preuve de concept&nbsp;: une maquette fonctionnelle faite pour v&eacute;rifier qu&rsquo;une id&eacute;e tient, pas pour &ecirc;tre mise en production</td><td>Ce qu&rsquo;Adservio a d&eacute;j&agrave; produit chez le client h&ocirc;telier</td></tr>
+              <tr><th scope="row">TNR</th><td>Tests de Non-R&eacute;gression&nbsp;: v&eacute;rifier qu&rsquo;une nouveaut&eacute; n&rsquo;a rien cass&eacute; de ce qui marchait avant</td><td>Le sujet central d&egrave;s que du code est g&eacute;n&eacute;r&eacute; en masse par une IA</td></tr>
+              <tr><th scope="row">SDLC</th><td><em>Software Development Life Cycle</em> &mdash; le cycle de vie logiciel&nbsp;: besoin, conception, d&eacute;veloppement, test, d&eacute;ploiement, exploitation</td><td>C&rsquo;est ce cycle entier qu&rsquo;Adservio veut &laquo;&nbsp;augmenter&nbsp;&raquo; &agrave; l&rsquo;IA</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -732,7 +1028,9 @@
         </div>
         <div class="callout say">
           <span class="lbl">Ce que je peux dire &mdash; et personne &agrave; l&rsquo;ESN ne peut me contredire sur mon secteur</span>
-          &laquo;&nbsp;La Mob Elaboration suppose des parties prenantes disponibles en synchrone. Dans le public et le culturel, mes interlocuteurs valident en comit&eacute; mensuel, parfois avec une tutelle. La contrainte n&rsquo;est pas la vitesse de production&nbsp;: c&rsquo;est le circuit de d&eacute;cision. C&rsquo;est l&agrave; que je sais faire la diff&eacute;rence, parce que c&rsquo;est exactement ce que j&rsquo;ai pass&eacute; treize ans &agrave; d&eacute;bloquer.&nbsp;&raquo;
+          &laquo;&nbsp;La <em>Mob Elaboration</em> &mdash; l&rsquo;atelier collectif de cadrage &mdash; suppose d&rsquo;avoir le m&eacute;tier dans la salle en m&ecirc;me temps que l&rsquo;&eacute;quipe, plusieurs heures d&rsquo;affil&eacute;e. Dans le culturel et l&rsquo;institutionnel, &ccedil;a ne se passe pas comme &ccedil;a&nbsp;: mes interlocuteurs d&eacute;cident en comit&eacute; mensuel, et il arrive que la d&eacute;cision doive encore remonter &agrave; une tutelle, c&rsquo;est-&agrave;-dire &agrave; l&rsquo;administration dont ils d&eacute;pendent.
+          <br><br>
+          Ce qui ralentit ces projets, ce n&rsquo;est donc pas le temps de production, c&rsquo;est le temps qu&rsquo;il faut pour obtenir une d&eacute;cision. Si l&rsquo;IA divise le temps de production par dix et qu&rsquo;on attend toujours trois semaines une validation, on n&rsquo;a rien gagn&eacute;. C&rsquo;est l&agrave;-dessus que je peux &ecirc;tre utile chez vos clients&nbsp;: raccourcir ce circuit, c&rsquo;est ce que je fais depuis treize ans.&nbsp;&raquo;
         </div>
       </section>
 
@@ -843,15 +1141,17 @@
           <br>
           <strong>2.</strong> AI-DLC &eacute;tant open source, gratuit et multi-harness, <strong>la valeur ajout&eacute;e d&rsquo;une ESN ne peut pas &ecirc;tre l&rsquo;acc&egrave;s &agrave; l&rsquo;outil</strong>. Elle est ailleurs&nbsp;: l&rsquo;accompagnement, l&rsquo;engagement de r&eacute;sultat, la conduite du changement. C&rsquo;est pr&eacute;cis&eacute;ment l&agrave; que je me situe.
         </div>
-        <h4 class="blk">&laquo;&nbsp;Dark factory&nbsp;&raquo; &mdash; attention, contradiction</h4>
+        <h4 class="blk">&laquo;&nbsp;<em>Dark factory</em>&nbsp;&raquo; &mdash; l&rsquo;usine sans lumi&egrave;re</h4>
         <div class="card">
-          <p>Terme venu de l&rsquo;industrie&nbsp;: une usine si automatis&eacute;e qu&rsquo;elle tourne <strong>lumi&egrave;res &eacute;teintes</strong>, sans op&eacute;rateurs. Appliqu&eacute; au logiciel&nbsp;: <strong>un pipeline enti&egrave;rement autonome o&ugrave; des agents planifient, &eacute;crivent, testent et d&eacute;ploient sans revue humaine</strong>.</p>
+          <p>Terme venu de l&rsquo;industrie&nbsp;: une usine si automatis&eacute;e qu&rsquo;elle tourne <strong>lumi&egrave;res &eacute;teintes</strong>, puisqu&rsquo;il n&rsquo;y a plus d&rsquo;op&eacute;rateurs &agrave; &eacute;clairer. Appliqu&eacute; au logiciel&nbsp;: <strong>une cha&icirc;ne enti&egrave;rement autonome o&ugrave; des agents planifient, &eacute;crivent, testent et d&eacute;ploient sans revue humaine</strong>.</p>
         </div>
         <div class="callout warn">
-          <span class="lbl">Le point de vigilance</span>
-          La dark factory est <strong>la n&eacute;gation exacte du principe fondateur d&rsquo;AI-DLC</strong> (&laquo;&nbsp;l&rsquo;IA propose, l&rsquo;humain d&eacute;cide&nbsp;&raquo;, validation explicite &agrave; chaque &eacute;tape). Les deux concepts sont <strong>contradictoires, pas compl&eacute;mentaires</strong>.
+          <span class="lbl">Ce que j&rsquo;en fais &mdash; sans en faire un proc&egrave;s</span>
+          Sur le papier, <em>dark factory</em> et AI-DLC ne disent pas la m&ecirc;me chose&nbsp;: AI-DLC repose sur une validation humaine &agrave; chaque &eacute;tape, la <em>dark factory</em> retire l&rsquo;humain de la boucle.
           <br><br>
-          S&rsquo;ils citent les deux dans la m&ecirc;me offre, deux lectures&nbsp;: soit ils d&eacute;crivent une <strong>trajectoire de maturit&eacute;</strong> (mob valid&eacute; aujourd&rsquo;hui &rarr; autonomie progressive sur des p&eacute;rim&egrave;tres &agrave; faible risque demain), et c&rsquo;est d&eacute;fendable&nbsp;; soit ils <strong>empilent des mots-cl&eacute;s</strong>. Ma question n&deg;8 les d&eacute;partage.
+          <strong>Mais ce n&rsquo;est pas leur doctrine, c&rsquo;est une exp&eacute;rimentation.</strong> Le manager a employ&eacute; le terme &agrave; propos d&rsquo;essais men&eacute;s pour voir jusqu&rsquo;o&ugrave; la cha&icirc;ne pouvait aller seule et quels r&eacute;sultats elle produisait. C&rsquo;est une d&eacute;marche l&eacute;gitime, et m&ecirc;me plut&ocirc;t bon signe&nbsp;: ils testent au lieu de r&eacute;citer.
+          <br><br>
+          <strong>Donc&nbsp;: ne pas arriver avec &laquo;&nbsp;vous vous contredisez&nbsp;&raquo;.</strong> Le pointer comme une incoh&eacute;rence me ferait passer pour quelqu&rsquo;un qui cherche la faute. La bonne posture est la curiosit&eacute; de praticienne&nbsp;: <em>qu&rsquo;est-ce que ces essais ont donn&eacute;, et o&ugrave; placez-vous le curseur en production&nbsp;?</em> C&rsquo;est ma question n&deg;8, et elle est int&eacute;ressante pour eux comme pour moi.
         </div>
       </section>
 
@@ -892,11 +1192,22 @@
         </div>
 
         <div class="blk">
-          <div class="label">5 &middot; Sur le brownfield &mdash; question de praticienne</div>
+          <div class="label">5 &middot; Sur les refontes &mdash; question de praticienne</div>
           <ul>
-            <li>&laquo;&nbsp;Les retours situent les meilleurs r&eacute;sultats sur le greenfield document&eacute;. Mon m&eacute;tier, ce sont des refontes&nbsp;: legacy peu document&eacute;, r&egrave;gles m&eacute;tier implicites, historique de donn&eacute;es. Quel est votre retour r&eacute;el sur le reverse-engineering d&rsquo;AI-DLC dans ce contexte, et qu&rsquo;est-ce qui casse en premier&nbsp;?&nbsp;&raquo;</li>
-            <li><em>La r&eacute;ponse me dira instantan&eacute;ment s&rsquo;ils ont livr&eacute; ou seulement vendu.</em></li>
+            <li>&laquo;&nbsp;Les retours situent les meilleurs r&eacute;sultats sur des projets neufs et bien document&eacute;s. Mon m&eacute;tier, ce sont des refontes&nbsp;: un existant peu document&eacute;, des r&egrave;gles m&eacute;tier implicites, un historique de donn&eacute;es. Quel est votre retour r&eacute;el sur AI-DLC dans ce contexte, et qu&rsquo;est-ce qui casse en premier&nbsp;?&nbsp;&raquo;</li>
           </ul>
+
+          <p style="font-size:14px;color:#4a4540;margin-top:14px;"><strong>Pourquoi cette question&nbsp;:</strong> AI-DLC part d&rsquo;une intention en langage naturel. Sur un projet neuf, il n&rsquo;y a rien &agrave; contredire. Sur une refonte, l&rsquo;IA doit d&rsquo;abord comprendre un existant que <strong>personne n&rsquo;a document&eacute;</strong> &mdash; c&rsquo;est l&rsquo;&eacute;tape&nbsp;2 du sch&eacute;ma. Elle lit le code, elle ne lit pas les vingt ans de d&eacute;cisions m&eacute;tier qui l&rsquo;ont produit.</p>
+
+          <p style="font-size:14px;color:#4a4540;margin-top:10px;"><strong>Pourquoi c&rsquo;est le c&oelig;ur du sujet chez eux&nbsp;:</strong> une ESN qui travaille avec des grands comptes ne fait presque jamais de projet neuf. Leurs clients ont tous un existant. Si la m&eacute;thode ne tient que sur du neuf, <strong>elle ne tient pas sur leur activit&eacute; r&eacute;elle</strong>.</p>
+
+          <p style="font-size:14px;color:#4a4540;margin-top:10px;"><strong>Comment lire la r&eacute;ponse&nbsp;:</strong></p>
+          <ul>
+            <li><strong>Ils ont livr&eacute;</strong> &mdash; ils citent un cas, un point de blocage pr&eacute;cis, et ce qu&rsquo;ils ont d&ucirc; ajouter pour le contourner. Ils parlent d&rsquo;effort de re-documentation en amont.</li>
+            <li><strong>Ils ont vendu</strong> &mdash; ils r&eacute;pondent que &laquo;&nbsp;&ccedil;a s&rsquo;adapte&nbsp;&raquo;, que &laquo;&nbsp;l&rsquo;IA analyse le code existant&nbsp;&raquo;, sans exemple. Ou ils enchaînent sur les gains de productivit&eacute;.</li>
+          </ul>
+
+          <p style="font-size:14px;color:#4a4540;margin-top:10px;">Dans les deux cas c&rsquo;est une bonne question &agrave; poser&nbsp;: elle montre que j&rsquo;ai lu au-del&agrave; de la brochure, et la r&eacute;ponse m&rsquo;indique <strong>si je vais &ecirc;tre envoy&eacute;e d&eacute;fendre une m&eacute;thode devant un client sans qu&rsquo;elle ait &eacute;t&eacute; &eacute;prouv&eacute;e.</strong></p>
         </div>
 
         <div class="blk">
@@ -916,9 +1227,9 @@
         </div>
 
         <div class="blk">
-          <div class="label">8 &middot; Sur la coh&eacute;rence dark factory / human in the loop</div>
+          <div class="label">8 &middot; Sur la <em>dark factory</em> et la place de l&rsquo;humain</div>
           <ul>
-            <li>&laquo;&nbsp;AI-DLC repose sur l&rsquo;approbation humaine explicite &agrave; chaque &eacute;tape. La dark factory retire l&rsquo;humain de la boucle. O&ugrave; placez-vous le curseur aujourd&rsquo;hui chez vos clients, et quels types de changements accepteriez-vous de laisser passer sans revue&nbsp;?&nbsp;&raquo;</li>
+            <li>&laquo;&nbsp;Vous avez parl&eacute; de <em>dark factory</em>, donc d&rsquo;essais o&ugrave; la cha&icirc;ne tourne sans revue humaine. Qu&rsquo;est-ce que &ccedil;a a donn&eacute;&nbsp;? Et aujourd&rsquo;hui, chez un client en production, o&ugrave; vous placez le curseur&nbsp;: quels types de changements vous laisseriez passer sans qu&rsquo;un humain regarde&nbsp;?&nbsp;&raquo;</li>
             <li><em>D&eacute;tecte imm&eacute;diatement s&rsquo;ils ma&icirc;trisent la doctrine ou empilent des mots-cl&eacute;s.</em></li>
           </ul>
         </div>
@@ -937,7 +1248,7 @@
         <p class="section-sub">Si je ne retiens que trois choses de cette fiche.</p>
         <div class="callout retenir">
           <span class="lbl">1 &middot; AI-DLC est r&eacute;el, pas du vent</span>
-          Trois phases, une hi&eacute;rarchie d&rsquo;artefacts claire, une impl&eacute;mentation open source, des points de validation cod&eacute;s en dur et une tra&ccedil;abilit&eacute; d&rsquo;audit native sup&eacute;rieure &agrave; un backlog classique. <strong>Ce n&rsquo;est pas du vibe coding rebadg&eacute;</strong>, et je dois le reconna&icirc;tre d&rsquo;entr&eacute;e &mdash; sinon tout ce que je dirai ensuite passera pour de la r&eacute;sistance.
+          Trois phases, une hi&eacute;rarchie d&rsquo;artefacts claire, une impl&eacute;mentation publique et gratuite, des points d&rsquo;arr&ecirc;t inscrits dans les r&egrave;gles de l&rsquo;agent, et une tra&ccedil;abilit&eacute; du besoin jusqu&rsquo;au code meilleure que celle d&rsquo;un backlog classique. <strong>Ce n&rsquo;est pas de la g&eacute;n&eacute;ration de code au feeling avec un nom de m&eacute;thode dessus</strong>, et je dois le reconna&icirc;tre d&rsquo;entr&eacute;e &mdash; sinon tout ce que je dirai ensuite passera pour de la r&eacute;sistance au changement.
         </div>
         <div class="callout retenir">
           <span class="lbl">2 &middot; Le discours de vitesse est fragile</span>
