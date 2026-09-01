@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entretien Adservio &mdash; direction &mdash; Marine Tréhorel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #2b2622;
+      background: #f6efe4;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 32px;
+      background: rgba(246, 239, 228, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd0be;
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: #6b6560;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .topbar .back svg { width: 19px; height: 19px; display: block; }
+
+    .topbar .back:hover {
+      color: #a54527;
+      background: rgba(201, 117, 90, 0.1);
+    }
+
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    /* Side nav */
+    .sidenav {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      height: max-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidenav h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul { list-style: none; }
+
+    .sidenav li { margin-bottom: 1px; }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #6b6560;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s ease;
+    }
+
+    .sidenav a .num {
+      display: inline-block;
+      width: 20px;
+      color: #b9ab97;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidenav a:hover,
+    .sidenav a.active {
+      color: #a54527;
+      background: #fbf5ea;
+      border-left-color: #c9755a;
+    }
+    .sidenav a.active .num { color: #c9755a; }
+
+    /* Content */
+    .content { min-width: 0; }
+
+    .page-head { margin-bottom: 40px; }
+
+    .page-head .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9755a;
+      margin-bottom: 12px;
+    }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      font-size: 15px;
+      color: #6b6560;
+      max-width: 640px;
+    }
+
+    section { margin-bottom: 52px; scroll-margin-top: 88px; }
+
+    section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    section > h2 .idx {
+      font-size: 15px;
+      color: #c9755a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: 2px;
+    }
+
+    section > .section-sub {
+      font-size: 13.5px;
+      color: #9a9088;
+      margin-bottom: 22px;
+    }
+
+    h4.blk {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin: 24px 0 10px;
+    }
+
+    .qa > p { margin-bottom: 12px; }
+
+    div.blk {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 18px 24px 20px;
+      margin-bottom: 14px;
+    }
+
+    div.blk > .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e4d8c6;
+    }
+
+    div.blk ul { margin-left: 18px; }
+    div.blk li { margin-bottom: 7px; }
+    div.blk li:last-child { margin-bottom: 0; }
+
+    .card {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14.5px; color: #4a4540; }
+    .card p + p { margin-top: 10px; }
+
+    .card ul { margin: 4px 0 0 18px; }
+    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
+
+    .pitch {
+      border-left: 3px solid #c9755a;
+      background: #fbf5ea;
+      padding: 22px 26px;
+      border-radius: 0 14px 14px 0;
+      font-size: 15.5px;
+      color: #3a352f;
+      line-height: 1.75;
+    }
+    .pitch strong { color: #a54527; }
+
+    /* Chips / keywords */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    .callout .lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
+    .callout.retenir .lbl { color: #a54527; }
+    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
+    .callout.say .lbl { color: #c9755a; }
+    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
+    .callout.warn .lbl { color: #a54527; }
+    .callout b, .callout strong { color: #2b2622; }
+    .callout ul { margin: 4px 0 0 18px; }
+    .callout li { margin-bottom: 4px; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+    table.tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table.tbl th, table.tbl td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #efe3d5;
+      vertical-align: top;
+    }
+    table.tbl thead th {
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.tbl tbody tr:last-child td { border-bottom: none; }
+    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
+    table.tbl th[scope="row"] { white-space: nowrap; }
+    table.tbl th[scope="row"] .trad {
+      display: block; font-weight: 400; font-size: 12px;
+      color: #9a9088; font-style: italic; margin-top: 3px; white-space: normal;
+    }
+
+    /* STAR blocks */
+    .star { position: relative; }
+    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
+    .star dt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c9755a;
+      padding-top: 2px;
+    }
+    .star dd { font-size: 14.5px; color: #4a4540; }
+
+    /* Q&A */
+    details.qa {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      padding: 4px 20px;
+      margin-bottom: 12px;
+    }
+    details.qa summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b2622;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary .chev {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c9755a;
+      transition: transform 0.2s ease;
+    }
+    details.qa[open] summary .chev { transform: rotate(180deg); }
+    details.qa .answer {
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    details.qa .answer ul { margin: 8px 0 0 18px; }
+    details.qa .answer li { margin-bottom: 5px; }
+    .ex-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 9.5px;
+      color: #c9755a;
+      margin-right: 6px;
+    }
+    .answer .meta { margin-top: 10px; font-size: 13px; }
+    .answer .meta.ex { color: #7a3d24; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      color: #4a4540;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #c9755a;
+      border-radius: 5px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd0be;
+      font-size: 14.5px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: #9a9088; font-weight: 600; }
+    .info-row .value { color: #2b2622; text-align: right; }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
+      .sidenav { display: none; }
+      .page-head h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .star dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <a class="back" href="/preparation-entretien.html" aria-label="Retour à la préparation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
+    </a>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidenav">
+      <h3>Sommaire</h3>      <ul>
+        <li><a href="#rdv"><span class="num">1</span>Le rendez-vous</a></li>
+        <li><a href="#adservio"><span class="num">2</span>Qui est Adservio</a></li>
+        <li><a href="#ecart"><span class="num">3</span>L'écart à comprendre</a></li>
+        <li><a href="#audit"><span class="num">4</span>L'audit, concrètement</a></li>
+        <li><a href="#ouverture"><span class="num">5</span>Mon ouverture</a></li>
+        <li><a href="#passer"><span class="num">6</span>Ce que je dois faire passer</a></li>
+        <li><a href="#leurs-questions"><span class="num">7</span>Leurs questions</a></li>
+        <li><a href="#mes-questions"><span class="num">8</span>Mes questions</a></li>
+        <li><a href="#conditions"><span class="num">9</span>Salaire et conditions</a></li>
+        <li><a href="#jamais"><span class="num">10</span>Ce que je ne dis pas</a></li>
+        <li><a href="#chiffres"><span class="num">11</span>Mes chiffres</a></li>
+        <li><a href="#check"><span class="num">12</span>Check 15 min</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <header class="page-head">
+        <p class="eyebrow">Fiche entretien &middot; 2<sup>e</sup> tour</p>
+        <h1>Adservio &mdash; la direction</h1>
+        <p class="section-sub">Jeudi 3 septembre 2026, 10h30, La Défense. Trois personnes dans l'invitation, dont le fondateur et la directrice générale. Le mémo AI-DLC reste le support technique de cet entretien.</p>
+      </header>
+
+      <!-- 01 -->
+      <section id="rdv">
+        <h2><span class="idx">01</span>Le rendez-vous</h2>
+        <p class="section-sub">Ce n'était pas le format annoncé. C'est le fait le plus important de cette fiche.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce qui a changé depuis l'entretien 1</span>
+          Le manager annonçait «&nbsp;une rencontre avec Anis, le sponsor front IA&nbsp;»&nbsp;: un tête-à-tête. L'invitation contient <strong>trois personnes, dont le fondateur et la directrice générale</strong>. On ne réunit pas ce trio pour trier des candidatures. <strong>C'est un entretien de décision, pas d'évaluation.</strong>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Personne</th><th>Rôle</th><th>Ce qu'elle évalue</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Anis Zouaoui</th>
+                <td><strong>Fondateur et président.</strong> Il contrôle le groupe via sa holding&nbsp;: aucune décision ne lui échappe</td>
+                <td>Un pari, pas des compétences. La question implicite&nbsp;: <em>est-ce que je la mets devant un DSI&nbsp;?</em></td>
+              </tr>
+              <tr>
+                <th scope="row">Khadidja Khali</th>
+                <td><strong>Directrice générale</strong> d'après LinkedIn &mdash; elle n'apparaît pas comme mandataire au registre, donc le périmètre exact reste à qualifier. <strong>Jamais mentionnée avant l'invitation</strong></td>
+                <td>Probablement l'opérationnel&nbsp;: sur quel compte on me place, à quel prix, à partir de quand</td>
+              </tr>
+              <tr>
+                <th scope="row">Mohamed Gandoura</th>
+                <td>Talent Acquisition <strong>et Bid Manager</strong>. C'est mon contact téléphonique&nbsp;: dispos, salaire, calage</td>
+                <td>Le cadre&nbsp;: rémunération, disponibilité, mobilité</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le signal à ne pas manquer</span>
+          Mohamed est <strong>Bid Manager</strong> &mdash; <em>bid</em>, c'est l'avant-vente, la réponse aux appels d'offres. S'il est dans la salle, il n'y est pas que pour l'administratif&nbsp;: <strong>mon profil apparaît, ou pourrait apparaître, dans une proposition commerciale.</strong> C'est le meilleur signal du dossier.
+        </div>
+
+        <h4 class="blk">Je ne sais pas si les trois seront présents</h4>
+        <div class="card">
+          <p>Possible qu'Anis mène seul et que les deux autres soient en copie. <strong>Je peux simplement le demander à Mohamed</strong>, c'est exactement son rôle&nbsp;:</p>
+          <p><em>«&nbsp;Bonjour Mohamed, merci pour l'organisation. Une question pratique avant jeudi&nbsp;: l'échange se fait-il avec Anis seul, ou Khadidja Khali et vous-même y participez également&nbsp;? Cela m'aide à préparer le format.&nbsp;»</em></p>
+          <p>Sans réponse&nbsp;: <strong>je prépare le panel, je saurai jouer le tête-à-tête.</strong> L'inverse n'est pas vrai.</p>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Scénario</th><th>Ce que ça veut dire</th><th>Comment je m'adapte</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Anis seul</th><td>Le format annoncé. Entretien de conviction, sujet = l'offre</td><td>Je déroule. Les questions sur l'offre sont ma meilleure carte</td></tr>
+              <tr><th scope="row">Anis + Khadidja</th><td>Décision partagée en direction. Le sujet glisse vers <em>où et comment on la place</em></td><td>Questions opérationnelles à attendre&nbsp;: clients, rythme, autonomie, date de démarrage</td></tr>
+              <tr><th scope="row">Les trois</th><td>Entretien de décision</td><td>Le salaire et la dispo peuvent tomber en séance. Prête à les traiter sans hésiter</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Régler la mécanique d'un entretien à plusieurs</span>
+          <ul>
+            <li><strong>Répondre à celui qui pose</strong>, mais balayer les trois du regard. Revenir sur la personne qui a posé pour conclure.</li>
+            <li><strong>Ne pas se laisser aspirer par le plus bavard.</strong> Si Anis prend tout l'espace, adresser une question à Khadidja pour la faire entrer&nbsp;: c'est elle qui aura un avis sur le placement.</li>
+            <li><strong>Écrire les trois prénoms</strong> en haut de page dès le début, et les utiliser.</li>
+            <li>Une question de fin <strong>par personne</strong> plutôt que trois à Anis.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section id="adservio">
+        <h2><span class="idx">02</span>Qui est Adservio</h2>
+        <p class="section-sub">Ce que disent les sources publiques&nbsp;: registre du commerce, site officiel, LinkedIn, presse. Ce qui est incertain est signalé comme tel.</p>
+
+        <h4 class="blk">L'identité</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <tbody>
+              <tr><th scope="row">Forme</th><td><strong>ADSERVIO SAS</strong>, siège au 10 rue de Penthièvre, Paris 8<sup>e</sup>. Immatriculée en <strong>janvier 2012</strong> &mdash; ils communiquent «&nbsp;depuis 2010&nbsp;». <strong>Ne pas relever&nbsp;: ce n'est pas mon sujet</strong></td></tr>
+              <tr><th scope="row">Contrôle</th><td>Une holding détenue par <strong>Anis Zouaoui</strong> chapeaute ADSERVIO GROUP, qui préside <strong>7 filiales</strong>. <strong>Aucun fonds au capital</strong>&nbsp;: entreprise indépendante, contrôlée par son fondateur</td></tr>
+              <tr><th scope="row">Filiales</th><td>Adservio, <strong>Shinken Solutions</strong> (supervision), Tobogan (conseil digital), Xperpool, Iriguard, <strong>Adservio Academy</strong> (formation), Majuscule</td></tr>
+              <tr><th scope="row">Chiffre d'affaires</th><td><strong>~24&nbsp;M€ en 2024</strong> sur l'entité Adservio seule, contre ~21&nbsp;M€ en 2022. Croissance réelle mais modérée. Rentable</td></tr>
+              <tr><th scope="row">Effectif</th><td>Les sources divergent&nbsp;: <strong>100 à 199</strong> au registre, ~150 sur LinkedIn, <strong>240+</strong> annoncé sur le site. L'écart s'explique sans doute par le périmètre groupe et le <em>nearshore</em></td></tr>
+              <tr><th scope="row">Implantations</th><td>France&nbsp;: <strong>Paris/Puteaux (Tour Franklin), Lyon, Amiens</strong>. <strong>Tunisie&nbsp;: Tunis et Monastir</strong> &mdash; centre de service <em>nearshore</em>, littéralement «&nbsp;rivage proche&nbsp;»&nbsp;: des équipes délocalisées, mais dans un pays voisin, même fuseau horaire et francophone</td></tr>
+              <tr><th scope="row">Croissance externe</th><td>Rachat de <strong>Shinken Solutions</strong> fin 2022, éditeur d'une solution de supervision issue de l'<em>open source</em> (logiciel dont le code est public et librement réutilisable). Cohérent avec leur axe résilience</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce que la structure me dit</span>
+          <strong>La Défense (Tour Franklin), c'est leur bureau, pas un lieu neutre.</strong> Et le fait qu'Anis contrôle tout le groupe via sa holding explique le format&nbsp;: s'il est dans la salle, la décision peut se prendre dans la salle. Il n'a personne à qui remonter.
+        </div>
+
+        <h4 class="blk">Ce qu'ils vendent &mdash; quatre lignes de service</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Ligne (leur nom)</th><th>Ce qu'elle recouvre</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Digital Quality<span class="trad">la qualité logicielle</span></th><td><strong>Leur cœur historique.</strong> Performance des applications, audits de code et de sécurité, automatisation des tests, supervision (<em>APM</em>, <em>Application Performance Monitoring</em>&nbsp;: mesurer en continu la santé d'une application en production), <em>FinOps</em> (piloter la facture du cloud)</td></tr>
+              <tr><th scope="row">Digital Analytics<span class="trad">la donnée</span></th><td>Gestion et qualité des données, <em>big data</em> (très gros volumes), mise à disposition par <em>API</em> (une porte d'entrée technique pour qu'un logiciel en interroge un autre), IA et apprentissage automatique</td></tr>
+              <tr><th scope="row">Digital Delivery<span class="trad">la fabrication et la livraison</span></th><td>Développement, modernisation d'applications anciennes, Salesforce et SAP, <em>cloud</em>, <em>DevOps</em> (automatiser la mise en production), «&nbsp;Excellence Center&nbsp;»</td></tr>
+              <tr><th scope="row">Digital Empowerment<span class="trad">la montée en compétence des équipes</span></th><td>Formation, prototypage, accompagnement technique, diagnostic et remise à niveau</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le point le plus utile de toute cette section</span>
+          <strong>Adservio n'est pas historiquement une maison de développement, c'est une maison de qualité et de performance logicielle.</strong> Audits de code, stratégie de test, tests de charge, supervision, observabilité. Le rachat d'un éditeur de supervision va dans le même sens.
+          <br><br>
+          Conséquence directe&nbsp;: quand ils disent «&nbsp;audit&nbsp;», ils ne pensent probablement pas à un audit d'organisation en slides. Ils pensent à quelque chose de <strong>mesuré et instrumenté</strong>. Voir la section 04.
+        </div>
+
+        <h4 class="blk">Leurs clients &mdash; ce qui est affiché publiquement</h4>
+        <div class="card">
+          <p><strong>GRDF, RATP, SNCF, Enedis, RTE, Veolia, Disneyland Paris, STEF, Docaposte, BNP Paribas, Société Générale, Bpifrance, AFNOR.</strong></p>
+          <p>Trois secteurs dominent&nbsp;: <strong>énergie et utilities</strong> (GRDF, Enedis, RTE, Veolia), <strong>transport</strong> (RATP, SNCF), <strong>banque et finance</strong> (BNP, SG, Bpifrance).</p>
+          <p><strong>Ce sont des grands comptes, très majoritairement des opérateurs de service public ou d'infrastructure critique.</strong> Des DSI lourdes, des cycles de décision longs, des contraintes de conformité fortes. C'est un terrain que je connais&nbsp;: c'est celui du culturel et de l'institutionnel, en plus gros.</p>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Trois vérifications sur ce qu'on m'a dit en entretien 1</span>
+          <ul>
+            <li><strong>GRDF&nbsp;: largement confirmé.</strong> C'est même leur vitrine IA la plus solide &mdash; Anis a co-animé en avril 2026 une matinale sur la conformité IA avec le responsable IA de GRDF. Le manager m'avait dit qu'il y intervenait en formation&nbsp;: c'est cohérent.</li>
+            <li><strong>Transport&nbsp;: confirmé</strong> (RATP, SNCF).</li>
+            <li><strong>Hôtellerie&nbsp;: rien de public.</strong> Aucune référence hôtelière trouvée. Le seul client qui pourrait correspondre à ce qu'on m'a présenté comme «&nbsp;hospitalité&nbsp;» est <strong>Disneyland Paris</strong>. À faire préciser, sans affirmer que je sais.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section id="ecart">
+        <h2><span class="idx">03</span>L'écart à comprendre avant d'entrer</h2>
+        <p class="section-sub">Leur vocabulaire IA public n'est pas celui qu'on m'a servi en entretien 1. Ce n'est pas un piège, c'est une information.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Ce qu'on m'a dit en entretien 1</h3>
+            <ul>
+              <li>Offre «&nbsp;DSI augmentée&nbsp;»</li>
+              <li>Chefferie de projet augmentée</li>
+              <li>AI-DLC, AI-SDLC</li>
+              <li><em>Dark factory</em> &mdash; «&nbsp;usine éteinte&nbsp;», une chaîne qui produit sans intervention humaine</li>
+              <li>Audit puis intégration de l'IA dans toute la chaîne de développement</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Ce qu'ils disent publiquement</h3>
+            <ul>
+              <li><strong>«&nbsp;Ingénierie augmentée&nbsp;»</strong></li>
+              <li>Qualité logicielle et qualité des données</li>
+              <li>Supervision, observabilité, fiabilité</li>
+              <li><strong>Gouvernance de l'IA et conformité à l'<em>AI Act</em></strong> &mdash; le règlement européen sur l'IA, qui impose de tracer et de documenter les systèmes selon leur niveau de risque</li>
+              <li>Détecter les anomalies avant qu'elles ne deviennent des incidents</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">La lecture</span>
+          Le discours public d'Adservio place l'IA <strong>du côté de l'exploitation&nbsp;: superviser, tracer, prouver la conformité.</strong> Le discours de l'entretien 1 la place <strong>du côté de la fabrication&nbsp;: produire plus vite.</strong> Ce ne sont pas les mêmes métiers.
+          <br><br>
+          Deux explications possibles, et les deux sont plausibles&nbsp;: soit l'offre côté développement est <strong>nouvelle et pas encore publiée</strong> &mdash; auquel cas il y a une place à prendre, ce qui est exactement ce qu'on m'a décrit&nbsp;; soit le vocabulaire de l'entretien 1 était <strong>celui du manager</strong>, qui vient d'une société rachetée, plus que celui de la maison.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Comment je le pose &mdash; sans jamais dire «&nbsp;vous vous contredisez&nbsp;»</span>
+          «&nbsp;En préparant, j'ai regardé ce que vous publiez sur l'ingénierie augmentée&nbsp;: c'est très orienté supervision, fiabilité et conformité. Ce dont on m'a parlé la semaine dernière est plutôt en amont, sur la chaîne de développement. Est-ce que c'est une offre en construction, ou est-ce que les deux se rejoignent chez vos clients&nbsp;?&nbsp;»
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Deux règles de prudence</span>
+          <ul>
+            <li><strong>AI-DLC est leur référence, pas forcément leur pratique.</strong> Ne jamais dire «&nbsp;chez vous, le <em>bolt</em> fait donc…&nbsp;». Toujours demander ce qu'ils gardent et ce qu'ils adaptent.</li>
+            <li><strong>Ne pas jouer l'experte.</strong> Je n'avais jamais entendu parler d'AI-DLC avant le 28 août. C'est défendable&nbsp;: la méthode a un an, personne ne peut sérieusement se dire praticien confirmé.</li>
+          </ul>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La formulation qui tient sur mon niveau réel</span>
+          «&nbsp;Je ne connaissais pas AI-DLC avant notre échange de vendredi. Je suis allée lire la méthode depuis. Ce que je ne peux pas dire, c'est que je l'ai pratiquée &mdash; je serais méfiante d'une candidate qui vous le dirait, la méthode a un an. En revanche, ce que je sais faire, c'est déployer une nouvelle façon de travailler dans une équipe qui n'a rien demandé.&nbsp;»
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section id="audit">
+        <h2><span class="idx">04</span>L'audit, concrètement</h2>
+        <p class="section-sub">On m'a dit «&nbsp;audit puis intégration de l'IA dans toute la chaîne SDLC&nbsp;». Voilà ce que ça recouvre réellement, et ce qui reste à faire préciser.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">D'abord, le sigle</span>
+          <strong>SDLC</strong>, <em>Software Development Life Cycle</em>&nbsp;: le cycle de vie logiciel complet. Recueil du besoin &rarr; conception &rarr; développement &rarr; test &rarr; déploiement &rarr; exploitation et maintenance.
+          <br><br>
+          «&nbsp;Auditer la chaîne SDLC&nbsp;» = <strong>faire l'état des lieux de la façon dont un client fabrique son logiciel, étape par étape</strong>, pour dire où l'IA peut réellement faire gagner du temps, où elle ne servira à rien, et ce qu'il faut mettre en place avant.
+        </div>
+
+        <h4 class="blk">Ce qu'un audit de ce type regarde &mdash; six angles</h4>
+        <div class="card">
+          <ul>
+            <li><strong>1. La cartographie de la chaîne.</strong> Qui fait quoi, dans quel ordre, avec quels outils, et combien de temps ça prend. Sans ce point de départ chiffré, aucun gain ne sera démontrable ensuite.</li>
+            <li><strong>2. La maturité de l'existant.</strong> Y a-t-il des spécifications écrites&nbsp;? Le code est-il testé, documenté&nbsp;? Une chaîne de déploiement automatisée existe-t-elle&nbsp;? <strong>Une IA branchée sur un système non testé produit du risque, pas de la vitesse.</strong></li>
+            <li><strong>3. Les tests et la non-régression.</strong> Le point le plus critique. Si l'IA se met à produire dix fois plus de code, il faut dix fois plus de capacité à vérifier que rien ne casse. <strong>C'est exactement le métier historique d'Adservio.</strong></li>
+            <li><strong>4. Les données et la sécurité.</strong> Quel code, quelles données ont le droit de sortir vers un modèle&nbsp;? Quels outils sont autorisés par la DSI&nbsp;? Chez un opérateur d'infrastructure, c'est bloquant avant d'être technique.</li>
+            <li><strong>5. Les compétences et l'adhésion.</strong> Qui sait déjà s'en servir, qui n'en veut pas, qui a peur pour son poste. <strong>C'est là que je suis la plus utile, et c'est la partie que les audits techniques traitent le plus mal.</strong></li>
+            <li><strong>6. La gouvernance.</strong> Qui valide quoi, qui trace les décisions, comment on prouve la conformité. Vu leur discours public sur l'AI Act, c'est probablement un angle fort chez eux.</li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce que ça donne comme livrable</span>
+          Un audit de ce type se conclut normalement par trois choses&nbsp;: <strong>un état des lieux chiffré</strong> (le temps que prend réellement chaque étape aujourd'hui), <strong>une liste de chantiers priorisés</strong> (où l'IA rapporte le plus, ce qu'il faut corriger avant), et <strong>une feuille de route</strong> avec des indicateurs de suivi. Sans le premier point, les deux autres ne valent rien&nbsp;: on ne saura jamais dire si le déploiement a marché.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Mon angle &mdash; ce qui me distingue d'un auditeur technique</span>
+          «&nbsp;La partie de l'audit qui m'intéresse le plus, c'est celle qu'on traite en général le plus vite&nbsp;: la mesure de départ et l'adhésion des équipes. Si on ne sait pas combien de temps prend chaque étape avant, on ne pourra jamais démontrer un gain après. Et si les équipes ne s'en servent pas, l'outillage le mieux choisi ne produit rien. J'ai passé treize ans à faire adopter des façons de travailler à des gens qui n'avaient rien demandé.&nbsp;»
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce que je ne sais pas, et que je dois faire dire</span>
+          <ul>
+            <li><strong>Leur audit est-il outillé ou déclaratif&nbsp;?</strong> Est-ce qu'ils branchent des outils de mesure sur la chaîne du client, ou est-ce que ce sont des ateliers et des entretiens&nbsp;?</li>
+            <li><strong>Combien de temps dure-t-il&nbsp;?</strong> Deux semaines et trois mois ne décrivent pas la même prestation.</li>
+            <li><strong>Qui le mène&nbsp;?</strong> Est-ce que je le co-piloterais, ou est-ce que j'arrive après pour déployer les conclusions de quelqu'un d'autre&nbsp;?</li>
+            <li><strong>Sur quoi porte l'engagement vendu au client&nbsp;?</strong> Un rapport, une feuille de route, ou un résultat mesuré&nbsp;?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section id="ouverture">
+        <h2><span class="idx">05</span>Mon ouverture</h2>
+        <p class="section-sub">60 à 90 secondes. Au passé, sans dates détaillées, puis je m'arrête.</p>
+        <div class="pitch">
+          <p>Je travaille dans le digital depuis plus de dix ans, d'abord comme cheffe de projet en agence &mdash; Marcel, DDB &mdash; puis quatre ans à Montréal chez Akufen, et enfin chez HANDS.</p>
+          <p>J'ai terminé mon parcours comme <strong>Product Owner sur la plateforme de billetterie de la Comédie-Française</strong>&nbsp;: un produit grand public transactionnel, des règles métier lourdes, de gros pics de trafic à chaque mise en vente, et une équipe que je pilotais depuis l'agence, pour le compte du client.</p>
+          <p>Ce qui m'amène ici, c'est que <strong>je me suis mise à me servir des modèles de langage sur mon propre travail, sans que personne me le demande</strong>, et que ça a changé la façon dont je pilote. Ce que vous décrivez &mdash; installer ça dans des DSI qui n'ont rien demandé &mdash; c'est exactement là où je veux aller.</p>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Deux garde-fous sur cette ouverture</span>
+          <strong>Au passé.</strong> J'étais PO sur la billetterie <strong>de janvier 2025 à avril 2026, soit environ quinze mois</strong>. Jamais «&nbsp;depuis janvier 2025&nbsp;», jamais «&nbsp;deux ans&nbsp;».
+          <br><br>
+          <strong>Et je ne m'excuse de rien.</strong> Pas de mention de la recherche en cours, pas de justification de disponibilité. S'ils veulent savoir, ils demanderont &mdash; la réponse est en section 10.
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section id="passer">
+        <h2><span class="idx">06</span>Ce que je dois faire passer</h2>
+        <p class="section-sub">Trois choses. Si je ne place que celles-là, l'entretien est réussi.</p>
+
+        <div class="card star">
+          <div class="tag-line"><span class="tag">n°1</span><span class="tag">Ma preuve centrale</span></div>
+          <h3>RNDV &mdash; j'ai construit l'outil que personne ne m'avait demandé</h3>
+          <p><strong>Initiative personnelle</strong>, aucune commande de la direction ni du client. <strong>Construite en une journée.</strong> Elle remplaçait une slide PowerPoint. Retour du COPIL&nbsp;: «&nbsp;très clair et lisible&nbsp;».</p>
+          <p><strong>Vue roadmap</strong>&nbsp;: un planning par domaine, <strong>synchronisé sur l'outil de suivi</strong>, donc jamais périmé et sans aucune maintenance manuelle, avec les temps forts de la saison superposés.</p>
+          <p><strong>Vue support</strong>&nbsp;: les 40 opérateurs signalaient bugs et incidents dans un canal Teams commun. Toute la matière produit était là, inexploitable. <strong>J'ai écrit une extension navigateur pour extraire les messages</strong>, puis je les ai transformés en données de pilotage&nbsp;: taxonomie des problèmes, volumes, criticité, évolution mensuelle avec colonne de tendance.</p>
+          <p><strong>L'argument produit&nbsp;:</strong> la priorisation ne repose plus sur qui remonte le plus fort ni sur le dernier incident, mais sur la <strong>récurrence mesurée</strong>. La fusion de fiche est ressortie à <strong>58 occurrences</strong>, loin devant&nbsp;: elle est priorisée dans les prochains correctifs. Et la colonne de tendance permettra de vérifier après livraison que le volume redescend.</p>
+          <div class="callout warn">
+            <strong>La question qui va tomber, surtout ici.</strong> Extraire des conversations Teams pose une question de confidentialité et de RGPD&nbsp;: périmètre des données, conservation, accord de la direction technique ou du client. Devant le fondateur d'une maison qui vend de la gouvernance de la donnée, <strong>elle tombera</strong>. Ne pas attendre qu'on me la pose&nbsp;: <em>«&nbsp;la première question que ça pose, c'est celle des données &mdash; c'est un canal interne, sur un périmètre restreint, et c'est le premier point que j'ai cadré.&nbsp;»</em>
+          </div>
+        </div>
+
+        <div class="card star">
+          <div class="tag-line"><span class="tag">n°2</span><span class="tag">Le pont vers «&nbsp;porter l'IA&nbsp;»</span></div>
+          <h3>La conduite du changement, je la fais depuis dix ans</h3>
+          <p>Je ne pars pas d'une pratique de conférencière et je ne vais pas faire semblant. Je pars de ce que j'ai réellement fait&nbsp;: <strong>40 opérateurs accompagnés</strong> à la Comédie-Française (canal dédié, ligne d'assistance, présence sur le terrain), <strong>formation de 3 à 4 heures à chaque livraison</strong>, animation de toutes les instances client, et une <strong>lettre produit mensuelle</strong> sur ce qui avait réellement été livré.</p>
+          <p><strong>La phrase&nbsp;:</strong> «&nbsp;Évangéliser en interne chez un client qui n'a rien demandé, c'est déjà de la conduite du changement. La scène publique vient après, et elle m'intéresse.&nbsp;»</p>
+          <p>C'est aussi la partie que <strong>personne d'autre n'apporte</strong>. Un ingénieur IA sait installer l'outillage. Faire en sorte qu'une équipe s'en serve six mois plus tard, c'est un autre métier.</p>
+        </div>
+
+        <div class="card star">
+          <div class="tag-line"><span class="tag">n°3</span><span class="tag">Ma légitimité sur leur terrain</span></div>
+          <h3>Les circuits de décision lents, c'est mon quotidien</h3>
+          <p>Leurs clients sont des opérateurs d'infrastructure et des grands comptes publics&nbsp;: comités mensuels, validations multiples, contraintes de conformité. <strong>C'est le culturel et l'institutionnel, en plus gros.</strong></p>
+          <p><strong>L'argument&nbsp;:</strong> une méthode qui accélère la production sans accélérer la décision <strong>déplace le goulot d'étranglement, elle ne le supprime pas</strong>. Si l'IA divise le temps de production par dix et qu'on attend toujours trois semaines une validation, on n'a rien gagné. Chez leurs clients, c'est la décision qui est lente.</p>
+          <p>Formulé ainsi, ce n'est pas une objection&nbsp;: c'est <strong>l'endroit précis où je suis utile à leur offre</strong>.</p>
+        </div>
+      </section>
+
+      <!-- 07 -->
+      <section id="leurs-questions">
+        <h2><span class="idx">07</span>Leurs questions &mdash; par personne</h2>
+        <p class="section-sub">Trois interlocuteurs, trois grilles différentes. Savoir qui pose me dit ce qu'on attend de la réponse.</p>
+
+        <div class="blk">
+          <div class="label">Anis Zouaoui &mdash; le fondateur&nbsp;: il teste une conviction</div>
+          <p style="font-size:14px;color:#4a4540;margin-bottom:12px;">Il ne va pas dérouler une grille de compétences. Il va chercher à savoir si je peux tenir un discours devant son client. Attendre des questions <strong>ouvertes, larges, sans bonne réponse évidente</strong> &mdash; le contenu compte moins que la solidité.</p>
+          <ul>
+            <li>«&nbsp;Qu'est-ce que l'IA change vraiment dans votre métier&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Est-ce que le rôle de chef de projet a encore un sens dans cinq ans&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Racontez-moi la dernière fois où vous vous en êtes servie sur un cas réel.&nbsp;»</li>
+            <li>«&nbsp;Un DSI vous dit qu'il n'y croit pas et que ça met son équipe en danger. Vous répondez quoi&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous seriez à l'aise pour parler de ça devant une salle&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Qu'est-ce qui vous fait dire que ça marche&nbsp;? Comment vous le mesurez&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Pourquoi nous&nbsp;?&nbsp;»</li>
+          </ul>
+          <p style="font-size:14px;color:#4a4540;margin-top:12px;"><strong>Comment répondre&nbsp;:</strong> par un cas concret, jamais par une opinion générale. Et <strong>ne pas conclure à sa place</strong> &mdash; poser mon exemple, puis lui rendre la main.</p>
+        </div>
+
+        <div class="blk">
+          <div class="label">Khadidja Khali &mdash; la direction générale&nbsp;: elle teste un placement</div>
+          <p style="font-size:14px;color:#4a4540;margin-bottom:12px;">Interlocutrice non qualifiée, mais une DG en séance sur un recrutement de consultant regarde en général trois choses&nbsp;: <strong>sur quel compte, à quel niveau d'autonomie, à partir de quand</strong>. Attendre des questions <strong>concrètes et opérationnelles</strong>.</p>
+          <ul>
+            <li>«&nbsp;Combien de personnes vous pilotiez&nbsp;? Avec quel budget&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Comment vous gérez un client mécontent&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous avez déjà travaillé avec une équipe à distance, dans un autre pays&nbsp;?&nbsp;» <em>(leur nearshore est en Tunisie &mdash; réponse&nbsp;: quatre ans à Montréal, équipes réparties)</em></li>
+            <li>«&nbsp;Vous êtes autonome sur un compte, ou vous avez besoin d'être encadrée&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Qu'est-ce qui s'est passé chez HANDS&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous seriez disponible quand&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Le conseil, la régie chez un client, ça vous convient sur la durée&nbsp;?&nbsp;»</li>
+          </ul>
+          <p style="font-size:14px;color:#4a4540;margin-top:12px;"><strong>Comment répondre&nbsp;:</strong> factuel, chiffré, court. C'est le registre qui rassure sur ce terrain-là. Et c'est <strong>la bonne personne à qui poser mes questions sur le compte et l'équipe</strong>.</p>
+        </div>
+
+        <div class="blk">
+          <div class="label">Mohamed Gandoura &mdash; recrutement et avant-vente&nbsp;: il teste un cadre</div>
+          <p style="font-size:14px;color:#4a4540;margin-bottom:12px;">Il a déjà fait le premier filtre au téléphone. En séance, il vient chercher ce qui manque au dossier, et ce qui rendra ma fiche présentable à un client.</p>
+          <ul>
+            <li>«&nbsp;On en est où sur vos prétentions&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous êtes disponible sous quel délai&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous avez d'autres processus en cours&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Le déplacement chez le client, deux à trois jours, ça vous va&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Votre niveau d'anglais&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Vous avez déjà participé à une réponse à appel d'offres&nbsp;?&nbsp;»</li>
+          </ul>
+          <p style="font-size:14px;color:#4a4540;margin-top:12px;"><strong>Comment répondre&nbsp;:</strong> sans hésiter et sans broder. Une hésitation sur le salaire ou la dispo se lit comme un flottement. Réponses préparées en section 09.</p>
+        </div>
+
+        <h4 class="blk">Les trois questions qui peuvent me déstabiliser</h4>
+
+        <div class="qa">
+          <h3>«&nbsp;Vous n'avez jamais fait d'avant-vente&nbsp;?&nbsp;»</h3>
+          <p><strong>Ne pas répondre «&nbsp;non&nbsp;» et s'arrêter là.</strong> Je n'ai pas rédigé de réponse à appel d'offres. Mais j'ai porté la parole produit devant des COPIL, des directions et des partenaires externes, et j'ai convaincu sans autorité hiérarchique &mdash; sept lieux partenaires sur une vente coordonnée, chacun avec son système et ses interlocuteurs.</p>
+          <p><em>«&nbsp;Formellement non. Ce que j'ai fait, c'est défendre un périmètre et un arbitrage devant des gens qui n'étaient pas obligés de me suivre. Sur quoi porterait ma part exactement&nbsp;?&nbsp;»</em></p>
+        </div>
+
+        <div class="qa">
+          <h3>«&nbsp;Vous vous voyez faire des conférences&nbsp;?&nbsp;»</h3>
+          <p>Ne pas surjouer, ne pas se dérober. Le pont est la conduite du changement (section 06, argument n°2). Puis <strong>renvoyer la question</strong>&nbsp;: à quelle échéance, sous quelle forme, interne ou externe&nbsp;? Ça fait sortir si c'est un attendu de long terme ou un critère d'évaluation immédiat.</p>
+        </div>
+
+        <div class="qa">
+          <h3>«&nbsp;Qu'est-ce qui s'est passé chez HANDS&nbsp;?&nbsp;»</h3>
+          <p><strong>Rupture conventionnelle.</strong> Raison économique externe, doublée d'un désalignement sur la suite. Dit calmement, sans amertume, sans détail, et on passe à autre chose. <strong>Rien sur la direction, rien sur le management.</strong></p>
+        </div>
+      </section>
+
+      <!-- 08 -->
+      <section id="mes-questions">
+        <h2><span class="idx">08</span>Mes questions &mdash; à qui les poser</h2>
+        <p class="section-sub">C'est le seul créneau du processus où j'ai les décisionnaires. Je ne le gaspille pas sur des questions de <em>delivery</em> &mdash; la fabrication et la livraison au quotidien. Trois ou quatre questions, pas douze.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi mes questions comptent plus que d'habitude ici</span>
+          Devant un manager de production, demander «&nbsp;qu'est-ce que le client achète exactement&nbsp;?&nbsp;» peut passer pour de la défiance. <strong>Devant le fondateur qui porte l'offre, c'est la question d'une future porteuse d'offre.</strong> C'est ma meilleure carte de cet entretien&nbsp;: ne pas l'auto-censurer.
+        </div>
+
+        <div class="blk">
+          <div class="label">À Anis &mdash; l'offre et la trajectoire</div>
+          <ul>
+            <li><strong>1.</strong> «&nbsp;Qu'est-ce que le client achète exactement dans cette offre &mdash; et comment vous mesurez le gain&nbsp;?&nbsp;»</li>
+            <li><strong>2.</strong> «&nbsp;Sur les missions déjà menées avec cette approche&nbsp;: qu'est-ce qui a réellement été livré en production, et qu'est-ce qui est resté au stade du prototype&nbsp;?&nbsp;» <em>&mdash; à écouter attentivement&nbsp;: «&nbsp;on a livré&nbsp;» et «&nbsp;on a vendu&nbsp;» ne sont pas la même réponse.</em></li>
+            <li><strong>3.</strong> «&nbsp;Vous publiez beaucoup sur la supervision et la conformité. Est-ce que l'offre côté fabrication est un prolongement, ou une ligne nouvelle&nbsp;?&nbsp;»</li>
+            <li><strong>4.</strong> «&nbsp;Vous avez parlé de <em>dark factory</em>, donc d'essais où la chaîne tourne sans revue humaine. Qu'est-ce que ça a donné&nbsp;? Et chez un client en production, où vous placez le curseur aujourd'hui&nbsp;?&nbsp;»</li>
+            <li><strong>5.</strong> «&nbsp;Où vous voyez ce poste dans deux ans &mdash; toujours chez des clients, ou dans la construction de l'offre&nbsp;?&nbsp;»</li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">Sur l'audit &mdash; à Anis ou à Khadidja</div>
+          <ul>
+            <li><strong>6.</strong> «&nbsp;Votre audit de chaîne, il est outillé ou déclaratif&nbsp;? Vous branchez des mesures sur la chaîne du client, ou vous partez d'ateliers&nbsp;?&nbsp;»</li>
+            <li><strong>7.</strong> «&nbsp;Il dure combien de temps, et qui le mène&nbsp;? Est-ce que j'y serais dès le cadrage, ou est-ce que j'arrive pour déployer les conclusions&nbsp;?&nbsp;»</li>
+            <li><strong>8.</strong> «&nbsp;Sur quoi porte l'engagement vendu&nbsp;: un rapport, une feuille de route, ou un résultat mesuré&nbsp;?&nbsp;»</li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">À Khadidja &mdash; le concret de la mission</div>
+          <ul>
+            <li><strong>9.</strong> «&nbsp;Sur quel compte je démarrerais, et dans quel état est le projet aujourd'hui&nbsp;?&nbsp;»</li>
+            <li><strong>10.</strong> «&nbsp;Comment est composée l'équipe côté client &mdash; et qui arbitre les priorités&nbsp;?&nbsp;»</li>
+            <li><strong>11.</strong> «&nbsp;Quelle est la part produit et la part pilotage pur dans le quotidien&nbsp;?&nbsp;»</li>
+            <li><strong>12.</strong> «&nbsp;Est-ce que je travaillerais avec vos équipes de Tunis&nbsp;?&nbsp;»</li>
+            <li><strong>13.</strong> «&nbsp;Comment ça se passe entre deux missions&nbsp;?&nbsp;» <em>&mdash; la vraie question de fond en ESN, et elle est légitime posée à la DG.</em></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <div class="label">Pour tout le monde &mdash; la question qui tranche</div>
+          <ul>
+            <li><strong>14.</strong> «&nbsp;Vous cherchez quelqu'un qui porte l'IA publiquement. À quelle échéance, et sous quelle forme concrètement &mdash; en interne, chez le client, en conférence&nbsp;?&nbsp;»</li>
+          </ul>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Si je n'ai le temps que pour trois</span>
+          <strong>La 1</strong> (ce que le client achète et comment on mesure), <strong>la 9</strong> (sur quel compte et dans quel état) et <strong>la 5</strong> (où va ce poste dans deux ans). Une par personne, et les trois sujets qui décident réellement si je dis oui.
+        </div>
+      </section>
+
+      <!-- 09 -->
+      <section id="conditions">
+        <h2><span class="idx">09</span>Salaire et conditions</h2>
+        <p class="section-sub">Mohamed est dans la salle. La question peut tomber en séance, il faut répondre sans flotter.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">La fourchette</span>
+          <strong>J'annonce 60 à 65&nbsp;K€.</strong> Plancher réel non dit à 58. <strong>Ne jamais dire 55</strong>&nbsp;: le bas d'une fourchette annoncée devient l'offre.
+          <br><br>
+          Formulation&nbsp;: <em>«&nbsp;Sur la base de mon expérience et du périmètre décrit, je me situe entre 60 et 65.&nbsp;»</em> <strong>Puis je me tais.</strong>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Si la question arrive avant que le poste soit qualifié</span>
+          «&nbsp;Je préfère d'abord bien comprendre le périmètre &mdash; mais je ne veux pas vous faire perdre de temps&nbsp;: sur ce type de poste je me situe entre 60 et 65. Est-ce que c'est cohérent avec votre fourchette&nbsp;?&nbsp;»
+          <br><br>
+          La question renvoyée fait sortir leur budget.
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Pourquoi c'est particulièrement vrai ici</span>
+          En ESN, <strong>la marge se prend sur l'écart entre mon salaire et le tarif facturé au client</strong>. Un plancher annoncé bas est capté immédiatement. Et les avis salariés publics reviennent régulièrement sur les <strong>salaires et les primes</strong> &mdash; ce n'est pas une raison de m'en méfier, c'est une raison de ne pas être floue.
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Sujet</th><th>Leur position annoncée</th><th>Ma position</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Rythme</th><td>2 à 3 jours chez le client, le reste en télétravail</td><td><strong>Conforme</strong> à mon seuil de 2 jours de télétravail par semaine. Rien à négocier &mdash; mais faire confirmer que c'est <strong>une pratique et pas un affichage</strong></td></tr>
+              <tr><th scope="row">Lieu</th><td>Montrouge ou Saint-Denis pour la mission&nbsp;; leurs bureaux sont à La Défense</td><td>À faire préciser&nbsp;: où je serais réellement, et à quelle fréquence dans leurs locaux</td></tr>
+              <tr><th scope="row">Anglais</th><td>Non exigé à ma connaissance. Leur site est en anglais, leurs équipes sont en Tunisie</td><td><strong>Professionnel, sans test récent.</strong> Ne pas se présenter comme bilingue. Montréal est francophone&nbsp;: j'y travaillais en français</td></tr>
+              <tr><th scope="row">Formation</th><td>Le groupe forme ses équipes, et il a une entité de formation dédiée</td><td><strong>À faire dire&nbsp;: qui est formé, à quoi, et à quel moment.</strong> C'est un vrai élément de package</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section id="jamais">
+        <h2><span class="idx">10</span>Ce que je ne dis pas</h2>
+        <p class="section-sub">Court, et à relire juste avant d'entrer.</p>
+        <ul class="checklist">
+          <li>Rien sur la direction de HANDS, rien sur le management.</li>
+          <li>Rien de négatif sur l'ancien directeur technique.</li>
+          <li><strong>Aucune plainte sur l'écart entre l'annonce et la mission réelle.</strong> Le sujet est clos de mon côté&nbsp;: ce qui doit passer, c'est que j'ai compris qu'il s'agit de déployer une offre de transformation dans des DSI, et que c'est précisément pour ça que je suis là.</li>
+          <li><strong>Aucune remarque sur l'état de leur site</strong> (études de cas non finies, contenus arrêtés début 2025) ni sur les avis salariés. Je le sais, je m'en sers pour orienter mes questions, je n'en parle pas.</li>
+          <li>Pas de «&nbsp;je n'ai jamais fait ça&nbsp;» suivi d'un silence. Toujours&nbsp;: ce que je n'ai pas fait, ce que j'ai fait de proche, puis une question.</li>
+          <li>Pas de mention de ma disponibilité comme d'un argument. C'est un fait, pas une carte.</li>
+        </ul>
+      </section>
+
+      <!-- 11 -->
+      <section id="chiffres">
+        <h2><span class="idx">11</span>Mes chiffres</h2>
+        <p class="section-sub">À avoir en tête sans les chercher.</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Comédie-Française</h3>
+            <ul>
+              <li><strong>15 mois</strong> de Product Owner (janvier 2025 &ndash; avril 2026)</li>
+              <li><strong>3 salles</strong>, environ <strong>750 représentations</strong> par an</li>
+              <li>Équipe&nbsp;: <strong>3 développeurs + UX/UI</strong></li>
+              <li>File d'attente&nbsp;: <strong>40 min</strong>, pics à <strong>2 h</strong></li>
+              <li><strong>7 lieux partenaires</strong> sur une vente coordonnée, aucun lien hiérarchique</li>
+              <li><strong>40 opérateurs</strong> accompagnés</li>
+              <li><strong>58 occurrences</strong> sur le problème arrivé en tête du classement</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Adservio</h3>
+            <ul>
+              <li>Fondée par Anis Zouaoui, <strong>indépendante</strong>, pas de fonds au capital</li>
+              <li><strong>~24 M€</strong> de chiffre d'affaires en 2024</li>
+              <li>Entre <strong>150 et 240</strong> personnes selon le périmètre</li>
+              <li><strong>7 filiales</strong>, dont un éditeur de supervision racheté fin 2022 et une entité de formation</li>
+              <li>Paris/Puteaux, Lyon, Amiens &mdash; et <strong>Tunis, Monastir</strong></li>
+              <li>Clients&nbsp;: <strong>GRDF, RATP, SNCF, Enedis, RTE, Veolia, Disneyland Paris, BNP, SG</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section id="check">
+        <h2><span class="idx">12</span>Check 15 minutes</h2>
+        <p class="section-sub">À faire la veille, pas le matin même.</p>
+        <ul class="checklist">
+          <li><strong>Demander le format à Mohamed</strong> &mdash; les trois ou Anis seul&nbsp;? (message prêt en section 01)</li>
+          <li><strong>LinkedIn de Khadidja Khali</strong>&nbsp;: parcours, ancienneté, périmètre. Un seul élément suffit à ne pas être en face d'une inconnue.</li>
+          <li><strong>Publications récentes d'Anis Zouaoui</strong>&nbsp;: son discours public sur l'IA est sur LinkedIn, pas sur le site. Savoir ce qu'il défend permet de s'y raccrocher en une phrase.</li>
+          <li><strong>Relire le mémo AI-DLC</strong> &mdash; au minimum le schéma en dix étapes et le vocabulaire.</li>
+          <li><strong>Trajet La Défense</strong>, et arriver 10 minutes en avance&nbsp;: la Tour Franklin demande un passage à l'accueil.</li>
+          <li><strong>Mes trois questions prioritaires</strong> notées sur papier&nbsp;: la 1, la 9, la 5.</li>
+          <li><strong>Les trois prénoms</strong> écrits en haut de ma page.</li>
+        </ul>
+        <div class="callout warn">
+          <span class="lbl">Le ton &mdash; le seul vrai piège</span>
+          Ni enthousiasme ni scepticisme. <strong>Ils recrutent quelqu'un qui porte l'IA, pas quelqu'un qui la démonte.</strong> Chaque réserve doit être formulée comme <strong>une question de déploiement</strong>, jamais comme une objection de principe. Je ne suis pas là pour arbitrer si leur approche est la bonne&nbsp;: je suis là pour montrer que je saurais l'installer chez un client réel.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var links = [].slice.call(document.querySelectorAll('.sidenav a[href^="#"]'));
+      if (!links.length) return;
+
+      var items = links
+        .map(function (a) { return { link: a, el: document.querySelector(a.getAttribute('href')) }; })
+        .filter(function (i) { return i.el; });
+      if (!items.length) return;
+
+      // Ancre cliquee : on fige le surlignage jusqu'a ce que l'utilisateur reprenne la main.
+      var locked = null;
+
+      function setActive(el) {
+        items.forEach(function (i) { i.link.classList.toggle('active', i.el === el); });
+      }
+
+      function currentSection() {
+        var atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+        if (atBottom) return items[items.length - 1].el;
+        var line = window.innerHeight * 0.3;
+        var found = items[0].el;
+        items.forEach(function (i) {
+          if (i.el.getBoundingClientRect().top <= line) found = i.el;
+        });
+        return found;
+      }
+
+      function update() {
+        if (locked) return;
+        setActive(currentSection());
+      }
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function () {
+          var el = document.querySelector(a.getAttribute('href'));
+          if (!el) return;
+          locked = el;
+          setActive(el);
+        });
+      });
+
+      function release() { locked = null; }
+      var scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+      window.addEventListener('wheel', release, { passive: true });
+      window.addEventListener('touchmove', release, { passive: true });
+      window.addEventListener('keydown', function (e) {
+        if (scrollKeys.indexOf(e.key) !== -1) release();
+      }, { passive: true });
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+
+      var initial = location.hash && document.querySelector(location.hash);
+      if (initial && items.some(function (i) { return i.el === initial; })) {
+        locked = initial;
+        setActive(initial);
+      } else {
+        update();
+      }
+    })();
+  </script>
+</body>
+</html>
