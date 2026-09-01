@@ -1269,5 +1269,73 @@
       </section>
     </main>
   </div>
+
+  <script>
+    (function () {
+      var links = [].slice.call(document.querySelectorAll('.sidenav a[href^="#"]'));
+      if (!links.length) return;
+
+      var items = links
+        .map(function (a) { return { link: a, el: document.querySelector(a.getAttribute('href')) }; })
+        .filter(function (i) { return i.el; });
+      if (!items.length) return;
+
+      // Ancre cliquee : on fige le surlignage jusqu'a ce que l'utilisateur reprenne la main.
+      var locked = null;
+
+      function setActive(el) {
+        items.forEach(function (i) { i.link.classList.toggle('active', i.el === el); });
+      }
+
+      function currentSection() {
+        var atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+        if (atBottom) return items[items.length - 1].el;
+        var line = window.innerHeight * 0.3;
+        var found = items[0].el;
+        items.forEach(function (i) {
+          if (i.el.getBoundingClientRect().top <= line) found = i.el;
+        });
+        return found;
+      }
+
+      function update() {
+        if (locked) return;
+        setActive(currentSection());
+      }
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function () {
+          var el = document.querySelector(a.getAttribute('href'));
+          if (!el) return;
+          locked = el;
+          setActive(el);
+        });
+      });
+
+      function release() { locked = null; }
+      var scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+      window.addEventListener('wheel', release, { passive: true });
+      window.addEventListener('touchmove', release, { passive: true });
+      window.addEventListener('keydown', function (e) {
+        if (scrollKeys.indexOf(e.key) !== -1) release();
+      }, { passive: true });
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+
+      var initial = location.hash && document.querySelector(location.hash);
+      if (initial && items.some(function (i) { return i.el === initial; })) {
+        locked = initial;
+        setActive(initial);
+      } else {
+        update();
+      }
+    })();
+  </script>
 </body>
 </html>
