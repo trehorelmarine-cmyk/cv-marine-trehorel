@@ -707,27 +707,34 @@
         <p class="section-sub">On m'a dit «&nbsp;audit puis intégration de l'IA dans toute la chaîne SDLC&nbsp;». Voilà ce que ça recouvre réellement, et ce qui reste à faire préciser.</p>
 
         <div class="callout retenir">
-          <span class="lbl">D'abord, le sigle</span>
-          <strong>SDLC</strong>, <em>Software Development Life Cycle</em>&nbsp;: le cycle de vie logiciel complet. Recueil du besoin &rarr; conception &rarr; développement &rarr; test &rarr; déploiement &rarr; exploitation et maintenance.
+          <span class="lbl">En une phrase</span>
+          <strong>Auditer, c'est aller regarder comment un client fabrique son logiciel aujourd'hui, étape par étape, et mettre une durée en face de chaque étape.</strong> Une fois qu'on a ça, on peut dire où l'IA fera gagner du temps, où elle n'en fera pas gagner, et ce qu'il faut réparer avant d'en mettre.
           <br><br>
-          «&nbsp;Auditer la chaîne SDLC&nbsp;» = <strong>faire l'état des lieux de la façon dont un client fabrique son logiciel, étape par étape</strong>, pour dire où l'IA peut réellement faire gagner du temps, où elle ne servira à rien, et ce qu'il faut mettre en place avant.
+          Le sigle qu'ils emploient pour «&nbsp;la façon dont on fabrique le logiciel&nbsp;»&nbsp;: <strong>SDLC</strong>, <em>Software Development Life Cycle</em>, le cycle de vie du logiciel.
         </div>
 
-        <h4 class="blk">Ce qu'un audit de ce type regarde &mdash; six angles</h4>
+        <h4 class="blk">Le même objet, mais sur mon terrain</h4>
+        <div class="card">
+          <p>À la Comédie-Française, une évolution passait toujours par les mêmes étapes&nbsp;: <strong>le besoin exprimé par le client &rarr; la rédaction de la spécification &rarr; le chiffrage &rarr; la validation client &rarr; le développement &rarr; la recette &rarr; la mise en production &rarr; la formation des opérateurs.</strong></p>
+          <p><strong>Ça, c'est une chaîne SDLC.</strong> Auditer, c'est venir poser cette même carte chez un client qu'on ne connaît pas, mettre une durée en face de chaque case, et repérer où le temps part réellement.</p>
+          <p>Et l'IA ne se branche pas au même endroit selon la case. Sur la rédaction d'une spécification, elle fait gagner des jours. Sur la validation client, elle ne change rien&nbsp;: c'est un délai humain, pas un délai de production. <strong>Distinguer les deux, c'est tout l'objet de l'audit.</strong></p>
+        </div>
+
+        <h4 class="blk">Les quatre questions que l'audit doit trancher</h4>
         <div class="card">
           <ul>
-            <li><strong>1. La cartographie de la chaîne.</strong> Qui fait quoi, dans quel ordre, avec quels outils, et combien de temps ça prend. Sans ce point de départ chiffré, aucun gain ne sera démontrable ensuite.</li>
-            <li><strong>2. La maturité de l'existant.</strong> Y a-t-il des spécifications écrites&nbsp;? Le code est-il testé, documenté&nbsp;? Une chaîne de déploiement automatisée existe-t-elle&nbsp;? <strong>Une IA branchée sur un système non testé produit du risque, pas de la vitesse.</strong></li>
-            <li><strong>3. Les tests et la non-régression.</strong> Le point le plus critique. Si l'IA se met à produire dix fois plus de code, il faut dix fois plus de capacité à vérifier que rien ne casse. <strong>C'est exactement le métier historique d'Adservio.</strong></li>
-            <li><strong>4. Les données et la sécurité.</strong> Quel code, quelles données ont le droit de sortir vers un modèle&nbsp;? Quels outils sont autorisés par la DSI&nbsp;? Chez un opérateur d'infrastructure, c'est bloquant avant d'être technique.</li>
-            <li><strong>5. Les compétences et l'adhésion.</strong> Qui sait déjà s'en servir, qui n'en veut pas, qui a peur pour son poste. <strong>C'est là que je suis la plus utile, et c'est la partie que les audits techniques traitent le plus mal.</strong></li>
-            <li><strong>6. La gouvernance.</strong> Qui valide quoi, qui trace les décisions, comment on prouve la conformité. Vu leur discours public sur l'AI Act, c'est probablement un angle fort chez eux.</li>
+            <li><strong>1. Combien de temps prend chaque étape aujourd'hui&nbsp;?</strong> C'est la mesure de départ. Sans elle, on ne pourra jamais démontrer un gain ensuite&nbsp;: on n'aura rien à quoi comparer.</li>
+            <li><strong>2. Est-ce que la base est saine&nbsp;?</strong> Le code est-il testé&nbsp;? Y a-t-il des <em>tests de non-régression</em>, c'est-à-dire des vérifications automatiques qui rejouent l'existant pour s'assurer qu'une nouveauté n'a rien cassé&nbsp;? <strong>Si l'IA produit dix fois plus de code, il faut dix fois plus de capacité à vérifier.</strong> C'est le métier historique d'Adservio&nbsp;: probablement leur angle principal.</li>
+            <li><strong>3. Qu'a-t-on le droit d'envoyer à une IA, et qui valide&nbsp;?</strong> Quel code, quelles données peuvent sortir&nbsp;? Quels outils la DSI autorise-t-elle&nbsp;? Qui trace les décisions&nbsp;? Chez un opérateur comme GRDF, cette question bloque avant même d'être technique.</li>
+            <li><strong>4. Qui va réellement s'en servir&nbsp;?</strong> Qui sait déjà, qui n'en veut pas, qui a peur pour son poste. <strong>C'est là que je suis la plus utile, et c'est la question que les audits techniques traitent le plus mal.</strong></li>
           </ul>
         </div>
 
         <div class="callout retenir">
-          <span class="lbl">Ce que ça donne comme livrable</span>
-          Un audit de ce type se conclut normalement par trois choses&nbsp;: <strong>un état des lieux chiffré</strong> (le temps que prend réellement chaque étape aujourd'hui), <strong>une liste de chantiers priorisés</strong> (où l'IA rapporte le plus, ce qu'il faut corriger avant), et <strong>une feuille de route</strong> avec des indicateurs de suivi. Sans le premier point, les deux autres ne valent rien&nbsp;: on ne saura jamais dire si le déploiement a marché.
+          <span class="lbl">Ce qu'on rend au client à la fin</span>
+          Trois choses&nbsp;: <strong>l'état des lieux chiffré</strong> (le temps que prend vraiment chaque étape aujourd'hui), <strong>la liste des chantiers classés par priorité</strong> (où l'IA rapporte le plus, ce qu'il faut réparer avant), et <strong>une feuille de route</strong> avec des indicateurs de suivi.
+          <br><br>
+          Sans le premier, les deux autres ne valent rien&nbsp;: personne ne saura dire, six mois plus tard, si ça a marché.
         </div>
 
         <div class="callout say">
