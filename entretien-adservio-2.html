@@ -713,11 +713,43 @@
           Le sigle qu'ils emploient pour «&nbsp;la façon dont on fabrique le logiciel&nbsp;»&nbsp;: <strong>SDLC</strong>, <em>Software Development Life Cycle</em>, le cycle de vie du logiciel.
         </div>
 
+        <h4 class="blk">Ce qu'on audite &mdash; et ce qu'on n'audite pas</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>On pourrait auditer&hellip;</th><th>Exemple de question</th><th>Est-ce le sujet ici&nbsp;?</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Le site vu par le visiteur<span class="trad">un audit d'ergonomie</span></th>
+                <td>«&nbsp;Combien de temps un spectateur met-il à trouver les horaires&nbsp;?&nbsp;»</td>
+                <td><strong>Non.</strong> C'est un audit UX. Autre métier, autre prestation</td>
+              </tr>
+              <tr>
+                <th scope="row">Le code lui-même<span class="trad">un audit technique</span></th>
+                <td>«&nbsp;Le code est-il testé, sécurisé, tient-il la charge&nbsp;?&nbsp;»</td>
+                <td><strong>En partie.</strong> Adservio sait très bien faire ça, mais c'est un <em>morceau</em>, pas le tout</td>
+              </tr>
+              <tr>
+                <th scope="row">La façon de travailler de l'équipe qui fabrique<span class="trad">l'audit SDLC</span></th>
+                <td>«&nbsp;Entre le moment où le métier demande une évolution et le moment où elle est en ligne, combien de temps, et où part ce temps&nbsp;?&nbsp;»</td>
+                <td><strong>Oui. C'est ça.</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">La confusion à lever une bonne fois</span>
+          <strong>On n'audite pas l'utilisateur final du site, et on n'audite pas seulement le code.</strong> On audite <strong>le travail de l'équipe qui produit le logiciel</strong>&nbsp;: le métier qui exprime le besoin, la personne qui rédige, les développeurs, les testeurs, ceux qui mettent en production.
+          <br><br>
+          Donc quand je lis «&nbsp;combien de temps prend chaque étape&nbsp;», le «&nbsp;combien de temps&nbsp;» est celui de <strong>l'équipe interne</strong>, pas celui d'un visiteur. Exemple concret&nbsp;: «&nbsp;pour mettre à jour un même contenu présent sur trois sites, il faut trois jours et quatre personnes&nbsp;»&nbsp;&mdash; ça, c'est une mesure d'audit SDLC parfaitement valable.
+        </div>
+
         <h4 class="blk">Le même objet, mais sur mon terrain</h4>
         <div class="card">
           <p>À la Comédie-Française, une évolution passait toujours par les mêmes étapes&nbsp;: <strong>le besoin exprimé par le client &rarr; la rédaction de la spécification &rarr; le chiffrage &rarr; la validation client &rarr; le développement &rarr; la recette &rarr; la mise en production &rarr; la formation des opérateurs.</strong></p>
           <p><strong>Ça, c'est une chaîne SDLC.</strong> Auditer, c'est venir poser cette même carte chez un client qu'on ne connaît pas, mettre une durée en face de chaque case, et repérer où le temps part réellement.</p>
-          <p>Et l'IA ne se branche pas au même endroit selon la case. Sur la rédaction d'une spécification, elle fait gagner des jours. Sur la validation client, elle ne change rien&nbsp;: c'est un délai humain, pas un délai de production. <strong>Distinguer les deux, c'est tout l'objet de l'audit.</strong></p>
+          <p>Concrètement, l'audit remplit ce genre de ligne&nbsp;: <em>rédaction de la spécification, 4 jours &mdash; validation client, 3 semaines d'attente &mdash; développement, 6 jours &mdash; recette, 5 jours dont 3 de corrections.</em> <strong>À partir de là, on voit tout de suite où est le problème.</strong></p>
+          <p>Et l'IA ne se branche pas au même endroit selon la case. Sur la rédaction d'une spécification, elle fait gagner des jours. Sur les trois semaines d'attente de validation, elle ne change rien&nbsp;: c'est un délai humain, pas un délai de production &mdash; ça se traite en changeant le circuit de décision, pas en achetant un outil. <strong>Distinguer les deux, c'est tout l'objet de l'audit.</strong></p>
         </div>
 
         <h4 class="blk">Les quatre questions que l'audit doit trancher</h4>
