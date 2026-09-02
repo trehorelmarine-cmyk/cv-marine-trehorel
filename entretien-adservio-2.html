@@ -264,6 +264,12 @@
     div.blk ul { margin-left: 18px; }
     div.blk li { margin-bottom: 7px; }
     div.blk li:last-child { margin-bottom: 0; }
+    div.blk li .dir {
+      display: block; margin-top: 3px; font-size: 13.5px;
+      color: #6d655d; line-height: 1.6;
+    }
+    div.blk li .dir strong { color: #a54527; font-weight: 600; }
+    div.blk li:has(.dir) { margin-bottom: 13px; }
 
     .card {
       background: #fbf5ea;
@@ -897,13 +903,27 @@
           <div class="label">Anis Zouaoui &mdash; le fondateur&nbsp;: il teste une conviction</div>
           <p style="font-size:14px;color:#4a4540;margin-bottom:12px;">Il ne va pas dérouler une grille de compétences. Il va chercher à savoir si je peux tenir un discours devant son client. Attendre des questions <strong>ouvertes, larges, sans bonne réponse évidente</strong> &mdash; le contenu compte moins que la solidité.</p>
           <ul>
-            <li>«&nbsp;Qu'est-ce que l'IA change vraiment dans votre métier&nbsp;?&nbsp;»</li>
-            <li>«&nbsp;Est-ce que le rôle de chef de projet a encore un sens dans cinq ans&nbsp;?&nbsp;»</li>
-            <li>«&nbsp;Racontez-moi la dernière fois où vous vous en êtes servie sur un cas réel.&nbsp;»</li>
-            <li>«&nbsp;Un DSI vous dit qu'il n'y croit pas et que ça met son équipe en danger. Vous répondez quoi&nbsp;?&nbsp;»</li>
-            <li>«&nbsp;Vous seriez à l'aise pour parler de ça devant une salle&nbsp;?&nbsp;»</li>
-            <li>«&nbsp;Qu'est-ce qui vous fait dire que ça marche&nbsp;? Comment vous le mesurez&nbsp;?&nbsp;»</li>
-            <li>«&nbsp;Pourquoi nous&nbsp;?&nbsp;»</li>
+            <li>«&nbsp;Qu'est-ce que l'IA change vraiment dans votre métier&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> ce qu'elle change, ce n'est pas la décision, c'est le coût de la préparer. Avant, arbitrer demandait des jours de collecte&nbsp;; maintenant la matière est prête en une heure, donc j'arbitre plus souvent, sur plus de sujets. <strong>Piège à éviter&nbsp;:</strong> répondre «&nbsp;ça fait gagner du temps&nbsp;» et s'arrêter là. Tout le monde dit ça.</span>
+            </li>
+            <li>«&nbsp;Est-ce que le rôle de chef de projet a encore un sens dans cinq ans&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas défendre le métier, c'est le réflexe qu'il cherche à détecter. Oui, la partie production de documents se réduit&nbsp;; non, la partie décider entre plusieurs demandes contradictoires ne se réduit pas. <strong>Ce que ça devient&nbsp;:</strong> moins de rédaction, plus d'arbitrage et de conduite du changement.</span>
+            </li>
+            <li>«&nbsp;Racontez-moi la dernière fois où vous vous en êtes servie sur un cas réel.&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> RNDV, et une seule fois &mdash; c'est ma meilleure preuve, je ne la dilue pas. Le dashboard support construit depuis un canal Teams de 40 opérateurs, en une journée, sans que personne le demande. <strong>Le détail qui compte&nbsp;:</strong> la fusion de fiche sort à 58 occurrences, donc elle passe devant &mdash; une priorisation par la mesure, pas par le dernier qui a crié.</span>
+            </li>
+            <li>«&nbsp;Un DSI vous dit qu'il n'y croit pas et que ça met son équipe en danger. Vous répondez quoi&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas chercher à le convaincre, il ne s'agit pas d'un débat d'opinion. Lui donner raison sur le risque, puis le déplacer&nbsp;: on ne branche rien sur du code non testé, on commence par un périmètre où l'erreur ne coûte rien, et on mesure. <strong>La vraie réponse&nbsp;:</strong> quand quelqu'un a peur pour son équipe, on ne répond pas par une démonstration, on répond par un cadre.</span>
+            </li>
+            <li>«&nbsp;Vous seriez à l'aise pour parler de ça devant une salle&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas surjouer la conférencière, ne pas se dérober non plus. Ce que j'ai fait réellement&nbsp;: les COPIL, les formations CMS de 3&ndash;4&nbsp;h à chaque livraison, l'accompagnement de 40 opérateurs, la newsletter produit mensuelle. <strong>La phrase&nbsp;:</strong> «&nbsp;Évangéliser en interne chez un client qui n'a rien demandé, c'est déjà de la conduite du changement. La scène publique vient après, et elle m'intéresse.&nbsp;»</span>
+            </li>
+            <li>«&nbsp;Qu'est-ce qui vous fait dire que ça marche&nbsp;? Comment vous le mesurez&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> c'est la question de la rigueur, celle sur laquelle ils insistent depuis l'entretien 1. Répondre en deux temps&nbsp;: la mesure de départ avant de commencer (sinon aucun gain n'est démontrable), et l'usage réel plutôt que le déclaratif &mdash; qui s'en sert encore trois mois après. <strong>Ne pas oublier&nbsp;:</strong> le taux de régression, ce qui casse en production. Un gain de vitesse payé en incidents n'est pas un gain.</span>
+            </li>
+            <li>«&nbsp;Pourquoi nous&nbsp;?&nbsp;»
+              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas flatter la société, répondre par ma trajectoire. Je me suis mise à l'IA sur mon propre travail sans qu'on me le demande, et je veux en faire mon métier plutôt qu'un à-côté. <strong>Le point qui fait mouche&nbsp;:</strong> peu de structures vendent réellement cette transformation à des DSI &mdash; c'est un des rares endroits où ce virage se prend en mission, pas en veille personnelle.</span>
+            </li>
           </ul>
           <p style="font-size:14px;color:#4a4540;margin-top:12px;"><strong>Comment répondre&nbsp;:</strong> par un cas concret, jamais par une opinion générale. Et <strong>ne pas conclure à sa place</strong> &mdash; poser mon exemple, puis lui rendre la main.</p>
         </div>
