@@ -269,7 +269,21 @@
       color: #6d655d; line-height: 1.6;
     }
     div.blk li .dir strong { color: #a54527; font-weight: 600; }
-    div.blk li:has(.dir) { margin-bottom: 13px; }
+    div.blk li:has(.dir) { margin-bottom: 16px; }
+    div.blk ul.dir-list {
+      list-style: none; margin: 5px 0 0 0;
+      font-size: 13.5px; color: #6d655d; line-height: 1.6;
+    }
+    div.blk ul.dir-list li {
+      position: relative; padding-left: 14px; margin-bottom: 5px;
+    }
+    div.blk ul.dir-list li::before {
+      content: ""; position: absolute; left: 0; top: 8px;
+      width: 5px; height: 5px; border-radius: 50%; background: #c9755a;
+    }
+    div.blk ul.dir-list li strong { color: #a54527; font-weight: 600; }
+    div.blk ul.dir-list li.piege::before { background: #9a9088; }
+    div.blk ul.dir-list li.piege { color: #857c73; }
 
     .card {
       background: #fbf5ea;
@@ -904,26 +918,57 @@
           <p style="font-size:14px;color:#4a4540;margin-bottom:12px;">Il ne va pas dérouler une grille de compétences. Il va chercher à savoir si je peux tenir un discours devant son client. Attendre des questions <strong>ouvertes, larges, sans bonne réponse évidente</strong> &mdash; le contenu compte moins que la solidité.</p>
           <ul>
             <li>«&nbsp;Qu'est-ce que l'IA change vraiment dans votre métier&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction &mdash; deux choses, dans cet ordre. 1. L'autonomie&nbsp;:</strong> je peux répondre moi-même à un besoin ou débloquer une situation sans attendre la disponibilité de quelqu'un. Avant, une idée d'outil se négociait&nbsp;: il fallait convaincre, être priorisée, attendre un dev. Aujourd'hui je fabrique la maquette et je la montre. <strong>C'est la moitié forte de la réponse&nbsp;:</strong> peu de PO le disent, et RNDV le prouve en une journée.
-              <br><strong>2. L'efficacité&nbsp;:</strong> tout ce qui était fabriqué à la main &mdash; les slides, les plannings, les comptes rendus &mdash; prenait un temps considérable pour une valeur faible. <strong>Attention ici&nbsp;:</strong> «&nbsp;ça fait gagner du temps&nbsp;» est la réponse que tout le monde donne. Elle ne vaut que si j'enchaîne sur <strong>ce que je fais du temps rendu&nbsp;: du terrain, de l'arbitrage, de la formation d'opérateurs.</strong> Le temps gagné n'est pas le résultat, c'est ce qu'on en fait qui l'est.</span>
+              <ul class="dir-list">
+                <li><strong>1. L'autonomie &mdash; à dire en premier.</strong> Je réponds moi-même à un besoin, sans attendre la disponibilité de quelqu'un.</li>
+                <li>Avant, une idée d'outil se négociait&nbsp;: convaincre, être priorisée, attendre un dev. Aujourd'hui je fabrique la maquette et je la montre.</li>
+                <li><strong>C'est la moitié forte&nbsp;:</strong> peu de PO peuvent le dire, et RNDV le prouve en une journée.</li>
+                <li><strong>2. L'efficacité.</strong> Slides, plannings, comptes rendus&nbsp;: beaucoup de temps passé à la main pour une valeur faible.</li>
+                <li class="piege"><strong>Attention&nbsp;:</strong> «&nbsp;ça fait gagner du temps&nbsp;» est la réponse de tout le monde. Elle ne vaut que si j'enchaîne sur <strong>ce que je fais du temps rendu</strong>&nbsp;: du terrain, de l'arbitrage, de la formation d'opérateurs.</li>
+              </ul>
             </li>
             <li>«&nbsp;Est-ce que le rôle de chef de projet a encore un sens dans cinq ans&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas défendre le métier, c'est le réflexe qu'il cherche à détecter. Oui, la partie production de documents se réduit&nbsp;; non, la partie décider entre plusieurs demandes contradictoires ne se réduit pas. <strong>Ce que ça devient&nbsp;:</strong> moins de rédaction, plus d'arbitrage et de conduite du changement.</span>
+              <ul class="dir-list">
+                <li><strong>Ne pas défendre le métier</strong> &mdash; c'est exactement le réflexe qu'il cherche à détecter.</li>
+                <li>Oui, la production de documents se réduit. Non, l'arbitrage entre demandes contradictoires ne se réduit pas.</li>
+                <li><strong>Ce que ça devient&nbsp;:</strong> moins de rédaction, plus d'arbitrage et de conduite du changement.</li>
+              </ul>
             </li>
             <li>«&nbsp;Racontez-moi la dernière fois où vous vous en êtes servie sur un cas réel.&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> RNDV, et une seule fois &mdash; c'est ma meilleure preuve, je ne la dilue pas. Le dashboard support construit depuis un canal Teams de 40 opérateurs, en une journée, sans que personne le demande. <strong>Le détail qui compte&nbsp;:</strong> la fusion de fiche sort à 58 occurrences, donc elle passe devant &mdash; une priorisation par la mesure, pas par le dernier qui a crié.</span>
+              <ul class="dir-list">
+                <li><strong>RNDV, et un seul exemple</strong> &mdash; c'est ma meilleure preuve, je ne la dilue pas dans trois autres.</li>
+                <li>Le tableau de bord du support, construit depuis un canal Teams de 40 opérateurs, <strong>en une journée, sans que personne le demande</strong>.</li>
+                <li><strong>Le détail qui compte&nbsp;:</strong> la fusion de fiche sort à 58 occurrences, donc elle passe devant. Une priorisation par la mesure, pas par le dernier qui a crié.</li>
+              </ul>
             </li>
             <li>«&nbsp;Un DSI vous dit qu'il n'y croit pas et que ça met son équipe en danger. Vous répondez quoi&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas chercher à le convaincre, il ne s'agit pas d'un débat d'opinion. Lui donner raison sur le risque, puis le déplacer&nbsp;: on ne branche rien sur du code non testé, on commence par un périmètre où l'erreur ne coûte rien, et on mesure. <strong>La vraie réponse&nbsp;:</strong> quand quelqu'un a peur pour son équipe, on ne répond pas par une démonstration, on répond par un cadre.</span>
+              <ul class="dir-list">
+                <li><strong>Ne pas chercher à le convaincre.</strong> Ce n'est pas un débat d'opinion, et il ne changera pas d'avis en séance.</li>
+                <li><strong>Lui donner raison sur le risque</strong>, puis le déplacer&nbsp;: on ne branche rien sur du code non testé.</li>
+                <li>Commencer par un périmètre où l'erreur ne coûte rien, et mesurer.</li>
+                <li><strong>Le fond&nbsp;:</strong> quand quelqu'un a peur pour son équipe, on ne répond pas par une démonstration, on répond par un cadre.</li>
+              </ul>
             </li>
             <li>«&nbsp;Vous seriez à l'aise pour parler de ça devant une salle&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas surjouer la conférencière, ne pas se dérober non plus. Ce que j'ai fait réellement&nbsp;: les COPIL, les formations CMS de 3&ndash;4&nbsp;h à chaque livraison, l'accompagnement de 40 opérateurs, la newsletter produit mensuelle. <strong>La phrase&nbsp;:</strong> «&nbsp;Évangéliser en interne chez un client qui n'a rien demandé, c'est déjà de la conduite du changement. La scène publique vient après, et elle m'intéresse.&nbsp;»</span>
+              <ul class="dir-list">
+                <li><strong>Ni surjouer la conférencière, ni se dérober.</strong> Partir de ce que j'ai fait réellement.</li>
+                <li>Les COPIL, les formations de 3&ndash;4&nbsp;h à chaque livraison, l'accompagnement de 40 opérateurs, la lettre produit mensuelle.</li>
+                <li><strong>La phrase&nbsp;:</strong> «&nbsp;Évangéliser en interne chez un client qui n'a rien demandé, c'est déjà de la conduite du changement. La scène publique vient après, et elle m'intéresse.&nbsp;»</li>
+              </ul>
             </li>
             <li>«&nbsp;Qu'est-ce qui vous fait dire que ça marche&nbsp;? Comment vous le mesurez&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> c'est la question de la rigueur, celle sur laquelle ils insistent depuis l'entretien 1. Répondre en deux temps&nbsp;: la mesure de départ avant de commencer (sinon aucun gain n'est démontrable), et l'usage réel plutôt que le déclaratif &mdash; qui s'en sert encore trois mois après. <strong>Ne pas oublier&nbsp;:</strong> le taux de régression, ce qui casse en production. Un gain de vitesse payé en incidents n'est pas un gain.</span>
+              <ul class="dir-list">
+                <li><strong>C'est leur question sur la rigueur</strong> &mdash; ils insistent dessus depuis l'entretien 1.</li>
+                <li><strong>La mesure de départ&nbsp;:</strong> sans elle, aucun gain n'est démontrable ensuite.</li>
+                <li><strong>L'usage réel plutôt que le déclaratif&nbsp;:</strong> qui s'en sert encore trois mois après.</li>
+                <li><strong>Ne pas oublier ce qui casse&nbsp;:</strong> un gain de vitesse payé en incidents en production n'est pas un gain.</li>
+              </ul>
             </li>
             <li>«&nbsp;Pourquoi nous&nbsp;?&nbsp;»
-              <span class="dir"><strong>Direction&nbsp;:</strong> ne pas flatter la société, répondre par ma trajectoire. Je me suis mise à l'IA sur mon propre travail sans qu'on me le demande, et je veux en faire mon métier plutôt qu'un à-côté. <strong>Le point qui fait mouche&nbsp;:</strong> peu de structures vendent réellement cette transformation à des DSI &mdash; c'est un des rares endroits où ce virage se prend en mission, pas en veille personnelle.</span>
+              <ul class="dir-list">
+                <li><strong>Ne pas flatter la société</strong>, répondre par ma trajectoire.</li>
+                <li>Je me suis mise à l'IA sur mon propre travail sans qu'on me le demande&nbsp;: je veux en faire mon métier, pas un à-côté.</li>
+                <li><strong>Le point qui porte&nbsp;:</strong> peu de structures vendent réellement cette transformation à des DSI. C'est un des rares endroits où ce virage se prend en mission, pas en veille personnelle.</li>
+              </ul>
             </li>
           </ul>
           <p style="font-size:14px;color:#4a4540;margin-top:12px;"><strong>Comment répondre&nbsp;:</strong> par un cas concret, jamais par une opinion générale. Et <strong>ne pas conclure à sa place</strong> &mdash; poser mon exemple, puis lui rendre la main.</p>
