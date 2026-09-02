@@ -365,6 +365,7 @@
     table.tbl tbody tr:last-child td { border-bottom: none; }
     table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
     table.tbl th[scope="row"] { white-space: nowrap; }
+    table.tbl tr.hors td, table.tbl tr.hors th[scope="row"] { opacity: .62; }
     table.tbl th[scope="row"] .trad {
       display: block; font-weight: 400; font-size: 12px;
       color: #9a9088; font-style: italic; margin-top: 3px; white-space: normal;
@@ -719,19 +720,54 @@
             <thead><tr><th>On pourrait auditer&hellip;</th><th>Exemple de question</th><th>Est-ce le sujet ici&nbsp;?</th></tr></thead>
             <tbody>
               <tr>
+                <th scope="row">La façon de travailler de l'équipe qui fabrique<span class="trad">l'audit SDLC</span></th>
+                <td>«&nbsp;Entre le moment où le métier demande une évolution et le moment où elle est en ligne&nbsp;: combien de temps, et où part ce temps&nbsp;?&nbsp;»</td>
+                <td><strong>Oui. C'est le cœur.</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">Les outils de la chaîne<span class="trad">l'outillage de fabrication</span></th>
+                <td>«&nbsp;Où sont écrites les demandes&nbsp;? Comment le code part-il en production&nbsp;? Est-ce automatisé ou est-ce qu'un humain copie des fichiers un vendredi soir&nbsp;?&nbsp;»</td>
+                <td><strong>Oui.</strong> Un outillage bricolé annule les gains de l'IA en amont</td>
+              </tr>
+              <tr>
+                <th scope="row">Les circuits de décision<span class="trad">qui valide, et en combien de temps</span></th>
+                <td>«&nbsp;Combien de personnes doivent dire oui avant qu'une évolution parte&nbsp;? Combien de jours ça prend&nbsp;?&nbsp;»</td>
+                <td><strong>Oui.</strong> Et c'est souvent là qu'est le vrai temps perdu &mdash; mon terrain</td>
+              </tr>
+              <tr>
+                <th scope="row">Les compétences de l'équipe<span class="trad">la maturité face à l'IA</span></th>
+                <td>«&nbsp;Qui se sert déjà d'une IA aujourd'hui, pour quoi, et qui refuse d'y toucher&nbsp;?&nbsp;»</td>
+                <td><strong>Oui.</strong> Sans ça, l'outil est acheté et personne ne l'ouvre</td>
+              </tr>
+              <tr>
+                <th scope="row">Le code lui-même<span class="trad">un audit technique</span></th>
+                <td>«&nbsp;Le code est-il testé, documenté, sécurisé&nbsp;? Tient-il la charge&nbsp;?&nbsp;»</td>
+                <td><strong>En partie.</strong> Adservio sait très bien faire ça, mais c'est un <em>morceau</em>, pas le tout</td>
+              </tr>
+              <tr>
+                <th scope="row">L'exploitation une fois en ligne<span class="trad">la supervision, le «&nbsp;run&nbsp;»</span></th>
+                <td>«&nbsp;Combien d'incidents par mois&nbsp;? En combien de temps sont-ils détectés&nbsp;?&nbsp;»</td>
+                <td><strong>En partie.</strong> C'est la dernière étape du cycle, et c'est leur discours public</td>
+              </tr>
+              <tr>
+                <th scope="row">Les données et la sécurité<span class="trad">ce qui a le droit de sortir</span></th>
+                <td>«&nbsp;Quel code, quelles données peuvent être envoyés à un modèle externe&nbsp;?&nbsp;»</td>
+                <td><strong>En partie.</strong> Pas un audit RGPD complet, mais un point bloquant à lever</td>
+              </tr>
+              <tr class="hors">
                 <th scope="row">Le site vu par le visiteur<span class="trad">un audit d'ergonomie</span></th>
                 <td>«&nbsp;Combien de temps un spectateur met-il à trouver les horaires&nbsp;?&nbsp;»</td>
                 <td><strong>Non.</strong> C'est un audit UX. Autre métier, autre prestation</td>
               </tr>
-              <tr>
-                <th scope="row">Le code lui-même<span class="trad">un audit technique</span></th>
-                <td>«&nbsp;Le code est-il testé, sécurisé, tient-il la charge&nbsp;?&nbsp;»</td>
-                <td><strong>En partie.</strong> Adservio sait très bien faire ça, mais c'est un <em>morceau</em>, pas le tout</td>
+              <tr class="hors">
+                <th scope="row">La pertinence du produit<span class="trad">un audit produit</span></th>
+                <td>«&nbsp;Est-ce qu'on fabrique les bonnes fonctionnalités&nbsp;? Lesquelles ne servent à personne&nbsp;?&nbsp;»</td>
+                <td><strong>Non.</strong> On regarde <em>comment</em> ils fabriquent, pas <em>quoi</em></td>
               </tr>
-              <tr>
-                <th scope="row">La façon de travailler de l'équipe qui fabrique<span class="trad">l'audit SDLC</span></th>
-                <td>«&nbsp;Entre le moment où le métier demande une évolution et le moment où elle est en ligne, combien de temps, et où part ce temps&nbsp;?&nbsp;»</td>
-                <td><strong>Oui. C'est ça.</strong></td>
+              <tr class="hors">
+                <th scope="row">L'accessibilité, le référencement<span class="trad">RGAA, SEO</span></th>
+                <td>«&nbsp;Le site est-il conforme au RGAA&nbsp;? Bien positionné sur Google&nbsp;?&nbsp;»</td>
+                <td><strong>Non.</strong> Prestations distinctes, même si un institutionnel public y sera sensible</td>
               </tr>
             </tbody>
           </table>
@@ -742,6 +778,22 @@
           <strong>On n'audite pas l'utilisateur final du site, et on n'audite pas seulement le code.</strong> On audite <strong>le travail de l'équipe qui produit le logiciel</strong>&nbsp;: le métier qui exprime le besoin, la personne qui rédige, les développeurs, les testeurs, ceux qui mettent en production.
           <br><br>
           Donc quand je lis «&nbsp;combien de temps prend chaque étape&nbsp;», le «&nbsp;combien de temps&nbsp;» est celui de <strong>l'équipe interne</strong>, pas celui d'un visiteur. Exemple concret&nbsp;: «&nbsp;pour mettre à jour un même contenu présent sur trois sites, il faut trois jours et quatre personnes&nbsp;»&nbsp;&mdash; ça, c'est une mesure d'audit SDLC parfaitement valable.
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">«&nbsp;Et si l'application a été faite il y a dix ans par une agence qui n'est plus là&nbsp;?&nbsp;»</span>
+          C'est le cas le plus fréquent, pas l'exception. Et ça ne bloque rien, parce que <strong>on n'audite pas l'équipe qui a construit, on audite celle qui maintient aujourd'hui.</strong>
+          <br><br>
+          Une application encore en service reçoit forcément des demandes&nbsp;: une correction, une évolution réglementaire, un nouveau moyen de paiement. Quelqu'un les reçoit, quelqu'un les traite, quelqu'un les met en ligne &mdash; DSI interne, prestataire de maintenance, développeur isolé. <strong>Cette chaîne-là existe, et c'est elle qu'on chronomètre.</strong> Si vraiment plus personne n'y touche, l'application n'est tout simplement pas dans le périmètre de l'audit.
+          <br><br>
+          <strong>Le passé de l'application n'est pas un obstacle, c'est un résultat d'audit.</strong> Pas de spécifications, pas de tests, pas de documentation, plus personne qui connaît le code&nbsp;: c'est précisément la question 2 ci-dessous, et c'est ce qui détermine ce qu'on peut faire avec l'IA.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Et c'est même le cas où j'ai quelque chose à dire</span>
+          «&nbsp;Sur une application ancienne dont plus personne ne connaît le code, l'IA a un usage précis avant même d'accélérer quoi que ce soit&nbsp;: <strong>reconstituer la documentation et écrire les tests qui manquent.</strong> On ne commence pas par produire plus vite, on commence par se redonner un filet de sécurité. Ensuite seulement on accélère.&nbsp;»
+          <br><br>
+          <em>Pourquoi c'est la bonne réponse devant eux&nbsp;: c'est exactement leur métier historique &mdash; les tests et la non-régression &mdash; et ça montre que je ne confonds pas «&nbsp;mettre de l'IA&nbsp;» avec «&nbsp;aller plus vite&nbsp;».</em>
         </div>
 
         <h4 class="blk">Le même objet, mais sur mon terrain</h4>
