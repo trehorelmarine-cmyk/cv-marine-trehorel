@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entretien Mosaic &mdash; MNHN &amp; Sorbonne Université &mdash; Marine Tréhorel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #2b2622;
+      background: #f6efe4;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 32px;
+      background: rgba(246, 239, 228, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd0be;
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: #6b6560;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .topbar .back svg { width: 19px; height: 19px; display: block; }
+
+    .topbar .back:hover {
+      color: #a54527;
+      background: rgba(201, 117, 90, 0.1);
+    }
+
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    /* Side nav */
+    .sidenav {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      height: max-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidenav h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul { list-style: none; }
+
+    .sidenav li { margin-bottom: 1px; }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #6b6560;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s ease;
+    }
+
+    .sidenav a .num {
+      display: inline-block;
+      width: 20px;
+      color: #b9ab97;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidenav a:hover,
+    .sidenav a.active {
+      color: #a54527;
+      background: #fbf5ea;
+      border-left-color: #c9755a;
+    }
+    .sidenav a.active .num { color: #c9755a; }
+
+    /* Content */
+    .content { min-width: 0; }
+
+    .page-head { margin-bottom: 40px; }
+
+    .page-head .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9755a;
+      margin-bottom: 12px;
+    }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      font-size: 15px;
+      color: #6b6560;
+      max-width: 640px;
+    }
+
+    section { margin-bottom: 52px; scroll-margin-top: 88px; }
+
+    section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    section > h2 .idx {
+      font-size: 15px;
+      color: #c9755a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: 2px;
+    }
+
+    section > .section-sub {
+      font-size: 13.5px;
+      color: #9a9088;
+      margin-bottom: 22px;
+    }
+
+    h4.blk {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin: 24px 0 10px;
+    }
+
+    .qa > p { margin-bottom: 12px; }
+
+    div.blk {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 18px 24px 20px;
+      margin-bottom: 14px;
+    }
+
+    div.blk > .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e4d8c6;
+    }
+
+    div.blk ul { margin-left: 18px; }
+    div.blk li { margin-bottom: 7px; }
+    div.blk li:last-child { margin-bottom: 0; }
+    div.blk li .dir {
+      display: block; margin-top: 3px; font-size: 13.5px;
+      color: #6d655d; line-height: 1.6;
+    }
+    div.blk li .dir strong { color: #a54527; font-weight: 600; }
+    div.blk li:has(.dir) { margin-bottom: 16px; }
+    div.blk ul.dir-list {
+      list-style: none; margin: 5px 0 0 0;
+      font-size: 13.5px; color: #6d655d; line-height: 1.6;
+    }
+    div.blk ul.dir-list li {
+      position: relative; padding-left: 14px; margin-bottom: 5px;
+    }
+    div.blk ul.dir-list li::before {
+      content: ""; position: absolute; left: 0; top: 8px;
+      width: 5px; height: 5px; border-radius: 50%; background: #c9755a;
+    }
+    div.blk ul.dir-list li strong { color: #a54527; font-weight: 600; }
+    div.blk ul.dir-list li.piege::before { background: #9a9088; }
+    div.blk ul.dir-list li.piege { color: #857c73; }
+
+    .card {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14.5px; color: #4a4540; }
+    .card p + p { margin-top: 10px; }
+
+    .card ul { margin: 4px 0 0 18px; }
+    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
+
+    .pitch {
+      border-left: 3px solid #c9755a;
+      background: #fbf5ea;
+      padding: 22px 26px;
+      border-radius: 0 14px 14px 0;
+      font-size: 15.5px;
+      color: #3a352f;
+      line-height: 1.75;
+    }
+    .pitch strong { color: #a54527; }
+
+    /* Chips / keywords */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    .callout .lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
+    .callout.retenir .lbl { color: #a54527; }
+    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
+    .callout.say .lbl { color: #c9755a; }
+    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
+    .callout.warn .lbl { color: #a54527; }
+    .callout b, .callout strong { color: #2b2622; }
+    .callout ul { margin: 4px 0 0 18px; }
+    .callout li { margin-bottom: 4px; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+    table.tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table.tbl th, table.tbl td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #efe3d5;
+      vertical-align: top;
+    }
+    table.tbl thead th {
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.tbl tbody tr:last-child td { border-bottom: none; }
+    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
+    table.tbl th[scope="row"] { white-space: nowrap; }
+    table.tbl tr.hors td, table.tbl tr.hors th[scope="row"] { opacity: .62; }
+    table.tbl th[scope="row"] .trad {
+      display: block; font-weight: 400; font-size: 12px;
+      color: #9a9088; font-style: italic; margin-top: 3px; white-space: normal;
+    }
+
+    /* STAR blocks */
+    .star { position: relative; }
+    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
+    .star dt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c9755a;
+      padding-top: 2px;
+    }
+    .star dd { font-size: 14.5px; color: #4a4540; }
+
+    /* Q&A */
+    details.qa {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      padding: 4px 20px;
+      margin-bottom: 12px;
+    }
+    details.qa summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b2622;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary .chev {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c9755a;
+      transition: transform 0.2s ease;
+    }
+    details.qa[open] summary .chev { transform: rotate(180deg); }
+    details.qa .answer {
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    details.qa .answer ul { margin: 8px 0 0 18px; }
+    details.qa .answer li { margin-bottom: 5px; }
+    .ex-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 9.5px;
+      color: #c9755a;
+      margin-right: 6px;
+    }
+    .answer .meta { margin-top: 10px; font-size: 13px; }
+    .answer .meta.ex { color: #7a3d24; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      color: #4a4540;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #c9755a;
+      border-radius: 5px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd0be;
+      font-size: 14.5px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: #9a9088; font-weight: 600; }
+    .info-row .value { color: #2b2622; text-align: right; }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
+      .sidenav { display: none; }
+      .page-head h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .star dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <a class="back" href="/preparation-entretien.html" aria-label="Retour à la préparation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
+    </a>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidenav">
+      <h3>Sommaire</h3>      <ul>
+        <li><a href="#rdv"><span class="num">1</span>Le rendez-vous</a></li>
+        <li><a href="#demande"><span class="num">2</span>Ce qu'Alicia demande</a></li>
+        <li><a href="#mosaic"><span class="num">3</span>Qui est Mosaic</a></li>
+        <li><a href="#poste"><span class="num">4</span>Le poste, mission par mission</a></li>
+        <li><a href="#chum"><span class="num">5</span>Mon meilleur récit&nbsp;: le CHUM</a></li>
+        <li><a href="#spec"><span class="num">6</span>La spécification</a></li>
+        <li><a href="#parallele"><span class="num">7</span>Plusieurs projets de front</a></li>
+        <li><a href="#leurs-questions"><span class="num">8</span>Leurs questions</a></li>
+        <li><a href="#mes-questions"><span class="num">9</span>Mes questions</a></li>
+        <li><a href="#conditions"><span class="num">10</span>Salaire et conditions</a></li>
+        <li><a href="#jamais"><span class="num">11</span>Ce que je ne revendique pas</a></li>
+        <li><a href="#check"><span class="num">12</span>Check avant l'entretien</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <header class="page-head">
+        <p class="eyebrow">Fiche entretien &middot; 1<sup>er</sup> tour</p>
+        <h1>Mosaic &mdash; Muséum national d'Histoire naturelle</h1>
+        <p class="section-sub">Entre le 15 et le 18 septembre 2026, en présentiel, Campus Pierre et Marie Curie, Paris 5<sup>e</sup>. Face à Alicia, directrice adjointe, et à l'un des chefs de projet de l'équipe. C'est le meilleur alignement de contenu de tous mes dossiers &mdash; et le plus faible sur les conditions.</p>
+      </header>
+
+      <!-- 01 -->
+      <section id="rdv">
+        <h2><span class="idx">01</span>Le rendez-vous</h2>
+        <p class="section-sub">Deux personnes, deux lectures différentes de ma candidature. Je prépare les deux.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Personne</th><th>Rôle</th><th>Ce qu'elle ou il évalue</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Alicia</th>
+                <td><strong>Directrice adjointe de Mosaic.</strong> C'est elle qui m'a convoquée et qui mène l'entretien <span class="trad">[À COMPLÉTER&nbsp;: nom de famille]</span></td>
+                <td>La motivation et la compréhension de l'unité. Sa question implicite&nbsp;: <em>est-ce qu'elle a compris où elle met les pieds, ou est-ce qu'elle postule à un poste de chef de projet web générique&nbsp;?</em></td>
+              </tr>
+              <tr>
+                <th scope="row">Jérémy <em>ou</em> Matthieu</th>
+                <td><strong>Chef de projet dans l'équipe.</strong> Un pair, pas un supérieur</td>
+                <td>Le concret. Comment j'écris une spec, comment je tiens plusieurs projets, comment j'arbitre quand on se dispute le même développeur. Sa question implicite&nbsp;: <em>est-ce que je vais pouvoir travailler avec elle&nbsp;?</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">La présence du pair change la préparation</span>
+          Un chef de projet en poste n'écoute pas un discours de motivation, il écoute des <strong>détails de métier</strong>&nbsp;: est-ce qu'elle sait ce qu'est un cas limite, est-ce qu'elle a déjà eu une recette qui dérape, est-ce qu'elle sait dire non à un porteur de projet. <strong>C'est lui qui partagera un designer avec moi.</strong> Mes deux meilleures preuves sont pour lui&nbsp;: la spécification et l'arbitrage de ressources.
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Calendrier</span>
+          L'entretien tombe <strong>avant le 21 septembre</strong>, la date de disponibilité que j'ai annoncée à Adservio. Les deux dossiers avancent en parallèle&nbsp;: je n'ai pas à choisir avant d'avoir les réponses des deux côtés. Raison de plus pour <strong>faire sortir le chiffre et la règle de télétravail dès ce premier rendez-vous</strong>.
+        </div>
+
+        <div>
+          <div class="info-row"><span class="label">Format</span><span class="value">Présentiel</span></div>
+          <div class="info-row"><span class="label">Lieu</span><span class="value">Campus Pierre et Marie Curie, Paris 5<sup>e</sup> <span class="trad">[À COMPLÉTER&nbsp;: bâtiment, étage]</span></span></div>
+          <div class="info-row"><span class="label">Date</span><span class="value">Entre le 15 et le 18/09 <span class="trad">[À COMPLÉTER&nbsp;: créneau retenu]</span></span></div>
+          <div class="info-row"><span class="label">Prise de poste visée</span><span class="value">Automne 2026</span></div>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section id="demande">
+        <h2><span class="idx">02</span>Ce qu'Alicia demande, mot pour mot</h2>
+        <p class="section-sub">Son mail fixe l'ordre du jour. C'est rare et c'est un cadeau&nbsp;: je sais exactement ce qui va m'être demandé.</p>
+
+        <div class="callout say">
+          <span class="lbl">Extrait de son mail</span>
+          «&nbsp;Lors de l'entretien vous nous présenterez <strong>votre parcours</strong>, <strong>votre motivation à rejoindre l'équipe</strong> et <strong>ce que vous avez compris du poste, ainsi que de l'unité de service Mosaic dans son ensemble</strong>.&nbsp;»
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Ce qui est demandé</th><th>Ce que je prépare</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Mon parcours</th>
+                <td>Le pitch habituel, mais <strong>réorienté vers l'institutionnel et le scientifique</strong>&nbsp;: Comédie-Française, Villa Médicis, ICOMOS, ENSA, et le CHUM. Pas «&nbsp;13 ans en agence&nbsp;», mais «&nbsp;13 ans à traduire des besoins d'institutions en outils numériques&nbsp;». Six minutes maximum.</td>
+              </tr>
+              <tr>
+                <th scope="row">Ma motivation à rejoindre <em>l'équipe</em></th>
+                <td>Elle écrit «&nbsp;l'équipe&nbsp;», pas «&nbsp;le poste&nbsp;». Ce qui m'attire&nbsp;: une équipe interne qui construit <strong>et qui garde</strong> ses produits dans la durée &mdash; l'inverse du modèle d'agence où on livre et on part. Et un chef de projet qui participe à la gestion de l'unité, donc un vrai périmètre.</td>
+              </tr>
+              <tr>
+                <th scope="row">Ce que j'ai compris du poste <strong>et de l'unité dans son ensemble</strong></th>
+                <td><strong>C'est la partie à travailler.</strong> Elle ne demande pas si j'ai lu l'annonce, elle demande si j'ai compris <em>comment Mosaic fonctionne</em>&nbsp;: le statut d'unité de service, le modèle de financement conjoint, le partage des rôles avec les porteurs. Section 03.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le piège de la troisième demande</span>
+          La réponse facile est de réciter les missions de l'annonce. Ça montre que j'ai lu, pas que j'ai compris. <strong>Ce qui montre que j'ai compris, c'est de parler du modèle économique</strong> &mdash; l'acculturation réciproque, la recherche de financement à deux, la convention de partenariat. C'est le point qui distingue Mosaic d'une agence, et presque personne ne le relèvera.
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section id="mosaic">
+        <h2><span class="idx">03</span>Qui est Mosaic</h2>
+        <p class="section-sub">Ni un laboratoire de recherche, ni une DSI. Une unité de service sous double tutelle.</p>
+
+        <div class="blk">
+          <span class="label">Le statut</span>
+          <p><strong>Unité de service</strong> commune au <strong>Muséum national d'Histoire naturelle</strong> et à <strong>Sorbonne Université</strong>. Une unité de service, dans le monde de la recherche publique, c'est une structure qui <em>fournit des moyens</em> aux équipes scientifiques &mdash; elle ne produit pas de science elle-même, elle rend possible celle des autres. Concrètement pour moi&nbsp;: <strong>mes interlocuteurs ne sont pas mes patrons, ce sont des partenaires</strong>. Ils portent le projet scientifique, Mosaic porte l'outil.</p>
+        </div>
+
+        <div class="blk">
+          <span class="label">Les sciences participatives</span>
+          <p>Des projets où la donnée scientifique est collectée par des <strong>volontaires</strong> &mdash; associations, citoyens, écoles &mdash; et non par des chercheurs professionnels. Compter les oiseaux de son jardin, relever les déchets d'une plage, décrire des noisetiers.</p>
+          <p>L'annonce en donne une définition précise&nbsp;: la co-production de données structurées et partagées par un réseau de contributeurs volontaires <strong>«&nbsp;et en conscience&nbsp;»</strong>. Ce dernier mot n'est pas décoratif&nbsp;: il dit que le contributeur doit <em>savoir</em> à quoi sert sa donnée et y consentir. L'annonce parle aussi de <strong>«&nbsp;l'éthique qui les caractérise&nbsp;»</strong>. <strong>C'est une position, pas une formule</strong> &mdash; et ça a des conséquences produit très concrètes&nbsp;: consentement, propriété de la donnée, retour vers le contributeur, transparence sur l'usage.</p>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le partage des rôles, à ne pas confondre</span>
+          <strong>Mosaic construit et maintient l'outil. Les porteurs de projet prennent en charge l'animation du réseau et la valorisation des données.</strong> Je ne vais pas animer une communauté de contributeurs&nbsp;: je vais outiller ceux qui l'animent. Confondre les deux en entretien serait une erreur visible.
+        </div>
+
+        <div class="blk">
+          <span class="label">Le modèle économique &mdash; le point qui différencie vraiment</span>
+          <p>Mosaic <strong>ne vend pas au forfait</strong>. La séquence décrite dans l'annonce&nbsp;:</p>
+          <ul class="dir-list">
+            <li>une phase <strong>d'acculturation réciproque</strong> avec le porteur&nbsp;: chacun apprend le métier de l'autre avant qu'on parle d'outil&nbsp;;</li>
+            <li><strong>presque toujours une recherche de financement conjointe</strong> &mdash; le budget n'existe pas au départ, il se cherche à deux&nbsp;;</li>
+            <li>une <strong>convention de partenariat</strong> qui cadre la collaboration et le financement&nbsp;;</li>
+            <li>les évolutions ultérieures «&nbsp;moyennant financement&nbsp;»&nbsp;;</li>
+            <li>la maintenance dans la durée, présentée comme <strong>«&nbsp;le choix systématique des porteurs&nbsp;»</strong>.</li>
+          </ul>
+          <p><strong>C'est l'écart le plus grand avec mon expérience.</strong> En agence, le budget est vendu avant que je n'arrive&nbsp;; ici il se construit avec le partenaire. Je ne dois pas prétendre savoir le faire &mdash; mais je dois montrer que je l'ai vu.</p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Formulation, si on me demande ce que j'ai compris</span>
+          «&nbsp;Ce qui m'a le plus frappée, c'est que vous ne vendez pas des projets, vous en montez avec des partenaires&nbsp;: il y a une phase d'acculturation, puis une recherche de financement commune, puis une convention. Ça veut dire qu'un chef de projet chez vous n'arrive pas sur un budget déjà voté &mdash; il est là avant, quand le projet est encore en train de se définir. Je n'ai jamais monté un financement, je le dis clairement. En revanche j'ai passé treize ans à cadrer ce qui était faisable dans une enveloppe donnée, et à alerter tôt quand ça ne rentrait pas.&nbsp;»
+        </div>
+
+        <div class="blk">
+          <span class="label">Les quatre plateformes citées</span>
+          <ul class="dir-list">
+            <li><strong>QUBS</strong> &mdash; qubs.fr</li>
+            <li><strong>Changing Natures</strong> &mdash; changing-natures.org</li>
+            <li><strong>Zéro Déchet Sauvage</strong> &mdash; zero-dechet-sauvage.org</li>
+            <li><strong>Coudrier</strong> (MNHN) &mdash; coudrier.mnhn.fr</li>
+          </ul>
+          <p><span class="trad">[À COMPLÉTER&nbsp;: les regarder avant l'entretien. Ce qu'elles ont en commun, ce qui les distingue, et <strong>une observation précise à placer</strong> &mdash; par exemple sur le parcours de première contribution, ou sur la restitution des données au contributeur. Une seule observation juste vaut mieux qu'un commentaire général sur les quatre.]</span></p>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section id="poste">
+        <h2><span class="idx">04</span>Le poste, mission par mission</h2>
+        <p class="section-sub">Chaque ligne de l'annonce, et la preuve en face. Pas un seul point sans réponse.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Ce qui est demandé</th><th>Ma preuve</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Recueil du besoin et définition du <strong>protocole de collecte</strong></th>
+                <td><strong>CHUM / Université de Montréal</strong> &mdash; trois applications de santé construites à partir d'un protocole de recherche validé par des chercheurs. Section 05.</td>
+              </tr>
+              <tr>
+                <th scope="row">Rédaction des <strong>spécifications fonctionnelles</strong></th>
+                <td>Cœur du poste billetterie à la Comédie-Française. Section 06 &mdash; <strong>la question est tombée chez Adservio sans que je l'aie préparée. Pas deux fois.</strong></td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Chiffrage</strong> et <strong>priorisation</strong> des fonctionnalités</th>
+                <td>Le tableau de bord support&nbsp;: priorisation sur la <strong>récurrence mesurée</strong> et non sur qui crie le plus fort. La fusion de fiche est passée en tête avec 58 occurrences.</td>
+              </tr>
+              <tr>
+                <th scope="row">Suivi des développements, <strong>calendrier et budget</strong></th>
+                <td>13 ans de pilotage, projets de 40 à 500 K€. Suivi du budget vendu avec alerte précoce dès le premier écart, pas à 80&nbsp;% de consommation.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Tests fonctionnels</strong> et organisation des tests métier</th>
+                <td>Recettes systématiques, et organisation de la recette côté client&nbsp;: qui teste quoi, sur quel jeu de données, avec quel critère d'acceptation.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Maintien en condition opérationnelle</strong>, anomalies et évolutions</th>
+                <td>La billetterie CF est en exploitation continue avec 40 opérateurs. Anomalies qualifiées, criticité, tendance mensuelle pour vérifier qu'un correctif a bien produit son effet.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Plusieurs projets simultanés</strong>, à des stades différents</th>
+                <td>Responsable trafic création et développement chez Akufen&nbsp;: c'était précisément ce métier, à temps plein. Section 07.</td>
+              </tr>
+              <tr>
+                <th scope="row">«&nbsp;En composant avec la <strong>disponibilité des designers et développeurs</strong>&nbsp;»</th>
+                <td>Même expérience. <strong>C'est la phrase la plus révélatrice de l'annonce</strong>&nbsp;: elle dit que la ressource est contrainte et que l'arbitrage fait partie du poste.</td>
+              </tr>
+              <tr>
+                <th scope="row">Participation aux <strong>maquettes</strong>, compréhension UX</th>
+                <td>Refontes ENSA, Villa Médicis, ICOMOS. Je ne dessine pas, je cadre&nbsp;: états, cas d'erreur, contenus réels plutôt que faux textes.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Interlocuteurs variés</strong>&nbsp;: scientifiques, associations, institutions, grand public</th>
+                <td>Comédie-Française, Villa Médicis, Palais de Tokyo, ICOMOS, CHUM. Des institutions à gouvernance lente et à exigence forte&nbsp;: c'est mon terrain depuis dix ans.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Vulgariser</strong> et synthétiser</th>
+                <td>Formation de 40 opérateurs, sessions CMS de 3 à 4 h à chaque livraison, communication produit mensuelle.</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>JIRA</strong></th>
+                <td>Workflow Jira + Confluence structuré et réutilisable monté chez BBDO. Également ClickUp et Trello.</td>
+              </tr>
+              <tr>
+                <th scope="row">Bac+5, 3 ans minimum</th>
+                <td>Largement au-dessus.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le constat, sans fausse modestie</span>
+          <strong>C'est le meilleur alignement de contenu de tous mes dossiers en cours.</strong> Il n'y a pas un point de l'annonce sur lequel je n'ai rien à dire. Le sujet de cet entretien n'est donc pas de prouver que je sais faire le travail &mdash; c'est de vérifier que les conditions tiennent, et de ne pas laisser croire que je connais les sciences participatives.
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section id="chum">
+        <h2><span class="idx">05</span>Mon meilleur récit&nbsp;: le CHUM</h2>
+        <p class="section-sub">Si je ne raconte qu'un projet, c'est celui-là. Il est plus proche du poste que la billetterie.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi lui et pas la Comédie-Française</span>
+          Les trois applications de santé du <strong>CHUM et de l'Université de Montréal</strong> sont le même objet que ce que fait Mosaic&nbsp;: traduire un <strong>protocole scientifique validé par des chercheurs</strong> en une application que des <strong>non-spécialistes utilisent volontairement, dans la durée</strong>. C'est de la collecte de données déclaratives par des contributeurs volontaires &mdash; le métier de Mosaic, avec la même difficulté centrale.
+        </div>
+
+        <div class="star">
+          <dl>
+            <dt>Contexte</dt>
+            <dd>Chez Akufen, en 2021, trois applications pour le <strong>Centre hospitalier de l'Université de Montréal</strong> et l'Université de Montréal&nbsp;: CHAMPS, JOINT EFFORT, iCanChange. Des outils d'accompagnement de patients, adossés à des protocoles de recherche.</dd>
+            <dt>Le problème</dt>
+            <dd>Un protocole de recherche est écrit pour être <strong>rigoureux</strong>&nbsp;: fréquence de saisie, formulation exacte des questions, ordre imposé, rien qui puisse biaiser la donnée. Une application est utilisée par quelqu'un qui n'a <strong>aucune obligation</strong> de revenir demain. Les deux exigences se contredisent en permanence.</dd>
+            <dt>Ce que j'ai fait</dt>
+            <dd>Le travail consistait à tenir les deux&nbsp;: garder le protocole intact là où il détermine la validité scientifique, et négocier partout ailleurs &mdash; la longueur des séquences de saisie, les relances, les notifications, ce qu'on affiche en retour au participant pour qu'il ait une raison de revenir. Chaque écart au protocole se discutait avec les chercheurs, avec l'argument du taux de complétion.</dd>
+            <dt>Ce que j'en retire</dt>
+            <dd>Le point de friction n'est jamais technique. Il est toujours au même endroit&nbsp;: <strong>ce que le chercheur a besoin de mesurer contre ce que le contributeur accepte de faire.</strong> Et il se tranche fonctionnalité par fonctionnalité, pas une fois pour toutes.</dd>
+          </dl>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La phrase qui fait le lien avec Mosaic</span>
+          «&nbsp;Ce que je retiens de ces projets, c'est qu'un protocole scientifique et une interface volontaire ne demandent pas la même chose. Le chercheur veut de la donnée comparable, le contributeur veut que ça lui prenne deux minutes et que ça serve à quelque chose. Mon travail était de savoir <strong>où le protocole n'est pas négociable</strong> &mdash; parce que là on ne touche pas &mdash; et où il l'est, parce que là on gagne de l'engagement. Je ne connais pas les sciences participatives, mais cette tension-là, je l'ai déjà arbitrée pendant deux ans.&nbsp;»
+        </div>
+
+        <div class="blk">
+          <span class="label">Le prolongement, s'ils creusent</span>
+          <ul class="dir-list">
+            <li><strong>Le retour au contributeur</strong> est ce qui fait revenir les gens. C'est vrai en santé comme en sciences participatives&nbsp;: voir sa propre donnée, la situer dans l'ensemble, comprendre à quoi elle a servi. C'est une fonctionnalité produit, pas de la communication.</li>
+            <li><strong>La donnée personnelle</strong> était un sujet permanent dans le contexte hospitalier&nbsp;: quelles données on collecte, combien de temps on les garde, ce que le participant peut retirer. Ça résonne avec le «&nbsp;en conscience&nbsp;» de l'annonce.</li>
+            <li class="piege"><strong>Ne pas dire que j'ai conçu le protocole.</strong> Il était écrit par les chercheurs. J'ai traduit et négocié, je n'ai pas défini la méthode scientifique.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section id="spec">
+        <h2><span class="idx">06</span>La spécification fonctionnelle</h2>
+        <p class="section-sub">Deuxième item des missions de l'annonce. La question est déjà tombée chez Adservio sans que je l'aie préparée&nbsp;: elle ne me prendra pas deux fois.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Le retournement</span>
+          «&nbsp;Une spécification n'est pas un document, c'est un <strong>contrat entre trois personnes</strong>&nbsp;: celui qui a le besoin, celui qui développe, celui qui recette. Elle est bonne si le développeur n'a pas besoin de venir me voir pour commencer, et si le testeur peut écrire son cas de test sans m'appeler.&nbsp;»
+        </div>
+
+        <div class="blk">
+          <span class="label">Ce qu'elle contient</span>
+          <ul class="dir-list">
+            <li><strong>Le but</strong>&nbsp;: pourquoi cette fonctionnalité existe, ce qu'on saura mesurer après.</li>
+            <li><strong>Les règles de gestion</strong>, écrites en <em>si / alors</em>, sans adverbe et sans «&nbsp;etc.&nbsp;».</li>
+            <li><strong>Les rôles et les droits</strong>&nbsp;: qui voit quoi, qui peut modifier quoi.</li>
+            <li><strong>Les cas limites</strong>&nbsp;: accès simultané, expiration, valeur limite, erreur.</li>
+            <li><strong>Le périmètre exclu</strong>&nbsp;: ce qu'on ne fait pas dans ce lot, écrit noir sur blanc.</li>
+            <li><strong>L'impact sur l'existant</strong>&nbsp;: ce que ça change dans ce qui tourne déjà.</li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <span class="label">L'exemple concret&nbsp;: la désélection d'une place</span>
+          <p>C'est le passage qui prouve que je sais de quoi je parle. Une seule fonctionnalité, cinq lignes.</p>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Cas</th><th>Ce que la spec doit dire</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Nominal</th><td>Le spectateur retire une place de son panier&nbsp;: elle redevient disponible immédiatement.</td></tr>
+              <tr><th scope="row">Concurrence</th><td>Deux personnes visent la même place à la même seconde. Qui l'obtient, et que voit l'autre&nbsp;?</td></tr>
+              <tr><th scope="row">Expiration</th><td>La sélection expire <strong>pendant</strong> le paiement. On libère ou on laisse finir&nbsp;?</td></tr>
+              <tr><th scope="row">Limite</th><td>La dernière place d'un contingent, ou une place à zéro euro.</td></tr>
+              <tr><th scope="row">Erreur</th><td>Le paiement échoue après la libération de la place. Que voit l'utilisateur, et dans quel état est le panier&nbsp;?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">La spec ratée, si on me la demande &mdash; et un pair la demandera</span>
+          <strong>Villa Médicis.</strong> Une spécification validée par écrit, et qui restait lisible de deux façons. L'écart a été découvert <strong>à la recette client</strong>. L'arbitrage se faisait alors au cas par cas&nbsp;: <strong>ajustement rapide, l'agence l'absorbait&nbsp;; écart significatif, ça passait en addon</strong>, donc refacturé. <span class="trad">[À COMPLÉTER&nbsp;: le point précis]</span>
+        </div>
+
+        <div class="blk">
+          <span class="label">Ce que j'en tire, et c'est contre-intuitif</span>
+          <ul class="dir-list">
+            <li><strong>Une spec imprécise se fait valider plus facilement qu'une spec précise.</strong> Elle ne heurte personne, chacun y lit ce qu'il attend. La signature ne prouve donc rien&nbsp;: elle prouve qu'on est d'accord sur un texte, pas sur un produit.</li>
+            <li>D'où la <strong>restitution orale</strong>&nbsp;: je fais reformuler la fonctionnalité par le porteur avec ses mots. C'est là qu'on découvre les deux lectures, pas trois mois plus tard.</li>
+            <li>Et la <strong>validation par lots</strong>&nbsp;: un document entier livré d'un coup ne se fait pas valider, il se fait signer sans être lu.</li>
+            <li><strong>Le niveau de détail n'est pas uniforme, et c'est assumé.</strong> Je pousse le détail là où il y a une règle de gestion, un état, ou une transaction. Un bloc de contenu éditorial, la maquette suffit. Une sélection de places qui expire pendant un paiement, non.</li>
+          </ul>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Sur la longueur, si la relance vient</span>
+          «&nbsp;40 à 100 pages pour un projet complet, une à deux pages par fonctionnalité &mdash; et c'est cette maille-là qui part en développement. Mais le bon indicateur n'est pas le nombre de pages, c'est <strong>le nombre de questions posées après lecture</strong>.&nbsp;»
+        </div>
+
+        <p class="section-sub">Le développement complet&nbsp;: <code>context/reponse-specification-fonctionnelle.md</code>.</p>
+      </section>
+
+      <!-- 07 -->
+      <section id="parallele">
+        <h2><span class="idx">07</span>Plusieurs projets de front</h2>
+        <p class="section-sub">«&nbsp;En composant avec la disponibilité des designers UX/UI et des développeurs.&nbsp;» C'est la phrase la plus honnête de l'annonce, et c'est ma meilleure réponse.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce que cette phrase dit vraiment</span>
+          Qu'il n'y a <strong>pas assez de designers et de développeurs pour tous les projets en cours</strong>, et que le chef de projet doit faire avec. Ce n'est pas un aveu de faiblesse de leur part, c'est la réalité de toutes les petites équipes internes. <strong>Ce que ça veut dire pour moi&nbsp;: on ne cherche pas quelqu'un qui suit un planning, on cherche quelqu'un qui arbitre.</strong>
+        </div>
+
+        <div class="star">
+          <dl>
+            <dt>Contexte</dt>
+            <dd>Chez Akufen, j'ai été <strong>responsable trafic</strong> pour la création et le développement&nbsp;: une fonction à part entière dont l'objet est d'allouer les ressources rares entre tous les projets de l'agence.</dd>
+            <dt>Le problème</dt>
+            <dd>Chaque chef de projet arrive avec un besoin légitime et une date. Les développeurs et les designers ne sont pas duplicables. Les priorités changent en cours de semaine.</dd>
+            <dt>Ce que je faisais</dt>
+            <dd>Arbitrer, en tenant deux critères contre l'intuition&nbsp;: <strong>ce qui bloque quelqu'un d'autre passe avant ce qui est urgent pour une seule personne</strong>, et <strong>une date externe engagée vis-à-vis d'un tiers passe avant une date interne</strong>. Le reste se négocie. Et surtout&nbsp;: dire non explicitement plutôt que promettre et décaler.</dd>
+            <dt>Résultat</dt>
+            <dd>La compétence rare n'est pas de faire un planning&nbsp;: c'est de <strong>rendre l'arbitrage lisible</strong>, pour que celui qui perd la semaine comprenne pourquoi et ne le reprenne pas comme un affront.</dd>
+          </dl>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Si on me demande comment je tranche entre deux porteurs</span>
+          «&nbsp;Je regarde d'abord ce qui est réellement contraint de l'extérieur &mdash; une date de terrain, une saison, une campagne de collecte qui ne se rattrape pas. Une saisie d'oiseaux au printemps, ça ne se décale pas d'un mois. Ensuite ce qui débloque le plus de monde. Et je le dis aux deux porteurs, avec la raison. Ce qui casse la confiance, ce n'est pas d'attendre&nbsp;: c'est d'apprendre trop tard qu'on a attendu pour rien.&nbsp;»
+        </div>
+
+        <div class="blk">
+          <span class="label">Le prolongement propre à Mosaic</span>
+          <p>Une campagne de collecte en sciences participatives est souvent <strong>saisonnière</strong>&nbsp;: si la plateforme n'est pas prête pour la saison de comptage, ce n'est pas un mois de retard, c'est <strong>un an</strong>. C'est un argument à poser en question plutôt qu'en affirmation &mdash; je le suppose, je ne le sais pas. <em>«&nbsp;Est-ce que vos calendriers de livraison sont contraints par des saisons de collecte&nbsp;?&nbsp;»</em></p>
+        </div>
+      </section>
+
+      <!-- 08 -->
+      <section id="leurs-questions">
+        <h2><span class="idx">08</span>Leurs questions probables</h2>
+        <p class="section-sub">Les six premières sont pour Alicia, les suivantes pour le chef de projet.</p>
+
+        <details class="qa">
+          <summary>«&nbsp;Pourquoi Mosaic&nbsp;? Pourquoi le public après treize ans en agence&nbsp;?&nbsp;»</summary>
+          <p>La vraie réponse, et elle est défendable&nbsp;: <strong>en agence on livre et on part</strong>. Les produits sur lesquels j'ai le plus appris sont ceux que j'ai gardés &mdash; la billetterie de la Comédie-Française, que je suis en exploitation continue, m'a plus appris que dix refontes. Mosaic construit <em>et</em> maintient, et l'annonce dit que la maintenance est «&nbsp;le choix systématique des porteurs&nbsp;». Ajouter le sujet&nbsp;: des outils qui servent à produire de la connaissance publique.</p>
+          <p class="piege"><strong>Ne pas dire&nbsp;:</strong> «&nbsp;je cherche de la stabilité&nbsp;» ou «&nbsp;j'en ai assez du rythme de l'agence&nbsp;». C'est vrai mais ça se lit comme un repli.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Que savez-vous des sciences participatives&nbsp;?&nbsp;»</summary>
+          <p><strong>Répondre honnêtement, puis basculer sur le CHUM.</strong> «&nbsp;Je n'en ai pas d'expérience, et je ne vais pas prétendre le contraire. Ce que j'ai lu de vos plateformes, c'est que la difficulté n'est pas la collecte, c'est la <em>fidélité</em>&nbsp;: obtenir une donnée exploitable de quelqu'un qui n'a aucune obligation de la fournir. Cette difficulté-là, je l'ai travaillée pendant deux ans sur des applications de santé au CHUM.&nbsp;»</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Ce que vous avez compris de Mosaic&nbsp;»</summary>
+          <p>Section 03. Le point qui fait la différence&nbsp;: <strong>le modèle de financement conjoint</strong> et le fait que ce sont les porteurs qui animent le réseau, pas Mosaic.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Vous n'avez pas de formation scientifique. Comment travaillerez-vous avec des chercheurs&nbsp;?&nbsp;»</summary>
+          <p>«&nbsp;Je n'ai pas non plus de formation en billetterie de théâtre ni en santé publique. Mon métier n'est pas de savoir ce qu'ils savent, c'est de <strong>poser les questions qui font sortir ce qui n'a pas été dit</strong>&nbsp;: qu'est-ce qui arrive si la donnée est incomplète, qui a le droit de la corriger, qu'est-ce qu'on fait d'une contribution douteuse. Un chercheur a le protocole en tête, il ne pense pas toujours à le rendre explicite.&nbsp;»</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Parlez-vous anglais&nbsp;?&nbsp;»</summary>
+          <p>L'annonce demande la «&nbsp;maîtrise&nbsp;» de l'anglais. Niveau réel&nbsp;: <strong>professionnel</strong>, sans test récent. J'ai travaillé deux ans à Montréal en environnement bilingue et sur des projets anglophones. La réponse&nbsp;: décrire l'usage réel &mdash; lire, écrire, tenir une réunion &mdash; sans se sur-vendre ni se dévaloriser. <span class="trad">[À COMPLÉTER&nbsp;: décider si l'EF SET se passe avant l'entretien. Un score récent lèverait le doute en une phrase.]</span></p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Un CDD d'un an, est-ce que ça vous convient&nbsp;?&nbsp;»</summary>
+          <p>Ne pas répondre oui trop vite, ne pas répondre non. <strong>Retourner en question</strong>&nbsp;: l'annonce mentionne à la fois «&nbsp;poste permanent&nbsp;» et «&nbsp;CDD d'un an renouvelable&nbsp;», sur quel statut le recrutement se fait-il&nbsp;? Section 10.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Qu'est-ce qu'une bonne spécification fonctionnelle&nbsp;?&nbsp;»</summary>
+          <p>Section 06. C'est le deuxième item des missions&nbsp;: la probabilité qu'elle tombe est élevée, et elle est déjà tombée ailleurs.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Comment chiffrez-vous une fonctionnalité&nbsp;?&nbsp;»</summary>
+          <p>Je ne chiffre pas seule&nbsp;: le développeur estime, je cadre. Mon travail est de <strong>découper assez fin pour que l'estimation ait un sens</strong>, et d'expliciter ce qui est exclu. Une estimation sur une fonctionnalité mal découpée n'est pas une estimation, c'est un souhait. Ensuite je suis la consommation par rapport au vendu, avec alerte au premier écart et non à 80&nbsp;%.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Comment priorisez-vous&nbsp;?&nbsp;»</summary>
+          <p>Le <strong>tableau de bord support de la Comédie-Française</strong>. 40 opérateurs signalaient bugs et questions dans un canal Teams&nbsp;: toute la matière était là, inexploitable. J'en ai fait des données de pilotage &mdash; taxonomie, volumes, criticité, tendance mensuelle. La fusion de fiche est ressortie avec <strong>58 occurrences</strong>, loin devant, et est passée en tête des livrables. <strong>Ce n'est ni une opinion ni le dernier incident en date qui l'a fait passer devant, c'est un volume mesuré.</strong> La colonne tendance permet de vérifier après livraison que le correctif a fait redescendre le volume.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Un projet qui s'est mal passé&nbsp;»</summary>
+          <p>Villa Médicis, section 06. Une spec validée et pourtant lisible de deux façons, découverte à la recette. <strong>La leçon est structurelle, pas anecdotique</strong>&nbsp;: la signature prouve un accord sur un texte, pas sur un produit &mdash; d'où la reformulation orale et la validation par lots.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Quelles méthodes&nbsp;? Agile, Scrum&nbsp;?&nbsp;»</summary>
+          <p>Point faible connu&nbsp;: pas de certification, pratique agile peu formalisée. <strong>L'annonce ne demande ni Scrum ni SAFe.</strong> Décrire ce que je fais réellement&nbsp;: itérations courtes, priorisation continue, démonstrations régulières au porteur, recette par lots. Et le dire simplement&nbsp;: je ne me revendique pas d'une méthode que je n'applique pas à la lettre.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Avec quelles typologies de métiers étiez-vous en relation côté client&nbsp;?&nbsp;»</summary>
+          <p><span class="trad">[À COMPLÉTER &mdash; question tombée chez Adservio sans réponse préparée, et très probable ici puisque le poste liste des interlocuteurs variés. Lister les fonctions réelles&nbsp;: direction, communication, service billetterie, régie, DSI, conservation, etc.]</span></p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Avez-vous des questions&nbsp;?&nbsp;»</summary>
+          <p>Section 09. Alicia écrit explicitement&nbsp;: «&nbsp;Nous serons à votre disposition pour répondre à toutes vos questions.&nbsp;» <strong>C'est une invitation, pas une politesse.</strong> Arriver sans questions serait le seul vrai faux pas possible de cet entretien.</p>
+        </details>
+      </section>
+
+      <!-- 09 -->
+      <section id="mes-questions">
+        <h2><span class="idx">09</span>Mes questions</h2>
+        <p class="section-sub">Les trois premières décident du dossier. Elles se posent à ce rendez-vous, pas au troisième.</p>
+
+        <div class="callout warn">
+          <span class="lbl">Pourquoi maintenant</span>
+          Le salaire et le télétravail ne sont pas des points de négociation de fin de processus ici&nbsp;: <strong>une grille de la fonction publique ne se négocie pas, et une règle de télétravail conditionnée à quatre mois d'ancienneté non plus.</strong> Attendre le troisième entretien pour les découvrir ferait perdre du temps à tout le monde, y compris à eux.
+        </div>
+
+        <div class="blk">
+          <span class="label">En priorité</span>
+          <ul class="dir-list">
+            <li><strong>Le statut.</strong> «&nbsp;L'annonce mentionne à la fois un poste permanent, catégorie A, et un CDD d'un an renouvelable. Sur quel statut le recrutement se fait-il exactement, et quelle est la perspective au-delà de la première année&nbsp;?&nbsp;»</li>
+            <li><strong>La grille.</strong> «&nbsp;Sur quel corps et quelle grille le poste est-il positionné, et à quel échelon avec treize ans d'expérience&nbsp;?&nbsp;» <em>La question est légitime et attendue dans le public&nbsp;: la grille est publique, personne ne s'offusquera qu'elle soit posée.</em></li>
+            <li><strong>Le télétravail.</strong> «&nbsp;Le télétravail est possible après quatre mois&nbsp;: sur ce poste précisément, est-ce un jour ou deux&nbsp;? Qui en décide, et quelle est la pratique réelle des chefs de projet aujourd'hui&nbsp;?&nbsp;»</li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <span class="label">Sur le poste &mdash; et elles servent aussi à montrer que j'ai compris</span>
+          <ul class="dir-list">
+            <li>Combien de projets un chef de projet porte-t-il en parallèle, et à quels stades&nbsp;?</li>
+            <li><strong>Combien de designers et de développeurs dans l'équipe, pour combien de chefs de projet&nbsp;?</strong> <em>C'est la question qui révèle si le rôle est tenable. L'annonce dit «&nbsp;en composant avec la disponibilité&nbsp;», ce qui signale une ressource contrainte.</em></li>
+            <li>Comment se tranche la priorité quand deux porteurs veulent le même développeur la même semaine&nbsp;? <em>Ouvre directement sur ma section 07.</em></li>
+            <li>Les calendriers de livraison sont-ils contraints par des <strong>saisons de collecte</strong>&nbsp;?</li>
+            <li>La recherche de financement conjointe&nbsp;: quelle part du rôle, et le chef de projet y est-il en première ligne ou en appui de la direction&nbsp;?</li>
+            <li>Les plateformes sont sur mesure&nbsp;: y a-t-il un <strong>socle technique commun</strong> réutilisé d'un projet à l'autre&nbsp;? <em>Ouvre sur le boilerplate d'agence que j'ai contribué à monter.</em></li>
+            <li>Comment se termine un partenariat&nbsp;? Que devient une plateforme si le porteur ne trouve plus de financement&nbsp;?</li>
+            <li>Quelle est la place de l'IA dans les pratiques de l'équipe aujourd'hui, sur la conception comme sur le développement&nbsp;?</li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <span class="label">Pour le chef de projet, en particulier</span>
+          <ul class="dir-list">
+            <li>À quoi ressemble sa semaine type&nbsp;?</li>
+            <li>Qu'est-ce qui l'a le plus surpris en arrivant&nbsp;?</li>
+            <li>Qu'est-ce qui est le plus difficile dans ce poste&nbsp;? <em>Une question posée à un pair, jamais à un dirigeant&nbsp;: il répondra vraiment.</em></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section id="conditions">
+        <h2><span class="idx">10</span>Salaire et conditions</h2>
+        <p class="section-sub">Le contenu est excellent. Les conditions sont sous mes critères sur deux points structurels. Il faut le regarder en face.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Point</th><th>Ce qui est annoncé</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Contrat</th>
+                <td>L'en-tête dit «&nbsp;poste permanent&nbsp;: titulaire, contractuel &mdash; catégorie A&nbsp;». Le corps de l'annonce dit <strong>CDD de droit public, 1 an renouvelable</strong></td>
+                <td>⚠️ Contradiction. <strong>À faire trancher en entretien</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">Salaire</th>
+                <td>«&nbsp;Selon expérience, en cohérence avec la grille salariale&nbsp;»</td>
+                <td>⚠️ <strong>Le vrai sujet.</strong> Catégorie A = ingénieur d'études ou de recherche. La grille est publique et rigide&nbsp;: <strong>l'ordre de grandeur réaliste est nettement sous 55 K€</strong>, soit 10 à 15 K€ sous ma cible. Peu ou pas négociable&nbsp;: c'est une grille, pas une offre</td>
+              </tr>
+              <tr>
+                <th scope="row">Télétravail</th>
+                <td>Possible <strong>après 4 mois</strong>, 1 ou 2 jours «&nbsp;selon les fonctions, activités, service et contexte&nbsp;»</td>
+                <td>❌ <strong>Sous mon seuil.</strong> Mon minimum est 2 j/semaine, et c'est un critère de qualification, pas un confort. Ici&nbsp;: zéro pendant quatre mois, puis peut-être un seul</td>
+              </tr>
+              <tr>
+                <th scope="row">Temps de travail</th>
+                <td>35h35 hebdomadaires, <strong>44 jours de congés</strong></td>
+                <td>✅ Compense partiellement</td>
+              </tr>
+              <tr>
+                <th scope="row">Localisation</th>
+                <td>Campus Pierre et Marie Curie, Paris 5<sup>e</sup></td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <th scope="row">Avantages</th>
+                <td>75&nbsp;% des transports, restaurant, mutuelle, accès illimité aux sites du Muséum</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <th scope="row">IA</th>
+                <td>Aucune mention</td>
+                <td>❌ Va contre le cap de carrière que je me suis fixé</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">L'arbitrage, sans détour</span>
+          <p><strong>Pour&nbsp;:</strong> stabilité institutionnelle, sujet qui a du sens, 44 jours de congés, et un chef de projet qui participe à la gestion de l'unité &mdash; planification globale, budget, recrutements. C'est un vrai périmètre, pas un rôle d'exécution. Le renouvellement d'un CDD de droit public mène souvent à une pérennisation.</p>
+          <p><strong>Contre&nbsp;:</strong> salaire probablement 10 à 15 K€ sous la cible, présentiel quasi total les quatre premiers mois, aucune dimension IA.</p>
+          <p><strong>Position&nbsp;: y aller.</strong> L'entretien est obtenu, le contenu correspond, et il n'engage à rien. Mais faire sortir le chiffre et la règle de télétravail <strong>dès ce premier rendez-vous</strong>. Tout le reste est secondaire.</p>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce que je ne fais pas</span>
+          Je n'annonce pas mes prétentions en premier et je ne négocie pas une grille. <strong>Je demande le positionnement, j'écoute, et je décide après.</strong> Sortir «&nbsp;je vise 60 K€&nbsp;» face à une grille publique qui plafonne plus bas ne produirait rien d'autre qu'un malaise.
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section id="jamais">
+        <h2><span class="idx">11</span>Ce que je ne revendique pas</h2>
+        <p class="section-sub">Quatre choses. Les prétendre s'effondrerait à la deuxième question, et devant un pair chef de projet, ça se verrait immédiatement.</p>
+
+        <div class="blk">
+          <ul class="dir-list">
+            <li class="piege"><strong>La recherche de financement.</strong> Je ne l'ai jamais faite. Le pont honnête est le suivi d'un budget vendu et l'alerte précoce &mdash; mais ce n'est pas la même chose, et le prétendre ne tiendrait pas.</li>
+            <li class="piege"><strong>Les sciences participatives et l'écologie.</strong> Aucune expérience. L'annonce demande une «&nbsp;appétence&nbsp;», pas une expertise, et la classe explicitement en «&nbsp;plus&nbsp;». Le dire simplement vaut mieux que de bricoler une passion.</li>
+            <li class="piege"><strong>L'anglais courant certifié.</strong> Professionnel, sans test récent. Décrire l'usage réel.</li>
+            <li class="piege"><strong>La conception d'un protocole scientifique.</strong> Au CHUM, les chercheurs l'écrivaient. J'ai traduit et négocié.</li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Et une chose à ne pas cacher non plus</span>
+          Je suis en discussion avancée sur un autre poste. <strong>Si on me demande où j'en suis, je le dis</strong>&nbsp;: c'est vrai, ça ne se transforme pas en bluff, et ça donne un cadre de calendrier sans rien exiger. Ce que je ne fais pas&nbsp;: nommer l'entreprise, citer un montant, ou m'en servir comme levier.
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section id="check">
+        <h2><span class="idx">12</span>Check avant l'entretien</h2>
+        <p class="section-sub">Ce qui doit être fait avant de partir Campus Jussieu.</p>
+
+        <ul class="checklist">
+          <li><strong>Regarder les quatre plateformes</strong> &mdash; qubs.fr, changing-natures.org, zero-dechet-sauvage.org, coudrier.mnhn.fr. Objectif&nbsp;: <strong>une observation précise à placer</strong>, pas un commentaire général.</li>
+          <li><strong>Le récit CHUM</strong> répété à voix haute, en trois minutes, orienté protocole → application volontaire.</li>
+          <li><strong>La réponse spécification fonctionnelle</strong> tenue en une minute, avec l'exemple de la désélection de place.</li>
+          <li><strong>Le récit trafic</strong> et les deux critères d'arbitrage.</li>
+          <li><strong>Les trois questions prioritaires</strong> mémorisées&nbsp;: statut, grille, télétravail. Ce sont celles qui décident.</li>
+          <li>Position arrêtée sur l'anglais, et décision prise sur l'EF SET.</li>
+          <li>Relire le modèle économique&nbsp;: acculturation, financement conjoint, convention de partenariat.</li>
+          <li>Vérifier le lieu exact et le temps de trajet &mdash; entretien en présentiel, campus étendu.</li>
+          <li><span class="trad">[À COMPLÉTER&nbsp;: nom de famille d'Alicia, et regarder si Jérémy ou Matthieu ont un profil public.]</span></li>
+        </ul>
+
+        <div class="callout retenir">
+          <span class="lbl">La phrase de sortie</span>
+          «&nbsp;Ce qui m'intéresse ici, c'est que vous ne livrez pas des projets, vous les gardez. J'ai passé treize ans à construire des outils pour des institutions, et ceux qui m'ont le plus appris sont ceux que j'ai suivis dans la durée. Le reste, sur le statut et les conditions, j'ai besoin d'y voir clair &mdash; mais sur le contenu du poste, je n'ai pas de doute.&nbsp;»
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var links = [].slice.call(document.querySelectorAll('.sidenav a[href^="#"]'));
+      if (!links.length) return;
+
+      var items = links
+        .map(function (a) { return { link: a, el: document.querySelector(a.getAttribute('href')) }; })
+        .filter(function (i) { return i.el; });
+      if (!items.length) return;
+
+      // Ancre cliquee : on fige le surlignage jusqu'a ce que l'utilisateur reprenne la main.
+      var locked = null;
+
+      function setActive(el) {
+        items.forEach(function (i) { i.link.classList.toggle('active', i.el === el); });
+      }
+
+      function currentSection() {
+        var atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+        if (atBottom) return items[items.length - 1].el;
+        var line = window.innerHeight * 0.3;
+        var found = items[0].el;
+        items.forEach(function (i) {
+          if (i.el.getBoundingClientRect().top <= line) found = i.el;
+        });
+        return found;
+      }
+
+      function update() {
+        if (locked) return;
+        setActive(currentSection());
+      }
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function () {
+          var el = document.querySelector(a.getAttribute('href'));
+          if (!el) return;
+          locked = el;
+          setActive(el);
+        });
+      });
+
+      function release() { locked = null; }
+      var scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+      window.addEventListener('wheel', release, { passive: true });
+      window.addEventListener('touchmove', release, { passive: true });
+      window.addEventListener('keydown', function (e) {
+        if (scrollKeys.indexOf(e.key) !== -1) release();
+      }, { passive: true });
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+
+      var initial = location.hash && document.querySelector(location.hash);
+      if (initial && items.some(function (i) { return i.el === initial; })) {
+        locked = initial;
+        setActive(initial);
+      } else {
+        update();
+      }
+    })();
+  </script>
+</body>
+</html>
