@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entretien B&amp;B HOTELS, Marine Tréhorel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #2b2622;
+      background: #f6efe4;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 32px;
+      background: rgba(246, 239, 228, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd0be;
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: #6b6560;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .topbar .back svg { width: 19px; height: 19px; display: block; }
+
+    .topbar .back:hover {
+      color: #a54527;
+      background: rgba(201, 117, 90, 0.1);
+    }
+
+    .topbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar .logo .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #a54527;
+      color: #f6efe4;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+
+    .topbar .logo:hover .mark { background: #c9755a; }
+
+    .topbar nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topbar nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      text-decoration: none;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.2s ease;
+    }
+
+    .topbar nav a:hover { color: #a54527; }
+
+    .topbar nav a.active {
+      color: #a54527;
+      font-weight: 600;
+      border-bottom-color: #c9755a;
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px 18px; gap: 14px; }
+      .topbar .back { left: 12px; }
+      .topbar nav { gap: 16px; }
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    /* Side nav */
+    .sidenav {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      height: max-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidenav h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul { list-style: none; }
+
+    .sidenav li { margin-bottom: 1px; }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #6b6560;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s ease;
+    }
+
+    .sidenav a .num {
+      display: inline-block;
+      width: 20px;
+      color: #b9ab97;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidenav a:hover,
+    .sidenav a.active {
+      color: #a54527;
+      background: #fbf5ea;
+      border-left-color: #c9755a;
+    }
+    .sidenav a.active .num { color: #c9755a; }
+
+    /* Content */
+    .content { min-width: 0; }
+
+    .page-head { margin-bottom: 40px; }
+
+    .page-head .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9755a;
+      margin-bottom: 12px;
+    }
+
+    .page-head h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .page-head p {
+      font-size: 15px;
+      color: #6b6560;
+      max-width: 640px;
+    }
+
+    section { margin-bottom: 52px; scroll-margin-top: 88px; }
+
+    section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    section > h2 .idx {
+      font-size: 15px;
+      color: #c9755a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: 2px;
+    }
+
+    section > .section-sub {
+      font-size: 13.5px;
+      color: #9a9088;
+      margin-bottom: 22px;
+    }
+
+    h4.blk {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin: 24px 0 10px;
+    }
+
+    .qa > p { margin-bottom: 12px; }
+
+    div.blk {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 18px 24px 20px;
+      margin-bottom: 14px;
+    }
+
+    div.blk > .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a54527;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e4d8c6;
+    }
+
+    div.blk ul { margin-left: 18px; }
+    div.blk li { margin-bottom: 7px; }
+    div.blk li:last-child { margin-bottom: 0; }
+    div.blk li .dir {
+      display: block; margin-top: 3px; font-size: 13.5px;
+      color: #6d655d; line-height: 1.6;
+    }
+    div.blk li .dir strong { color: #a54527; font-weight: 600; }
+    div.blk li:has(.dir) { margin-bottom: 16px; }
+    div.blk ul.dir-list {
+      list-style: none; margin: 5px 0 0 0;
+      font-size: 13.5px; color: #6d655d; line-height: 1.6;
+    }
+    div.blk ul.dir-list li {
+      position: relative; padding-left: 14px; margin-bottom: 5px;
+    }
+    div.blk ul.dir-list li::before {
+      content: ""; position: absolute; left: 0; top: 8px;
+      width: 5px; height: 5px; border-radius: 50%; background: #c9755a;
+    }
+    div.blk ul.dir-list li strong { color: #a54527; font-weight: 600; }
+    div.blk ul.dir-list li.piege::before { background: #9a9088; }
+    div.blk ul.dir-list li.piege { color: #857c73; }
+
+    .card {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2b2622;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14.5px; color: #4a4540; }
+    .card p + p { margin-top: 10px; }
+
+    .card ul { margin: 4px 0 0 18px; }
+    .card li { font-size: 14px; color: #4a4540; margin-bottom: 5px; }
+
+    .pitch {
+      border-left: 3px solid #c9755a;
+      background: #fbf5ea;
+      padding: 22px 26px;
+      border-radius: 0 14px 14px 0;
+      font-size: 15.5px;
+      color: #3a352f;
+      line-height: 1.75;
+    }
+    .pitch strong { color: #a54527; }
+
+    /* Chips / keywords */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    .callout .lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
+    .callout.retenir .lbl { color: #a54527; }
+    .callout.say { background: #fdf8f0; border: 1px dashed #c9755a; }
+    .callout.say .lbl { color: #c9755a; }
+    .callout.warn { background: #f7ece6; border-left: 3px solid #a54527; }
+    .callout.warn .lbl { color: #a54527; }
+    .callout b, .callout strong { color: #2b2622; }
+    .callout ul { margin: 4px 0 0 18px; }
+    .callout li { margin-bottom: 4px; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+    table.tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table.tbl th, table.tbl td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #efe3d5;
+      vertical-align: top;
+    }
+    table.tbl thead th {
+      background: #f2e4d3;
+      color: #a54527;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.tbl tbody tr:last-child td { border-bottom: none; }
+    table.tbl td strong, table.tbl th[scope="row"] { color: #2b2622; font-weight: 600; }
+    table.tbl th[scope="row"] { white-space: nowrap; }
+    table.tbl tr.hors td, table.tbl tr.hors th[scope="row"] { opacity: .62; }
+    table.tbl th[scope="row"] .trad {
+      display: block; font-weight: 400; font-size: 12px;
+      color: #9a9088; font-style: italic; margin-top: 3px; white-space: normal;
+    }
+
+    /* STAR blocks */
+    .star { position: relative; }
+    .star .tag-line { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .star dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; }
+    .star dt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c9755a;
+      padding-top: 2px;
+    }
+    .star dd { font-size: 14.5px; color: #4a4540; }
+
+    /* Q&A */
+    details.qa {
+      background: #fbf5ea;
+      border: 1px solid #e4d8c6;
+      border-radius: 12px;
+      padding: 4px 20px;
+      margin-bottom: 12px;
+    }
+    details.qa summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b2622;
+    }
+    details.qa summary::-webkit-details-marker { display: none; }
+    details.qa summary .chev {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #c9755a;
+      transition: transform 0.2s ease;
+    }
+    details.qa[open] summary .chev { transform: rotate(180deg); }
+    details.qa .answer {
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #4a4540;
+    }
+    details.qa .answer ul { margin: 8px 0 0 18px; }
+    details.qa .answer li { margin-bottom: 5px; }
+    .ex-lbl {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 9.5px;
+      color: #c9755a;
+      margin-right: 6px;
+    }
+    .answer .meta { margin-top: 10px; font-size: 13px; }
+    .answer .meta.ex { color: #7a3d24; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 14.5px;
+      color: #4a4540;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #c9755a;
+      border-radius: 5px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd0be;
+      font-size: 14.5px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: #9a9088; font-weight: 600; }
+    .info-row .value { color: #2b2622; text-align: right; }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 22px 72px; }
+      .sidenav { display: none; }
+      .page-head h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .star dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .star dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <a class="back" href="/preparation-entretien.html" aria-label="Retour à la préparation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <a class="logo" href="/index.html">
+      <span class="mark">M</span>
+    </a>
+    <nav>
+      <a href="/product-owner-cheffe-de-projet-digital.html">CV</a>
+      <a class="active" href="/preparation-entretien.html">Préparation</a>
+    </nav>
+  </div>
+
+  <div class="layout">
+    <aside class="sidenav">
+      <h3>Sommaire</h3>
+      <ul>
+        <li><a href="#rdv"><span class="num">1</span>Le rendez-vous</a></li>
+        <li><a href="#groupe"><span class="num">2</span>Qui est B&amp;B HOTELS</a></li>
+        <li><a href="#numerique"><span class="num">3</span>Leur numérique</a></li>
+        <li><a href="#mission"><span class="num">4</span>La mission</a></li>
+        <li><a href="#ouverture"><span class="num">5</span>Mon ouverture</a></li>
+        <li><a href="#projets"><span class="num">6</span>Mes projets, par ordre</a></li>
+        <li><a href="#ia"><span class="num">7</span>L'IA, comment j'en parle</a></li>
+        <li><a href="#changement"><span class="num">8</span>L'accompagnement du changement</a></li>
+        <li><a href="#hotellerie"><span class="num">9</span>«&nbsp;Vous n'avez jamais fait d'hôtellerie&nbsp;»</a></li>
+        <li><a href="#mes-questions"><span class="num">10</span>Mes questions</a></li>
+        <li><a href="#jamais"><span class="num">11</span>Ce que je ne dis pas</a></li>
+        <li><a href="#check"><span class="num">12</span>Check avant le call</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <header class="page-head">
+        <p class="eyebrow">Fiche entretien &middot; client, via Adservio</p>
+        <h1>B&amp;B HOTELS</h1>
+        <p class="section-sub">Jeudi 10 septembre 2026, 17h, en visio. Yannick, directeur delivery, et des personnes du département produit et projet. <strong>Ils n'ont pas vu mon CV</strong>&nbsp;: tout se joue à l'oral.</p>
+      </header>
+
+      <!-- 01 -->
+      <section id="rdv">
+        <h2><span class="idx">01</span>Le rendez-vous</h2>
+        <p class="section-sub">Ce que Mariame Karama a transmis le 09/09, complété par les sources publiques.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Le fait qui commande tout&nbsp;: le CV n'a pas été transmis</span>
+          Le client fait confiance à Adservio et veut <strong>rencontrer la personne</strong>. Personne en face n'a lu «&nbsp;Comédie-Française, Villa Médicis, Palais de Tokyo&nbsp;»&nbsp;: <strong>l'objection du profil culture n'est pas dans la pièce au départ</strong>, et je choisis moi-même l'ordre dans lequel ils découvrent mon parcours. En contrepartie, rien n'a été validé en amont&nbsp;: <strong>le tour de table n'est pas une formalité, c'est la partie décisive.</strong>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Personne</th><th>Ce qu'on sait</th><th>Ce que ça implique</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Yannick</th>
+                <td><strong>Directeur delivery, ancien PMO.</strong> Pragmatique, <strong>aime les gens qui posent des questions</strong>. Très probablement <strong>Yannick Luong, Group Delivery Director</strong>, passé par Compass Group et Disneyland Paris, Master à Paris-Dauphine <em>(LinkedIn, à confirmer)</em></td>
+                <td>C'est lui qu'il faut convaincre, et il ne s'achète pas avec du discours produit. Il vérifie que je tiens un projet et que je le rends lisible</td>
+              </tr>
+              <tr>
+                <th scope="row">Département produit et projet</th>
+                <td>Nombre et fonctions inconnus</td>
+                <td>À demander à Mariame au dry run&nbsp;: combien, et qui</td>
+              </tr>
+              <tr>
+                <th scope="row">Mariame Karama</th>
+                <td>Senior manager Adservio, travaille avec Jérémy Ruas</td>
+                <td>Sera-t-elle dans le call&nbsp;? À confirmer. Si oui, elle tient le cadre commercial et je ne parle jamais conditions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce que «&nbsp;ancien PMO&nbsp;» change, et c'est une bonne nouvelle</span>
+          Yannick a passé des années sur les <strong>jalons, la charge, les risques, l'atterrissage budgétaire et les indicateurs de delivery</strong>. Il ne va pas m'interroger sur la discovery ni sur la vision produit. <strong>C'est le terrain le plus solide de mon parcours, plus solide que le produit lui-même</strong>&nbsp;: le suivi de budget vendu, les checklists de mise en vente, la planification des ressources.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">«&nbsp;Aime ceux qui posent des questions&nbsp;»&nbsp;: la conséquence pratique</span>
+          <strong>Ne pas garder mes questions pour la fin.</strong> En poser <em>pendant</em> qu'il décrit le contexte, et des questions de praticienne, pas de curiosité polie. Une question posée au bon moment vaut mieux que cinq à la fin.
+        </div>
+
+        <h4 class="blk">L'ordre du jour annoncé</h4>
+        <div class="card">
+          <p><strong>1.</strong> Tour de table &nbsp;&middot;&nbsp; <strong>2.</strong> Besoins et contexte du client &nbsp;&middot;&nbsp; <strong>3.</strong> Corrélation de mon parcours avec leurs attentes.</p>
+          <p><strong>Le point 1 construit la lecture des deux autres.</strong> C'est là que je place mon cadre, pas au point 3&nbsp;: au point 3, il sera trop tard, ils auront déjà décidé de la grille par laquelle ils m'écoutent.</p>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section id="groupe">
+        <h2><span class="idx">02</span>Qui est B&amp;B HOTELS</h2>
+        <p class="section-sub">Sources publiques&nbsp;: site du groupe, presse professionnelle, Républik IT, LeMagIT. Ce qui est incertain est signalé.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Repère</th><th>Fait</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Origine</th><td>Créé en <strong>1990 à Brest</strong>, siège toujours à Brest</td></tr>
+              <tr><th scope="row">Taille</th><td><strong>939 établissements dans 19 pays</strong> au 31/03/2026, dont <strong>445 en France</strong>. Europe, Brésil, États-Unis</td></tr>
+              <tr><th scope="row">Chiffre d'affaires</th><td><strong>1,5 Md€ en 2025</strong>, contre 1,4 Md€ en 2024, soit +12&nbsp;%</td></tr>
+              <tr><th scope="row">Rythme</th><td><strong>125 inaugurations en 2024</strong>, plus de deux par semaine. <strong>Objectif&nbsp;: 3 000 hôtels d'ici la fin de la décennie</strong></td></tr>
+              <tr><th scope="row">Positionnement</th><td>Hôtellerie économique à l'origine, revendique aujourd'hui le rapport qualité-prix. Deuxième marque <strong>B&amp;B HOME</strong> (apparthôtel, longs séjours, cible affaires) lancée en 2024</td></tr>
+              <tr><th scope="row">Modèle</th><td>Majoritairement <strong>exploitation en propre</strong>, la franchise reste minoritaire (une centaine d'hôtels en France). <em>Asset-light</em> sur l'immobilier&nbsp;: environ 300 partenaires investisseurs détiennent les murs</td></tr>
+              <tr><th scope="row">Actionnaire</th><td><strong>Goldman Sachs depuis juillet 2019</strong>, rachat à PAI Partners pour environ 1,9 Md€</td></tr>
+              <tr><th scope="row">Direction</th><td><strong>Céline Vercollier, PDG depuis mars 2026</strong>, après le départ de Fabrice Collet. <strong>Elle vient de la finance</strong>&nbsp;: DAF du groupe depuis 2017, avant cela Quick et Aldadis</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le contexte qui explique probablement la mission</span>
+          Trois faits se recoupent, et ils donnent le sens de «&nbsp;refonte de portail plus mise en place de KPIs&nbsp;»&nbsp;:
+          <ul>
+            <li><strong>Le parc a doublé depuis 2019</strong> et vise 3 000 hôtels. Des outils de pilotage conçus pour 400 hôtels ne tiennent pas à 939, encore moins à 3 000, avec 19 pays.</li>
+            <li><strong>La direction est passée à une PDG financière.</strong> Le pilotage par les chiffres devient la langue officielle de la maison.</li>
+            <li><strong>Le patron de la stratégie, du marketing et du digital est parti en mars 2026</strong> (Niklas Andreen, chez Sabre), sans successeur annoncé publiquement. Il y a probablement un besoin de tenir le delivery pendant une transition.</li>
+          </ul>
+          <em>Lecture personnelle, à vérifier auprès d'eux, jamais à énoncer comme un diagnostic.</em>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Un sujet à manier avec des pincettes, voire à ne pas ouvrir</span>
+          En mars 2024, la presse financière a rapporté que <strong>Goldman Sachs explorait une cession</strong> valorisant le groupe autour de 3,5 Md€, avec des offres de KKR, CVC et PAI. <strong>Aucune cession n'a été annoncée à ce jour.</strong> Ne pas poser la question de l'actionnariat en entretien client&nbsp;: c'est le genre de sujet qui met mal à l'aise et n'apporte rien à ce stade. Le savoir suffit&nbsp;: un actionnaire en fin de cycle a besoin d'une performance opérationnelle <strong>mesurée et démontrable</strong>. Ça éclaire la demande de KPIs.
+        </div>
+
+        <h4 class="blk">Le vocabulaire du métier, à connaître pour ne pas le faire répéter</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Traduction</th><th>Exemple concret</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">PMS</th><td><em>Property management system</em>, logiciel de gestion d'un hôtel</td><td>La réceptionniste y enregistre l'arrivée d'un client et encaisse la nuitée. L'équivalent de la caisse plus le planning des chambres</td></tr>
+              <tr><th scope="row">CRS</th><td><em>Central reservation system</em>, système central de réservation</td><td>Il détient l'inventaire des chambres et les tarifs pour tout le réseau, et alimente le site, l'application et les plateformes. <strong>C'est l'exact équivalent du système de billetterie central</strong></td></tr>
+              <tr><th scope="row">OTA</th><td><em>Online travel agency</em>, agence de voyage en ligne</td><td>Booking.com, Expedia. Elles apportent du volume mais prélèvent une commission, donc elles mangent la marge</td></tr>
+              <tr><th scope="row">Channel manager</th><td>Synchroniseur de canaux de vente</td><td>Il tient à jour disponibilités et prix entre le système central et toutes les plateformes, pour éviter de vendre deux fois la même chambre</td></tr>
+              <tr><th scope="row">CDP</th><td><em>Customer data platform</em>, plateforme de données clients</td><td>Base unique qui réconcilie toutes les traces d'un même client (réservation, navigation, e-mail, séjour) pour cibler les campagnes</td></tr>
+              <tr><th scope="row">Taux d'occupation</th><td>Part des chambres vendues sur les chambres disponibles</td><td>L'équivalent du taux de remplissage d'une salle de spectacle</td></tr>
+              <tr><th scope="row">RevPAR</th><td><em>Revenue per available room</em>, revenu par chambre disponible</td><td>L'indicateur roi de l'hôtellerie&nbsp;: il combine le taux d'occupation et le prix moyen. <strong>Le connaître de nom suffit, ne pas prétendre l'avoir piloté</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section id="numerique">
+        <h2><span class="idx">03</span>Leur numérique&nbsp;: oui, ils ont un site et une application</h2>
+        <p class="section-sub">C'est la partie la plus utile de la préparation, et elle est presque entièrement publique. Source principale&nbsp;: deux entretiens de <strong>Nicolas Drapier, Group CIO</strong>, dans Républik IT (octobre 2024, puis 2025).</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Le point qui change tout&nbsp;: leur plateforme de réservation est développée en interne</span>
+          Le site et l'application <strong>ne reposent pas sur un moteur du marché</strong>&nbsp;: c'est un <strong>développement propriétaire hébergé sur AWS</strong>. Autrement dit, ils fabriquent leur propre produit transactionnel, avec leurs propres équipes. <strong>C'est exactement la situation de la billetterie de la Comédie-Française</strong>, et c'est le meilleur pont de tout le dossier.
+        </div>
+
+        <h4 class="blk">Le site et l'application</h4>
+        <div class="card">
+          <p><strong>Site&nbsp;:</strong> <em>hotel-bb.com</em>, plateforme de réservation unique multi-pays. Historique&nbsp;: refonte de l'écosystème digital confiée à Digitas en 2012, puis création d'une plateforme unique pour l'ensemble du réseau (France, Espagne, Italie, Allemagne, puis Belgique, Suisse, Pologne).</p>
+          <p><strong>Application&nbsp;:</strong> «&nbsp;B&amp;B HOTELS, Réserver un hôtel&nbsp;», iOS et Android, avec un agent conversationnel intégré.</p>
+          <p><strong>Expérience client&nbsp;:</strong> envoi des <strong>codes d'accès aux chambres par SMS</strong>, en remplacement des cartes-clés, mentionné par le CIO en 2024.</p>
+          <p><strong>À faire avant le call&nbsp;: passer dix minutes dans le tunnel de réservation et dans l'application.</strong> Aller jusqu'à l'écran de paiement sans valider. Repérer deux ou trois choses précises&nbsp;: comment sont présentés les tarifs, ce que fait le compte client, à quel moment le programme de fidélité apparaît. <strong>Une observation concrète sur leur propre produit vaut tous les arguments d'expérience.</strong></p>
+        </div>
+
+        <h4 class="blk">La cartographie du système d'information</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Domaine</th><th>Solution</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">PMS et système central de réservation</th><td><strong>Zucchetti</strong> (éditeur italien), en SaaS. Permet l'identification client unifiée sur tout le parc</td></tr>
+              <tr><th scope="row">PMS de secours</th><td><strong>Oracle Opera</strong>, dans les pays où Zucchetti ne couvre pas la réglementation locale</td></tr>
+              <tr><th scope="row">Site et application</th><td><strong>Développement propriétaire, sur AWS</strong></td></tr>
+              <tr><th scope="row">CRM</th><td>Salesforce</td></tr>
+              <tr><th scope="row">ERP</th><td>JD Edwards, <em>on-premise</em>, maintenu jusqu'en 2035, migration cloud à l'étude</td></tr>
+              <tr><th scope="row">Plateforme data</th><td>Google Cloud Platform. Bureautique&nbsp;: Google Workspace</td></tr>
+              <tr><th scope="row">Données clients</th><td><strong>CDP Imagino</strong>, déployée depuis 2023. Résultats annoncés du pilote&nbsp;: temps de création d'audience divisé par 5, nombre d'attributs clients doublé</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Le CIO revendique un SI «&nbsp;pratiquement sans <em>legacy</em>&nbsp;», «&nbsp;quasiment 100&nbsp;% cloud et web&nbsp;», avec une priorité affichée&nbsp;: <strong>la scalabilité pour accompagner la croissance du parc</strong>.</p>
+
+        <h4 class="blk">L'IA chez eux, et c'est récent</h4>
+        <div class="callout retenir">
+          <span class="lbl">Avril 2026&nbsp;: IA générative sur Amazon Connect, avec le prestataire Ynpact</span>
+          Trois étapes annoncées&nbsp;:
+          <ul>
+            <li><strong>Serveur vocal conversationnel</strong>&nbsp;: le menu à touches remplacé par un routage en langage naturel.</li>
+            <li><strong>Agent conversationnel voix et texte</strong> pour les informations pratiques (horaires de réception, restaurants à proximité).</li>
+            <li><strong>Self-service de réservation</strong>&nbsp;: un agent conversationnel gérant le cycle complet, création, modification, annulation. <strong>Présenté comme à venir.</strong></li>
+          </ul>
+          <strong>C'est mon meilleur angle d'entrée sur l'IA</strong>&nbsp;: c'est concret, c'est chez eux, c'est récent, et la troisième étape touche directement le tunnel de réservation. Le fait que ce soit peu médiatisé montre que j'ai cherché.
+        </div>
+
+        <h4 class="blk">Fidélité et distribution</h4>
+        <div class="card">
+          <p><strong>B&amp;me</strong>, programme de fidélité lancé en octobre 2023&nbsp;: gratuit, <strong>sans points</strong>, fondé sur des avantages immédiats (petit-déjeuner offert au deuxième séjour, départ tardif le dimanche, tarif réduit sur les hôtels neufs). Trois piliers annoncés&nbsp;: découverte, confort, flexibilité.</p>
+          <p><strong>Un point d'attention&nbsp;:</strong> une page de leur site décrit aussi un <em>B&amp;B HOTELS CLUB</em> payant, avec points et nuit gratuite. <em>Hypothèse&nbsp;: dispositif d'un autre pays, ou antérieur.</em> Ne pas l'affirmer, mais la question de <strong>l'unification du compte client entre les pays</strong> est légitime et bien vue.</p>
+          <p><strong>La dépendance aux plateformes, dite publiquement par eux&nbsp;:</strong> le directeur du développement déclarait en août 2026 qu'une <strong>note inférieure à 8,0 sur Booking pèse significativement sur le taux d'occupation</strong> d'un hôtel, tandis qu'une note élevée permet de monter les prix.</p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Ce que j'en fais, et c'est le pont entre «&nbsp;portail&nbsp;» et «&nbsp;KPIs&nbsp;»</span>
+          Chez eux, <strong>un indicateur n'est pas une ligne de reporting, c'est un levier de prix</strong>. La note d'un hôtel détermine son taux d'occupation, donc son revenu. Un portail qui met cet indicateur sous les yeux du bon décideur au bon moment ne sert pas à observer, il sert à agir. <em>Le dire ainsi montre que j'ai compris leur économie, pas seulement leur besoin d'écran.</em>
+        </div>
+
+        <h4 class="blk">L'organisation, ce qu'on en sait</h4>
+        <div class="card">
+          <p><strong>DSI centralisée</strong>, avec des DSI régionaux qui reportent au Group CIO, et à ses côtés un directeur sécurité, un <strong>Chief Product Officer</strong>, un CTO et un COO IT. Démarche revendiquée&nbsp;: «&nbsp;globale et locale simultanément&nbsp;», besoins définis avec les régions, standards de développement centraux.</p>
+          <p><strong>Une équipe data à Paris</strong>, rattachée à la direction <em>Customer &amp; Loyalty</em> et non à la DSI, comprenant data engineers, data stewards, <strong>un Product Owner Data</strong>, des data scientists. Point important relevé publiquement&nbsp;: <strong>les filiales géographiques ont des niveaux de maturité data très différents</strong>.</p>
+          <p><strong>Deux pôles géographiques</strong>&nbsp;: la DSI historique à Brest, et une entité <em>B&amp;B HOTELS DIGITAL SERVICES</em> à Paris 14<sup>e</sup>, créée en 2022. <em>Hypothèse&nbsp;: la mission relève du pôle parisien. À confirmer.</em></p>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce que je ne fais surtout pas de tout ça</span>
+          <strong>Ne pas réciter.</strong> Personne n'aime s'entendre expliquer sa propre entreprise, et un candidat qui déballe sa fiche de lecture paraît appliqué, pas pertinent. Ces informations servent à <strong>poser deux ou trois questions justes</strong> et à <strong>comprendre les réponses sans les faire répéter</strong>. Rien de plus.
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section id="mission">
+        <h2><span class="idx">04</span>La mission, et ce qu'on ne sait pas encore</h2>
+        <p class="section-sub">Telle que Mariame l'a décrite le 09/09. La fiche de poste écrite est attendue avant le call.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Volet</th><th>Ce qu'ils demandent</th><th>Ce que j'ai en face</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Refonte du portail</th>
+                <td>Périmètre inconnu</td>
+                <td>Cœur de métier. Et surtout la <strong>refonte de l'espace client de la billetterie</strong>, conduite pendant une migration de base de données</td>
+              </tr>
+              <tr>
+                <th scope="row">KPIs, avec process augmenté</th>
+                <td>Instrumenter le pilotage, avec l'IA dans la boucle</td>
+                <td>Le <strong>dispositif d'alerte budgétaire précoce</strong> et le tableau de bord des demandes du support. Voir §06</td>
+              </tr>
+              <tr>
+                <th scope="row">Accompagnement sur le staffing</th>
+                <td>Ambigu, voir plus bas</td>
+                <td><strong>La mission transverse de planification des ressources chez Akufen</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">«&nbsp;À l'aise avec l'IA&nbsp;»</th>
+                <td>Un prérequis, pas le sujet</td>
+                <td>L'usage réel et quotidien. Voir §07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Deux mots à faire préciser, et pas au client</span>
+          <ul>
+            <li><strong>«&nbsp;Détectology augmenté&nbsp;»</strong>, noté ainsi pendant l'appel. Vu que Yannick est directeur <em>delivery</em>, la lecture la plus probable est <strong>«&nbsp;delivery augmenté&nbsp;»</strong>. <strong>Ne pas prononcer ce nom tant qu'il n'est pas vérifié</strong>&nbsp;: le dire de travers serait le seul faux pas vraiment évitable de la séance.</li>
+            <li><strong>«&nbsp;Staffing&nbsp;»</strong> se lit de deux façons&nbsp;: dimensionner les équipes projet et arbitrer les conflits de capacité (mon terrain), ou aider B&amp;B HOTELS à se fournir en profils (autre métier, plus commercial).</li>
+          </ul>
+          Les deux se demandent à Mariame au dry run.
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Quel portail&nbsp;? Rien de public ne permet de trancher</span>
+          Je n'ai trouvé <strong>aucune trace publique d'un portail ou extranet</strong> pour les hôteliers du réseau. Les quatre lectures possibles&nbsp;:
+          <ul>
+            <li><strong>Portail des directeurs d'hôtels et franchisés</strong>&nbsp;: pilotage de la performance de leur établissement. <em>Hypothèse la plus probable</em>, parce qu'elle explique la combinaison avec les KPIs, dans un groupe de 939 hôtels aux maturités inégales.</li>
+            <li><strong>Portail des équipes sièges et régionales</strong>&nbsp;: consolidation du parc.</li>
+            <li><strong>Portail client</strong>&nbsp;: l'espace «&nbsp;mon compte&nbsp;» du site de réservation.</li>
+            <li><strong>Extranet corporate</strong>&nbsp;: pour les entreprises clientes, cohérent avec la montée du segment affaires et de B&amp;B HOME.</li>
+          </ul>
+          <strong>C'est la première question à poser, dans les cinq premières minutes.</strong> Répondre avant de le savoir serait la faute de la séance.
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section id="ouverture">
+        <h2><span class="idx">05</span>Mon ouverture, le tour de table</h2>
+        <p class="section-sub">Deux minutes. Au-delà, il décroche, il a un ordre du jour.</p>
+
+        <div class="callout warn">
+          <span class="lbl">La règle&nbsp;: ne pas commencer par la culture</span>
+          C'est vrai, c'est un fil rouge de sept ans, et ce sera dit. Mais si c'est la <strong>première</strong> chose entendue, tout le reste est écouté comme «&nbsp;une personne du monde culturel qui découvre l'hôtellerie&nbsp;». <strong>Commencer par la nature des projets, nommer les clients ensuite.</strong> L'ordre n'est pas un artifice&nbsp;: il décide de la grille de lecture.
+        </div>
+
+        <div class="pitch">
+          <p><strong>Treize ans de pilotage de projets digitaux</strong>, en agence puis sur un produit.</p>
+          <p>Mon dernier poste&nbsp;: <strong>Product Owner sur la billetterie de la Comédie-Française</strong>. Ce n'est pas un site, c'est <strong>une plateforme transactionnelle en production</strong>&nbsp;: un inventaire de places, des règles tarifaires, des contingents, un tunnel de paiement, un espace client, et un back-office utilisé tous les jours par <strong>40 opérateurs</strong>.</p>
+          <p>Et c'est là que ça vous parlera&nbsp;: <strong>la réservation hôtelière et la billetterie, ce sont les mêmes mécaniques.</strong> Un inventaire limité vendu sous concurrence, une tarification à règles, des allotements, un tunnel transactionnel, des pics de demande, un back-office. Le produit vendu change, le problème ne change pas.</p>
+          <p>Avant cela, <strong>cinq ans chez Akufen à Montréal</strong>, dont quatre vécus sur place, avec une mission transverse de <strong>planification des ressources</strong> sur une agence multi-équipes.</p>
+          <p>Ce qui m'amène ici&nbsp;: <strong>l'IA sur tout le cycle projet</strong>, pas comme sujet de conférence, comme façon de travailler.</p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Et j'enchaîne immédiatement sur une question</span>
+          <em>«&nbsp;Avant d'aller plus loin, il y a une chose que j'aimerais comprendre tout de suite&nbsp;: quand vous parlez du portail, de quel portail parle-t-on&nbsp;? Celui des directeurs d'hôtels, celui des équipes sièges, ou l'espace client&nbsp;?&nbsp;»</em>
+          <br><br>
+          <strong>Ça fait trois choses en une phrase&nbsp;:</strong> ça évite de répondre à côté pendant une heure, ça montre que je sais que la réponse change tout, et ça donne à Yannick exactement ce qu'il aime, quelqu'un qui pose des questions.
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section id="projets">
+        <h2><span class="idx">06</span>Mes projets, par ordre d'utilité pour eux</h2>
+        <p class="section-sub">Trois exemples tenus valent mieux que dix références. Face à un ancien PMO, la hiérarchie compte plus que le contenu.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">La hiérarchie, en une ligne</span>
+          <strong>La billetterie porte le fond, le suivi de budget porte la crédibilité delivery, la planification des ressources porte le staffing.</strong> Le reste est en appui, et le CHUM n'entre pas dans cette pièce.
+        </div>
+
+        <h4 class="blk">Rang 1 &middot; La billetterie de la Comédie-Française</h4>
+        <div class="card">
+          <p><strong>Pourquoi c'est le rang 1&nbsp;:</strong> c'est le seul projet de mon parcours qui est <strong>le jumeau structurel de leur métier</strong>. Un inventaire limité, vendu en ligne, sous concurrence, avec des règles tarifaires et des pics.</p>
+          <p><strong>Les faits à donner&nbsp;:</strong> trois salles, environ 750 représentations par an, deux mises en vente annuelles où tout se joue en quelques heures. Un process récurrent construit de M-1 au jour J&nbsp;: jalons, checklists opérationnelles, supports de coordination.</p>
+          <p><strong>Le chiffre qui rend la pression tangible&nbsp;:</strong> en janvier, l'attente moyenne dans la file Cloudflare atteignait <strong>40 minutes, avec des pics à deux heures</strong>.</p>
+          <p><strong>Le problème dur, et il ne s'improvise pas&nbsp;:</strong> «&nbsp;l'enjeu de fiabilité, sur une billetterie, c'est que <strong>le paiement encaissé et la commande enregistrée disent la même chose</strong>. Le socle initial, une base documentaire, ne répondait pas aux contraintes transactionnelles du métier. Une migration vers un moteur relationnel a été engagée en cours d'exploitation. Mon rôle a été de caractériser le problème côté produit et de tenir l'exploitation pendant la bascule.&nbsp;»</p>
+          <p><strong>Le pont vers l'hôtellerie, que je fais moi-même&nbsp;:</strong> vendre deux fois la même place et surbooker une chambre, c'est le même problème.</p>
+        </div>
+        <div class="callout warn">
+          <span class="lbl">Les trois précautions, inchangées</span>
+          Ne jamais dire «&nbsp;de mauvais choix techniques ont été faits&nbsp;». Ne pas m'attribuer la décision de migrer, elle était portée par le directeur technique. Ne pas noircir le client&nbsp;: «&nbsp;le client avait des attentes fortes et légitimes après les incidents&nbsp;».
+        </div>
+
+        <h4 class="blk">Rang 2 &middot; L'alerte budgétaire précoce, pour le volet KPIs</h4>
+        <div class="card">
+          <p><strong>C'est ma meilleure carte face à Yannick</strong>, et elle est sous-utilisée jusqu'ici parce qu'elle ne ressemble pas à du produit. Un directeur delivery vit de l'atterrissage&nbsp;: c'est sa langue maternelle.</p>
+          <p><strong>Le dispositif&nbsp;:</strong> projets vendus au forfait, de <strong>40 à 120 K€ en moyenne, jusqu'à 500 K€</strong>. Chacun saisit son temps par tâche dans ClickUp, ce qui produit un suivi des heures consommées <strong>par phase</strong>, comparé à l'estimation initiale. L'alerte au client se déclenche sur <strong>l'écart entre consommation et avancement</strong>, pas sur un seuil franchi.</p>
+          <p><em>«&nbsp;Le sujet n'est pas de constater le dépassement, c'est de le voir venir assez tôt pour qu'il soit encore arbitrable.&nbsp;»</em></p>
+          <p><strong>Et le vrai argument, qui est contre-intuitif&nbsp;:</strong> les trois issues ont toutes été retenues au moins une fois selon les projets, réduction de périmètre, avenant, décalage. <em>«&nbsp;Ce n'est pas moi qui tranchais. Mon rôle était de faire en sorte que le choix existe encore.&nbsp;»</em> Ça prouve que l'alerte ne servait pas à imposer une solution préparée d'avance.</p>
+        </div>
+        <div class="callout say">
+          <span class="lbl">Le geste à nommer, parce qu'il relie tout</span>
+          Le même réflexe apparaît deux fois dans mon parcours&nbsp;: le tableau de bord des demandes du support de la Comédie-Française, et ce suivi de consommation. <strong>Instrumenter pour décider tôt, plutôt que subir.</strong> C'est très exactement ce qu'ils demandent avec «&nbsp;mise en place de KPIs&nbsp;».
+        </div>
+
+        <h4 class="blk">Rang 3 &middot; La planification des ressources, pour le volet staffing</h4>
+        <div class="card">
+          <p>Agence multi-équipes chez Akufen&nbsp;: UX, design, développement, stratégie, QA, avec des projets simultanés et des conflits de capacité. <strong>Mission transverse&nbsp;:</strong> suivi des charges, priorisation des demandes, anticipation des conflits.</p>
+          <p><strong>Court, factuel, et j'enchaîne aussitôt sur une question&nbsp;:</strong> <em>«&nbsp;comment ça se passe chez vous aujourd'hui&nbsp;? Qui arbitre quand deux projets veulent la même équipe la même semaine&nbsp;?&nbsp;»</em></p>
+        </div>
+
+        <h4 class="blk">Rang 4 &middot; En appui seulement, si le sujet vient</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Projet</th><th>Quand le sortir</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Filorga, migration vers Shopify</th>
+                <td><strong>Si on parle multi-pays ou décision groupe.</strong> Maintenance des sites France, International, Espagne, puis migration imposée par <strong>Colgate-Palmolive</strong>, le groupe propriétaire&nbsp;: points techniques avec les équipes aux États-Unis, plan de redirections, reprise des contenus. <em>Très transposable&nbsp;: une décision prise au niveau groupe et appliquée aux marques, c'est leur quotidien à 19 pays.</em> Toujours dire l'ordre&nbsp;: d'abord la décision groupe, ensuite l'accompagnement</td>
+              </tr>
+              <tr>
+                <th scope="row">ICOMOS</th>
+                <td>Si on parle <strong>multilingue et réseau international</strong>. Une phrase, pas plus</td>
+              </tr>
+              <tr>
+                <th scope="row">Refontes ENSA, Villa Médicis</th>
+                <td>Si on parle <strong>structuration de l'information et arborescence complexe</strong>, ce qui est plausible sur un portail. Accessibilité RGAA et éco-conception intégrées dès la conception</td>
+              </tr>
+              <tr>
+                <th scope="row">E-boutique du Château de Versailles</th>
+                <td><strong>Prudence&nbsp;: c'était de la maintenance</strong>, pas du pilotage produit. Ne pas surestimer. Sa seule valeur est de poser le mot e-commerce sur un nom qui parle</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce que je laisse de côté, volontairement</span>
+          <ul>
+            <li><strong>Les trois applications du CHUM.</strong> Santé mentale, public vulnérable, recherche clinique&nbsp;: excellent ailleurs, contre-emploi ici. À ne sortir que si <strong>on m'interroge précisément sur le mobile</strong>, et alors en une phrase.</li>
+            <li><strong>TOTAL et les 1 000 bannières.</strong> Ancien, très agence publicitaire, et ça brouille le positionnement produit.</li>
+            <li><strong>La remédiation manuelle</strong> (trois mois de déplacements de spectateurs à la main, appels clients un par un). Jamais spontanément. Si le sujet vient, une phrase et je bascule aussitôt sur ce que ça a produit&nbsp;: les évolutions priorisées ensuite viennent directement de là.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 07 -->
+      <section id="ia">
+        <h2><span class="idx">07</span>L'IA, comment j'en parle</h2>
+        <p class="section-sub">C'est un prérequis dans leur énoncé, pas la demande. Un directeur delivery pragmatique se méfie des évangélistes.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">La structure de la réponse, dans cet ordre&nbsp;: autonomie, puis efficacité, puis ce que le temps rendu permet</span>
+          C'est la réponse qui a fonctionné devant la direction d'Adservio le 03/09. <strong>Ne jamais s'arrêter sur «&nbsp;ça fait gagner du temps&nbsp;»</strong>&nbsp;: c'est ce que répondent tous les candidats, et ça ne dit rien.
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Registre</th><th>Ce que je dis</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">1. L'autonomie, en premier</th>
+                <td><strong>Répondre moi-même à un besoin sans attendre la disponibilité de quelqu'un</strong>&nbsp;: produire une maquette, un prototype, une démonstration pour trancher une discussion. Avant, une idée attendait un créneau de développeur ou de designer pour devenir discutable. Maintenant elle est discutable le jour même</td>
+              </tr>
+              <tr>
+                <th scope="row">2. L'efficacité, ensuite</th>
+                <td>Comptes rendus, plannings, supports, premières versions de spécifications. C'est réel, mais ce n'est pas ce qui différencie</td>
+              </tr>
+              <tr>
+                <th scope="row">3. Ce que le temps rendu permet</th>
+                <td><strong>C'est la seule partie qui compte vraiment.</strong> Du terrain, de l'arbitrage, de la formation. Le temps repris sur la production de documents est rendu aux gens</td>
+              </tr>
+              <tr>
+                <th scope="row">4. L'esprit critique</th>
+                <td>Ce qu'on ne délègue pas&nbsp;: la décision, la relecture d'une règle de gestion, tout ce qui engage. <strong>Sur un sujet transactionnel, une spécification inventée coûte plus cher que le temps qu'elle a fait gagner</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="blk">La preuve concrète, si on la demande</h4>
+        <div class="card">
+          <p>Je travaille quotidiennement avec <strong>Claude et Claude Code</strong>. <strong>Ma recherche d'emploi elle-même est un projet versionné</strong>&nbsp;: analyse des offres, préparation des entretiens, pages publiées en ligne. <strong>Ce n'est pas du discours, c'est un usage.</strong></p>
+          <p>Et je peux le dire simplement&nbsp;: <em>«&nbsp;la fiche que j'ai préparée pour notre échange d'aujourd'hui a été construite comme ça.&nbsp;»</em> <strong>Vrai, vérifiable, et ça ferme la question.</strong></p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Le pont vers leur propre chantier, à faire une seule fois</span>
+          <em>«&nbsp;J'ai vu que vous aviez déployé de l'IA générative sur votre centre de contact, avec une étape de réservation en libre-service annoncée. C'est ce qui m'intéresse le plus dans votre contexte&nbsp;: chez vous l'IA ne sert pas à faire joli, elle sert à absorber du volume et à préparer une réservation autonome, donc à récupérer du direct. Où en êtes-vous sur cette étape&nbsp;?&nbsp;»</em>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Les trois pièges</span>
+          <ul>
+            <li><strong>Ne pas faire de l'IA le sujet principal.</strong> C'est l'offre d'Adservio, pas la demande du client. Chez eux je me place en praticienne, pas en porte-parole d'une offre.</li>
+            <li><strong>Ne pas prétendre à une expertise technique</strong> sur les modèles, l'entraînement ou l'infrastructure. Mon terrain est l'usage et la conduite du changement, et c'est déjà beaucoup.</li>
+            <li><strong>Ne pas amener «&nbsp;delivery augmenté&nbsp;» ou le vocabulaire AI-DLC</strong> dans cette pièce. C'est la langue interne d'Adservio, elle n'a pas cours ici et elle sonnerait comme un argumentaire commercial.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 08 -->
+      <section id="changement">
+        <h2><span class="idx">08</span>L'accompagnement du changement</h2>
+        <p class="section-sub">L'argument le plus fort du dossier, et celui que je place trop tard depuis le début. Ici, il vient tôt.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi il est décisif chez eux, précisément</span>
+          <strong>939 hôtels, 19 pays, des filiales de maturité très inégale</strong>, et un modèle revendiqué «&nbsp;global et local simultanément&nbsp;». Un portail de pilotage et des indicateurs ne valent <strong>rien</strong> s'ils ne sont pas adoptés par des directeurs d'hôtels et des équipes régionales qui n'ont rien demandé. <strong>Le blocage ne sera jamais l'outil, ce sera l'adoption.</strong> Ce n'est donc pas une compétence annexe sur cette mission, c'est le cœur du sujet.
+        </div>
+
+        <h4 class="blk">Les quatre registres réellement pratiqués</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Registre</th><th>Ce qui a été fait</th><th>Ce que ça devient chez eux</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Accompagnement</th>
+                <td>Canal Teams dédié, <strong>ligne téléphonique dédiée</strong>, points réguliers, <strong>présence terrain</strong>, auprès des <strong>40 opérateurs</strong> de la Comédie-Française</td>
+                <td>Aller voir des directeurs d'hôtel utiliser l'outil, plutôt que lire leurs tickets</td>
+              </tr>
+              <tr>
+                <th scope="row">Formation</th>
+                <td><strong>Formation de 3 à 4 heures chez le client à chaque livraison</strong>, pendant la recette. Systématique, pas ponctuel</td>
+                <td>Un rituel de démarrage, pas une note de version envoyée par mail</td>
+              </tr>
+              <tr>
+                <th scope="row">Animation des instances</th>
+                <td><strong>Lead sur toutes les réunions client</strong>&nbsp;: hebdomadaire, comité de pilotage, ateliers. De l'animation, pas de la participation</td>
+                <td>Le format qui fait remonter les écarts de maturité entre pays</td>
+              </tr>
+              <tr>
+                <th scope="row">Communication produit</th>
+                <td><strong>Lettre mensuelle</strong>&nbsp;: ce qui a été livré, les temps forts à venir, les fonctionnalités</td>
+                <td>Le moyen le moins cher de faire exister un outil dans un réseau dispersé</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La formulation, en une phrase</span>
+          <em>«&nbsp;Faire adopter une nouvelle façon de travailler à des équipes qui n'ont rien demandé, je l'ai fait tous les mois pendant toute la mission. Le sujet change, le métier est le même.&nbsp;»</em>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Fermer sur un résultat, pas sur une méthode</span>
+          C'est le correctif identifié après l'entretien du 03/09&nbsp;: j'avais décrit la façon de travailler sans dire ce qu'elle avait produit. <strong>Les preuves disponibles&nbsp;: un projet repris en cours de route, 7 lieux partenaires coordonnés sur 7 systèmes de billetterie différents, 40 opérateurs accompagnés.</strong>
+        </div>
+      </section>
+
+      <!-- 09 -->
+      <section id="hotellerie">
+        <h2><span class="idx">09</span>«&nbsp;Vous n'avez jamais travaillé dans l'hôtellerie&nbsp;»</h2>
+        <p class="section-sub">La question tombera, sous une forme ou une autre. Elle est légitime. Cinq réponses, dans cet ordre.</p>
+
+        <div class="callout warn">
+          <span class="lbl">La règle absolue&nbsp;: ne pas s'excuser, ne pas bluffer</span>
+          Ne jamais commencer par «&nbsp;c'est vrai que je ne connais pas le secteur, mais…&nbsp;». Et ne jamais faire semblant de maîtriser le RevPAR ou le <em>yield management</em>. <strong>Un mensonge sur le métier hôtelier ne survit pas à deux questions</strong>, et face à un ancien PMO, la crédibilité vaut plus que l'exhaustivité.
+        </div>
+
+        <h4 class="blk">1. Le problème est le même, et c'est démontrable</h4>
+        <div class="card">
+          <p><em>«&nbsp;Un inventaire limité, périssable, vendu en ligne sous concurrence, avec une tarification à règles et des pics de demande. Une place de théâtre non vendue le soir de la représentation est perdue, exactement comme une chambre vide. J'ai passé quinze mois sur ce problème.&nbsp;»</em></p>
+          <p><strong>Et la preuve dure&nbsp;:</strong> <em>«&nbsp;vendre deux fois la même place, c'est du surbooking. Le rapprochement entre le paiement encaissé et la commande enregistrée, c'est le même sujet chez vous que chez moi.&nbsp;»</em></p>
+        </div>
+
+        <h4 class="blk">2. Changer d'univers, c'est mon métier depuis treize ans</h4>
+        <div class="card">
+          <p>En agence, c'est un client nouveau tous les trois mois, un métier nouveau à chaque fois, et personne pour vous l'expliquer. <strong>Les interlocuteurs étaient des dirigeants d'établissement en direct</strong>&nbsp;: la directrice de l'ENSA Paris-La Villette, le directeur de la Villa Médicis. Et une équipe de recherche de six personnes au CHUM, avec des attentes divergentes.</p>
+          <p><strong>La phrase qui résume, et qui vaut mieux qu'une déclaration d'adaptabilité&nbsp;:</strong> <em>«&nbsp;aucun de ces interlocuteurs n'était un professionnel du numérique. Mon métier consiste à leur faire dire ce qu'ils n'ont pas pensé à écrire.&nbsp;»</em></p>
+        </div>
+
+        <h4 class="blk">3. Leur vrai sujet n'est pas l'hôtellerie</h4>
+        <div class="card">
+          <p>Un portail de pilotage et des indicateurs pour <strong>19 pays aux maturités inégales</strong>, ce n'est pas un problème d'hôtellerie, c'est un problème de <strong>gouvernance multi-pays et de définition partagée</strong>. Sur ce terrain j'ai deux références directes&nbsp;: <strong>Filorga</strong>, avec une décision de plateforme prise au niveau du groupe Colgate-Palmolive et appliquée aux marques, travail avec les équipes aux États-Unis&nbsp;; et <strong>ICOMOS</strong>, réseau international multilingue.</p>
+        </div>
+
+        <h4 class="blk">4. Le retournement, à garder pour la fin</h4>
+        <div class="callout say">
+          <span class="lbl">À dire calmement, sans arrogance</span>
+          <em>«&nbsp;Ce qui me manquerait vraiment, ce serait de ne jamais avoir tenu un produit transactionnel en production, avec des incidents, des pics et de l'argent qui passe. Le vocabulaire de l'hôtellerie, je l'apprends en deux semaines. L'inverse n'est pas vrai.&nbsp;»</em>
+        </div>
+
+        <h4 class="blk">5. Et je le prouve tout de suite</h4>
+        <div class="card">
+          <p>Poser <strong>une question qui montre que le vocabulaire est déjà là</strong>&nbsp;: <em>«&nbsp;le portail s'appuie sur les données du système central de réservation, ou sur la plateforme data&nbsp;?&nbsp;»</em> ou <em>«&nbsp;les indicateurs remontent depuis le PMS, ou depuis la CDP&nbsp;?&nbsp;»</em></p>
+          <p><strong>Une question juste vaut mieux que trois minutes d'argumentation sur l'adaptabilité.</strong> Elle démontre au lieu d'affirmer.</p>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">La seconde objection, distincte, à ne pas confondre</span>
+          «&nbsp;Connaissez-vous le fonctionnement d'une grosse DSI&nbsp;?&nbsp;» n'est <strong>pas</strong> la même question que «&nbsp;connaissez-vous l'hôtellerie&nbsp;». Gouvernance, comitologie, cycles de validation, rapports de force internes. La réponse honnête existe&nbsp;: <strong>le comité de pilotage de la billetterie réunissait l'administrateur général, la directrice générale des services et le secrétaire général</strong>, soit la direction complète de l'établissement. Ce n'est pas une DSI de 900 personnes, mais ce n'est pas non plus un projet sans gouvernance.
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section id="mes-questions">
+        <h2><span class="idx">10</span>Mes questions</h2>
+        <p class="section-sub">Il aime les gens qui posent des questions. <strong>Cinq ou six maximum, réparties dans l'échange</strong>, pas empilées à la fin.</p>
+
+        <div class="callout retenir">
+          <span class="lbl">La question à poser dans les cinq premières minutes</span>
+          <strong>«&nbsp;De quel portail parle-t-on&nbsp;?&nbsp;»</strong> Celui des directeurs d'hôtels et franchisés, un outil pour les équipes sièges et régionales, l'espace client, ou un extranet corporate&nbsp;? <strong>Tout le reste de l'échange en dépend</strong>, et répondre avant de le savoir serait la seule faute vraiment évitable.
+        </div>
+
+        <h4 class="blk">Sur le portail</h4>
+        <ul class="checklist">
+          <li><strong>Pourquoi maintenant&nbsp;?</strong> <em>Une refonte se déclenche toujours sur quelque chose&nbsp;: une contrainte technique, un contrat qui se termine, une insatisfaction mesurée, un changement d'échelle.</em></li>
+          <li><strong>Il existe déjà, ou il est à construire&nbsp;?</strong> Et si oui, qu'est-ce qui ne va pas dans l'actuel&nbsp;?</li>
+          <li><strong>Quel périmètre géographique&nbsp;:</strong> la France, l'Europe de l'Ouest, les 19 pays&nbsp;?</li>
+          <li><strong>Qui l'utilise au quotidien, et combien de personnes&nbsp;?</strong></li>
+        </ul>
+
+        <h4 class="blk">Sur les KPIs, les questions de praticienne</h4>
+        <ul class="checklist">
+          <li><strong>«&nbsp;Qu'est-ce qui n'est pas mesuré aujourd'hui et qui vous manque pour décider&nbsp;?&nbsp;»</strong> <em>Bien meilleure que «&nbsp;quels indicateurs voulez-vous&nbsp;». Elle part du besoin de décision, pas de l'outil. C'est exactement la langue d'un ancien PMO.</em></li>
+          <li><strong>Ces indicateurs s'adressent à qui&nbsp;?</strong> Aux directeurs d'hôtels, aux équipes régionales, à la direction générale&nbsp;? <em>Le destinataire décide de tout le reste.</em></li>
+          <li><strong>Est-ce qu'il existe un référentiel d'indicateurs partagé entre les pays, ou chacun a ses propres définitions&nbsp;?</strong> <em>C'est la question qui distingue une PO senior d'un chef de projet qui livrerait un écran. Publiquement, ils ont reconnu des maturités data très différentes selon les filiales.</em></li>
+          <li><strong>D'où viennent les données&nbsp;?</strong> Du système central de réservation, de la plateforme data, de la CDP&nbsp;?</li>
+        </ul>
+
+        <h4 class="blk">Sur l'organisation</h4>
+        <ul class="checklist">
+          <li><strong>Comment sont réparties les équipes produit et projet, et à qui ce rôle serait rattaché&nbsp;?</strong></li>
+          <li><strong>Comment ça s'articule avec le Chief Product Officer et avec l'équipe data&nbsp;?</strong> <em>Qui tient le backlog, qui tient la feuille de route&nbsp;? Question de gouvernance, à poser sans sous-entendu critique.</em></li>
+          <li><strong>Quelle méthode et quel outillage&nbsp;?</strong> Cycles, rituels, Jira ou autre.</li>
+          <li><strong>Brest ou Paris&nbsp;?</strong> <em>Question de logistique, légitime, mais sans jamais glisser vers le télétravail&nbsp;: ce sujet appartient à Adservio.</em></li>
+        </ul>
+
+        <h4 class="blk">Sur l'IA, une seule</h4>
+        <ul class="checklist">
+          <li><strong>«&nbsp;Qu'est-ce qui a été tenté jusqu'ici, et qu'est-ce qui a coincé&nbsp;?&nbsp;»</strong> <em>Question honnête qui ouvre le seul vrai sujet, l'adoption. Peu de candidats la posent dans ce sens, la plupart demandent quels outils sont en place.</em></li>
+        </ul>
+
+        <h4 class="blk">Pour fermer</h4>
+        <ul class="checklist">
+          <li><strong>«&nbsp;Quel serait le premier résultat attendu, à trois mois&nbsp;?&nbsp;»</strong> <em>Elle oblige à formuler un critère de succès, et la réponse en dit long sur la maturité du besoin.</em></li>
+          <li><strong>«&nbsp;Qu'est-ce qui vous ferait dire, dans six mois, que c'était le bon choix&nbsp;?&nbsp;»</strong></li>
+        </ul>
+      </section>
+
+      <!-- 11 -->
+      <section id="jamais">
+        <h2><span class="idx">11</span>Ce que je ne dis pas</h2>
+
+        <div class="callout warn">
+          <span class="lbl">Six interdits</span>
+          <ul>
+            <li><strong>Rien sur le contrat, le salaire, le télétravail, la période d'essai.</strong> C'est un entretien client, pas un entretien d'embauche. Si la question vient&nbsp;: <em>«&nbsp;c'est calé avec Adservio.&nbsp;»</em></li>
+            <li><strong>Pas de vocabulaire d'offre Adservio.</strong> Ni «&nbsp;delivery augmenté&nbsp;», ni AI-DLC, ni le nom non vérifié entendu au téléphone.</li>
+            <li><strong>Pas de KPIs produit revendiqués.</strong> Conversion, rétention, tests A/B&nbsp;: ce n'est pas mon vécu et ce n'est pas ce qu'on me demande. Mon terrain, ce sont les indicateurs de pilotage et d'usage.</li>
+            <li><strong>Pas d'excuse sur l'agilité.</strong> Mon rythme était hebdomadaire&nbsp;: une semaine comme unité d'engagement, validée le lundi en interne, arbitrée avec le client dans la semaine, gouvernée en comité de pilotage. Le dire comme un choix, avec ce à quoi j'ai renoncé.</li>
+            <li><strong>Rien sur les autres processus en cours.</strong></li>
+            <li><strong>Rien de négatif sur mon dernier employeur ni sur la Comédie-Française.</strong> «&nbsp;Le client avait des attentes fortes et légitimes après les incidents.&nbsp;»</li>
+          </ul>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Si on me demande pourquoi j'ai quitté mon dernier poste</span>
+          Vingt secondes, puis silence&nbsp;: rupture conventionnelle, agence en difficulté, poste qui évoluait vers une dimension commerciale alors que j'étais sur la stabilité du produit. <em>«&nbsp;On n'était pas alignés sur la priorité, donc on s'est quittés d'un commun accord. J'ai gardé de très bonnes relations avec les équipes de la Comédie-Française.&nbsp;»</em>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section id="check">
+        <h2><span class="idx">12</span>Check avant le call</h2>
+
+        <h4 class="blk">Avant le dry run avec Mariame</h4>
+        <ul class="checklist">
+          <li>Lire la fiche de poste dès réception, et repérer <strong>l'écart avec ce qui a été dit oralement</strong></li>
+          <li>Obtenir&nbsp;: le nom exact de l'offre, ce que recouvre «&nbsp;staffing&nbsp;», <strong>ce qui a été dit de moi au client</strong> puisque le CV n'a pas circulé</li>
+          <li>Qui sera dans le call à part Yannick, avec les fonctions. Est-ce que quelqu'un d'Adservio y assiste</li>
+          <li>Combien de candidats sont positionnés, et ce qui selon elle fera dire oui à Yannick</li>
+          <li><strong>Le télétravail</strong>&nbsp;: à poser à Mariame, jamais au client. Le client est nommé, la mission est décrite, le moment ne reviendra pas</li>
+        </ul>
+
+        <h4 class="blk">Les quinze minutes avant 17h</h4>
+        <ul class="checklist">
+          <li><strong>Passer dans leur tunnel de réservation et dans l'application</strong>, jusqu'à l'écran de paiement sans valider. En sortir <strong>deux observations concrètes</strong></li>
+          <li>Écrire les prénoms en haut de page dès le début du call, et les utiliser</li>
+          <li>Relire l'ouverture (§05) et la dire à voix haute une fois. <strong>Deux minutes, pas plus</strong></li>
+          <li>Avoir sous les yeux&nbsp;: <strong>40 opérateurs &middot; 750 représentations &middot; 3 salles &middot; 7 lieux partenaires &middot; file d'attente à 40 minutes, pics à 2 heures &middot; budgets de 40 à 120 K€, jusqu'à 500 K€</strong></li>
+          <li>Vérifier la caméra, le cadrage, la lumière, et le nom affiché</li>
+        </ul>
+
+        <h4 class="blk">Pendant</h4>
+        <ul class="checklist">
+          <li><strong>Poser la question du portail dans les cinq premières minutes</strong></li>
+          <li>Noter les prénoms, fonctions, et <strong>les mots qu'ils emploient</strong>. Réutiliser leurs mots, pas les miens</li>
+          <li>Poser mes questions <strong>pendant</strong> l'échange, pas à la fin</li>
+        </ul>
+
+        <h4 class="blk">Après, le soir même</h4>
+        <ul class="checklist">
+          <li><strong>Débrief à chaud à Mariame</strong>, par écrit&nbsp;: ce qui a été demandé, ce qui a accroché, ce qui reste ouvert</li>
+          <li>Enrichir <code>context/parcours.md</code>, section «&nbsp;ce qui a réellement été demandé en entretien&nbsp;»</li>
+          <li><strong>Ne pas laisser B&amp;B HOTELS empiéter sur Mosaic</strong>, vendredi 18/09 à 11h, en présentiel à Jussieu</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var links = [].slice.call(document.querySelectorAll('.sidenav a[href^="#"]'));
+      if (!links.length) return;
+
+      var items = links
+        .map(function (a) { return { link: a, el: document.querySelector(a.getAttribute('href')) }; })
+        .filter(function (i) { return i.el; });
+      if (!items.length) return;
+
+      // Ancre cliquee : on fige le surlignage jusqu'a ce que l'utilisateur reprenne la main.
+      var locked = null;
+
+      function setActive(el) {
+        items.forEach(function (i) { i.link.classList.toggle('active', i.el === el); });
+      }
+
+      function currentSection() {
+        var atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+        if (atBottom) return items[items.length - 1].el;
+        var line = window.innerHeight * 0.3;
+        var found = items[0].el;
+        items.forEach(function (i) {
+          if (i.el.getBoundingClientRect().top <= line) found = i.el;
+        });
+        return found;
+      }
+
+      function update() {
+        if (locked) return;
+        setActive(currentSection());
+      }
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function () {
+          var el = document.querySelector(a.getAttribute('href'));
+          if (!el) return;
+          locked = el;
+          setActive(el);
+        });
+      });
+
+      function release() { locked = null; }
+      var scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+      window.addEventListener('wheel', release, { passive: true });
+      window.addEventListener('touchmove', release, { passive: true });
+      window.addEventListener('keydown', function (e) {
+        if (scrollKeys.indexOf(e.key) !== -1) release();
+      }, { passive: true });
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+
+      var initial = location.hash && document.querySelector(location.hash);
+      if (initial && items.some(function (i) { return i.el === initial; })) {
+        locked = initial;
+        setActive(initial);
+      } else {
+        update();
+      }
+    })();
+  </script>
+</body>
+</html>
