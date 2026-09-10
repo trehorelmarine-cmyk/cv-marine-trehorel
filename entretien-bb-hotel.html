@@ -1214,6 +1214,78 @@
           À dire ainsi&nbsp;: <em>«&nbsp;je ne vous parle pas de tarification dynamique ni de prévision de remplissage, ce sont vos métiers et vos données, pas les miens. Je vous parle de là où j'ai vu l'IA tenir&nbsp;: le volume répétitif, la synthèse et la priorisation.&nbsp;»</em>
         </div>
 
+        <h4 class="blk">Du cas d'usage à la mise en production, le chemin</h4>
+
+        <div class="callout retenir">
+          <span class="lbl">La ligne du briefing que je dois pouvoir dérouler&nbsp;: «&nbsp;cadrer un cas d'usage IA, POC jusqu'à MEP&nbsp;»</span>
+          <strong>Deux sigles à traduire d'abord</strong>, parce qu'ils vont revenir&nbsp;: <strong>POC</strong>, <em>proof of concept</em>, la preuve de concept, une démonstration faite pour répondre à une seule question. <strong>MEP</strong>, la mise en production, le moment où de vrais utilisateurs s'en servent pour de vrai.
+          <br><br>
+          <strong>Ce qui sépare les deux n'est pas de la technique, c'est presque tout le reste.</strong> C'est la phrase qui répond le mieux à cette attente&nbsp;: <em>«&nbsp;un POC répond à “est-ce que ça peut marcher&nbsp;?”. Une mise en production répond à “est-ce que ça tient tous les jours, à quel coût, et qui répare quand ça casse&nbsp;?”. Le second n'est pas la suite naturelle du premier, c'est un autre projet.&nbsp;»</em>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Étape</th><th>La question à laquelle elle répond</th><th>Le critère pour passer à la suivante</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">1. Le cadrage</th>
+                <td><strong>Quelle décision est aujourd'hui prise trop tard, ou pas prise&nbsp;?</strong> Qui la prend, sur quoi, et à quelle fréquence. <strong>Aucune IA à ce stade</strong>, et c'est volontaire</td>
+                <td>Le problème s'énonce en une phrase, sans le mot IA dedans. <strong>Si on n'y arrive pas, il n'y a pas de cas d'usage</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">2. Le POC, la preuve de concept</th>
+                <td><strong>Est-ce que la technique sait faire ça, sur nos données à nous&nbsp;?</strong> Périmètre volontairement étroit, quelques semaines, sur un échantillon</td>
+                <td><strong>Un jeu d'évaluation</strong>&nbsp;: une centaine de cas dont on connaît la bonne réponse, préparés par le métier. <strong>Sans ça, «&nbsp;ça marche bien&nbsp;» ne veut rien dire</strong>, ça veut dire «&nbsp;les trois exemples que j'ai essayés ont marché&nbsp;»</td>
+              </tr>
+              <tr>
+                <th scope="row">3. Le pilote</th>
+                <td><strong>Est-ce que des gens réels s'en servent, et est-ce que ça change ce qu'ils font&nbsp;?</strong> Un périmètre restreint et volontaire&nbsp;: quelques hôtels, un pays</td>
+                <td><strong>Le taux d'usage et le taux de reprise humaine.</strong> Un outil que personne n'ouvre au bout de trois semaines a échoué, même si la qualité est bonne</td>
+              </tr>
+              <tr>
+                <th scope="row">4. L'industrialisation, la mise en production</th>
+                <td><strong>Est-ce que ça tient tous les jours, à quel coût, et qui répare&nbsp;?</strong></td>
+                <td>Coût unitaire connu, cas d'erreur traités, données encadrées, supervision en place, <strong>et une équipe nommée pour l'exploiter</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce qu'un POC réussi ne dit jamais, et c'est là que les projets meurent</span>
+          <strong>La liste à connaître, parce que c'est exactement ce qu'un ancien PMO veut entendre&nbsp;:</strong>
+          <ul>
+            <li><strong>Le coût unitaire.</strong> Cent requêtes en démonstration ne disent rien de cent mille par mois. <strong>C'est la question budgétaire, et elle se pose avant, pas après.</strong></li>
+            <li><strong>Le comportement sur les cas d'erreur.</strong> Un POC se teste sur des cas propres. La production est faite de cas sales.</li>
+            <li><strong>Ce qu'on fait quand la réponse est fausse.</strong> Qui le voit, qui corrige, et est-ce que l'utilisateur peut le signaler.</li>
+            <li><strong>Les données&nbsp;:</strong> ce qui sort de l'entreprise, où ça va, et ce que le juridique en dit. <strong>Sur 19 pays, ce n'est pas une formalité.</strong></li>
+            <li><strong>La supervision.</strong> Comment on sait que la qualité s'est dégradée, sans attendre qu'un utilisateur se plaigne.</li>
+            <li><strong>Qui l'exploite au quotidien</strong> une fois le projet fini. <strong>Un outil sans propriétaire meurt en six mois.</strong></li>
+            <li><strong>L'adoption.</strong> Un outil que les équipes contournent n'existe pas, quelle que soit sa qualité technique.</li>
+          </ul>
+          <strong>La phrase qui résume&nbsp;:</strong> <em>«&nbsp;entre un POC qui marche et une mise en production, il n'y a presque jamais un problème de modèle. Il y a un problème de données, de coût, de cas limites et de propriétaire.&nbsp;»</em>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Le chemin appliqué à un de leurs cas, pour ne pas rester théorique</span>
+          Si on me demande de dérouler, prendre <strong>la synthèse des avis clients</strong>, parce que le lien avec le taux d'occupation est déjà établi de leur côté.
+          <ul>
+            <li><strong>Cadrage&nbsp;:</strong> «&nbsp;un directeur d'hôtel ne sait pas quels sont ses trois irritants récurrents du mois.&nbsp;» <strong>Pas d'IA dans la phrase</strong>, et pourtant tout le problème y est.</li>
+            <li><strong>POC&nbsp;:</strong> un mois d'avis sur dix hôtels, et <strong>un jeu d'évaluation construit avec deux directeurs</strong> qui ont listé à la main ce qu'ils attendaient d'y voir remonter.</li>
+            <li><strong>Pilote&nbsp;:</strong> une région, deux mois. <strong>La mesure n'est pas la qualité du résumé, c'est le nombre de directeurs qui l'ouvrent la deuxième fois</strong>, et ce qu'ils en font.</li>
+            <li><strong>Mise en production&nbsp;:</strong> le multilingue sur 19 pays, le coût mensuel, la remontée intégrale et non résumée sur les catégories sensibles, et <strong>l'équipe qui en devient propriétaire</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Et la preuve que j'ai déjà vécu ce mur, même sans IA</span>
+          <strong>C'est le même geste, et l'exemple est solide parce qu'il est vécu&nbsp;:</strong> sur la billetterie, le socle initial fonctionnait en démonstration et en recette. <strong>Ce sont les contraintes de la production qui ne tenaient pas&nbsp;:</strong> le paiement encaissé et la commande enregistrée ne disaient pas toujours la même chose, sous charge et en concurrence. Il a fallu migrer vers un moteur relationnel en cours d'exploitation.
+          <br><br>
+          <em>«&nbsp;Je l'ai vécu hors IA, mais c'est exactement le même mur&nbsp;: ce qui distingue une démonstration d'un système en production, c'est le comportement sous charge, en concurrence, et sur les cas limites. C'est pour ça que je regarde toujours ce qu'un POC ne dit pas.&nbsp;»</em>
+          <br><br>
+          ⚠️ <strong>La formule à ne pas sortir&nbsp;:</strong> ne pas se présenter comme celle qui tue les POC. <strong>Le rôle n'est pas de refuser, il est de rendre le coût visible avant qu'on s'engage.</strong> Dit autrement, ça passe pour de la frilosité, ce qui est le contraire de ce qu'ils achètent.
+        </div>
+
         <h4 class="blk">Volet 2 &middot; L'IA dans la façon de conduire le projet</h4>
         <div class="callout say">
           <span class="lbl">Ce que je fais déjà, et qui se dit sans préparation</span>
@@ -1237,6 +1309,8 @@
           <em>Mon critère de tri, que je poserai avant les exemples&nbsp;: un volume répétitif, une tolérance à l'erreur connue, une donnée disponible, et une décision qui change à l'arrivée.</em>
           <br><br>
           <em>Cinq pistes&nbsp;: la synthèse des avis clients par hôtel, un assistant de procédures pour les directeurs d'hôtel, la priorisation automatique des remontées terrain, la production des contenus de fiches hôtel multilingues, et l'aide à la réponse du service client. Pour chacune j'annonce la limite en même temps que la valeur, c'est ce qui rend la proposition crédible.</em>
+          <br><br>
+          <em>Sur le passage du POC à la production, je déroulerai le chemin en quatre temps si le sujet vient&nbsp;: cadrage de la décision à débloquer, preuve de concept avec un jeu d'évaluation construit avec le métier, pilote mesuré sur l'usage réel et non sur la qualité perçue, puis industrialisation avec coût unitaire, cas d'erreur et propriétaire identifié.</em>
           <br><br>
           <em>Je ne proposerai volontairement ni tarification dynamique ni prévision de remplissage&nbsp;: ce sont leurs métiers et leurs données, je n'ai pas de légitimité dessus.</em>
           <br><br>
@@ -1554,6 +1628,7 @@
         <ul class="checklist">
           <li><strong>«&nbsp;La fiche parle de gains de vélocité déjà démontrés par le développement agentique du programme. Sur quel périmètre les avez-vous mesurés, et qu'est-ce qui vous a le plus surpris&nbsp;?&nbsp;»</strong> <em>La meilleure question de la séance. Elle prouve que j'ai lu, elle porte sur la mesure, et un ancien PMO répond toujours à une question sur la mesure. Voir §04.</em></li>
           <li><strong>«&nbsp;Qu'est-ce qui a été tenté jusqu'ici, et qu'est-ce qui a coincé&nbsp;?&nbsp;»</strong> <em>Question honnête qui ouvre le seul vrai sujet, l'adoption. Peu de candidats la posent dans ce sens, la plupart demandent quels outils sont en place.</em></li>
+          <li><strong>«&nbsp;Y a-t-il des POC en cours, et qu'est-ce qui les empêche de passer en production&nbsp;?&nbsp;»</strong> <em>La question de praticienne sur ce volet. Mariame parle d'une initiative IA sans rien de concret&nbsp;: il y a probablement des démonstrations qui n'avancent pas. <strong>Nommer ce blocage avant qu'ils le nomment est le meilleur moyen de prouver que je connais le chemin, voir §08.</strong></em></li>
           <li><strong>Si le sujet de la réservation conversationnelle n'est pas venu de lui-même&nbsp;:</strong> <em>«&nbsp;j'ai vu que votre assistance client était passée sur une IA générative au printemps. La réservation conversationnelle est-elle la suite, et est-elle dans le périmètre&nbsp;?&nbsp;»</em></li>
         </ul>
 
@@ -1595,6 +1670,7 @@
           <li><strong>Envoyer les cas d'usage IA à Mariame.</strong> C'est le seul livrable avec une échéance. Mail prêt au §08</li>
           <li><strong>Y glisser les deux questions restantes&nbsp;:</strong> durée et date de démarrage, et <strong>le télétravail</strong>. Le mail est le bon véhicule&nbsp;: j'apporte quelque chose, donc je peux demander. ⚠️ À Mariame, jamais au client</li>
           <li><strong>Relire les trois exemples à voix haute une fois</strong>, §07. Contexte court, équipes nommées, difficulté franche, puis la décision. <strong>Ne jamais finir sur la difficulté</strong></li>
+          <li><strong>Savoir dérouler le chemin POC vers mise en production sans le lire</strong>, §08&nbsp;: cadrage, preuve de concept, pilote, industrialisation. <strong>Quatre mots et le critère de passage de chacun</strong>, c'est tout ce qu'il faut retenir</li>
           <li><strong>Lire son compte rendu quand il arrive</strong>, et vérifier qu'il ne contredit rien de ce que j'ai noté</li>
         </ul>
 
