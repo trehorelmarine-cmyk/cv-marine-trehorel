@@ -478,9 +478,10 @@
         <li><a href="#usages"><span class="num">9</span>Mes usages réels</a></li>
         <li><a href="#construit"><span class="num">10</span>Ce que j’ai construit</a></li>
         <li><a href="#po-ia"><span class="num">11</span>Être PO sur un produit IA</a></li>
-        <li><a href="#risques"><span class="num">12</span>Risques &amp; limites</a></li>
-        <li><a href="#questions"><span class="num">13</span>Questions probables</a></li>
-        <li><a href="#glossaire"><span class="num">14</span>Glossaire</a></li>
+        <li><a href="#poc"><span class="num">12</span>Du POC à l’industrialisation</a></li>
+        <li><a href="#risques"><span class="num">13</span>Risques &amp; limites</a></li>
+        <li><a href="#questions"><span class="num">14</span>Questions probables</a></li>
+        <li><a href="#glossaire"><span class="num">15</span>Glossaire</a></li>
       </ul>
     </aside>
 
@@ -500,7 +501,7 @@
         <h2><span class="idx">01</span>Les bases</h2>
         <p class="section-sub">Les poupées russes du vocabulaire : qui contient quoi.</p>
         <div class="chips">
-          <span class="tag">IA</span><span class="tag">Machine learning</span><span class="tag">Deep learning</span><span class="tag">Réseau de neurones</span><span class="tag">IA générative</span><span class="tag">Modèle de fondation</span><span class="tag">Entraînement</span><span class="tag">Inférence</span>
+          <span class="tag">IA</span><span class="tag">Machine learning</span><span class="tag">Deep learning</span><span class="tag">Réseau de neurones</span><span class="tag">IA générative</span><span class="tag">GenAI</span><span class="tag">Modèle de fondation</span><span class="tag">Entraînement</span><span class="tag">Inférence</span>
         </div>
         <div class="tbl-wrap">
           <table class="tbl">
@@ -509,7 +510,7 @@
               <tr><th scope="row">IA</th><td>Terme parapluie : tout système qui exécute une tâche demandant normalement de l’intelligence humaine</td><td>Un moteur de règles, un filtre anti-spam</td></tr>
               <tr><th scope="row">Machine learning</th><td>Sous-ensemble de l’IA : le système apprend des <em>règles</em> à partir de <em>données</em>, au lieu qu’on les code</td><td>Scoring, recommandation, détection de fraude</td></tr>
               <tr><th scope="row">Deep learning</th><td>Sous-ensemble du ML utilisant des réseaux de neurones à nombreuses couches</td><td>Reconnaissance d’image, traduction</td></tr>
-              <tr><th scope="row">IA générative</th><td>Deep learning qui <em>produit du nouveau contenu</em> (texte, image, code, son) plutôt que de classer ou prédire une valeur</td><td>ChatGPT, Claude, Midjourney</td></tr>
+              <tr><th scope="row">IA générative<br><em>GenAI</em></th><td>Deep learning qui <em>produit du nouveau contenu</em> (texte, image, code, son) plutôt que de classer ou prédire une valeur. <strong>«&nbsp;GenAI&nbsp;» est simplement l’abréviation anglaise</strong> de <em>generative AI</em>, très fréquente dans les offres&nbsp;: c’est le même objet, pas une technologie de plus</td><td>ChatGPT, Claude, Midjourney</td></tr>
               <tr><th scope="row">Modèle de fondation</th><td>Gros modèle pré-entraîné sur des données massives et généralistes, réutilisable pour de nombreuses tâches</td><td>GPT, Claude, Llama, Mistral</td></tr>
             </tbody>
           </table>
@@ -674,7 +675,7 @@
         <h2><span class="idx">06</span>Agents &amp; assistants</h2>
         <p class="section-sub">La confusion la plus fréquente, et la question piège la plus probable.</p>
         <div class="chips">
-          <span class="tag">Assistant</span><span class="tag">Copilote</span><span class="tag">Agent</span><span class="tag">Tool use</span><span class="tag">Function calling</span><span class="tag">MCP</span><span class="tag">Orchestration</span><span class="tag">Human in the loop</span><span class="tag">Multi-agents</span>
+          <span class="tag">Assistant</span><span class="tag">Copilote</span><span class="tag">Agent</span><span class="tag">Agent conversationnel</span><span class="tag">Tool use</span><span class="tag">Function calling</span><span class="tag">MCP</span><span class="tag">Orchestration</span><span class="tag">Human in the loop</span><span class="tag">Multi-agents</span>
         </div>
         <div class="tbl-wrap">
           <table class="tbl">
@@ -683,10 +684,19 @@
               <tr><th scope="row">Chatbot classique</th><td>Répond selon un arbre de règles pré-écrit</td><td>Le concepteur, à l’avance</td><td>FAQ scriptée</td></tr>
               <tr><th scope="row">Assistant / copilote</th><td>Répond, rédige, suggère, l’humain garde la main et exécute</td><td>L’humain</td><td>Une conversation ChatGPT sans outils, l’autocomplétion de GitHub Copilot</td></tr>
               <tr><th scope="row">Agent</th><td>Reçoit un <strong>objectif</strong>, planifie les étapes, utilise des outils, observe le résultat et boucle jusqu’à l’atteindre</td><td>Le modèle, dans un périmètre défini</td><td>Claude Code, le mode agent de ChatGPT, un agent de traitement de tickets</td></tr>
+              <tr><th scope="row">Agent conversationnel</th><td>Le mot qu’emploient les entreprises pour un <strong>assistant orienté dialogue, face au client ou au collaborateur</strong>&nbsp;: il tient une conversation, comprend l’intention, et <em>peut</em> déclencher des actions s’il a des outils</td><td>Variable&nbsp;: c’est justement ce qu’il faut cadrer</td><td>Un service client qui répond, retrouve une réservation, propose une modification</td></tr>
               <tr><th scope="row">Système multi-agents</th><td>Plusieurs agents spécialisés coordonnés par un orchestrateur</td><td>L’orchestrateur</td><td>Un agent recherche + un agent rédaction + un agent vérification</td></tr>
             </tbody>
           </table>
         </div>
+
+        <div class="callout warn">
+          <span class="lbl">«&nbsp;Agent conversationnel&nbsp;» ne veut rien dire tant qu’on n’a pas posé une question</span>
+          C’est le terme le plus employé et le plus flou des offres et des cahiers des charges. Il recouvre aussi bien un chatbot de FAQ légèrement amélioré qu’un système qui modifie une réservation dans le système central. <strong>La question qui tranche&nbsp;: est-ce qu’il se contente de répondre, ou est-ce qu’il agit&nbsp;?</strong>
+          <br><br>
+          <strong>Et si la réponse est «&nbsp;il agit&nbsp;», tout change</strong>&nbsp;: droits d’accès, traçabilité, réversibilité de l’action, validation humaine sur les opérations engageantes, et responsabilité en cas d’erreur. Un assistant qui se trompe fait perdre du temps. <strong>Un agent qui se trompe annule la mauvaise réservation.</strong>
+        </div>
+
         <div class="callout retenir">
           <span class="lbl">La différence en une phrase</span>
           Un <strong>assistant produit du texte</strong>, un <strong>agent produit des actions</strong>. Ce qui fait l’agent, c’est l’accès à des outils (<em>tool use</em>) et la boucle autonome : planifier → agir → observer → corriger.
@@ -987,8 +997,77 @@
         </div>
       </section>
 
+      <section id="poc">
+        <h2><span class="idx">12</span>Du POC à l’industrialisation</h2>
+        <p class="section-sub">« Savoir distinguer un POC d’une solution réellement industrialisable » : c’est écrit tel quel dans les offres. C’est le sujet sur lequel un directeur delivery écoute vraiment.</p>
+        <div class="chips">
+          <span class="tag">POC</span><span class="tag">Prototype</span><span class="tag">Pilote</span><span class="tag">MVP</span><span class="tag">Passage à l’échelle</span><span class="tag">Run</span><span class="tag">Golden set</span><span class="tag">Observabilité</span>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">La distinction en une phrase</span>
+          <strong>Un POC répond à « est-ce que c’est possible&nbsp;? », une solution industrialisée répond à « est-ce que ça tient tous les jours, pour tout le monde, à un coût connu&nbsp;? ».</strong> Ce ne sont pas deux étapes d’une même ligne droite&nbsp;: ce sont deux questions différentes, et la seconde est bien plus dure que la première.
+        </div>
+
+        <h4 class="blk">Les quatre mots, souvent confondus</h4>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Terme</th><th>Ce que c’est</th><th>La question à laquelle il répond</th><th>Ce qu’on en fait après</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">POC<br><em>proof of concept</em></th><td>Démonstration de faisabilité, sur un périmètre réduit et des données choisies</td><td>« Est-ce que la technologie sait faire&nbsp;? »</td><td><strong>On le jette.</strong> C’est sa vocation, pas un échec</td></tr>
+              <tr><th scope="row">Prototype</th><td>Maquette d’usage, souvent sans vraie technique derrière</td><td>« Est-ce que les gens comprennent et en veulent&nbsp;? »</td><td>On le jette aussi</td></tr>
+              <tr><th scope="row">Pilote</th><td>Vraie mise en service, mais sur un périmètre restreint&nbsp;: une équipe, un pays, un type de dossier</td><td>« Est-ce que ça marche <em>en vrai</em>, avec de vrais utilisateurs et de vraies données sales&nbsp;? »</td><td>On l’étend, ou on l’arrête</td></tr>
+              <tr><th scope="row">MVP<br><em>minimum viable product</em></th><td>Version minimale mais <strong>réellement exploitable</strong>, construite pour durer</td><td>« Quelle est la plus petite chose qui rend déjà service&nbsp;? »</td><td>On l’enrichit. C’est la première version du produit</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">La confusion qui coûte le plus cher</span>
+          <strong>Prendre un POC réussi pour un MVP</strong>, et décider de le mettre en production parce qu’il a bien marché en démonstration. C’est l’erreur la plus fréquente et la plus chère sur les projets IA&nbsp;: le POC a été fait sur vingt documents propres choisis à la main, la production en compte deux cent mille, dont des scans de travers, des doublons et trois versions contradictoires de la même procédure.
+        </div>
+
+        <h4 class="blk">Ce qui manque à un POC pour devenir une solution, la vraie liste</h4>
+        <div class="card">
+          <ul>
+            <li><strong>La donnée réelle.</strong> Un POC tourne sur un échantillon choisi. La production apporte le désordre&nbsp;: obsolescence, doublons, formats exotiques, droits d’accès différenciés.</li>
+            <li><strong>Le jeu d’évaluation.</strong> Sans <em>golden set</em>, un jeu de cas de référence avec les réponses attendues, <strong>on ne peut pas savoir si un changement améliore ou casse le système</strong>. C’est la première chose à construire, et presque personne ne le fait au stade du POC.</li>
+            <li><strong>Le coût unitaire à l’usage.</strong> Il faut le connaître par requête, puis le multiplier par le volume réel. Un cas d’usage séduisant à cent requêtes par jour peut devenir irrecevable à cent mille.</li>
+            <li><strong>Les cas d’erreur.</strong> Que se passe-t-il quand le modèle se trompe, qui le voit, qui corrige, et qui en porte la conséquence&nbsp;?</li>
+            <li><strong>La sécurité et la conformité.</strong> Droits d’accès, données personnelles, lieu de traitement, traçabilité des réponses.</li>
+            <li><strong>L’observabilité.</strong> Journalisation des appels, mesure de la qualité en continu, alerte quand elle se dégrade. <strong>Un produit IA se dégrade silencieusement</strong>&nbsp;: le fournisseur met le modèle à jour, et le comportement change sans que rien ne casse visiblement.</li>
+            <li><strong>Le <em>run</em>.</strong> Qui maintient, qui met à jour le corpus, qui arbitre les évolutions, avec quel budget récurrent&nbsp;? Sans réponse, la solution meurt en six mois.</li>
+            <li><strong>L’adoption.</strong> Formation, accompagnement, et surtout la question rarement posée&nbsp;: <em>qu’est-ce que ça change au travail de ceux qui vont s’en servir&nbsp;?</em></li>
+          </ul>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Les questions à poser quand on me présente un POC réussi</span>
+          <ul>
+            <li>Sur quelles données a-t-il tourné, et en quoi diffèrent-elles de la réalité&nbsp;?</li>
+            <li>Comment savez-vous qu’il marche&nbsp;? <strong>Sur combien de cas, mesurés comment&nbsp;?</strong></li>
+            <li>Quel est le coût par requête, et à quel volume ça devient un sujet&nbsp;?</li>
+            <li>Qu’est-ce qui se passe quand il se trompe&nbsp;?</li>
+            <li>Qui va le maintenir une fois l’équipe projet partie&nbsp;?</li>
+          </ul>
+          <strong>Ces cinq questions valent mieux que n’importe quelle affirmation d’expertise.</strong> Elles sont exactement celles d’un pilote de projet, et pas du tout celles d’un enthousiaste.
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">Mon exemple vécu, et il vaut mieux qu’une théorie</span>
+          « Je l’ai vécu hors IA, mais c’est exactement le même geste. Sur la billetterie, l’architecture initiale reposait sur une base documentaire. Ça tenait parfaitement en développement. Sous contrainte transactionnelle réelle, avec des pics d’affluence et un inventaire de places à ne jamais vendre deux fois, ça ne tenait pas&nbsp;: d’où une migration vers un moteur relationnel <strong>en cours d’exploitation</strong>, ce qui est la situation la plus coûteuse qui soit.
+          <br><br>
+          Ce que j’en retiens, et que j’applique aux cas d’usage IA&nbsp;: <strong>la question n’est jamais “est-ce que ça marche&nbsp;?”, c’est “est-ce que ça tient quand le volume, les données sales et les cas limites arrivent&nbsp;?”.</strong> Et cette question se pose avant de s’engager, pas après. »
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">La formule à ne pas sortir</span>
+          Éviter le « <em>POC killer</em> » et les postures de sniper. La bonne posture n’est pas de casser les POC, c’est de <strong>décider tôt lesquels méritent la suite</strong>. Un POC jeté rapidement est un succès, pas un gâchis&nbsp;: il a répondu à sa question pour un coût faible.
+        </div>
+      </section>
+
       <section id="risques">
-        <h2><span class="idx">12</span>Risques &amp; limites</h2>
+        <h2><span class="idx">13</span>Risques &amp; limites</h2>
         <p class="section-sub">Savoir en parler est le meilleur signal de maturité, bien plus que l’enthousiasme.</p>
         <div class="tbl-wrap">
           <table class="tbl">
@@ -1011,7 +1090,7 @@
       </section>
 
       <section id="questions">
-        <h2><span class="idx">13</span>Questions probables</h2>
+        <h2><span class="idx">14</span>Questions probables</h2>
         <p class="section-sub">Déplier, lire à voix haute, ajuster avec mes mots.</p>
 
         <details class="qa">
@@ -1086,14 +1165,14 @@
       </section>
 
       <section id="glossaire">
-        <h2><span class="idx">14</span>Glossaire</h2>
+        <h2><span class="idx">15</span>Glossaire</h2>
         <p class="section-sub">À relire dans les dix minutes qui précèdent.</p>
         <div class="tbl-wrap">
           <table class="tbl">
             <thead><tr><th>Terme</th><th>Définition express</th></tr></thead>
             <tbody>
               <tr><th scope="row">LLM</th><td>Modèle de langage qui génère du texte en prédisant la suite la plus probable</td></tr>
-              <tr><th scope="row">IA générative</th><td>IA qui produit du contenu nouveau plutôt que de classer ou prédire</td></tr>
+              <tr><th scope="row">IA générative<br><em>GenAI</em></th><td>IA qui produit du contenu nouveau plutôt que de classer ou prédire. GenAI est l’abréviation anglaise du même terme</td></tr>
               <tr><th scope="row">Token</th><td>Unité de découpage du texte ; base de la facturation et des limites</td></tr>
               <tr><th scope="row">Fenêtre de contexte</th><td>Volume de texte traitable en un appel</td></tr>
               <tr><th scope="row">Prompt</th><td>L’instruction donnée au modèle</td></tr>
@@ -1107,12 +1186,18 @@
               <tr><th scope="row">Fine-tuning</th><td>Ré-entraîner un modèle sur des exemples métier pour ancrer un comportement</td></tr>
               <tr><th scope="row">Hallucination</th><td>Réponse fausse énoncée avec assurance</td></tr>
               <tr><th scope="row">Agent</th><td>Système qui poursuit un objectif en utilisant des outils, en boucle</td></tr>
+              <tr><th scope="row">Agent conversationnel</th><td>Assistant orienté dialogue face au client. La question qui tranche : répond-il, ou agit-il ?</td></tr>
               <tr><th scope="row">Tool use</th><td>Capacité du modèle à appeler une fonction ou une API</td></tr>
               <tr><th scope="row">MCP</th><td>Protocole standard pour connecter un modèle à des outils et des données</td></tr>
               <tr><th scope="row">Human in the loop</th><td>Validation humaine obligatoire à une étape donnée</td></tr>
               <tr><th scope="row">Température</th><td>Réglage du degré d’aléatoire des réponses</td></tr>
               <tr><th scope="row">Multimodal</th><td>Modèle acceptant texte, image, audio ou document en entrée</td></tr>
               <tr><th scope="row">Golden set</th><td>Jeu de cas de référence servant à évaluer la qualité dans la durée</td></tr>
+              <tr><th scope="row">POC</th><td><em>Proof of concept</em> : démonstration de faisabilité sur un périmètre réduit. Il a vocation à être jeté</td></tr>
+              <tr><th scope="row">Pilote</th><td>Mise en service réelle mais restreinte : une équipe, un pays, un type de dossier</td></tr>
+              <tr><th scope="row">MVP</th><td><em>Minimum viable product</em> : la plus petite version réellement exploitable, construite pour durer</td></tr>
+              <tr><th scope="row">Industrialisation</th><td>Passer d’un système qui marche une fois à un système qui tient tous les jours, à volume, à coût connu et avec quelqu’un pour le maintenir</td></tr>
+              <tr><th scope="row">Observabilité</th><td>Journalisation et mesure continue de la qualité en production. Sans elle, un produit IA se dégrade sans qu’on le voie</td></tr>
               <tr><th scope="row">AI Act</th><td>Réglementation européenne classant les usages de l’IA par niveau de risque</td></tr>
             </tbody>
           </table>
