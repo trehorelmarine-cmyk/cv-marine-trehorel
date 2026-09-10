@@ -624,7 +624,7 @@
             <thead><tr><th>Levier</th><th>Principe</th><th>Coût / délai</th><th>Quand le choisir</th></tr></thead>
             <tbody>
               <tr><th scope="row">Prompt engineering</th><td>Mieux formuler, donner des exemples, cadrer le rôle</td><td>Quasi nul, immédiat</td><td>Toujours en premier. Résout la majorité des cas</td></tr>
-              <tr><th scope="row">RAG</th><td>Aller chercher les bonnes informations et les injecter dans le prompt</td><td>Moyen, il faut une base documentaire propre</td><td>Le modèle doit connaître des <strong>données internes, à jour, sourcées</strong></td></tr>
+              <tr><th scope="row">RAG</th><td>Aller chercher les bonnes informations et les injecter dans le prompt</td><td>Moyen, il faut un <strong>fonds documentaire propre</strong>, c’est-à-dire des documents à jour et non contradictoires</td><td>Le modèle doit connaître des <strong>données internes, à jour, sourcées</strong></td></tr>
               <tr><th scope="row">Fine-tuning</th><td>Ré-entraîner le modèle sur des exemples métier pour ancrer un <em>comportement</em></td><td>Élevé, dataset qualifié, MLOps, à refaire à chaque évolution</td><td>Besoin d’un <strong>format ou d’un ton très spécifique</strong>, à grand volume</td></tr>
             </tbody>
           </table>
@@ -1055,9 +1055,18 @@
 
         <div class="callout say">
           <span class="lbl">Mon exemple vécu, et il vaut mieux qu’une théorie</span>
-          « Je l’ai vécu hors IA, mais c’est exactement le même geste. Sur la billetterie, l’architecture initiale reposait sur une base documentaire. Ça tenait parfaitement en développement. Sous contrainte transactionnelle réelle, avec des pics d’affluence et un inventaire de places à ne jamais vendre deux fois, ça ne tenait pas&nbsp;: d’où une migration vers un moteur relationnel <strong>en cours d’exploitation</strong>, ce qui est la situation la plus coûteuse qui soit.
+          « Je l’ai vécu hors IA, mais c’est exactement le même geste. Sur la billetterie, l’architecture initiale reposait sur une <strong>base de données orientée documents</strong>. Ça tenait parfaitement en développement. Sous contrainte transactionnelle réelle, avec des pics d’affluence et un inventaire de places à ne jamais vendre deux fois, ça ne tenait pas&nbsp;: d’où une migration vers un moteur relationnel <strong>en cours d’exploitation</strong>, ce qui est la situation la plus coûteuse qui soit.
           <br><br>
           Ce que j’en retiens, et que j’applique aux cas d’usage IA&nbsp;: <strong>la question n’est jamais “est-ce que ça marche&nbsp;?”, c’est “est-ce que ça tient quand le volume, les données sales et les cas limites arrivent&nbsp;?”.</strong> Et cette question se pose avant de s’engager, pas après. »
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Ce qu’il faut savoir dire si on me demande de préciser</span>
+          <strong>Une base de données orientée documents</strong> (MongoDB en est l’exemple type) stocke des documents autonomes, en pratique du JSON, sans schéma imposé. <strong>Une base relationnelle</strong> (MariaDB, PostgreSQL) stocke des lignes dans des tables reliées, avec un schéma contraint, des contraintes d’unicité et des verrous.
+          <br><br>
+          <strong>Pourquoi ça comptait ici&nbsp;:</strong> vendre une place, c’est une opération qui doit toucher plusieurs choses <em>de façon indivisible</em>&nbsp;: décrémenter l’inventaire, créer la commande, encaisser. Soit tout réussit, soit tout est annulé. C’est ce qu’on appelle une <strong>transaction</strong>, et le relationnel est bâti pour ça. Telle qu’elle était construite, l’architecture initiale ne donnait pas cette garantie, d’où les places vendues en double et les paniers perdus.
+          <br><br>
+          ⚠️ <strong>Ne pas dire que la base documentaire est un mauvais choix en soi.</strong> Elle est excellente pour du contenu, du catalogue, des données hétérogènes. <strong>Le problème n’était pas l’outil, c’était l’écart entre l’outil et la contrainte du métier.</strong> C’est exactement ce qu’on reproche à un POC industrialisé trop vite, et c’est la formulation qui protège de passer pour quelqu’un qui accuse ses prédécesseurs.
         </div>
 
         <div class="callout warn">
@@ -1183,6 +1192,7 @@
               <tr><th scope="row">RAG</th><td>Aller chercher des documents pertinents et les injecter dans le prompt</td></tr>
               <tr><th scope="row">Chunking</th><td>Découpage des documents en morceaux avant vectorisation</td></tr>
               <tr><th scope="row">Grounding</th><td>Ancrer la réponse sur des sources vérifiables</td></tr>
+              <tr><th scope="row">Fonds documentaire</th><td>L’ensemble des documents de l’entreprise (procédures, fiches, tickets, contenus). <strong>À ne pas confondre avec une base de données orientée documents</strong>, qui est une technologie de stockage</td></tr>
               <tr><th scope="row">Fine-tuning</th><td>Ré-entraîner un modèle sur des exemples métier pour ancrer un comportement</td></tr>
               <tr><th scope="row">Hallucination</th><td>Réponse fausse énoncée avec assurance</td></tr>
               <tr><th scope="row">Agent</th><td>Système qui poursuit un objectif en utilisant des outils, en boucle</td></tr>
