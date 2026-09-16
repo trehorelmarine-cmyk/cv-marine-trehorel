@@ -242,6 +242,11 @@
 
     .qa > p { margin-bottom: 12px; }
 
+    div.blk > p + p,
+    div.blk > ul + p,
+    .callout > p + p,
+    .callout > ul + p { margin-top: 12px; }
+
     div.blk {
       background: #fbf5ea;
       border: 1px solid #e4d8c6;
@@ -256,9 +261,7 @@
       color: #a54527;
       text-transform: uppercase;
       letter-spacing: 0.9px;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #e4d8c6;
+      margin-bottom: 10px;
     }
 
     div.blk ul { margin-left: 18px; }
@@ -555,8 +558,8 @@
               </tr>
               <tr>
                 <th scope="row">Jérémy Lucas-Boursier<br><em>ou</em><br>Matthieu Vézinet</th>
-                <td><strong>Chef de projet dans l'équipe.</strong> Un pair, pas un supérieur.<br>Jérémy Lucas-Boursier est <strong>docteur en sciences de l'information et de la communication</strong>&nbsp;: il suit le développement des plateformes et mène en parallèle des travaux de recherche sur les usages du numérique et les processus de conception d'interfaces.</td>
-                <td>Le concret. Comment j'écris une spec, comment je tiens plusieurs projets, comment j'arbitre quand on se dispute le même développeur. Sa question implicite&nbsp;: <em>est-ce que je vais pouvoir travailler avec elle&nbsp;?</em><br>S'il s'agit de Jérémy, <strong>j'ai en face de moi quelqu'un qui a une théorie de la conception</strong>. L'exemple de la désélection de places l'intéressera vraiment&nbsp;: le détail vaut la peine d'être déroulé.</td>
+                <td><strong>Chef de projet dans l'équipe.</strong> Un pair, pas un supérieur. <strong>Lequel des deux&nbsp;: toujours pas tranché.</strong><br>Jérémy Lucas-Boursier est <strong>docteur en sciences de l'information et de la communication</strong>&nbsp;: il suit le développement des plateformes et mène en parallèle des travaux de recherche sur les usages du numérique et les processus de conception d'interfaces.<br><span class="trad">[À COMPLÉTER&nbsp;: le parcours de Matthieu Vézinet, matthieu.vezinet@mnhn.fr. Aucune source publique fiable, deux homonymes circulent. Ne rien supposer.]</span></td>
+                <td>Le concret. Comment j'écris une spec, comment je tiens plusieurs projets, comment j'arbitre quand on se dispute le même développeur. Sa question implicite&nbsp;: <em>est-ce que je vais pouvoir travailler avec elle&nbsp;?</em><br>⚠️ <strong>Comme je ne sais pas lequel des deux sera là, je ne calibre pas à l'avance&nbsp;: je donne l'exemple de la désélection de places en une minute, puis j'observe.</strong> S'il creuse les cas limites, je déroule les cinq&nbsp;; sinon je m'arrête. <strong>C'est le seul réglage qui marche dans les deux cas.</strong></td>
               </tr>
               <tr>
                 <th scope="row">Romain Julliard</th>
@@ -607,7 +610,7 @@
               </tr>
               <tr>
                 <th scope="row">Ma motivation à rejoindre <em>l'équipe</em></th>
-                <td>Elle écrit «&nbsp;l'équipe&nbsp;», pas «&nbsp;le poste&nbsp;». Ce qui m'attire&nbsp;: une équipe interne qui construit <strong>et qui garde</strong> ses produits dans la durée, l'inverse du modèle d'agence où on livre et on part. Et un chef de projet qui participe à la gestion de l'unité, donc un vrai périmètre.</td>
+                <td>Elle écrit «&nbsp;l'équipe&nbsp;», pas «&nbsp;le poste&nbsp;». Ce qui m'attire&nbsp;: une équipe interne qui construit <strong>et qui garde la main sur</strong> ses produits, là où en agence la maintenance existe mais reste bornée par un contrat. Et un chef de projet qui participe à la gestion de l'unité, donc un vrai périmètre.</td>
               </tr>
               <tr>
                 <th scope="row">Ce que j'ai compris du poste <strong>et de l'unité dans son ensemble</strong></th>
@@ -627,6 +630,13 @@
       <section id="mosaic">
         <h2><span class="idx">03</span>Qui est Mosaic</h2>
         <p class="section-sub">Ni un laboratoire de recherche, ni une DSI. Une unité de service sous double tutelle.</p>
+
+        <div class="callout say">
+          <span class="lbl">La phrase à dire dans mon intro, quand j'arrive sur «&nbsp;ce que j'ai compris de l'unité de service&nbsp;»</span>
+          <em>«&nbsp;Mosaic est une unité de service, donc une structure qui ne produit pas de science mais qui rend possible celle des autres. Vous construisez et maintenez les outils, les porteurs animent leur réseau et valorisent les données.&nbsp;»</em>
+          <br><br>
+          <strong>Deux phrases, et elles règlent la demande d'Alicia&nbsp;:</strong> la première montre que j'ai compris le statut, la seconde que j'ai compris le partage des rôles. <strong>Y ajouter la double tutelle seulement si la conversation s'y prête&nbsp;:</strong> unité de service <strong>commune</strong> au Muséum national d'Histoire naturelle et à Sorbonne Université.
+        </div>
 
         <div class="blk">
           <span class="label">Le statut</span>
@@ -688,6 +698,24 @@
           <span class="label">Les quatre plateformes citées</span>
           <p><strong>Ce que les quatre ont en commun&nbsp;:</strong> le même geste produit. Un contributeur non expert dépose une donnée située, avec une photo ou un document, et cette donnée devient publique. Et à chaque fois <strong>le commanditaire scientifique est un tiers</strong>&nbsp;: Mosaic n'est pas propriétaire du besoin, elle conçoit et développe pour un porteur externe, différent à chaque projet.</p>
           <p><strong>Ce qui les distingue, et c'est là que c'est intéressant&nbsp;:</strong> l'axe n'est pas le sujet, c'est <strong>le curseur entre ouverture de la contribution et qualité de la donnée</strong>. Quatre plateformes issues de la même unité, quatre placements différents.</p>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Ce que les quatre disent vraiment, et c'est mon terrain</span>
+          <strong>L'initiative vient toujours d'un scientifique, l'usage vient toujours de quelqu'un qui ne l'est pas.</strong> Le porteur a la question de recherche, le contributeur est un particulier, une école, une collectivité, sans compétence scientifique, et il doit pourtant produire une donnée exploitable. <strong>Celui qui commande le projet n'est jamais celui qui s'en sert.</strong>
+          <br><br>
+          <strong>C'est exactement la configuration où j'ai le plus travaillé&nbsp;:</strong> à la Comédie-Française la direction commande et quarante opérateurs utilisent&nbsp;; au CHUM les chercheurs et les soignants ne voulaient pas la même chose. <strong>C'est plus solide que de parler de sciences participatives, où je n'ai rien à démontrer.</strong>
+          <br><br>
+          <strong>Deux nuances à avoir en tête avant de généraliser&nbsp;:</strong>
+          <ul class="dir-list">
+            <li><strong>Zéro Déchet Sauvage fait exception sur le contributeur</strong>&nbsp;: ce n'est pas un individu mais une structure adhérente, et les inscriptions de particuliers sont fermées volontairement. L'unité qui contribue change d'un projet à l'autre.</li>
+            <li><strong>Changing Natures inverse en partie la règle</strong>&nbsp;: l'initiative reste scientifique, mais ce sont les participants qui décident de ce qui entre dans la collection. La curation leur est rendue.</li>
+          </ul>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La formulation, si j'en place une seule sur ce point</span>
+          <em>«&nbsp;Sur vos quatre plateformes, le commanditaire est scientifique mais l'utilisateur ne l'est pas. C'est la configuration où j'ai le plus travaillé&nbsp;: celui qui finance et celui qui se sert de l'outil au quotidien ne demandent jamais la même chose.&nbsp;»</em>
         </div>
 
         <div class="tbl-wrap">
@@ -862,6 +890,66 @@
             <li class="piege"><strong>Ne pas dire que j'ai conçu le protocole.</strong> Il était écrit par les chercheurs. J'ai traduit et négocié, je n'ai pas défini la méthode scientifique.</li>
           </ul>
         </div>
+
+        <h4 class="blk">Le second récit, court&nbsp;: ROMM, et il vise un point que le CHUM ne couvre pas</h4>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi il mérite trois minutes</span>
+          <strong>Le Réseau d'observation des mammifères marins</strong> est un organisme à but non lucratif québécois dont la mission est la protection et la conservation des cétacés et des phoques du Saint-Laurent et de leurs habitats. <strong>C'est le seul commanditaire de mon parcours dont l'activité même est l'observation par un réseau de contributeurs</strong>, donc le plus proche des porteurs de Mosaic.
+          <br><br>
+          Akufen a été mandaté pour l'identité graphique de leur écosystème et pour <strong>deux formations en ligne</strong>, l'une destinée aux <strong>plaisanciers</strong>, l'autre à <strong>l'industrie maritime</strong>. La plateforme plaisanciers propose un <strong>contenu adapté au type d'embarcation</strong>, <strong>trois modules suivis d'un quiz</strong>, des cartes interactives et des fiches par espèce de baleine conçues pour <strong>les identifier avec certitude</strong>. Le tout en français et en anglais, en numérique comme en imprimé.
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Ce que j'ai construit pour le ROMM</th><th>Ce que ça vise chez Mosaic</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">Des fiches par espèce, pour identifier une baleine avec certitude depuis un bateau</th>
+                <td><strong>C'est le même objet que la clé de détermination de QUBS</strong>, où un particulier identifie la faune du sol à partir d'une photo. <strong>Le rapprochement le plus fort du dossier</strong>&nbsp;: aider un non-expert à nommer juste, c'est la condition de la qualité de la donnée</td>
+              </tr>
+              <tr>
+                <th scope="row">Un contenu adapté au type d'embarcation</th>
+                <td>Le protocole change selon le profil du contributeur. <strong>Zéro Déchet Sauvage fait la même chose avec ses protocoles à quatre niveaux</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">Deux formations distinctes, grand public et professionnels</th>
+                <td>La dualité que Mosaic gère projet par projet&nbsp;: <strong>le particulier d'un côté, la structure adhérente de l'autre</strong>, et pas le même dispositif pour les deux</td>
+              </tr>
+              <tr>
+                <th scope="row">Trois modules puis un quiz</th>
+                <td>Vérifier que la méthode est comprise <strong>avant</strong> de contribuer. C'est le contrôle en amont, celui que Zéro Déchet Sauvage obtient par la charte et la formation</td>
+              </tr>
+              <tr>
+                <th scope="row">Français et anglais, numérique et imprimé</th>
+                <td>Changing Natures est en trois langues. Et l'imprimé rappelle qu'un protocole se consulte parfois <strong>là où il n'y a pas de réseau</strong>, sur un bateau comme sur une plage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La formulation, avec le périmètre dit d'emblée</span>
+          <em>«&nbsp;J'ai travaillé pour le Réseau d'observation des mammifères marins, au Québec. <strong>Je n'ai pas construit leur outil d'observation, j'ai construit les formations en ligne</strong> qui apprennent aux plaisanciers et aux professionnels à naviguer sans perturber l'habitat, avec des fiches d'identification par espèce. C'est ce que je retrouve chez vous&nbsp;: la qualité de la donnée dépend d'abord de la capacité d'un non-expert à identifier correctement et à appliquer un protocole. Sur vos quatre plateformes, cette couche pédagogique est partout.&nbsp;»</em>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Trois précautions, et la première n'est pas négociable</span>
+          <ul class="dir-list">
+            <li class="piege"><strong>Ne pas laisser croire que j'ai fait leur plateforme d'observation.</strong> Le ROMM en fait, je n'y ai pas touché. Si Alicia connaît l'organisme, et c'est possible dans ce milieu, l'ambiguïté coûterait tout le bénéfice. <strong>Dire le périmètre moi-même, il est bien assez fort.</strong></li>
+            <li class="piege"><strong>Ne pas revendiquer l'identité graphique.</strong> Elle a été produite par les designers de l'agence.</li>
+            <li><strong>Le ROMM est client d'Akufen depuis 2018 et je suis arrivée en 2019</strong>&nbsp;: j'ai repris un compte en cours, je ne l'ai pas ouvert. À dire simplement si la question vient.</li>
+          </ul>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">À compléter avant l'entretien</span>
+          <ul class="dir-list">
+            <li><strong>[À COMPLÉTER]</strong> Mon rôle exact et la période&nbsp;: sur laquelle des deux formations, et sur quelle durée&nbsp;?</li>
+            <li><strong>[À COMPLÉTER]</strong> Une difficulté précise et sa résolution. C'est ce qui manque pour que le récit tienne debout au-delà de la description.</li>
+            <li><strong>[À COMPLÉTER]</strong> Un chiffre, s'il en existe un&nbsp;: nombre d'inscrits, de formations complétées, d'espèces documentées.</li>
+          </ul>
+        </div>
       </section>
 
       <!-- 06 -->
@@ -944,7 +1032,10 @@
             <dt>Le problème</dt>
             <dd>Chaque chef de projet arrive avec un besoin légitime et une date. Les développeurs et les designers ne sont pas duplicables. Les priorités changent en cours de semaine.</dd>
             <dt>Ce que je faisais</dt>
-            <dd>Arbitrer, en tenant deux critères contre l'intuition&nbsp;: <strong>ce qui bloque quelqu'un d'autre passe avant ce qui est urgent pour une seule personne</strong>, et <strong>une date externe engagée vis-à-vis d'un tiers passe avant une date interne</strong>. Le reste se négocie. Et surtout&nbsp;: dire non explicitement plutôt que promettre et décaler.</dd>
+            <dd>Arbitrer avec deux règles, qui passent toutes les deux avant l'urgence ressentie par celui qui demande&nbsp;:<br>
+            <strong>1. Une tâche qui empêche d'autres personnes d'avancer passe avant une tâche qui ne bloque que son demandeur.</strong> Deux jours de retard sur un livrable dont trois personnes attendent le feu vert coûtent six jours à l'équipe. Deux jours de retard sur un sujet que personne n'attend en coûtent deux.<br>
+            <strong>2. Une date promise à quelqu'un d'extérieur passe avant une date qu'on s'est fixée entre nous.</strong> Une date interne se renégocie en réunion&nbsp;; une date annoncée à un client, à un partenaire ou au public, non.<br>
+            Le reste se négocie. Et surtout&nbsp;: dire non explicitement plutôt que promettre et décaler.</dd>
             <dt>Résultat</dt>
             <dd>La compétence rare n'est pas de faire un planning&nbsp;: c'est de <strong>rendre l'arbitrage lisible</strong>, pour que celui qui perd la semaine comprenne pourquoi et ne le reprenne pas comme un affront.</dd>
           </dl>
@@ -968,18 +1059,24 @@
 
         <details class="qa">
           <summary>«&nbsp;Pourquoi Mosaic&nbsp;? Pourquoi le public après treize ans en agence&nbsp;?&nbsp;»</summary>
-          <p>La vraie réponse, et elle est défendable&nbsp;: <strong>en agence on livre et on part</strong>. Les produits sur lesquels j'ai le plus appris sont ceux que j'ai gardés&nbsp;: la billetterie de la Comédie-Française, que je suis en exploitation continue, m'a plus appris que dix refontes. Mosaic construit <em>et</em> maintient, et l'annonce dit que la maintenance est «&nbsp;le choix systématique des porteurs&nbsp;». Ajouter le sujet&nbsp;: des outils qui servent à produire de la connaissance publique.</p>
-          <p class="piege"><strong>Ne pas dire&nbsp;:</strong> «&nbsp;je cherche de la stabilité&nbsp;» ou «&nbsp;j'en ai assez du rythme de l'agence&nbsp;». C'est vrai mais ça se lit comme un repli.</p>
+          <p><strong>Commencer par refuser la prémisse, honnêtement.</strong> Je ne cherche pas «&nbsp;le public&nbsp;». Je cherche des missions qui m'intéressent, et je regarde aussi bien le CDI que le freelance, le privé que l'institutionnel. Le statut de l'employeur n'est pas mon critère, et prétendre le contraire se verrait.</p>
+          <p><strong>Enchaîner sur ce qui est vraiment mon critère&nbsp;: le sujet.</strong> Depuis treize ans, mes clients sont des institutions culturelles et scientifiques&nbsp;: la Comédie-Française, le CHUM, le réseau d'observation des mammifères marins au Québec. C'est le terrain que je connais, et c'est celui sur lequel j'ai envie de continuer. Mosaic y est directement.</p>
+          <p><strong>Et le point sur la durée, formulé sans caricaturer l'agence&nbsp;:</strong> une refonte se vend presque toujours avec de la maintenance derrière, corrective <em>et</em> évolutive, souvent sur trois ans. Mais l'évolutif est une enveloppe de jours, priorisée par le client, et tout ce qui en sort repasse par un devis. Les produits sur lesquels j'ai le plus appris sont ceux où j'avais aussi la décision, pas seulement la durée&nbsp;: <strong>la billetterie, que je suis en exploitation continue, m'a plus appris que dix refontes.</strong> Mosaic construit et maintient avec ses propres moyens, et l'annonce dit que la maintenance est «&nbsp;le choix systématique des porteurs&nbsp;».</p>
+          <p class="piege"><strong>Ne pas dire&nbsp;:</strong> «&nbsp;je cherche de la stabilité&nbsp;» ou «&nbsp;j'en ai assez du rythme de l'agence&nbsp;». C'est vrai mais ça se lit comme un repli.<br><strong>Ne pas dire&nbsp;: «&nbsp;en agence on livre et on part&nbsp;».</strong> C'est faux, la maintenance est vendue, et quelqu'un qui a travaillé avec des agences le relèvera.<br><strong>Ne pas s'inventer une vocation pour le service public.</strong> L'argument de la maîtrise de la feuille de route vaut pour n'importe quel éditeur ou équipe interne&nbsp;: en faire une raison d'aller vers le public sonnerait faux.<br><strong>Mais ne pas s'arrêter à «&nbsp;je regarde tout&nbsp;».</strong> Dit seul, ça s'entend comme «&nbsp;je prends ce qui vient&nbsp;». L'ouverture sur le statut n'est crédible que si elle est immédiatement suivie de ce qui est fermé, c'est-à-dire le type de mission.</p>
         </details>
 
         <details class="qa">
           <summary>«&nbsp;Que savez-vous des sciences participatives&nbsp;?&nbsp;»</summary>
-          <p><strong>Répondre honnêtement, puis basculer sur le CHUM.</strong> «&nbsp;Je n'en ai pas d'expérience, et je ne vais pas prétendre le contraire. Ce que j'ai lu de vos plateformes, c'est que la difficulté n'est pas la collecte, c'est la <em>fidélité</em>&nbsp;: obtenir une donnée exploitable de quelqu'un qui n'a aucune obligation de la fournir. Cette difficulté-là, je l'ai travaillée pendant deux ans sur des applications de santé au CHUM.&nbsp;»</p>
+          <p><strong>La définition, pour moi, avant d'entrer dans la salle&nbsp;:</strong> des projets de recherche où <strong>la donnée est collectée par des volontaires</strong>, citoyens, associations, écoles, et non par des chercheurs professionnels. Compter les oiseaux de son jardin, relever les déchets d'une plage, décrire des noisetiers. Le protocole vient du scientifique, l'observation vient de quelqu'un d'autre.<br>
+          <strong>Et le mot que Mosaic ajoute&nbsp;: «&nbsp;en conscience&nbsp;».</strong> Le contributeur doit savoir à quoi sert sa donnée et y consentir. Ce n'est pas décoratif, ça se traduit en consentement, propriété de la donnée, retour vers le contributeur, transparence sur l'usage. Détail au §03.</p>
+          <p><strong>Mais ne pas réciter cette définition en réponse.</strong> On me demande ce que je sais, pas ce que j'ai lu la veille. La réponse est&nbsp;: <strong>reconnaître que je n'en ai pas d'expérience, puis basculer sur le CHUM.</strong></p>
+          <p>«&nbsp;Je n'en ai pas d'expérience, et je ne vais pas prétendre le contraire. Ce que j'ai lu de vos plateformes, c'est que la difficulté n'est pas la collecte, c'est la <em>fidélité</em>&nbsp;: obtenir une donnée exploitable de quelqu'un qui n'a aucune obligation de la fournir. Cette difficulté-là, je l'ai travaillée pendant deux ans sur des applications de santé au CHUM.&nbsp;»</p>
         </details>
 
         <details class="qa">
           <summary>«&nbsp;Ce que vous avez compris de Mosaic&nbsp;»</summary>
-          <p>Section 03. Trois points qui font la différence&nbsp;: <strong>le modèle de financement conjoint</strong>, le fait que ce sont les porteurs qui animent le réseau et pas Mosaic, et <strong>que l'unité est elle-même financée par les projets qu'elle accompagne</strong>. Ajouter que Mosaic est une <strong>unité de méthode et non une unité naturaliste</strong>&nbsp;: sa mission couvre toutes disciplines, environnement, santé, lettres.</p>
+          <p><strong>Ouvrir par la définition, en deux phrases&nbsp;:</strong> «&nbsp;Mosaic est une unité de service commune au Muséum et à Sorbonne Université&nbsp;: elle ne produit pas de science, elle fournit aux équipes de recherche les plateformes dont elles ont besoin pour faire contribuer des volontaires. Vous construisez et vous maintenez l'outil, les porteurs de projet animent leur réseau et valorisent les données.&nbsp;»</p>
+          <p><strong>Puis les trois points qui font la différence</strong> (section 03)&nbsp;: <strong>le modèle de financement conjoint</strong>, le fait que ce sont les porteurs qui animent le réseau et pas Mosaic, et <strong>que l'unité est elle-même financée par les projets qu'elle accompagne</strong>. Ajouter que Mosaic est une <strong>unité de méthode et non une unité naturaliste</strong>&nbsp;: sa mission couvre toutes disciplines, environnement, santé, lettres.</p>
         </details>
 
         <details class="qa">
@@ -1278,13 +1375,13 @@
             </ul>
           </li>
           <li><strong>Le récit CHUM</strong> répété à voix haute, en trois minutes, orienté protocole → application volontaire. <strong>Y insérer la partie co-conception</strong>&nbsp;: le moment où soignants et chercheurs ne voulaient pas la même chose.</li>
-          <li><strong>La réponse spécification fonctionnelle</strong> tenue en une minute, avec l'exemple de la désélection de place. À dérouler s'il s'agit de Jérémy Lucas-Boursier, qui travaille sur la conception d'interfaces.</li>
+          <li><strong>La réponse spécification fonctionnelle</strong> tenue en une minute, avec l'exemple de la désélection de place. <strong>Je ne sais pas lequel des deux chefs de projet sera là&nbsp;: donner l'exemple court, puis dérouler les cinq cas seulement s'il relance.</strong></li>
           <li><strong>Le récit trafic</strong> et les deux critères d'arbitrage. <strong>Priorité relevée</strong>&nbsp;: le multi-projets est probablement le vrai sujet, vu le fonctionnement en prestation.</li>
           <li><strong>Les trois questions prioritaires</strong> mémorisées&nbsp;: statut, grille, télétravail. Ce sont celles qui décident. Le statut se pose désormais <strong>en citant le financement par projet</strong>.</li>
           <li><strong>Passer l'EF SET 50</strong>, cinquante minutes, pour moi seule. Ne le mentionner que si C1 ou plus.</li>
           <li>Relire le modèle économique&nbsp;: acculturation, financement conjoint, convention de partenariat, <strong>et unité financée par ses projets</strong>.</li>
           <li><s>Vérifier le lieu exact</s>, confirmé le 09/09&nbsp;: barre 46-56, 2<sup>e</sup> étage, salle 201. Prévoir dix minutes entre le métro Jussieu et la salle.</li>
-          <li><s>Identifier les personnes</s>&nbsp;: <strong>Alicia Mansilla Sanchez</strong>, directrice adjointe&nbsp;; <strong>Jérémy Lucas-Boursier</strong> et <strong>Matthieu Vézinet</strong>, chefs de projet&nbsp;; <strong>Romain Julliard</strong>, directeur, absent de l'entretien.</li>
+          <li><s>Identifier les personnes</s>&nbsp;: <strong>Alicia Mansilla Sanchez</strong>, directrice adjointe&nbsp;; <strong>Jérémy Lucas-Boursier</strong> ou <strong>Matthieu Vézinet</strong>, chefs de projet, <strong>on ne sait toujours pas lequel</strong>&nbsp;; <strong>Romain Julliard</strong>, directeur, absent de l'entretien.</li>
         </ul>
 
         <div class="callout retenir">
