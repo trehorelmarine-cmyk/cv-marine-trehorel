@@ -256,6 +256,7 @@
     }
 
     div.blk > .label {
+      display: block;
       font-size: 12px;
       font-weight: 700;
       color: #a54527;
@@ -347,7 +348,7 @@
       font-weight: 700;
       letter-spacing: 1.3px;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
     .callout.retenir { background: #f2ebdf; border-left: 3px solid #c9755a; }
     .callout.retenir .lbl { color: #a54527; }
@@ -762,6 +763,18 @@
           «&nbsp;Coudrier est le seul des quatre où j'ai vu qu'on peut commenter et échanger avec les chercheurs sur chaque contribution et chaque tutoriel, et où le site conseille de rassembler ses documents avant d'ouvrir le formulaire, avec la possibilité de corriger après coup. Sur un territoire de douze communes ça se tient. <strong>Est-ce que ce format conversationnel a été pensé comme spécifique à Coudrier, ou est-ce qu'il pourrait servir de brique pour d'autres projets&nbsp;?</strong>&nbsp;»
         </div>
 
+        <div class="blk">
+          <span class="label">Ce que j'ai relevé sous le capot, vérifié le 16/09</span>
+          <p>Trois des quatre plateformes sont inspectables&nbsp;; <strong>coudrier.mnhn.fr</strong> est protégé et n'a rien renvoyé.</p>
+          <ul class="dir-list">
+            <li><strong>qubs.fr</strong> et <strong>changing-natures.org</strong>&nbsp;: mêmes conventions de fichiers (<em>/build/</em>, <em>runtime</em> avec empreinte), signature <strong>Vue</strong> sur QUBS.</li>
+            <li><strong>zero-dechet-sauvage.org</strong>&nbsp;: même schéma dans <em>/dist/</em>, session <strong>PHP</strong>, chemin <em>/bundles/</em>.</li>
+            <li>Ces conventions sont celles de <strong>Symfony avec Webpack Encore</strong>, son outil de compilation d'assets. <span class="trad">Symfony&nbsp;: cadre de développement PHP très répandu dans le secteur public français. Webpack Encore&nbsp;: l'outil qui compile les fichiers du site, et dont les noms de fichiers produits sont reconnaissables.</span></li>
+            <li>Zéro Déchet Sauvage charge sa mesure d'audience depuis <strong>s.65mo.fr</strong>, le domaine de <strong>65 Millions d'Observateurs</strong>, le projet dont Mosaic est issue. Une infrastructure héritée, encore mutualisée.</li>
+          </ul>
+          <p class="piege"><strong>Ce que ça ne prouve pas, et c'est important&nbsp;:</strong> une même pile technique n'est pas un socle partagé. Trois sites Symfony peuvent être trois codes sans une ligne commune. <strong>Donc ça se pose en question, jamais en affirmation</strong> (section 09). Et ne pas jouer à l'experte technique&nbsp;: j'ai regardé des noms de fichiers, je n'ai pas audité leur code.</p>
+        </div>
+
         <div class="callout warn">
           <span class="lbl">Deux sujets à ne pas manier à l'aveugle</span>
           <ul class="dir-list">
@@ -1109,22 +1122,37 @@
 
         <details class="qa">
           <summary>«&nbsp;Qu'est-ce qu'une bonne spécification fonctionnelle&nbsp;?&nbsp;»</summary>
-          <p>Section 06. C'est le deuxième item des missions&nbsp;: la probabilité qu'elle tombe est élevée, et elle est déjà tombée ailleurs.</p>
+          <p><strong>La réponse, en une phrase&nbsp;:</strong> «&nbsp;Une spécification n'est pas un document, c'est un <strong>contrat entre trois personnes</strong>&nbsp;: celui qui a le besoin, celui qui développe, celui qui recette. Elle est bonne si le développeur n'a pas besoin de venir me voir pour commencer, et si le testeur peut écrire son cas de test sans m'appeler.&nbsp;»</p>
+          <p><strong>Ce qu'elle contient, si on me demande de dérouler&nbsp;:</strong> le but et ce qu'on saura mesurer après&nbsp;; les règles de gestion en <em>si / alors</em>, sans adverbe et sans «&nbsp;etc.&nbsp;»&nbsp;; les rôles et les droits&nbsp;; les cas limites&nbsp;; <strong>le périmètre exclu, écrit noir sur blanc</strong>&nbsp;; l'impact sur l'existant.</p>
+          <p><strong>Puis l'exemple de la désélection d'une place</strong>, en une minute. Ne dérouler les cinq cas que s'il relance.</p>
+          <p class="trad">Détail complet et tableau des cinq cas&nbsp;: <a href="#spec">section 06, la spécification fonctionnelle</a>. C'est le deuxième item des missions de l'annonce&nbsp;: la probabilité que la question tombe est élevée, et elle est déjà tombée chez Adservio.</p>
         </details>
 
         <details class="qa">
           <summary>«&nbsp;Comment chiffrez-vous une fonctionnalité&nbsp;?&nbsp;»</summary>
           <p>Je ne chiffre pas seule&nbsp;: le développeur estime, je cadre. Mon travail est de <strong>découper assez fin pour que l'estimation ait un sens</strong>, et d'expliciter ce qui est exclu. Une estimation sur une fonctionnalité mal découpée n'est pas une estimation, c'est un souhait. Ensuite je suis la consommation par rapport au vendu, avec alerte au premier écart et non à 80&nbsp;%.</p>
+          <p><strong>Si la conversation va sur l'IA, et seulement à ce moment-là&nbsp;:</strong> «&nbsp;Ce que j'aimerais essayer, c'est l'utiliser sur l'historique de l'équipe, les budgets passés croisés avec les temps réellement consommés, pour sortir les tâches comparables et l'écart constaté. Pas pour produire un chiffre, pour donner au développeur de quoi appuyer le sien. Je n'ai pas encore eu l'occasion de le faire.&nbsp;»</p>
+          <p class="piege"><strong>Trois précautions.</strong><br><strong>Ne pas dire «&nbsp;j'utilise l'IA pour estimer&nbsp;».</strong> En face, un chef de projet qui travaille avec des développeurs entend «&nbsp;je laisse une machine mettre un prix sur ton travail&nbsp;». L'IA ne connaît ni leur code, ni leur dette, ni leur vitesse&nbsp;: un chiffre sorti d'un modèle est une invention plausible, et il <em>ancre</em> la discussion.<br><strong>Le dire au conditionnel.</strong> C'est une intention, pas une pratique. Le présenter comme une habitude serait invérifiable et se retournerait à la première question précise.<br><strong>Ne pas l'amener moi-même.</strong> L'annonce ne comporte aucune dimension IA. Ça se pose en question (section 09), pas en argument.</p>
         </details>
 
         <details class="qa">
           <summary>«&nbsp;Comment priorisez-vous&nbsp;?&nbsp;»</summary>
-          <p>Le <strong>tableau de bord support de la Comédie-Française</strong>. 40 opérateurs signalaient bugs et questions dans un canal Teams&nbsp;: toute la matière était là, inexploitable. J'en ai fait des données de pilotage&nbsp;: taxonomie, volumes, criticité, tendance mensuelle. La fusion de fiche est ressortie avec <strong>58 occurrences</strong>, loin devant, et est passée en tête des livrables. <strong>Ce n'est ni une opinion ni le dernier incident en date qui l'a fait passer devant, c'est un volume mesuré.</strong> La colonne tendance permet de vérifier après livraison que le correctif a fait redescendre le volume.</p>
+          <p><strong>La réponse d'abord, l'exemple ensuite&nbsp;:</strong> «&nbsp;Je priorise sur trois critères, dans cet ordre. <strong>Ce qui est contraint de l'extérieur</strong>, une date de terrain, une saison de collecte, une obligation réglementaire&nbsp;: ça ne se négocie pas. <strong>Ce qui débloque le plus de monde</strong>, plutôt que ce qui est urgent pour une seule personne. <strong>Et ce qui est mesuré</strong>, pas ce qui est réclamé le plus fort. Le troisième est le plus important, parce que c'est celui qu'on saute&nbsp;: sans donnée, la priorisation se fait au dernier qui a parlé.&nbsp;»</p>
+          <p><strong>Puis l'exemple, qui prouve le troisième critère&nbsp;: le tableau de bord support de la Comédie-Française.</strong> 40 opérateurs signalaient bugs et questions dans un canal Teams&nbsp;: toute la matière était là, inexploitable. J'en ai fait des données de pilotage&nbsp;: taxonomie, volumes, criticité, tendance mensuelle. La fusion de fiche est ressortie avec <strong>58 occurrences</strong>, loin devant, et est passée en tête des livrables. <strong>Ce n'est ni une opinion ni le dernier incident en date qui l'a fait passer devant, c'est un volume mesuré.</strong> La colonne tendance permet de vérifier après livraison que le correctif a fait redescendre le volume.</p>
+        </details>
+
+        <details class="qa">
+          <summary>«&nbsp;Comment arbitrez-vous entre la dette technique et les nouvelles fonctionnalités&nbsp;?&nbsp;»</summary>
+          <p><strong>C'est là que la Comédie-Française est la meilleure réponse de la fiche, et elle vise leur quotidien.</strong> Mosaic maintient des plateformes dans la durée, la maintenance est «&nbsp;le choix systématique des porteurs&nbsp;»&nbsp;: l'arbitrage entre consolider et ajouter est leur situation permanente.</p>
+          <p>«&nbsp;Sur la billetterie, l'architecture initiale reposait sur une base documentaire mal adaptée aux contraintes transactionnelles d'une billetterie. Le vrai problème était <strong>le rapprochement entre le paiement encaissé et la commande enregistrée</strong>&nbsp;; les doublons de places et les pertes de panier en étaient les symptômes. Une migration de base de données a été engagée <strong>sur un produit déjà en exploitation</strong>, pendant que le client attendait de nouvelles fonctionnalités. Pendant des mois, l'essentiel de la capacité de l'équipe allait à quelque chose d'invisible pour lui.&nbsp;»</p>
+          <p><strong>Ce que j'en ai tiré, et c'est le cœur de la réponse&nbsp;:</strong> une dette technique qui reste un sujet d'ingénieurs est ingérable, parce qu'elle se présente au client comme des mois sans livraison. Ce qui la rend arbitrable, c'est de la traduire en conséquences qu'il constate lui-même&nbsp;: une place vendue deux fois, un panier perdu. À partir de là, ce n'est plus «&nbsp;de la technique contre du fonctionnel&nbsp;», c'est une priorité qui se discute. <strong>Et je tiens toujours les deux files en parallèle&nbsp;: une part de capacité réservée au fonctionnel, même réduite, pour que le produit ne s'arrête jamais complètement du point de vue de l'utilisateur.</strong></p>
+          <p class="piege"><strong>Trois précautions, et elles sont fermes.</strong><br><strong>Ne jamais dire «&nbsp;de mauvais choix techniques ont été faits&nbsp;».</strong> Dire ce que l'architecture ne couvrait pas, pas ce qu'elle valait.<br><strong>Ne pas m'attribuer la décision de migrer</strong>&nbsp;: elle était portée par le directeur technique.<br><strong>Ne pas noircir le client.</strong> Il réclamait des fonctionnalités, c'était légitime&nbsp;: il payait pour un produit qui devait avancer.</p>
         </details>
 
         <details class="qa">
           <summary>«&nbsp;Un projet qui s'est mal passé&nbsp;»</summary>
-          <p>Villa Médicis, section 06. Une spec validée et pourtant lisible de deux façons, découverte à la recette. <strong>La leçon est structurelle, pas anecdotique</strong>&nbsp;: la signature prouve un accord sur un texte, pas sur un produit, d'où la reformulation orale et la validation par lots.</p>
+          <p><strong>Garder Villa Médicis</strong> (section 06). Une spec validée et pourtant lisible de deux façons, découverte à la recette. <strong>La leçon est structurelle, pas anecdotique</strong>&nbsp;: la signature prouve un accord sur un texte, pas sur un produit, d'où la reformulation orale et la validation par lots.</p>
+          <p class="piege"><strong>Pourquoi pas la Comédie-Française sur cette question précise.</strong> La question cherche une erreur à moi et ce que j'en ai tiré. À la Comédie-Française, la difficulté était <em>subie</em>&nbsp;: l'architecture initiale n'est pas mon choix, la décision de migrer était portée par le directeur technique. Raconté en réponse à «&nbsp;un projet qui s'est mal passé&nbsp;», ça s'entend comme «&nbsp;le problème, c'était les autres&nbsp;», même si c'est faux. Villa Médicis est une erreur qui est la mienne, et c'est ce qui la rend forte. <strong>En plus, la Comédie-Française porte déjà trois réponses dans cette fiche&nbsp;: en faire aussi le projet raté déséquilibrerait tout.</strong></p>
         </details>
 
         <details class="qa">
@@ -1263,9 +1291,10 @@
             <li>Comment se tranche la priorité quand deux porteurs veulent le même développeur la même semaine&nbsp;? <em>Ouvre directement sur ma section 07.</em></li>
             <li>Les calendriers de livraison sont-ils contraints par des <strong>saisons de collecte</strong>&nbsp;?</li>
             <li>La recherche de financement conjointe&nbsp;: quelle part du rôle, et le chef de projet y est-il en première ligne ou en appui de la direction&nbsp;?</li>
-            <li>Les plateformes sont sur mesure&nbsp;: y a-t-il un <strong>socle technique commun</strong> réutilisé d'un projet à l'autre&nbsp;? <em>Ouvre sur le boilerplate d'agence que j'ai contribué à monter.</em></li>
+            <li><strong>Vos plateformes tournent sur un socle assez homogène. Est-ce qu'il y a une base de code partagée entre elles, des composants réutilisés&nbsp;? Et qui porte le coût de mise à jour quand ce socle évolue&nbsp;?</strong> <em>La seconde partie est celle qui compte&nbsp;: dans une unité qui maintient cinq plateformes avec six personnes et dont chaque budget est adossé au projet d'un porteur, <strong>l'entretien du socle commun est un travail que personne ne finance</strong>. Ouvre aussi sur le boilerplate d'agence que j'ai contribué à monter.</em></li>
             <li>Comment se termine un partenariat&nbsp;? Que devient une plateforme si le porteur ne trouve plus de financement&nbsp;?</li>
             <li>Quelle est la place de l'IA dans les pratiques de l'équipe aujourd'hui, sur la conception comme sur le développement&nbsp;?</li>
+            <li><strong>Gardez-vous une trace de l'écart entre le budget prévu et le temps réellement consommé sur un projet&nbsp;?</strong> <em>Question de pilotage avant tout. Si la réponse est non, c'est une contribution possible dès la première année. Si la réponse est oui, enchaîner&nbsp;: «&nbsp;c'est le type de matériau qui permet de fiabiliser une première estimation avant de la soumettre à l'équipe&nbsp;». <strong>Le dire comme une intention, jamais comme une pratique&nbsp;: je ne l'ai pas encore fait.</strong></em></li>
           </ul>
         </div>
 
@@ -1291,7 +1320,7 @@
               <tr>
                 <th scope="row">Contrat</th>
                 <td>L'en-tête dit «&nbsp;poste permanent&nbsp;: titulaire, contractuel - catégorie A&nbsp;». Le corps de l'annonce dit <strong>CDD de droit public, 1 an renouvelable</strong></td>
-                <td>⚠️ Contradiction. <strong>À faire trancher en entretien</strong></td>
+                <td>⚠️ <strong>Pas vraiment une contradiction</strong>&nbsp;: le poste est permanent, le contrat proposé est contractuel. Détail juste en dessous</td>
               </tr>
               <tr>
                 <th scope="row">Salaire</th>
@@ -1325,6 +1354,31 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="blk">
+          <span class="label">Lire la contradiction de l'en-tête&nbsp;: elle n'en est peut-être pas une</span>
+          <p><strong>«&nbsp;Catégorie A&nbsp;» n'est pas un contrat, c'est un niveau de poste</strong> dans la fonction publique, celui des cadres. Deux façons de l'occuper, et elles n'ont rien à voir&nbsp;:</p>
+          <ul class="dir-list">
+            <li><strong>Titulaire&nbsp;:</strong> fonctionnaire, recruté <strong>par concours</strong>. Emploi à vie, rémunération à l'ancienneté. <strong>On ne peut pas y entrer par un simple entretien de recrutement.</strong></li>
+            <li><strong>Contractuel&nbsp;:</strong> recruté sur contrat, sans concours, sur le même poste et la même grille indiciaire. C'est <strong>la seule voie ouverte pour moi</strong> tant que je n'ai pas de concours.</li>
+          </ul>
+          <p>Donc l'en-tête ne se contredit pas&nbsp;: il dit que le <strong>poste</strong> est permanent et ouvert aux deux statuts. Le corps décrit le <strong>contrat</strong> proposé aujourd'hui, un CDD d'un an, c'est-à-dire la voie contractuelle. Un poste peut très bien être pérenne dans l'organigramme tout en étant pourvu par des CDD successifs.</p>
+          <p class="piege"><strong>Ce qui reste flou, et c'est ça qu'il faut faire dire&nbsp;:</strong> le poste est-il <strong>gagé sur un budget récurrent de l'unité</strong>, ou adossé au financement d'un projet&nbsp;? La fiche officielle dit que Mosaic est principalement financée par les projets qu'elle accompagne (section 03). <strong>C'est la vraie question derrière le mot «&nbsp;permanent&nbsp;».</strong></p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La question à poser, calme et informée</span>
+          «&nbsp;L'annonce mentionne un poste permanent ouvert aux titulaires comme aux contractuels, et un CDD d'un an renouvelable. Je comprends que le recrutement se fait sur la voie contractuelle. <strong>Est-ce que le poste est adossé à un budget récurrent de l'unité, ou au financement d'un projet&nbsp;?</strong> Et sur quel horizon se projette-t-on&nbsp;: quel a été le parcours des personnes recrutées en CDD ici&nbsp;?&nbsp;»
+          <p style="margin-top:.7em"><strong>Pourquoi cette formulation&nbsp;:</strong> elle ne leur reproche pas une contradiction, elle montre que je connais le fonctionnement. Et la dernière question obtient un fait&nbsp;: ce que sont devenus les précédents. <strong>Une réponse évasive là-dessus est une réponse.</strong></p>
+        </div>
+
+        <div class="callout warn">
+          <span class="lbl">Deux choses à ne pas dire</span>
+          <ul class="dir-list">
+            <li><strong>Ne pas relever «&nbsp;la contradiction&nbsp;» comme une erreur de leur part.</strong> C'est une formulation administrative standard. La pointer du doigt me ferait passer pour quelqu'un qui ne connaît pas le secteur public.</li>
+            <li><strong>Ne pas demander si je peux être titularisée.</strong> Ça passe par un concours externe, ça ne se décide pas dans cette salle, et la question révélerait que j'attends du poste quelque chose qu'il ne peut pas donner.</li>
+          </ul>
         </div>
 
         <div class="callout retenir">
