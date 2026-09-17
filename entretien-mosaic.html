@@ -1229,22 +1229,34 @@
         </div>
 
         <div class="blk">
-          <span class="label">Ce que j'ai relevé sous le capot, vérifié le 16/09</span>
+          <span class="label">Ce que j'ai relevé sous le capot, vérifié les 16 et 17/09</span>
           <p>Trois des quatre plateformes sont inspectables&nbsp;; <strong>coudrier.mnhn.fr</strong> est protégé et n'a rien renvoyé.</p>
           <ul class="dir-list">
             <li><strong>qubs.fr</strong> et <strong>changing-natures.org</strong>&nbsp;: mêmes conventions de fichiers (<em>/build/</em>, <em>runtime</em> avec empreinte), signature <strong>Vue</strong> sur QUBS.</li>
             <li><strong>zero-dechet-sauvage.org</strong>&nbsp;: même schéma dans <em>/dist/</em>, session <strong>PHP</strong>, chemin <em>/bundles/</em>.</li>
             <li>Ces conventions sont celles de <strong>Symfony avec Webpack Encore</strong>, son outil de compilation d'assets. <span class="trad">Symfony&nbsp;: cadre de développement PHP très répandu dans le secteur public français. Webpack Encore&nbsp;: l'outil qui compile les fichiers du site, et dont les noms de fichiers produits sont reconnaissables.</span></li>
             <li>Zéro Déchet Sauvage charge sa mesure d'audience depuis <strong>s.65mo.fr</strong>, le domaine de <strong>65 Millions d'Observateurs</strong>, le projet dont Mosaic est issue. Une infrastructure héritée, encore mutualisée.</li>
-            <li><strong>Aucun bandeau cookies sur leurs sites</strong> (constaté le 17/09). Et c'est très probablement cohérent avec la ligne précédente&nbsp;: <strong>la CNIL dispense de consentement la mesure d'audience</strong> quand elle est strictement configurée, hébergée chez soi et sans suivi d'un site à l'autre. Une mesure servie depuis leur propre domaine correspond exactement à ce profil.</li>
+            <li><strong>Aucun bandeau cookies sur leurs sites</strong>, et le 17/09 j'ai trouvé pourquoi&nbsp;: <strong>leur outil de statistiques est Plausible</strong>, détecté sur qubs.fr en espace connecté. <strong>Plausible ne dépose aucun cookie, par construction.</strong> Pas de cookie, rien à demander, donc pas de bandeau. Ce n'est pas une dispense arrachée, c'est un outil choisi pour ça.</li>
+            <li><strong>Hypothèse qui relie les deux&nbsp;: s.65mo.fr serait leur Plausible installé chez eux</strong>, le «&nbsp;s&nbsp;» pour statistiques. Cohérent, mais non vérifié.</li>
+            <li><strong>Cartographie&nbsp;: Leaflet 1.9.4</strong>, bibliothèque libre, et non une carte Google. <span class="trad">Leaflet&nbsp;: outil gratuit et ouvert pour afficher des cartes sur un site, utilisé le plus souvent avec les fonds de carte libres d'OpenStreetMap.</span> Sur des plateformes où chaque contribution est située, la carte n'est pas un décor, c'est le cœur du produit.</li>
+            <li><strong>Chat en direct&nbsp;: Tolk</strong>, outil français. <strong>Il y a donc un canal de support ouvert vers les contributeurs</strong>, et quelqu'un derrière.</li>
+            <li><strong>Firebase 10.10.0</strong>, détecté en outil de développement et en base de données. C'est du Google, ce qui <strong>nuance le tableau</strong>. L'espace connecté comporte «&nbsp;Mes notifications&nbsp;», donc l'usage le plus probable est la notification, mais <strong>ce n'est qu'une déduction</strong>.</li>
+            <li>Confirmés au passage&nbsp;: <strong>PHP, Nginx, Webpack</strong>, et <strong>core-js 3.39</strong>, qui sert à faire fonctionner le site sur des navigateurs anciens. <strong>C'est un signal d'inclusion</strong>&nbsp;: on ne se préoccupe des vieux navigateurs que si on tient à ne perdre personne.</li>
           </ul>
           <p class="piege"><strong>Ce que ça ne prouve pas, et c'est important&nbsp;:</strong> une même pile technique n'est pas un socle partagé. Trois sites Symfony peuvent être trois codes sans une ligne commune. <strong>Donc ça se pose en question, jamais en affirmation</strong> (section 09). Et ne pas jouer à l'experte technique&nbsp;: j'ai regardé des noms de fichiers, je n'ai pas audité leur code.</p>
         </div>
 
         <div class="callout warn">
           <span class="lbl">Le bandeau cookies absent&nbsp;: ne surtout pas le relever comme un manque</span>
-          <p><strong>La lecture spontanée serait «&nbsp;il leur manque un bandeau&nbsp;». C'est la pire phrase de tout l'entretien.</strong> Elle revient à dire à un établissement public, devant sa directrice adjointe, qu'il ne respecte pas le règlement sur les données personnelles. Sur un point où <strong>ils ont très probablement raison et où j'aurais tort</strong>.</p>
-          <p><strong>Parce qu'un bandeau n'est pas obligatoire, le consentement l'est</strong>, et la mesure d'audience en est dispensée quand elle est configurée strictement. Leur mesure servie depuis <em>s.65mo.fr</em> a exactement ce profil. <strong>Pas de bandeau veut alors dire&nbsp;: pas de traceur tiers.</strong> C'est une conformité bien faite, pas une conformité oubliée.</p>
+          <p><strong>La lecture spontanée serait «&nbsp;il leur manque un bandeau&nbsp;». C'est la pire phrase de tout l'entretien.</strong> Elle revient à dire à un établissement public, devant sa directrice adjointe, qu'il ne respecte pas la loi sur les données personnelles. Sur un point où <strong>ils ont raison et où j'aurais tort</strong>.</p>
+          <p><strong>Le raisonnement, en quatre temps, et il faut pouvoir le refaire de tête&nbsp;:</strong></p>
+          <ul class="dir-list">
+            <li><strong>La loi ne demande pas un bandeau.</strong> Elle demande de prévenir les gens avant de les suivre. Le bandeau n'est qu'une façon de poser la question.</li>
+            <li><strong>Suivre et compter ne sont pas la même chose.</strong> Une boutique qui clique sur un compteur à chaque entrée ne demande la permission à personne. Une boutique qui photographie les visages et envoie les photos à une régie publicitaire, si.</li>
+            <li><strong>Pour suivre quelqu'un d'un site à l'autre, il faut lui poser un cookie</strong>, c'est-à-dire un petit marqueur déposé dans son navigateur pour le reconnaître plus tard. <strong>Pas de cookie, personne à reconnaître, donc rien à demander.</strong></li>
+            <li><strong>Leur outil de statistiques est Plausible, et Plausible ne dépose aucun cookie.</strong> Il compte les visites sans marquer personne. <strong>Il n'y a donc pas de bandeau parce qu'il n'y a rien à demander.</strong></li>
+          </ul>
+          <p><strong>Ce n'est pas une conformité oubliée, c'est une conformité obtenue par le choix de l'outil.</strong> Quelqu'un chez eux a pris cette décision, et l'a probablement prise exprès.</p>
         </div>
 
         <div class="callout retenir">
@@ -1256,9 +1268,16 @@
 
         <div class="callout say">
           <span class="lbl">Si je le place, et seulement si la conversation va sur les outils ou la donnée</span>
-          «&nbsp;J'ai remarqué que vos plateformes n'imposent pas de bandeau de consentement, et que la mesure d'audience est servie depuis votre propre domaine. <strong>Sur des services où la contribution est volontaire, ça m'a paru cohérent&nbsp;: c'est un écran de moins avant le premier geste. Est-ce que c'est un choix assumé, ou est-ce que ça vient de l'héritage 65 Millions d'Observateurs&nbsp;?</strong>&nbsp;»
-          <p style="margin-top:.7em"><strong>Pourquoi cette question est la meilleure des quatre&nbsp;:</strong> elle prouve que j'ai regardé sérieusement, <strong>elle leur attribue une intention plutôt qu'un oubli</strong>, et elle relie une observation technique à un enjeu de contribution, qui est leur sujet. <strong>Le «&nbsp;ou est-ce l'héritage&nbsp;»</strong> leur laisse une sortie honorable si ce n'était pas délibéré.</p>
-          <p class="piege"><strong>Je n'ai pas pu vérifier moi-même&nbsp;:</strong> leurs sites bloquent la consultation automatisée. <strong>Ce point repose sur ce que j'ai constaté en naviguant</strong>, donc rester au constat et ne jamais monter d'un cran vers le jugement de conformité.</p>
+          «&nbsp;<strong>J'ai créé un compte sur QUBS pour voir le parcours de l'intérieur</strong>, et j'ai remarqué que vous n'imposez aucun bandeau de consentement, parce que vous mesurez l'audience avec Plausible. Sur un service où la contribution est volontaire, ça m'a paru très cohérent&nbsp;: <strong>c'est un écran de moins avant le premier geste.</strong> Est-ce que c'était un choix explicite, ou est-ce que c'est venu de l'équipe technique&nbsp;?&nbsp;»
+          <p style="margin-top:.7em"><strong>Pourquoi cette question est la meilleure de toutes&nbsp;:</strong> elle prouve que je suis allée jusqu'à créer un compte, elle nomme leur outil sans me faire passer pour une experte, <strong>elle leur attribue une intention plutôt qu'un oubli</strong>, et elle relie une observation technique à un enjeu de contribution, qui est leur sujet. La fin leur laisse une sortie honorable si la décision ne vient pas d'eux.</p>
+          <p class="piege"><strong>Une seule précaution&nbsp;: rester au constat.</strong> Je dis ce que j'ai vu et ce que j'en ai pensé. <strong>Je ne monte jamais d'un cran vers le jugement de conformité</strong>, ni dans un sens ni dans l'autre. Je ne suis pas leur auditrice.</p>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Le chat en direct&nbsp;: la trouvaille la plus exploitable de toutes</span>
+          <p><strong>Il y a un chat de support sur QUBS.</strong> Donc des contributeurs posent des questions, et <strong>quelqu'un y répond</strong>. Ce n'est pas un détail technique&nbsp;: c'est un canal d'assistance sur un produit en exploitation, avec une charge, des questions qui reviennent, et personne qui a le temps.</p>
+          <p><strong>Et c'est exactement mon exemple de priorisation en exploitation</strong> (sections 06 et 08)&nbsp;: le tableau de bord support de la Comédie-Française, où l'on priorise sur <strong>la récurrence mesurée</strong> et non sur qui insiste le plus. <strong>Une question qui revient cinquante fois au support est une fonctionnalité manquante, pas une question.</strong></p>
+          <p><strong>La question à poser, et elle est excellente&nbsp;:</strong> «&nbsp;<em>J'ai vu qu'il y a un chat sur QUBS. Qui y répond, et est-ce que ce qui remonte là redescend dans les évolutions du produit&nbsp;?</em>&nbsp;» <strong>La seconde moitié est celle qui compte</strong>&nbsp;: elle demande s'il existe une boucle entre le support et la feuille de route, et c'est le sujet sur lequel j'ai le plus à dire.</p>
         </div>
 
         <div class="callout retenir">
@@ -1505,6 +1524,7 @@
             <li>Quelle est la place de l'IA dans les pratiques de l'équipe, sur la conception comme sur le développement&nbsp;? <em>En question, jamais en argument.</em></li>
             <li>Vous parlez de <strong>maintenance mutualisée</strong>&nbsp;: jusqu'où va le socle commun entre les plateformes, et qui porte le coût quand il évolue&nbsp;? <em>Leur mot, pas le mien. La seconde moitié est celle qui compte.</em></li>
             <li>L'accessibilité RGAA et l'éco-conception sont-elles des critères sur vos plateformes, et remontent-elles dans les demandes des porteurs&nbsp;? <em class="piege">En question, jamais en recommandation, et surtout rien sur leur hébergement (section 06).</em></li>
+            <li><strong>J'ai vu qu'il y a un chat sur QUBS&nbsp;: qui y répond, et est-ce que ce qui remonte là redescend dans les évolutions du produit&nbsp;?</strong> <em>La seconde moitié est celle qui compte. C'est l'ouverture vers la Comédie-Française.</em></li>
           </ul>
         </div>
 
