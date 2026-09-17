@@ -1230,13 +1230,14 @@
 
         <div class="blk">
           <span class="label">Ce que j'ai relevé sous le capot, vérifié les 16 et 17/09</span>
-          <p>Trois des quatre plateformes sont inspectables&nbsp;; <strong>coudrier.mnhn.fr</strong> est protégé et n'a rien renvoyé.</p>
+          <p>Trois des quatre plateformes sont inspectables à distance&nbsp;; <strong>coudrier.mnhn.fr</strong> est protégé et n'a rien renvoyé, mais <strong>sa page d'accueil livre déjà beaucoup</strong> (voir le bandeau cookies, plus bas).</p>
           <ul class="dir-list">
             <li><strong>qubs.fr</strong> et <strong>changing-natures.org</strong>&nbsp;: mêmes conventions de fichiers (<em>/build/</em>, <em>runtime</em> avec empreinte), signature <strong>Vue</strong> sur QUBS.</li>
             <li><strong>zero-dechet-sauvage.org</strong>&nbsp;: même schéma dans <em>/dist/</em>, session <strong>PHP</strong>, chemin <em>/bundles/</em>.</li>
             <li>Ces conventions sont celles de <strong>Symfony avec Webpack Encore</strong>, son outil de compilation d'assets. <span class="trad">Symfony&nbsp;: cadre de développement PHP très répandu dans le secteur public français. Webpack Encore&nbsp;: l'outil qui compile les fichiers du site, et dont les noms de fichiers produits sont reconnaissables.</span></li>
             <li>Zéro Déchet Sauvage charge sa mesure d'audience depuis <strong>s.65mo.fr</strong>, le domaine de <strong>65 Millions d'Observateurs</strong>, le projet dont Mosaic est issue. Une infrastructure héritée, encore mutualisée.</li>
-            <li><strong>Aucun bandeau cookies sur leurs sites</strong>, et le 17/09 j'ai trouvé pourquoi&nbsp;: <strong>leur outil de statistiques est Plausible</strong>, détecté sur qubs.fr en espace connecté. <strong>Plausible ne dépose aucun cookie, par construction.</strong> Pas de cookie, rien à demander, donc pas de bandeau. Ce n'est pas une dispense arrachée, c'est un outil choisi pour ça.</li>
+            <li><strong>Pas de bandeau cookies sur QUBS</strong>, et le 17/09 j'ai trouvé pourquoi&nbsp;: <strong>leur outil de statistiques est Plausible</strong>, détecté sur qubs.fr en espace connecté. <strong>Plausible ne dépose aucun cookie, par construction.</strong> Pas de cookie, rien à demander, donc pas de bandeau. Ce n'est pas une dispense arrachée, c'est un outil choisi pour ça.</li>
+            <li><strong>Mais Coudrier, lui, affiche un bandeau</strong>, vu le 17/09&nbsp;: deux réglages, «&nbsp;cookies obligatoires&nbsp;» et «&nbsp;mesure d'audience&nbsp;», avec <strong>Plausible nommé en toutes lettres</strong>, autorisable ou refusable. L'outil de consentement est <strong>tarteaucitron</strong>, un outil libre français que la CNIL emploie sur son propre site. <strong>Même unité, même outil de mesure, deux traitements opposés</strong>&nbsp;: c'est la trouvaille à exploiter, développée plus bas.</li>
             <li><strong>Hypothèse qui relie les deux&nbsp;: s.65mo.fr serait leur Plausible installé chez eux</strong>, le «&nbsp;s&nbsp;» pour statistiques. Cohérent, mais non vérifié.</li>
             <li><strong>Cartographie&nbsp;: Leaflet 1.9.4</strong>, bibliothèque libre, et non une carte Google. <span class="trad">Leaflet&nbsp;: outil gratuit et ouvert pour afficher des cartes sur un site, utilisé le plus souvent avec les fonds de carte libres d'OpenStreetMap.</span> Sur des plateformes où chaque contribution est située, la carte n'est pas un décor, c'est le cœur du produit.</li>
             <li><strong>Chat en direct&nbsp;: Tolk</strong>, outil français. <strong>Il y a donc un canal de support ouvert vers les contributeurs</strong>, et quelqu'un derrière.</li>
@@ -1255,6 +1256,7 @@
               <tbody>
                 <tr><th scope="row">Symfony</th><td>🇫🇷 France</td><td>oui</td></tr>
                 <tr><th scope="row">Tolk</th><td>🇫🇷 France, Paris, 2018</td><td>non, éditeur</td></tr>
+                <tr><th scope="row">tarteaucitron</th><td>🇫🇷 France, développeur indépendant, 2018</td><td>oui</td></tr>
                 <tr><th scope="row">Plausible</th><td>🇪🇪 Estonie, société <em>Plausible Insights OÜ</em>, serveurs en Allemagne</td><td>oui</td></tr>
                 <tr><th scope="row">Leaflet</th><td>🌍 auteur ukrainien, communauté internationale</td><td>oui</td></tr>
                 <tr><th scope="row">Nginx</th><td>🌍 origine russe</td><td>oui</td></tr>
@@ -1263,8 +1265,8 @@
               </tbody>
             </table>
           </div>
-          <p><strong>Deux outils français sur sept, et le plus gros acteur américain du secteur dans la liste.</strong> Dire «&nbsp;vous privilégiez les outils français&nbsp;» et s'entendre répondre «&nbsp;Plausible est estonien&nbsp;» devant le chef de projet de l'équipe, c'est perdre en dix secondes le crédit gagné en montrant que j'ai inspecté leurs sites.</p>
-          <p class="piege"><strong>Ce qui tient vraiment, c'est le logiciel libre&nbsp;: six sur sept.</strong> <span class="trad">Logiciel libre&nbsp;: un logiciel dont le code est public et réutilisable gratuitement, par opposition à un outil qu'on loue à un éditeur. C'est le standard du secteur public français, pour des raisons de coût et d'indépendance.</span> <strong>Et secondairement&nbsp;: éviter les options américaines installées par défaut</strong>, Plausible plutôt que Google Analytics, Leaflet plutôt que Google Maps. <strong>Avec une exception nette, Firebase</strong>, qui est précisément du Google.</p>
+          <p><strong>Trois outils français sur huit, et le plus gros acteur américain du secteur dans la liste.</strong> Dire «&nbsp;vous privilégiez les outils français&nbsp;» et s'entendre répondre «&nbsp;Plausible est estonien&nbsp;» devant le chef de projet de l'équipe, c'est perdre en dix secondes le crédit gagné en montrant que j'ai inspecté leurs sites.</p>
+          <p class="piege"><strong>Ce qui tient vraiment, c'est le logiciel libre&nbsp;: sept sur huit.</strong> <span class="trad">Logiciel libre&nbsp;: un logiciel dont le code est public et réutilisable gratuitement, par opposition à un outil qu'on loue à un éditeur. C'est le standard du secteur public français, pour des raisons de coût et d'indépendance.</span> <strong>Et secondairement&nbsp;: éviter les options américaines installées par défaut</strong>, Plausible plutôt que Google Analytics, Leaflet plutôt que Google Maps. <strong>Avec une exception nette, Firebase</strong>, qui est précisément du Google.</p>
           <p class="piege"><strong>Et même ça, je ne l'affirme pas.</strong> Un établissement public achète souvent son logiciel par des marchés publics, et Tolk est justement référencé à la centrale d'achat de l'État. <strong>Ce que je prends pour une stratégie peut n'être qu'une contrainte d'achat.</strong> Troisième fois aujourd'hui que le bon réflexe est le même&nbsp;: je constate, je ne conclus pas, je demande.</p>
         </div>
 
@@ -1276,7 +1278,7 @@
         </div>
 
         <div class="callout warn">
-          <span class="lbl">Le bandeau cookies absent&nbsp;: ne surtout pas le relever comme un manque</span>
+          <span class="lbl">Le bandeau cookies absent sur QUBS&nbsp;: ne surtout pas le relever comme un manque</span>
           <p><strong>La lecture spontanée serait «&nbsp;il leur manque un bandeau&nbsp;». C'est la pire phrase de tout l'entretien.</strong> Elle revient à dire à un établissement public, devant sa directrice adjointe, qu'il ne respecte pas la loi sur les données personnelles. Sur un point où <strong>ils ont raison et où j'aurais tort</strong>.</p>
           <p><strong>Le raisonnement, en quatre temps, et il faut pouvoir le refaire de tête&nbsp;:</strong></p>
           <ul class="dir-list">
@@ -1300,6 +1302,32 @@
           «&nbsp;<strong>J'ai créé un compte sur QUBS pour voir le parcours de l'intérieur</strong>, et j'ai remarqué que vous n'imposez aucun bandeau de consentement, parce que vous mesurez l'audience avec Plausible. Sur un service où la contribution est volontaire, ça m'a paru très cohérent&nbsp;: <strong>c'est un écran de moins avant le premier geste.</strong> Est-ce que c'était un choix explicite, ou est-ce que c'est venu de l'équipe technique&nbsp;?&nbsp;»
           <p style="margin-top:.7em"><strong>Pourquoi cette question est la meilleure de toutes&nbsp;:</strong> elle prouve que je suis allée jusqu'à créer un compte, elle nomme leur outil sans me faire passer pour une experte, <strong>elle leur attribue une intention plutôt qu'un oubli</strong>, et elle relie une observation technique à un enjeu de contribution, qui est leur sujet. La fin leur laisse une sortie honorable si la décision ne vient pas d'eux.</p>
           <p class="piege"><strong>Une seule précaution&nbsp;: rester au constat.</strong> Je dis ce que j'ai vu et ce que j'en ai pensé. <strong>Je ne monte jamais d'un cran vers le jugement de conformité</strong>, ni dans un sens ni dans l'autre. Je ne suis pas leur auditrice.</p>
+        </div>
+
+        <div class="blk">
+          <span class="label">Et puis Coudrier, lui, a un bandeau&nbsp;: relevé le 17/09, et ça vaut mieux que la version précédente</span>
+          <p><strong>Sur coudrier.mnhn.fr, un bandeau s'affiche</strong>, avec deux lignes&nbsp;: «&nbsp;cookies obligatoires&nbsp;» et «&nbsp;mesure d'audience&nbsp;», <strong>Plausible nommé, avec un bouton Autoriser et un bouton Interdire</strong>. L'outil qui gère ça est <strong>tarteaucitron</strong>. <span class="trad">tarteaucitron&nbsp;: petit logiciel libre français, écrit en 2018 par un développeur indépendant, qui affiche le bandeau de consentement et bloque les outils tant qu'on n'a pas répondu. La CNIL l'utilise sur son propre site.</span></p>
+          <p><strong>Donc la même unité, avec le même outil de mesure, traite la question de deux façons opposées.</strong> Ce n'est pas une contradiction&nbsp;: c'est le plus intéressant de tout ce que j'ai trouvé, parce que <strong>c'est un fait, pas une hypothèse</strong>, et qu'il touche la seule chose que je veux vraiment comprendre de leur fonctionnement.</p>
+          <p><strong>Trois explications tiennent, et aucune n'est vérifiable de l'extérieur&nbsp;:</strong></p>
+          <ul class="dir-list">
+            <li><strong>L'hébergement.</strong> Coudrier est le seul des quatre à vivre <strong>sous le domaine du Muséum</strong>&nbsp;; les trois autres ont leur propre nom de domaine. <strong>Une règle institutionnelle du Muséum peut s'appliquer à ses sous-domaines</strong> sans s'appliquer aux autres. C'est l'explication la plus économique.</li>
+            <li><strong>L'époque ou la personne.</strong> Projets faits à des moments différents, ou par des développeurs différents, avec les habitudes de chacun.</li>
+            <li><strong>La prudence.</strong> Poser un bandeau même là où il n'est pas exigé, parce que c'est plus simple à défendre qu'à expliquer.</li>
+          </ul>
+          <p class="piege"><strong>Le piège, et c'est la quatrième fois aujourd'hui&nbsp;:</strong> ne jamais dire «&nbsp;le bandeau de Coudrier est inutile&nbsp;», ni «&nbsp;vos sites ne sont pas cohérents&nbsp;». Je ne sais pas ce que Coudrier dépose d'autre, je n'ai pas pu l'inspecter. <strong>Je décris ce que j'ai vu sur deux sites et je leur laisse dire pourquoi.</strong></p>
+        </div>
+
+        <div class="callout retenir">
+          <span class="lbl">Pourquoi c'est ma meilleure question sur le socle commun</span>
+          <p>Je voulais leur demander <strong>jusqu'où va la mutualisation entre leurs plateformes</strong>. Posée comme ça, c'est une question abstraite, à laquelle on répond par une généralité. <strong>Là, j'ai un exemple précis qui la pose à ma place&nbsp;:</strong> l'outil de mesure est partagé, la couche de consentement ne l'est pas.</p>
+          <p><strong>C'est exactement la question du produit qu'ils recrutent&nbsp;:</strong> qu'est-ce qui est décidé une fois pour tout le parc, et qu'est-ce qui se rejoue à chaque projet&nbsp;? Sur un parc de plusieurs plateformes maintenues par une petite équipe, <strong>chaque chose non mutualisée est une chose à refaire et à maintenir quatre fois</strong>. C'est du cadrage, pas de la technique.</p>
+          <p><strong>Et ça ajoute un point à la thèse du libre&nbsp;:</strong> tarteaucitron est libre et français, ce qui fait sept outils libres sur huit. <strong>Mais ça ne réhabilite pas la thèse «&nbsp;outils français&nbsp;»</strong>&nbsp;: trois sur huit, c'est toujours une minorité.</p>
+        </div>
+
+        <div class="callout say">
+          <span class="lbl">La formulation, si la conversation va sur leur parc de plateformes</span>
+          «&nbsp;<strong>En regardant vos différentes plateformes, j'ai remarqué que Coudrier propose un bandeau de consentement pour Plausible, et que sur QUBS il n'y en a pas</strong>, alors que c'est le même outil de mesure. <strong>Ça m'a rendue curieuse de savoir jusqu'où va le socle commun entre vos plateformes&nbsp;:</strong> qu'est-ce qui est décidé une fois pour toutes, et qu'est-ce qui se reprend projet par projet&nbsp;?&nbsp;»
+          <p style="margin-top:.7em"><strong>Pourquoi elle est bonne&nbsp;:</strong> elle prouve que j'ai regardé <strong>plusieurs</strong> de leurs sites et pas seulement celui de l'annonce, elle ne porte aucun jugement, et <strong>elle transforme une observation de détail en question de fond</strong> sur leur façon de produire. La réponse me dira, en une minute, si le poste consiste à faire des projets successifs ou à construire une offre.</p>
         </div>
 
         <div class="callout retenir">
@@ -1551,7 +1579,7 @@
             <li>Quelle méthodologie de projet avez-vous en place&nbsp;? <em>Ouverte, pas «&nbsp;êtes-vous en agile&nbsp;?&nbsp;».</em></li>
             <li>Qu'est-ce qui est en place pour le suivi budgétaire&nbsp;? Gardez-vous trace de l'écart entre budget prévu et temps consommé&nbsp;?</li>
             <li>Quelle est la place de l'IA dans les pratiques de l'équipe, sur la conception comme sur le développement&nbsp;? <em>En question, jamais en argument.</em></li>
-            <li>Vous parlez de <strong>maintenance mutualisée</strong>&nbsp;: jusqu'où va le socle commun entre les plateformes, et qui porte le coût quand il évolue&nbsp;? <em>Leur mot, pas le mien. La seconde moitié est celle qui compte.</em></li>
+            <li>Vous parlez de <strong>maintenance mutualisée</strong>&nbsp;: jusqu'où va le socle commun entre les plateformes, et qui porte le coût quand il évolue&nbsp;? <em>Leur mot, pas le mien. La seconde moitié est celle qui compte.</em><br><strong>Et j'ai un exemple pour l'amener&nbsp;:</strong> Coudrier affiche un bandeau de consentement pour Plausible, QUBS n'en a pas, alors que c'est le même outil de mesure. <em class="piege">Au constat, jamais en reproche de cohérence&nbsp;: je n'ai pas pu inspecter Coudrier (section 07).</em></li>
             <li>L'accessibilité RGAA et l'éco-conception sont-elles des critères sur vos plateformes, et remontent-elles dans les demandes des porteurs&nbsp;? <em class="piege">En question, jamais en recommandation, et surtout rien sur leur hébergement (section 06).</em></li>
             <li><strong>J'ai vu qu'il y a un chat sur QUBS&nbsp;: qui y répond, et est-ce que ce qui remonte là redescend dans les évolutions du produit&nbsp;?</strong> <em>La seconde moitié est celle qui compte. C'est l'ouverture vers la Comédie-Française.</em></li>
           </ul>
